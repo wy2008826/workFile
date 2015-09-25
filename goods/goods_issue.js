@@ -19,7 +19,8 @@
                 if($(this).val().trim()!=""){
                     addItem($(this).val().trim());
                 }
-            }        });
+            }
+        });
         $("body").on("click",function(e){
             var id=$(that).attr("id");
             if($(e.target).attr("id")!=id){
@@ -1072,7 +1073,7 @@ $(function(){
     				oneBrand = results[i];
     				data_list.push(oneBrand.id + "=" + oneBrand.brand);
     			}
-    			 $("#goodsBranch").attr('data-list',"",data_list.join(","));
+    			 $("#goodsBranch").attr('data-list',data_list.join(","));
     			 app.selectBranch();
     		}
     	},"json");
