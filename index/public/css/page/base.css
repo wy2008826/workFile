@@ -34,6 +34,36 @@ a {
 a:active {
   -webkit-tap-highlight-color: transparent; }
 
+.btn {
+  display: inline-block;
+  padding: 2px 4px 2px 4px;
+  line-height: 18px; }
+
+.btn-sm {
+  line-height: 18px; }
+
+.btn-md {
+  line-height: 22px; }
+
+.btn-lg {
+  line-height: 26px; }
+
+.btn-error, .btn-danger {
+  background-color: #c12e2a;
+  color: #fff; }
+
+.btn-success {
+  background-color: #419641;
+  color: #fff; }
+
+.btn-default {
+  background-color: #2aabd2;
+  color: #fff; }
+
+.btn-info {
+  background-color: #eb9316;
+  color: #fff; }
+
 .row {
   padding-top: 10px;
   padding-right: 10px;

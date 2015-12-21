@@ -1,2 +1,15 @@
 @import "./theme";
 
+$lh-sm:18px;
+$lh-md:22px;
+$lh-lg:26px;
+
+.btn{display: inline-block;padding:2px 4px 2px 4px;line-height:$lh-sm; }
+.btn-sm{line-height:$lh-sm; }
+.btn-md{line-height:$lh-md; }
+.btn-lg{line-height:$lh-lg; }
+
+.btn-error,.btn-danger{background-color:$color-red;color:#fff;}
+.btn-success{background-color:$color-green;color:#fff;}
+.btn-default{background-color:$color-default;color:#fff;}
+.btn-info{background-color:$color-orange;color:#fff;}
