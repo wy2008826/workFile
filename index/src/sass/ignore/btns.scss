@@ -5,7 +5,9 @@ $lh-sm:18px;
 $lh-md:22px;
 $lh-lg:26px;
 
-.btn{display: inline-block;padding:2px 4px 2px 4px;line-height:$lh-sm;@import borderRadius(4px); }
+.btn{display: inline-block;padding:2px 4px 2px 4px;line-height:$lh-sm;
+	@include borderRadius(4px); 
+}
 .btn-sm{line-height:$lh-sm; }
 .btn-md{line-height:$lh-md; }
 .btn-lg{line-height:$lh-lg; }

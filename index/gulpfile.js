@@ -3,7 +3,7 @@ var gulp=require("gulp");
 var gulpLoadPlugins=require("gulp-load-plugins");
 
 var plugins=gulpLoadPlugins();
-
+var cssMin=require("gulp-minify-css");
 
 // gulp.task("minify",function(){
 // 	gulp.src("src/js/*.js")
@@ -29,6 +29,7 @@ var plugins=gulpLoadPlugins();
 gulp.task("scss",function(){
 	gulp.src(["src/sass/**/*.scss","!src/sass/ignore/*.scss"])
 	.pipe(plugins.scss())
+	// .pipe(cssMin())
 	.pipe(gulp.dest("public/css/page"));
 });
 
