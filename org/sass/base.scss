@@ -1,0 +1,138 @@
+@import "./reset.scss";
+@import "./grid_system.scss";
+@import "./mixin.scss";
+@import "./theme.scss";
+$headerH:80px;
+$logoWraperW:340px;
+.header{
+	position: fixed;
+	top:0;
+	width:100%;
+	height:$headerH;
+	background:#fff;
+	@include boxShadow(0 3px 3px #ccc);
+	z-index:1000;
+	.header-wraper{
+		width: 1024px;
+		height: 100%;
+		position: relative;
+		margin:0 auto;
+	}
+	.logo-wraper{
+		height: 100%;
+		width: $logoWraperW;
+		line-height: $headerH;
+		margin-left: 20px;
+		img{
+			
+		}
+	}
+	.right-list-wraper{
+		position: absolute;
+		right:0;
+		top:0;
+		height: 100%;
+		.right-ul{
+			height:100%;
+			li{
+				height:100%;
+				@include inlineBlock();
+				&.active{
+					border-bottom: 3px solid $colorPrimary;
+					a{
+						color:$colorPrimary;
+					}
+				}
+				margin:0 5px;
+				padding:0 20px;
+				a{
+					color:#333;
+					font-family: "宋体";
+					display:block;
+					height:100%;
+					line-height: $headerH;
+					&.login{
+						color:$colorLink;
+					}
+					&:hover{
+						color:#ff8034;
+					}
+				}
+			}
+
+		}
+	}
+}
+
+$footer-left:180px;
+.footer{
+	background:#333;
+	height:240px;
+	position: relative;
+	*{
+		color:rgb(155,151,146);
+	}
+	.footer-wraper{
+		width: 1024px;
+		position: absolute;
+		left:50%;
+		margin-left:-512px;
+		height: 100%;
+		.left-box{
+			position: absolute;
+			top:50px;
+			left:20px;
+			font-family:"SimSun";
+			p{
+				line-height: 24px;
+			}
+			.copyright{
+				line-height: 50px;
+			}
+		}
+		.right-box{
+			position: absolute;
+			top:100px;
+			left:330px;
+			.right-ul{
+				li{
+					@include inlineBlock();
+					line-height: 30px;
+					a{
+						display: block;
+						@include fullSize();
+						padding:0 20px;
+						font-size: 12px;
+						font-family: "SimSun";
+						color:#999;
+						&:hover{
+							text-decoration: underline;
+						}
+					}
+				}
+			}
+
+			.erwei{
+				position: absolute;
+				top:-22px;
+				right:-220px;
+				.img-wraper{
+					@include inlineBlock();
+					width: 75px;
+					margin:5px;
+					text-align: center;
+					img{
+						width:100%;
+						height: 75px;
+						border:1px solid #ccc;
+					}
+					p{
+						line-height: 28px;
+					}
+				}
+			}
+
+		}
+	}
+	
+}

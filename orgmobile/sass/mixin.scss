@@ -1,0 +1,50 @@
+@mixin opacity($opacity:0.5){
+	opacity:$opacity;
+	filter:alpha(opacity=$opacity*100);
+}
+@mixin borderRadius($radius:4px){
+	border-radius:$radius;
+	-webkit-border-radius:$radius;
+	-o-border-radius:$radius;
+	-moz-border-radius:$radius;
+}
+@mixin afterClear(){
+	&:after{
+		content:"";
+		display: table;
+		clear:both;
+		*zoom:1;
+		*display:block;
+	}
+}
+
+@mixin ellipsisLine{
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+}
+@mixin fullSize{
+	height:100%;
+	width:100%;
+}
+@mixin boxShadow($shadow){
+	box-shadow:$shadow;
+	-webkit-box-shadow:$shadow;
+	-moz-box-shadow:$shadow;
+}
+@mixin boxSizing($sizing:border-box){
+	box-sizing:$sizing;
+	-webkit-box-sizing:$sizing;
+	-moz-box-sizing:$sizing;
+	-ms-box-sizing:$sizing;
+}
+
+@mixin transform($value){
+	transform:$value;
+	-webkit-transform:$value;
+}
+
+@mixin transition($value){
+	transition:$value;
+	-webkit-transition:$value;
+}
