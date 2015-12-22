@@ -1,0 +1,99 @@
+/*
+	name:钱保姆初始化样式
+	updata:2015-05-13
+*/
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td,button{margin:0;padding:0;}
+header,footer,section,article,aside,nav,address,figure,figcaption,menu,details{display:block;}
+table{border-collapse:collapse;border-spacing:0;}
+caption,th{text-align:left;font-weight:normal;}
+html,body,fieldset,img,iframe,abbr{border:0;}
+i,cite,em,var,address,dfn{font-style:normal;}
+[hidefocus],summary{outline:0;}
+li{list-style:none;}
+h1,h2,h3,h4,h5,h6,small{font-size:100%;}
+sup,sub{font-size:83%;}
+pre,code,kbd,samp{font-family:inherit;}
+q:before,q:after{content:none;}
+textarea{overflow:auto;resize:none;}
+label,summary{cursor:default;}
+a,button{cursor:pointer;}
+h1,h2,h3,h4,h5,h6,em,strong,b{font-weight:bold;}
+del,ins,u,s,a,a:hover{text-decoration:none;}
+body,textarea,input,button,select,keygen,legend{font:14px/1.14 arial,\5FAE\8F6F\96C5\9ED1;color:#333;outline:0;}
+body{background-color:#fff;}
+a{color: #484848;text-decoration: none;}
+a:hover{color:#ff6900;}
+a:focus,input:focus,textarea:focus{outline:none;-moz-outline:none;}
+input, textarea, select, button, label {font-family: inherit;vertical-align: middle;}
+input::-ms-clear { display: none;}
+textarea { resize: none;}
+
+/*清除浮动*/
+.clearfix:after{content: ".";display: block;height: 0;	clear: both;visibility: hidden;}
+.clearfix{zoom:1;display: inline-block;_height: 1px;}
+.clearfix{display: block;}
+
+/*S placeholder color*/
+::-webkit-input-placeholder{ color:#adadad;}
+::-moz-placeholder{ color:#adadad;}/* firefox 19+ */
+:-ms-input-placeholder{ color:#adadad;}/* Internet Explorer 10+ */
+:-moz-placeholder{ color:#adadad;}/* firefox 14-18 */
+/*E placeholder color*/
+
+input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill { background-color: #fff; background-image: none; color: #484848;-webkit-box-shadow: 0 0 0px 50px white inset;}
+
+/*公用*/
+.fn-fl{float:left;}
+.fn-fr{float:right;}
+.fn-fl,.fn-fr{display: inline;}
+.mt10{margin-top: 10px;}
+.hide{display: none;}
+.show{display: block;}
+.wrap{width: 1200px;margin: 0 auto;}
+.item-box{border: 1px solid #ececec;background-color: #fff;}
+.item-box1{border: 1px solid #ededed;background-color: #fff;}
+
+/*S browser-tip*/
+.browser-tip-wrap{height: 39px;line-height: 39px;width:100%;background-color: #fff4d9;border-bottom: 1px solid #ffb400;}
+.browser-tip-wrap .tip-msg{padding-left: 30px;color: #999;font-size: 16px;background: url("../images/tip-msg.png") 0 9px no-repeat;}
+.browser-tip-wrap .tip-close{ display:inline-block;height: 24px;width: 24px;margin-top:9px;background: url("../images/tip-close.png") no-repeat;text-indent: -9999px;}
+/*E browser-tip*/
+
+/*圆角*/
+.radius5{-webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;}
+
+/*小图标*/
+.member-ico{background: url("../images/member/ico.png") no-repeat;}
+.common-ico{background: url("../images/commonIco.png") no-repeat;}
+.icons{background: url(../images/icons.png) no-repeat;}
+.sprite{background: url(../images/newIco.png) no-repeat;}
+
+/*S layer*/
+.layer-tips-wrap{padding:24px 20px 0 20px;}
+.layer-tips-success-ico{width:156px;height:122px;background:url(../images/successTip.png) no-repeat;margin:0 auto;}
+.layer-tips-error-ico{width:188px;height:122px;background:url(../images/errorIco.png) no-repeat;margin:0 auto;margin-top:14px;}
+.layer-tips-bar{height:60px;line-height:60px;font-size:24px;color:#808080;margin:12px 0 10px 0;text-align:center;}
+.layer-tips-bar1{height:60px;line-height:60px;font-size:20px;color:#808080;margin:42px 0 10px 0;text-align:center;}
+.layer-tips-bar span,.layer-tips-bar1 span{display:inline-block;padding-left:90px;line-height:60px;background:url(../images/successIco.png) no-repeat;}
+.layer-tips-bar1 span.tip{display:inline-block;padding-left:90px;line-height:60px;background:url(../images/tipIco.png) no-repeat;}
+.layer-tips-txt1{font-size:16px;line-height:42px;color:#484848;padding:10px 60px 0 60px;}
+.layer-tips-txt2{font-size:12px;line-height:30px;color:#adadad;padding:0 60px;}
+.layer-tips-txt3{font-size:16px;line-height:30px;color:#484848;padding:74px 0;text-align:center;}
+.layer-tips-addcard-txt{font-size:18px;line-height:30px;color:#484848;padding:74px 0;text-align:center;}
+.layer-tips-download-app{padding: 10px 30px 40px 30px;}
+.layer-tips-download-app .layer-tips-download-app-txt{width: 360px;font-size: 16px;padding-top: 20px;}
+.layer-tips-download-app .layer-tips-download-app-txt p{line-height: 36px;}
+.layer-tips-download-app .layer-tips-download-app-txt p.tip{padding-top: 20px;}
+.layer-tips-download-app .layer-tips-download-app-ico{width: 121px;height: 140px;background: url("../images/member/down-app.png") no-repeat;}
+.layer-tips-txt4{color:#adadad;text-align:center;font-size:12px;padding-top:6px;}
+.layer-tips-invite-txt{padding: 24px 24px 50px 24px;line-height: 20px;}
+.layer-tips-invite-txt2{padding: 0 24px 50px 24px;line-height: 20px;}
+.layer-tips-confirm{font-size:16px;line-height:50px;color:#484848;text-align:center;}
+.layer-tips-btns{padding-top:20px;text-align:center;}
+.layer-tips-btns a{display:inline-block;-webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;width:100px;height:30px;line-height:30px;text-align:center;color:#fff;text-decoration: none;}
+.layer-tips-btns a.knowBtn{width:200px;}
+.layer-tips-btns a.okBtn{background-color:#e94620;}
+.layer-tips-btns a.okBtn:hover{background-color:#ed6b4d;}
+.layer-tips-btns .cancleBtn{background-color:#b2b2b2;margin-left:30px;}
+.layer-tips-btns .cancleBtn:hover{background-color:#c5c5c5;}
+/*E layer*/

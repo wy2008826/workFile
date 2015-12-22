@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" >
+<meta content="telephone=no" name="format-detection">
+<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no,minimum-scale=1.0, maximum-scale=1.0">
+<title>钱保姆理财</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<link rel="stylesheet" href="${cdnpath}/css/base.css">
+<link rel="stylesheet" href="${cdnpath}/css/activity/double.css?v=${ver}">
+
+<!-- S 百度统计 -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?0b7e80312f93cc7d37fd6dc923e9192f";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<!-- E 百度统计 -->
+</head>
+<body>
+	<!-- S 站长统计 -->
+    <span class="hide">
+		<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1253473257'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s6.cnzz.com/z_stat.php%3Fid%3D1253473257%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script>
+	</span>
+	<!-- E 站长统计 -->
+
+	<div class="top_section pos-rel">
+		<img src="${cdnpath}/images/activity/double/christmas_head_bg.png" class="christmas_head_bg">
+		<div class="top_desc_wraper pos-abs text-center">
+			<p class="user_mes fc-f " style="color:#fff;">用户<strong id="userName" style="color:#fff;font-size:16px;"></strong>，<span class="fc-f">您有</span><em id="count"></em><span class="fc-f">次抽奖机会</span></p>
+			<p class="tip">温馨提示：每日分享都可以获得一次抽奖机会哟</p>
+		</div>
+	</div>
+
+
+	<div class="cards_section pos-rel">
+		<img src="${cdnpath}/images/activity/double/christmas_award_bg.png" class="christmas_award_bg">
+		<div class="award_lists pos-abs" id="award_lists">
+			<ul id="awards_marqune_ul" id="awards_marqune_ul">
+			
+				<script type="text/template" id="awards_marqune_tpl">
+					<% _.forEach(list,function(item,index){ %>
+						<li>恭喜<%=item.phone.substr(0,3)+"****"+item.phone.substr(7,11)%>摘到了<%=item.prize%></li>
+					<%}) %>
+				</script>
+			</ul>
+		</div>
+		<div class="cards_wraper pos-abs" id="cards_wraper">
+			<div class="cards_row">
+				<div class="cards_item">
+					1
+				</div>
+			</div>
+			<div class="cards_row">
+				<div class="cards_item">
+					2
+				</div>
+				<div class="cards_item">
+					3
+				</div>
+				<div class="cards_item">
+					4
+				</div>
+			</div>
+			<div class="cards_row">
+				<div class="cards_item">
+					5
+				</div>
+				<div class="cards_item">
+					6
+				</div>
+				<div class="cards_item">
+					7
+				</div>
+			</div>
+			<div class="cards_row">
+				<div class="cards_item">
+					8
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<section class="award_img_section">
+		<p class="award_tit_btn fc-f text-center">给大家的礼物清单</p>
+		<div class="big_wraper clearfix">
+			<div class="img_item">
+				<p class="img_item_tit text-center">
+					<!-- <span>1</span> -->
+					乐视TV(5台)
+				</p>
+				<img src="${cdnpath}/images/activity/double/big-tv1.png" class="award_img">
+			</div>
+			<div class="img_item">
+				<p class="img_item_tit text-center">
+					<!-- <span>2</span> -->
+					美的微波炉(10台)
+				</p>
+				<img src="${cdnpath}/images/activity/double/big-micro-wave1.png" class="award_img">
+			</div>
+			<div class="img_item">
+				<p class="img_item_tit text-center">
+					<!-- <span>3</span> -->
+					旅行箱(10个)
+				</p>
+				<img src="${cdnpath}/images/activity/double/small-traval1.png" class="award_img">
+			</div>
+		</div>
+		<div class="small_wraper clearfix">
+			<div class="img_item fn-fl">
+				<p class="img_item_tit text-center">
+					加湿器(20个)
+				</p>
+				<img src="${cdnpath}/images/activity/double/small-wet1.png" class="award_img">
+			</div>
+			<div class="img_item fn-fl">
+				<p class="img_item_tit text-center">
+					2016台历(500本)
+				</p>
+				<img src="${cdnpath}/images/activity/double/small-callendar1.png" class="award_img">
+			</div>
+			<div class="img_item fn-fr">
+				<p class="img_item_tit text-center">
+					10元话费(1000个)
+				</p>
+				<img src="${cdnpath}/images/activity/double/small-huafei.png" class="award_img">
+			</div>
+		</div>
+	</section>
+
+
+	<div class="tab_wraper">
+		<ul  class="tab_nav clearfix" id="tab_nav">
+			<li class="fn-fl active" data-index="1">活动规则</li>
+			<li class="fn-fl" data-index="2">谁是手气王</li>
+			<li class="fn-fl" data-index="3">我的礼物</li>
+		</ul>
+		<div class="sections_wraper" id="table_sections_wraper">
+			<section class="section1 section">
+				<p class="pos-rel top_tit">
+					<img src="${cdnpath}/images/activity/double/snow.png" class="tit_snow pos-abs">
+					<span class="tit_text">如何获得抽奖机会</span>
+				</p>
+				<ul>
+					<li class="dot">新用户注册增加一次摘礼盒机会</li>
+					<li class="dot">每购买一个理财产品获得一次摘礼盒机会</li>
+					<li class="dot">每日分享活动至微信朋友圈还可增加一次摘礼盒机会</li>
+					<li class="dot">共有8个圣诞礼盒可摘，每次只能摘取其中一个，摘取后您有机会抽中实物大奖和话费红包</li>
+					<li>如何拿到礼物</li>
+					<li>
+						活动结束后第二天18:00之前，中奖详情将公布在钱保姆上，大奖获得者会有客服MM直接通知。实物奖品将于5个工作日内快递给您，话费红包将于活动结束后5个工作日充值到您的手机中
+					</li>
+					<li>
+						活动时间
+					</li>
+					<li style="color:#d1e0d7">2015-12-25<span style="margin:0 5px 0 5px;color:#d1e0d7">10:00—2016-01-03</span>23:59</li>
+				</ul>
+			</section>
+			<section class="section2 section">
+				<p class="pos-rel top_tit">
+					<img src="${cdnpath}/images/activity/double/snow.png" class="tit_snow pos-abs">
+					<span class="tit_text">手气榜</span>
+				</p>
+				<div class="no_list">
+					暂无大奖被抽中，快去试试手气，说不定上榜的就是你哟
+				</div>
+				<div class="list_wraper">
+					<ul class="my_awards_ul" id="other_awards_table_ul">
+						<!-- <li class="clearfix">
+							<span class="fn-fl">158****8888</span>
+							<span class="fn-fr">净水器</span>
+						</li> -->
+						<script type="text/template" id="other_awards_table_tpl">
+							<% _.forEach(list,function(item,index){ %>
+								<li class="clearfix">
+									<span class="fn-fl"><%=item.phone.substr(0,3)+"****"+item.phone.substr(7,11) %></span>
+									<span class="fn-fr"><%=item.prize%></span>
+								</li>
+							<%})%>
+						</script>
+					</ul>
+				</div>
+			</section>
+			<section class="section3 section">
+				<div class="list_wraper">
+					<p class="clearfix list_tit">
+						<span class="fn-fl">奖励名称</span>
+						<span class="fn-fr">获得时间</span>
+					</p>
+					<div class="swiper-container pos-rel clearfix" id="hand_swiper_container">
+						<div class="swiper-wrapper clearfix" id="hand_swiper_wraper">
+							<ul class="swiper-slide my_awards_ul" >
+								<!-- <li class="clearfix">
+									<span class="fn-fl">234234</span>
+									<span class="fn-fr">4234234</span>
+								</li>
+								<li class="clearfix">
+									<span class="fn-fl">234234</span>
+									<span class="fn-fr">4234234</span>
+								</li> -->
+							</ul>
+						</div>
+						<div class="hand_swiper_btn abs" onClick="app.mySwiper.swipePrev()" id="hand_swiper_prev" style="background:url(${cdnpath}/images/activity/zhounian/mobile/section3/sec3_arrows.png) no-repeat top left"></div>
+						<div class="hand_swiper_btn abs" onClick="app.mySwiper.swipeNext()" id="hand_swiper_next" style="background:url(${cdnpath}/images/activity/zhounian/mobile/section3/sec3_arrows.png) no-repeat bottom right;"></div>
+
+					</div>
+					<ul class="my_awards_ul">
+						<!-- <li class="clearfix">
+							<span class="fn-fl">11元投资红包</span>
+							<span class="fn-fr">2015-12-21</span>
+						</li> -->
+						<script type="text/template" id="my_awards_table_tpl">
+							<% _.forEach(lists,function(item,index){ %>
+								<li class="clearfix">
+									<span class="fn-fl"><%=item.prize%></span>
+									<span class="fn-fr"><%=item.addtime%></span>
+								</li>
+							<%})%>
+						</script>
+					</ul>
+					<div class="pagenation_wraper pos-rel">
+						<img src="${cdnpath}/images/activity/double/prev.png" onClick="app.mySwiper.swipePrev()">
+						<div class="pager">
+							<span>1</span>
+							<span>2</span>
+						</div>
+						<img src="${cdnpath}/images/activity/double/next.png" onClick="app.mySwiper.swipeNext()">
+					</div>
+				</div>
+				<div class="add_address_wraper">
+					<p class="add_address_btn" id="add_address_btn">
+						<img src="${cdnpath}/images/activity/double/add_address_img.png" class="add_address_img">
+						<span>添加收货地址</span>
+					</p>
+					<ul class="address_items" id="address_items">
+						<li>
+							<input type="text" value="$!aceptname"  placeholder="真实姓名" id="addressName">
+						</li>
+						<li>
+							<input type="text" value="$!aceptphone" placeholder="手机号码" id="addressTel" maxlength="11">
+						</li>
+						<li>
+							<textarea  placeholder="详细地址" id="addressDetail" >$!aceptaddress</textarea>
+						</li>
+						<li class="error-mes">
+							<p class="text-danger"></p>
+						</li>
+						<li class="agree">
+							<input type="checkbox" id="agree_send" checked>
+							<label for="agree_send">同意将以上信息提供给钱保姆</label>
+						</li>
+						<li>
+							<span class="submit_address" id="submit_address">提交保存</span>
+						</li>
+					</ul>
+
+				</div>
+			</section>
+		</div>
+	</div>
+	
+	<p class="copy-right" >
+		*本活动与奖品品牌商无关/本活动最终解释权归钱保姆所有*
+	</p>
+	
+	<script type="text/template" id="bigGiftTpl">
+		<div class="gift_alert">
+			<img src="${cdnpath}/images/activity/double/big_gift_alert_img.png" class="big_gift_img">
+			<h4>恭喜您获得<span><%=name%></span></h4>
+			<p class="normal_mes">
+				哇哦，您获得了实物大奖记得在页面的我的礼物中填写收货信息哦
+			</p>
+			<p class="bottom_operate clearfix">
+				<span class="tap look  btn fn-fl" onclick="app.lookGift()">查看礼物</span>
+				<span class="tap continue btn  fn-fr" onclick="layer.closeAll()">继续抽奖</span>
+			</p>
+		</div>
+	</script>
+
+	<script type="text/template" id="smallGiftTpl">
+		<div class="gift_alert">
+			<img src="${cdnpath}/images/activity/double/small_gift_alert_img.png" class="small_gift_img">
+			<h4>有点遗憾，您与实物大奖擦肩而过</h4>
+			<p class="normal_mes text-center">
+				不过！我们有<span><%=telFare%></span>给您安慰<br/>活动结束5个工作日内统一发放，暖到了吗？
+			</p>
+			<p class="bottom_operate clearfix">
+				<span class="tap look  btn fn-fl" onclick="app.lookGift()">查看礼物</span>
+				<span class="tap continue btn  fn-fr" onclick="layer.closeAll()">继续抽奖</span>
+			</p>
+		</div>
+	</script>
+
+	<script type="text/template" id="noGiftTpl">
+		<div class="gift_alert">
+			<img src="${cdnpath}/images/activity/double/small_gift_alert_img.png" class="small_gift_img">
+			<h4>非常遗憾，您与奖品擦肩而过</h4>
+			<p class="normal_mes">
+				继续加油吧，么么哒(づ￣ 3￣)づ
+			</p>
+			<p class="bottom_operate clearfix">
+				<span class="tap no  btn fn-fl" onclick="layer.closeAll()">不抽了</span>
+				<span class="tap continue btn  fn-fr" onclick="layer.closeAll()">继续抽奖</span>
+			</p>
+		</div>
+	</script>
+	
+
+	<div class="alert_shade"></div>
+	<div class="not_start">
+		<img src="${cdnpath}/images/activity/double/notBagin.png" class="notBagin_img pos-abs">
+		<h4 class="text-center pos-rel">活动将于</h4>
+		<h4 class="text-center pos-rel">[12月24日10:00开启]</h4>
+		<h4 class="text-center pos-rel">尽情期待</h4>
+	</div>
+	
+	<input type="hidden" value="$weburl" id="weburl">
+	<input type="hidden" value="" id="slotTimer">
+
+
+	<script src="${cdnpath}/js/jquery-1.9.1.min.js"></script>
+	<script src="${cdnpath}/js/plugin/underscore/underscore.min.js"></script>
+	<script src="${cdnpath}/js/plugin/layer.m/layer.m.js"></script>
+	<script src="${cdnpath}/js/plugin/swiper/idangerous.swiper.min.js"></script>
+	<script src="$weburl/statics/js/activity/double.js?v=${ver}"></script>
+	
+	
+</body>
+</html>

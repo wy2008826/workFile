@@ -1,0 +1,50 @@
+/*
+	name:钱保姆初始化样式
+	updata:2015-05-13
+*/
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td,button{margin:0;padding:0;}
+header,footer,section,article,aside,nav,address,figure,figcaption,menu,details{display:block;}
+table{border-collapse:collapse;border-spacing:0;}
+caption,th{text-align:left;font-weight:normal;}
+html,body,fieldset,img,iframe,abbr{border:0;}
+i,cite,em,var,address,dfn{font-style:normal;}
+[hidefocus],summary{outline:0;}
+li{list-style:none;}
+h1,h2,h3,h4,h5,h6,small{font-size:100%;}
+sup,sub{font-size:83%;}
+pre,code,kbd,samp{font-family:inherit;}
+q:before,q:after{content:none;}
+textarea{overflow:auto;resize:none;}
+label,summary{cursor:default;}
+a,button{cursor:pointer;}
+h1,h2,h3,h4,h5,h6,em,strong,b{font-weight:bold;}
+del,ins,u,s,a,a:hover{text-decoration:none;}
+body,textarea,input,button,select,keygen,legend{font:14px/1.14 "Times New Roman", Times, serif;color:#484848;outline:0;}
+body{background-color:#fff;}
+a{color: #484848;}
+a:hover{color:#ff6900;}
+a:focus {outline:none;-moz-outline:none;}
+input, textarea, select, button, label {font-family: inherit;vertical-align: middle;}
+
+/*清除浮动*/
+.clearfix:after {content: ".";display: block;height: 0;	clear: both;visibility: hidden;}
+.clearfix {zoom: 1;	display: inline-block;_height: 1px;}
+.clearfix {	display: block;}
+
+/*公用*/
+.fn-fl{float:left;}
+.fn-fr{float:right;}
+.fn-fl,.fn-fr{display: inline;}
+.mt10{margin-top: 10px;}
+.hide{display: none;}
+.show{display: block;}
+.wrap{width: 1200px;margin: 0 auto;}
+.item-box{border: 1px solid #ececec;background-color: #fff;}
+.item-box1{border: 1px solid #ededed;background-color: #fff;}
+/*E browser-tip*/
+
+/*圆角*/
+.radius5{-webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;}
+.pd5{padding: 0 5%;overflow: hidden;}
+.pd20{padding: 0 20%;overflow: hidden;}
+
