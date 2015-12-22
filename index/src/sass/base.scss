@@ -1,6 +1,28 @@
 @import "ignore/mixin";
 @import "ignore/reset";
 @import "ignore/btns";
+@import "ignore/theme";
+
+.text-error,.text-danger,.fc-error,.fc-danger{color:$color-red;}
+.fc-success{color:$color-green;}
+.fc-info{color:$color-orange;}
+.fc-primary{color:$color-blue;}
+.fc-link{color:$color-link;}
+
+.bg-error,.bg-danger{background-color:$color-red;}
+.bg-success{background-color:$color-green;}
+.bg-info{background-color:$color-orange;}
+.bg-primary{background-color:$color-blue;}
+
+
+.fc-3{color:#333}
+.fc-6{color:#666;}
+.fc-9{color:#999;}
+
+.text-center{text-align:center;}
+
+
+
 @import "ignore/grid-system";
 
 

@@ -68,6 +68,45 @@ a:active {
   background-color: #eb9316;
   color: #fff; }
 
+.text-error, .text-danger, .fc-error, .fc-danger {
+  color: #c12e2a; }
+
+.fc-success {
+  color: #419641; }
+
+.fc-info {
+  color: #eb9316; }
+
+.fc-primary {
+  color: #2aabd2; }
+
+.fc-link {
+  color: #2d6ca2; }
+
+.bg-error, .bg-danger {
+  background-color: #c12e2a; }
+
+.bg-success {
+  background-color: #419641; }
+
+.bg-info {
+  background-color: #eb9316; }
+
+.bg-primary {
+  background-color: #2aabd2; }
+
+.fc-3 {
+  color: #333; }
+
+.fc-6 {
+  color: #666; }
+
+.fc-9 {
+  color: #999; }
+
+.text-center {
+  text-align: center; }
+
 .row {
   padding-top: 10px;
   padding-right: 10px;
