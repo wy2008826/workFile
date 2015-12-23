@@ -10,21 +10,35 @@
 	#test{height: 30px;line-height: 30px;}
 	#input{
 		display: block;
-		width: 100%;
+		width: 60%;
 		height: 100%;
 	}
 	.btnTest{
 		top:0;
 		right:0;
-
+		z-index: 2
+	}
+	.baidu{
+		display: block;
+		width: 100%;
+		height:130%;
+		z-index: 1;
+		top:0;
 	}
 	</style>
 </head>
 <body>
-	<div id="test" class="row fl-clear pos-rel">
-		<input type="text" class="input fn-fl col-all-12" id="input">
-		<span class="fn-fr pos-abs btnTest bg-primary" id="btnTest">点击测试</span>
+	<div class="pos-rel">
+		<div id="test" class="row fl-clear pos-rel">
+			<input type="text" class="input fn-fl col-all-12" id="input">
+			<span class="fn-fr pos-abs btnTest bg-primary" id="btnTest">点击测试</span>
+			<a href="https://www.baidu.com" class="bg-error pos-abs baidu" onclick="javascript:alert('百度')">百度</a>
+		</div>
+		
 	</div>
+	
+	
+
 
 	<script src="../index/public/js/zepto.min.js"></script>
 	<script src="../index/public/js/touch.js"></script>
@@ -35,6 +49,8 @@
 
 			alert(213);
 		})
+
+
 	</script>
 </body>
 </html>
