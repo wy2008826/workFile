@@ -23,14 +23,14 @@
 <body>
 	<div id="test" class="row fl-clear pos-rel">
 		<input type="text" class="input fn-fl col-all-12" id="input">
-		<span class="fn-fr pos-abs btnTest bg-primary">点击测试</span>
+		<span class="fn-fr pos-abs btnTest bg-primary" id="btnTest">点击测试</span>
 	</div>
 
 	<script src="../index/public/js/zepto.min.js"></script>
 	<script src="../index/public/js/touch.js"></script>
 
 	<script>
-		$("#test").on("tap",function(){
+		$("#btnTest").on("tap",function(){
 			alert(213);
 		})
 	</script>
