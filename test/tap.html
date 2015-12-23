@@ -21,7 +21,7 @@
 	.baidu{
 		display: block;
 		width: 100%;
-		height:130%;
+		height:100%;
 		z-index: 1;
 		top:0;
 	}
@@ -32,7 +32,7 @@
 		<div id="test" class="row fl-clear pos-rel">
 			<input type="text" class="input fn-fl col-all-12" id="input">
 			<span class="fn-fr pos-abs btnTest bg-primary" id="btnTest">点击测试</span>
-			<a href="https://www.baidu.com" class="bg-error pos-abs baidu" onclick="javascript:alert('百度')">百度</a>
+			<a href="https://www.baidu.com" class="bg-error pos-abs baidu" id="link">百度</a>
 		</div>
 		
 	</div>
@@ -48,6 +48,9 @@
 		$("#btnTest").on("tap",function(){
 
 			alert(213);
+		});
+		$("#link").on("tap",function(){
+			alert("百度");
 		})
 
 
