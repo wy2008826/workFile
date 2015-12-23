@@ -2,6 +2,7 @@
 @import "ignore/reset";
 @import "ignore/btns";
 @import "ignore/theme";
+@import "ignore/size";
 
 .text-error,.text-danger,.fc-error,.fc-danger{color:$color-red;}
 .fc-success{color:$color-green;}
@@ -21,7 +22,13 @@
 
 .text-center{text-align:center;}
 
+.fn-fl{float:left}
+.fn-fr{float:right;}
+.fl-clear{@include afterClear()}
 
+.pos-rel{position: relative}
+.pos-abs{position:absolute;}
+.pos-fix{position:fixed;}
 
 @import "ignore/grid-system";
 

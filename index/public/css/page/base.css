@@ -68,6 +68,42 @@ a:active {
   background-color: #eb9316;
   color: #fff; }
 
+.fs-12 {
+  font-size: 12px; }
+
+.fs-14 {
+  font-size: 14px; }
+
+.fs-16 {
+  font-size: 16px; }
+
+.fs-18 {
+  font-size: 18px; }
+
+.fs-20 {
+  font-size: 20px; }
+
+.fs-22 {
+  font-size: 22px; }
+
+.lh-20 {
+  line-height: 20px; }
+
+.lh-22 {
+  line-height: 22px; }
+
+.lh-24 {
+  line-height: 24px; }
+
+.lh-26 {
+  line-height: 26px; }
+
+.lh-28 {
+  line-height: 28px; }
+
+.lh-30 {
+  line-height: 30px; }
+
 .text-error, .text-danger, .fc-error, .fc-danger {
   color: #c12e2a; }
 
@@ -107,11 +143,33 @@ a:active {
 .text-center {
   text-align: center; }
 
+.fn-fl {
+  float: left; }
+
+.fn-fr {
+  float: right; }
+
+.fl-clear:after {
+  content: " ";
+  display: table;
+  clear: both;
+  *zoom: 1;
+  *display: block; }
+
+.pos-rel {
+  position: relative; }
+
+.pos-abs {
+  position: absolute; }
+
+.pos-fix {
+  position: fixed; }
+
 .row {
-  padding-top: 10px;
-  padding-right: 10px;
-  padding-bottom: 10px;
-  padding-left: 10px;
+  padding-top: 0px;
+  padding-right: 0px;
+  padding-bottom: 0px;
+  padding-left: 0px;
   display: block; }
   .row:after {
     content: "";
@@ -120,8 +178,8 @@ a:active {
     *zoom: 1;
     *display: block; }
   .row > .row {
-    margin-left: -10px;
-    margin-right: -10px; }
+    margin-left: 0px;
+    margin-right: 0px; }
 
 @media (max-width: 480px) {
   .col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12 {

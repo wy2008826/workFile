@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no,minimum-scale=1.0, maximum-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="../index/public/css/page/base.css">
+	<style>
+	#test{height: 30px;line-height: 30px;}
+	#input{
+		display: block;
+		width: 100%;
+		height: 100%;
+	}
+	.btnTest{
+		top:0;
+		right:0;
+
+	}
+	</style>
+</head>
+<body>
+	<div id="test" class="row fl-clear pos-rel">
+		<input type="text" class="input fn-fl col-all-12" id="input">
+		<span class="fn-fr pos-abs btnTest bg-primary">点击测试</span>
+	</div>
+
+	<script src="../index/public/js/zepto.min.js"></script>
+	<script src="../index/public/js/touch.js"></script>
+
+	<script>
+		$("#test").on("tap",function(){
+			alert(213);
+		})
+	</script>
+</body>
+</html>
