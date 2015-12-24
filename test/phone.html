@@ -18,12 +18,24 @@
 	</span>
 	<input type="file" accept="video/*;capture=camcorder" id="camcorder"> 
 	<input type="file" accept="audio/*;capture=microphone" id="microphone">
-
+	
+	<p id="textMSG">
+		
+	</p>
 	<script src="../index/public/js/jquery.min.js"></script>
 
 	<script>
-		$("#camcorder").change(function(){
-			alert("camcorder");
+		var $msg=$("#textMSG");
+
+		$("#camcorder").change(function(files){
+			var length=file.length;
+			var str="";
+			for(key in files[0]){
+				str+=(key+"；");
+			}
+			$msg.text(str);
+
+
 		});
 
 		$("#microphone").change(function(){
