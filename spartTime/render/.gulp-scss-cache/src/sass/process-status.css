@@ -1,0 +1,18 @@
+.process_status {
+  position: relative;
+  width: 70%;
+  margin: 40px auto 30px auto; }
+  .process_status .tit {
+    line-height: 24px;
+    position: relative; }
+    .process_status .tit .status_img {
+      width: 24px;
+      position: relative;
+      left: -5px;
+      top: -2px; }
+  .process_status .note {
+    line-height: 24px;
+    padding-left: 27px;
+    margin-right: -10%; }
+
+/*# sourceMappingURL=process-status.css.map */

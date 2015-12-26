@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAGC,0BAAS;ECET,aAAa,EDDU,GAAG;ECE1B,qBAAqB,EDFE,GAAG;ECG1B,gBAAgB,EDHO,GAAG;ECI1B,kBAAkB,EDJK,GAAG;EACzB,SAAS,EAAE,IAAI",
+"sources": ["../../../../src/sass/center/my-center.scss","../../../../src/sass/ignore/mixin.scss"],
+"names": [],
+"file": "my-center.css"
+}

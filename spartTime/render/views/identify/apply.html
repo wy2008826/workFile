@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+	
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport' />
+	<meta  name="apple-mobile-web-app-capable" content="yes" />
+	<title>个人认证</title>
+	<link rel="stylesheet" href="../../public/css/base.css">
+	<link rel="stylesheet" href="../../public/css/plugins/dropzone/dropzone.min.css">
+	<link rel="stylesheet" href="../../public/css/form.css">
+	<link rel="stylesheet" href="../../public/css/identify/apply.css">
+</head>
+<body>
+	<header class="pos-rel top-header">
+		<a href="../index.html" class="top_back pos-abs" ></a>
+		<p class="top_tit">个人认证</p>
+	</header>
+	<div class="container">
+		<div class="lists_input">
+			<ul class="lists_input_ul">
+				<li>
+					<label >真实姓名</label>
+					<input class=" fs-12 fc-6"  type="text" value="" placeholder="请输入姓名">
+				</li>
+				<li>
+					<label >联系手机</label>
+					<input class=" fs-12 fc-6"  type="text" value="" placeholder="请输入手机">
+				</li>
+				<li>
+					<label >身份证号</label>
+					<input class=" fs-12 fc-6"  type="text" value="" placeholder="请输入身份证号">
+				</li>
+			</ul>
+			
+			
+		</div>
+		<div class="dropzone row border-tb mg-t-20 bg-white" id="uploadImg">
+			<div class="clickable un_select" id="clickable">
+				<div class="un_select_message">
+					<p class="fc-blue text-center">点击添加身份证</p>
+				</div>
+				<div class="select_message">
+					添加图片
+				</div>
+				
+			</div>
+		</div>
+
+		<div class="pd-lr-10 fs-13 mg-t-10">
+			<p class="fc-9">身份证照片清晰可见，内容真实有效，最多3张</p>
+			<p class="fc-9">*支持<span class="fc-error">jpg、jpeg、png、bmp、gif</span>格式照片，大小不超过1M</p>
+		</div>
+		<a class="btn-full btn-red">
+			申请
+		</a>
+	</div>
+
+	<script src="../../public/js/jquery-1.11.3.min.js"></script>
+	<script src="../../public/js/plugins/layer.m/layer.m.js"></script>
+	<script src="../../public/js/plugins/dropzone/dropzone.min.js"></script>
+	<script src="../../public/js/page/identify/apply.js"></script>
+
+
+</body>
+</html>

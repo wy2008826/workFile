@@ -1,0 +1,34 @@
+.calendar {
+  background: #fff;
+  border-top: 2px solid #c04040; }
+  .calendar .fc-toolbar {
+    line-height: 30px;
+    margin-bottom: 0;
+    background-color: #e8e8e8;
+    border-bottom: 1px solid #e0e0e0; }
+    .calendar .fc-toolbar .fc-center h2 {
+      font-weight: normal;
+      font-size: 16px; }
+  .calendar .fc-widget-header {
+    line-height: 28px !important; }
+  .calendar table {
+    text-align: center !important; }
+    .calendar table th {
+      border: 0 !important; }
+    .calendar table td {
+      vertical-align: middle !important;
+      border: 0 !important; }
+
+.fc-ltr .fc-basic-view .fc-day-number {
+  text-align: center !important;
+  min-height: 2.2em !important; }
+
+.fc-basic-view .fc-body .fc-row {
+  min-height: 2.2em !important; }
+
+.fc-row .fc-content-skeleton {
+  height: 100%; }
+  .fc-row .fc-content-skeleton table, .fc-row .fc-content-skeleton thead, .fc-row .fc-content-skeleton tr, .fc-row .fc-content-skeleton td {
+    height: 100%; }
+
+/*# sourceMappingURL=fullcalendar.css.map */

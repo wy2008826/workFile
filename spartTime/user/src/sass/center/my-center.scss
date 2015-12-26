@@ -1,0 +1,8 @@
+@import "../ignore/mixin";
+
+.user_mes_wraper{
+	.user_img{
+		@include borderRadius(50%);
+		max-width: 46px;
+	}
+}

@@ -1,0 +1,40 @@
+.comment_wraper .comment_area textarea {
+  width: 100%;
+  border: 0;
+  box-shadow: none;
+  -webkit-appearance: none;
+  padding: 5px 10px; }
+.comment_wraper .comment_area .text_mes {
+  top: 5px;
+  right: 10px; }
+
+.images_wraper {
+  position: relative;
+  min-height: 150px;
+  border: 0;
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box; }
+
+.images_wraper {
+  padding-top: 15px; }
+  .images_wraper .clickable {
+    position: relative; }
+    .images_wraper .clickable.un_select {
+      height: 100%;
+      width: 100%; }
+    .images_wraper .clickable.select {
+      height: 80px;
+      width: 80px;
+      display: inline-block; }
+      .images_wraper .clickable.select .un_select_message {
+        display: none; }
+      .images_wraper .clickable.select .select_message {
+        height: 100%;
+        width: 100%;
+        border: 1px solid #e5e5e5;
+        background: #f1f1f1;
+        line-height: 80px;
+        text-align: center; }

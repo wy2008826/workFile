@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AACC,+BAAU;EACT,OAAO,EAAC,iBAAiB;EACzB,UAAU,EAAE,IAAI;EAChB,UAAU,EAAE,IAAI;EAChB,QAAQ,EAAE,QAAQ;EAClB,iCAAC;IACA,WAAW,EAAE,IAAI;EAElB,sCAAM;IACL,QAAQ,EAAC,QAAQ;IACjB,KAAK,EAAC,IAAI;IACV,GAAG,EAAC,GAAG;IACP,SAAS,EAAC,gBAAgB;IAC1B,iBAAiB,EAAC,gBAAgB;IAClC,YAAY,EAAC,gBAAgB",
+"sources": ["../../../../src/sass/finance/income_detail_lists.scss"],
+"names": [],
+"file": "income_detail_lists.css"
+}

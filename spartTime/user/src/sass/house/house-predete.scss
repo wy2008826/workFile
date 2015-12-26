@@ -1,0 +1,60 @@
+@import "../ignore/mixin";
+
+
+.order_detail_container{
+	$marT:10px;
+	$TitLH:30px;
+	$border:1px solid #e5e5e5;
+	.house_box{
+		margin-top: $marT;
+		padding:7px 10px 7px 10px;
+
+		$imgH:40px;
+		$imgW:40px;
+		.house_img{
+			height:$imgH;
+			width: $imgW;
+			margin:3px 7px 0;
+		}
+	}
+	.time_box{
+		margin-top: $marT;
+		.tit{
+			padding:0 10px 0 10px;
+			line-height: $TitLH;
+			border-bottom:$border;
+		}
+		.cont{
+			border-bottom:$border;
+			.item{
+				padding:15px 0 15px 0;
+				border-right:$border;
+				&:last-child{
+					border-right:0;
+				}
+			}
+		}
+		.location{
+			$LocaW:16px;
+			line-height: $TitLH;
+			padding:0  10px 0 $LocaW + 16 ;
+			text-indent: - $LocaW ;
+			.location_icon{
+				width: $LocaW;
+				position: relative;
+				left: - 4px;
+			}
+		}
+	}
+	.person_mes_box{
+		padding:5px 10px 5px 10px;
+		margin-top:10px;
+		.tit{
+			margin-bottom: 5px;
+			line-height: 34px;
+		}
+	}
+	.note_box{
+		padding:5px 10px 5px 10px;
+	}
+}

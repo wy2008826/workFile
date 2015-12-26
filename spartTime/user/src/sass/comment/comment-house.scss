@@ -1,0 +1,62 @@
+@import "../ignore/mixin";
+
+.comment_wraper{
+	.comment_area{
+		textarea{
+			width: 100%;
+			border:0;
+			box-shadow:none;
+			-webkit-appearance:none;
+			padding:5px 10px;
+			
+		}
+		.text_mes{
+			top:5px;
+			right: 10px;
+		}
+	}
+}
+
+
+
+.images_wraper{
+	position: relative;
+	min-height:150px;
+	border:0;
+	width:100%;
+	padding:10px;
+	@include boxSizing(border-box);
+}
+
+
+.images_wraper{
+	$height:80px;
+	$width:80px;
+	padding-top:15px;
+	.clickable {
+		position:relative;
+		&.un_select{
+			@include fullSize();
+			
+			.select_message{
+				// display: none;
+			}
+		}
+		&.select{
+			height:$height;
+			width:$width;
+			display: inline-block;
+			.un_select_message{
+				display:none;
+			}
+			.select_message{
+				
+				@include fullSize();
+				border:1px solid #e5e5e5;
+				background:#f1f1f1;
+				line-height: $height;
+				text-align: center;
+			}
+		}
+	}
+}

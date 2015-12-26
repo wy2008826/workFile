@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+	
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport' />
+	<meta  name="apple-mobile-web-app-capable" content="yes" />
+	<title>房东</title>
+	<link rel="stylesheet" href="../public/css/base.css">
+	<link rel="stylesheet" href="../public/css/plugins/swiper/swiper.min.css">
+	<link rel="stylesheet" href="../public/css/plugins/mobilescroll/mobilescroll.min.css">
+	<link rel="stylesheet" href="../public/css/index.css">
+
+</head>
+<body>
+	<header class="pos-rel top-header">
+		<p class="top_tit">大学租</p>
+		<div class="right_menu pos-abs">
+			<div class="top_nav">
+				<a class="nav_item" href="order/list-processing.html">我的订单</a>
+				<a class="nav_item" href="center/my-center.html">个人中心</a>
+			</div>
+		</div>
+	</header>
+	
+	<div class="container">
+		
+		<div class="swiper-container my_swiper" id="swiper-container">
+			<div class="swiper-wrapper">
+			    <a class="swiper-slide">
+					<img src="../public/images/house2.jpg" class="img_item">
+					<div class="slider_mes">
+						<p class="text-center mes_line">￥<span class="money">200</span>/晚</p>
+						<p class="text-center mes_line">作家古清生 | 神农架深处的小屋</p>
+					</div>
+					
+			    </a>
+			    <div class="swiper-slide">
+					<img src="../public/images/house1.jpg" class="img_item">
+					<div class="slider_mes">
+						<p class="text-center mes_line">￥<span class="money">200</span>/晚</p>
+						<p class="text-center mes_line">作家古清生 | 神农架深处的小屋</p>
+					</div>
+			    </div>
+			    <div class="swiper-slide">
+					<img src="../public/images/house3.jpeg" class="img_item">
+					<div class="slider_mes">
+						<p class="text-center mes_line">￥<span class="money">200</span>/晚</p>
+						<p class="text-center mes_line">作家古清生 | 神农架深处的小屋</p>
+					</div>
+			    </div>
+			</div>
+			<div class="swiper_pager">
+				
+			</div>
+		</div>
+		<div class="lists_link">
+			<ul class="list_ul">
+				<li id="select_school">
+					<a>请选择学校</a>
+				</li>
+				<div class="row lh-40 bg-white text-center time_row">
+					<input class="col-all-6 " type="text" id="in_time" value="入住日期" >
+					<input class="col-all-6 " type="text" id="out_time" value="离开日期" >
+				</div>
+			</ul>
+			
+			<a class="btn btn-full btn-red" href="house/house-lists.html">搜素</a>
+		</div>
+		<div class="school_wraper">
+			<p class="text-center lh-34 fc-9 fs-16">热门学校</p>
+			<div class="border-tb bg-white pd-10">
+				<div class="row lh-28">
+					<a href="./house/house-lists.html"  class="col-all-6 fc-6">清华大学</a>
+					<a href="./house/house-lists.html"  class="col-all-6 fc-6">北京大学</a>
+					<a href="./house/house-lists.html"  class="col-all-6 fc-6">浙江理工大学</a>
+					<a href="./house/house-lists.html"  class="col-all-6 fc-6">电子科技大学</a>
+					<a  href="./house/house-lists.html" class="col-all-6 fc-6">北京大学</a>
+					<a  href="./house/house-lists.html" class="col-all-6 fc-6">浙江理工大学</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="calendar" class="calendar">
+		
+	</div>
+	<footer class="row pos-fix">
+		<a class="foot_nav_item text-center col-all-6" href="">发布房源</a>
+		<a class="foot_nav_item text-center col-all-6" href="">意见反馈</a>
+	</footer>
+
+	<script src="../public/js/jquery-1.11.3.min.js"></script>
+	<script src="../public/js/plugins/swiper/swiper-3.2.7.min.js"></script>
+	<script src="../public/js/plugins/mobilescroll/mobilescroll.min.js"></script>
+	<script src="../public/js/page/index/data.js"></script>
+	<script src="../public/js/page/index/multiSlider.js"></script>
+	<script src="../public/js/page/common.js"></script>
+	<script src="../public/js/page/index.js"></script>
+	
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+	
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport' />
+	<meta  name="apple-mobile-web-app-capable" content="yes" />
+	<title>退款申请</title>
+	<link rel="stylesheet" href="../../public/css/base.css">
+	<link rel="stylesheet" href="../../public/css/plugins/dropzone/dropzone.min.css">
+	<link rel="stylesheet" href="../../public/css/arbitrate/cash-out-apply.css">
+	
+</head>
+<body>
+	<header class="pos-rel top-header">
+		<a href="" class="top_back pos-abs"></a>
+		<p class="top_tit">退款申请</p>
+	</header>
+	<div class="container">
+		
+		<div class="lists_input">
+			<ul class="lists_input_ul">
+				<p class="lh-40 pd-l-10">退款原因<span class="fc-error">*</span></p>
+				<li>
+					<input type="text" disabled value="房间图片视频与实物不符">
+				</li>
+				<p class="lh-40 pd-l-10">退款金额<span class="fc-error">*最多200元</span></p>
+				<li>
+					<input type="text" disabled value="200.00元">
+				</li>
+				<p class="lh-40 pd-l-10">退款说明</p>
+				<li class="textarea">
+					<textarea name="" id="" disabled cols="30" rows="5">退款说明退款说明退款说明</textarea>
+				</li>
+				
+			</ul>
+
+		</div>
+		<p class="lh-40 pd-l-10">图片凭证</p>
+		<div class="dropzone border-0 pd-10 bg-trans not_upload" style="min-height:1px;">
+			<div class="dz-preview  dz-image-preview">
+				<div class="dz-image">
+					<img class="main_img " src="../../public/images/house1.jpg" >
+				</div>
+				<a class="dz-remove"></a>
+			</div>
+			<div class="dz-preview  dz-image-preview">
+				<div class="dz-image">
+					<img class="main_img " src="../../public/images/house3.jpeg" >
+				</div>
+				<a class="dz-remove"></a>
+			</div>
+			<div class="dz-preview  dz-image-preview">
+				<div class="dz-image">
+					<img class="main_img " src="../../public/images/house1.jpg" >
+				</div>
+				<a class="dz-remove"></a>
+			</div>
+		</div>
+
+		<div id="operate_labels">
+			<div class="btn-border-group row">
+				<a class="col-all-6 btn-item btn-red  reject_cash" style="border-right:1px solid #ddd">拒绝退款</a>
+				<a class="col-all-6 btn-item btn-red  confirm_cash">确认退款</a>
+			</div>
+		</div>
+	</div>
+	
+	
+	<script src="../../public/js/jquery-1.11.3.min.js"></script>
+	<script src="../../public/js/plugins/layer.m/layer.m.js"></script>
+	<script src="../../public/js/underscore-min.js"></script>
+	<script src="../../public/js/page/arbitrate/cash-out-apply.js"></script>
+	
+</body>
+</html>

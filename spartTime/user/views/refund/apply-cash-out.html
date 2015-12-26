@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+	
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport' />
+	<meta  name="apple-mobile-web-app-capable" content="yes" />
+	<title>退款申请</title>
+	<link rel="stylesheet" href="../../public/css/base.css">
+	<link rel="stylesheet" href="../../public/css/plugins/dropzone/dropzone.min.css">
+	<link rel="stylesheet" href="../../public/css/refund/apply-cash-out.css">
+	
+</head>
+<body>
+	<header class="pos-rel top-header">
+		<a onclick="javascript:window.history.go(-1)" class="top_back pos-abs"></a>
+		<p class="top_tit">申请退款</p>
+	</header>
+	<div class="container">
+		
+		<div class="lists_input">
+			<ul class="lists_input_ul">
+				<p class="lh-40 pd-l-10">退款原因<span class="fc-error">*</span></p>
+				<li>
+					<select name="" id="">
+						<option value="房间图片视频与实物不符">房间图片视频与实物不符</option>
+						<option value="其它1">其它1</option>
+						<option value="其它2">其它2</option>
+					</select>
+				</li>
+				<p class="lh-40 pd-l-10">退款金额<span class="fc-error">*最多200元</span></p>
+				<li>
+					<input type="text"  placeholder="请输入退款金额">
+				</li>
+				<p class="lh-40 pd-l-10">退款说明</p>
+				<li class="textarea">
+					<textarea name="" id=""  cols="30" rows="5" placeholder="请输入退款说明"></textarea>
+				</li>
+				
+			</ul>
+
+		</div>
+		<div  class="dropzone images_wraper mg-t-20 bg-trans border-0" id="image_form" >
+			<div class="clickable un_select" id="clickable">
+				<span class="icon-camera left_icon"></span>
+				<span class="fn-fr right_mes">上传凭证，最多5张</span>
+			</div>
+		</div>
+		<a  class="btn-full btn-red" href="arbitrate-cash-out.html">提交申请</a>
+	</div>
+	
+	
+	<script src="../../public/js/jquery-1.11.3.min.js"></script>
+	<script src="../../public/js/plugins/layer.m/layer.m.js"></script>
+	<script src="../../public/js/plugins/dropzone/dropzone.min.js"></script>
+	<script src="../../public/js/underscore-min.js"></script>
+	<script src="../../public/js/page/refund/apply-cash-out.js"></script>
+	
+</body>
+</html>

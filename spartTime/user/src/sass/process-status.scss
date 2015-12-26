@@ -1,0 +1,27 @@
+@import "ignore/mixin";
+
+
+.process_status{
+	$W:70%;
+	position: relative;
+	width:$W;
+	//max-width:300px;
+	margin:40px auto 30px auto;
+	$imgW:24px;
+	
+	.tit{
+		line-height: $imgW;
+		position:relative;
+		.status_img{
+			width: $imgW;
+			position:relative;
+			left:-5px;
+			top:-2px;
+		}
+	}
+	.note{
+		line-height: 24px;
+		padding-left:$imgW + 3px;
+		margin-right: -10%;
+	}
+}

@@ -1,0 +1,41 @@
+.textImageWwaper .textarea {
+  height: 120px;
+  width: 100%;
+  border: 0;
+  padding: 5px 10px 5px 10px; }
+.textImageWwaper .images_wraper {
+  position: relative;
+  min-height: 120px;
+  border: 0;
+  width: 100%;
+  background: #fff;
+  padding: 10px;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  padding-top: 15px; }
+  .textImageWwaper .images_wraper .clickable {
+    position: relative; }
+    .textImageWwaper .images_wraper .clickable.un_select {
+      height: 100%;
+      width: 100%; }
+      .textImageWwaper .images_wraper .clickable.un_select .un_select_message {
+        display: block;
+        width: 100%;
+        height: 100px;
+        padding-top: 20px; }
+      .textImageWwaper .images_wraper .clickable.un_select .select_message {
+        display: none; }
+    .textImageWwaper .images_wraper .clickable.select {
+      height: 80px;
+      width: 80px;
+      display: inline-block; }
+      .textImageWwaper .images_wraper .clickable.select .un_select_message {
+        display: none; }
+      .textImageWwaper .images_wraper .clickable.select .select_message {
+        height: 100%;
+        width: 100%;
+        border: 1px solid #e5e5e5;
+        background: #f1f1f1;
+        line-height: 80px;
+        text-align: center; }

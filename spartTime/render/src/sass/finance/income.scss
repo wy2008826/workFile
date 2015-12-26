@@ -1,0 +1,27 @@
+
+@import  "../ignore/mixin";
+@import  "../ignore/list-link";
+
+.container{
+	.income_general{
+		padding:30px 0 0px 0;
+		h3{
+			line-height: 30px;
+		}
+		.item-row{
+			$border:1px solid #e5e5e5;
+			margin-top: 20px;
+			border:$border;
+			>.item-col{
+				padding:15px 0 15px 0;
+				border-left:$border;
+				&:first-child{
+					border-left:0;
+				} 
+			}
+		}
+	}
+}
+
+
+

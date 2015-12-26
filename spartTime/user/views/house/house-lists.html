@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+	
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport' />
+	<meta  name="apple-mobile-web-app-capable" content="yes" />
+	<title>房东</title>
+	<link rel="stylesheet" href="../../public/css/base.css">
+	<link rel="stylesheet" href="../../public/css/house/house-lists.css">
+</head>
+<body>
+	<header class="pos-rel top-header">
+		<a onclick="javascript:window.history.go(-1);" class="top_back pos-abs"></a>
+		<p class="top_tit">武汉大学<span class="fs-12">(共123个结果)</span></p>
+		<div class="right_menu pos-abs">
+			<div class="top_nav">
+				<a class="nav_item" href="../index.html">首页</a>
+				<a class="nav_item" href="../center/my-center.html">个人中心</a>
+				<a class="nav_item" href="../order/list-processing.html">我的订单</a>
+				
+			</div>
+		</div>
+	</header>
+	<div class="container">
+		<nav class="top_nav row bg-white has_select">
+			<a class="nav_item col-all-6 text-center active" href="">
+				最新
+			</a>
+			<a class="nav_item col-all-6 text-center select_item" >
+				<span class="text_selected down" id="selected_text">
+					价格
+				</span>
+				<select class="text-center" id="select_price">
+					<option value="1">价格</option>
+					<option value="2">由低到高</option>
+					<option value="2">由高到低</option>
+				</select>
+			</a>
+		</nav>
+
+		<div class="house_container">
+			<ul class="house_lists_ul">
+				<li class="mg-b-10 border-b bg-white">
+					<div class="img_wraper pos-rel">
+						<!-- <img src="../../public/images/house1.jpg"  class="house_img"> -->
+						<!-- <video  class="house_img" src="../../public/images/test1.mp4" controls="controls"></video> -->
+						<video id="video1" class="house_img "  controls  >
+							<source src="../../public/images/test1.mp4" />
+						</video>
+						<!-- <div class="video_controls">
+							<span class="play">点击播放</span>
+						</div> -->
+						<p class="house_price" >￥<span class="fs-18 fc-error">128</span>/晚</p>
+					</div>
+					<div class="pd-10">
+						<p  class="lh-24 fl-clear">
+							<a class="fn-fl fs-16" href="house-detail.html">武汉大学旁边大学西路XXX小区</a>
+							<span class="fn-fr fc-success">家电齐全</span>
+						</p>
+						<p class="lh-24 fl-clear ">
+							<span class="fn-fl fc-6 ">单间-双人床</span>
+							<span class=" fn-fl fc-9 mg-l-10">18条评论</span>
+							<a href="house-detail.html" class="fc-blue fn-fr">查看</a>
+						</p>
+					</div>
+				</li>
+				<li class="mg-b-10 border-b bg-white">
+					<div class="img_wraper pos-rel">
+						<img src="../../public/images/house2.jpg"  class="house_img" >
+						<p class="house_price">￥<span class="fs-18 fc-error">128</span>/晚</p>
+					</div>
+					<div class="pd-10">
+						<p  class="lh-24 fl-clear">
+							<a class="fn-fl fs-16" href="house-detail.html">武汉大学旁边大学西路XXX小区</a>
+							<span class="fn-fr fc-success">家电齐全</span>
+						</p>
+						<p class="lh-24 fl-clear ">
+							<span class="fn-fl fc-6 ">单间-双人床</span>
+							<span class=" fn-fl fc-9 mg-l-10">18条评论</span>
+							<a href="house-detail.html" class="fc-blue fn-fr">查看</a>
+						</p>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+	<script src="../../public/js/jquery-1.11.3.min.js"></script>
+	<script src="../../public/js/page/common.js"></script>
+	<script src="../../public/js/page/video-img.js"></script>
+	<script src="../../public/js/page/house/house-lists.js"></script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+@import "../ignore/mixin";
+
+.process_status{
+	margin:20px auto 20px auto;
+}
+
+.parer_wraper{
+	.img_row{
+		.parer_img{
+			width: 80px;
+			@include borderRadius(50%);
+
+		}
+	}
+	.phone_row{
+		.phone_icon{
+			height: 16px;
+			margin-right: 6px;
+		}
+	}
+}
+
+.order_mes{
+	.link_row{
+		display: block;
+		padding:8px 0 8px 0;
+		p{
+			padding:0 10px 0 10px;
+			line-height: 26px;
+		}
+		.link_arrow{
+			$arrH:16px;
+			position: absolute;
+			right: 10px;
+			top:50%;
+			height: $arrH;
+			margin-top: - $arrH / 2;
+		}
+
+	}
+}

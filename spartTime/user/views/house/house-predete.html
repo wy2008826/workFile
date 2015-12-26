@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+	
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport' />
+	<meta  name="apple-mobile-web-app-capable" content="yes" />
+	<title>订房</title>
+	<link rel="stylesheet" href="../../public/css/base.css">
+	<link rel="stylesheet" href="../../public/css/house/house-predete.css">
+</head>
+<body>
+	<header class="pos-rel top-header">
+		<a onclick="javascript:window.history.go(-1);" class="top_back pos-abs"></a>
+		<p class="top_tit">订单支付</p>
+		
+	</header>
+	
+	<div class="container">
+		<div class="order_detail_container">
+			<div class="border-tb dis-box bg-white house_box">
+				<img src="../../public/images/house1.jpg" class="house_img">
+				<div class="flex-1">
+					<p>武汉大学旁西路XXX号小区</p>
+					<p>
+						<span class="fc-success">家电齐全</span>
+					</p>
+				</div>
+			</div>
+
+			<div class="time_box border-tb bg-white">
+				<div class="row tit">
+					<p class="col-all-6 text-left">入住天数</p>
+					<p class="col-all-6 fc-error text-right">共入住2晚</p>
+				</div>
+				<div class="row text-center cont">
+					<div class="col-all-6 item">
+						<p class="lh-28">入住时间10月02日</p>
+						<p class="lh-28">周一 18:20</p>
+					</div>
+					<div class="col-all-6 item">
+						<p class="lh-28">退房时间10月02日</p>
+						<p class="lh-28">周三 12:20</p>
+					</div>
+				</div>
+			</div>
+
+
+			<div class="person_mes_box border-tb bg-white">
+				<p class="tit">预订人信息</p>
+				<p class="lh-28">真实姓名：相识</p>
+				<p class="lh-28">手机：15899996666</p>
+			</div>
+
+			<div class="person_mes_box border-tb bg-white">
+				<p class="tit">交易信息</p>
+				<div class="row">
+					<p class="col-all-6 lh-28">房租：￥120</p>
+					<p class="col-all-6 lh-28">押金：￥50 <span class="fs-12 fc-9">线下支付</span></p>
+				</div>
+			</div>
+
+			<div class="person_mes_box border-tb bg-white">
+				<p class="tit">预定信息</p>
+				<div class="row">
+					<textarea cols="30" rows="5" class="border-0 col-all-12" placeholder="请输入预订信息"></textarea>
+				</div>
+			</div>
+			
+		</div>
+		<div class="pos-fix fix-b  lh-40  full-w row border-t bg-white" >
+			<div class="col-all-9 pd-l-10">
+				合计：￥<span class="fc-error">120</span>
+			</div>
+			<a class="col-all-3 bg-error fc-f text-center" href="pay-success.html">
+				确认支付
+			</a>
+		</div>
+	</div>
+
+	<script src="../../public/js/jquery-1.11.3.min.js"></script>
+	<script src="../../public/js/plugins/layer.m/layer.m.js"></script>
+	<script src="../../public/js/page/house/house-predete.js"></script>
+</body>
+</html>

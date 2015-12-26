@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no,minimum-scale=1.0, maximum-scale=1.0">
+	<title>调用手机摄像头</title>
+	<link rel="stylesheet" href="../index/public/css/page/base.css">
+	<style scoped>
+		  video { transform: scaleX(-1); }
+		  p { text-align: center; }
+	</style>
+</head>
+<body>
+	
+	<span class="btn btn-primary">
+		点击调用手机摄像头
+	</span>
+	<input type="file" accept="video/*;capture=camcorder" id="camcorder"> 
+	<input type="file" accept="audio/*;capture=microphone" id="microphone">
+	
+	<p id="textMSG">
+		
+	</p>
+	<script src="../index/public/js/jquery.min.js"></script>
+
+	<script>
+		var $msg=$("#textMSG");
+
+		$("#camcorder").change(function(files){
+			var length=file.length;
+			var str="";
+			for(key in files[0]){
+				str+=(key+"；");
+			}
+			$msg.text(length+"::"+str);
+
+
+		});
+
+		$("#microphone").change(function(){
+			alert("microphone");
+		});
+	</script>
+
+
+</body>
+</html>

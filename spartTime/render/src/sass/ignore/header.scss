@@ -1,0 +1,49 @@
+@import "mixin";
+
+header.top-header{
+	$H:46px;
+	height:$H;
+	border-bottom:1px solid #afafaf;
+	background:#fff;
+	
+	.top_back{
+		$bacH:22px;
+		display: block;
+		height: $H;
+		width: $H * 0.6;
+		top:0;
+		left:0;
+		background-image:url(../images/top_back.png);
+		background-repeat:no-repeat;
+		background-position:center center;
+		background-size:$bacH *0.55  $bacH;
+	}
+	.top_tit{
+		height:$H;
+		width: 100%;
+		line-height: $H;
+		text-align: center;
+		font-size: 16px;
+	}
+}
+
+nav.top_nav{
+	$navH:40px;
+	$border:1px solid #e5e5e5;
+	border-bottom:$border;
+	.nav_item{
+		line-height: $navH;
+		height:$navH;
+		border-right:$border;
+		$activeC:#c04040;
+		font-size: 16px;
+		@include boxSizing(border-box);
+		&:last-child{
+			border-right:0;
+		}
+		&.active{
+			color: $activeC;
+			border-bottom:2px solid $activeC;
+		}
+	}
+}

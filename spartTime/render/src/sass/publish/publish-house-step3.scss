@@ -1,0 +1,54 @@
+@import "../ignore/mixin";
+
+.come_in_wraper{
+	$lineH:40px;
+	.time_row{
+		line-height: $lineH;
+		.time_input{
+			display: inline-block;
+			height: 26px;
+			width: 46%;
+			border:1px solid #d5d5d5;
+			@include borderRadius(2px);
+			text-indent: 5px;
+		}
+	}
+	.certify_row{
+		line-height: $lineH;
+	}
+}
+
+.config_wraper{
+	$lineH:40px;
+	.config_ul{
+
+		li{
+			line-height:$lineH;
+			float:left;
+			width:33%;
+			label{
+				color:#666;
+			}
+			input[type="checkbox"]:checked+label{
+				color:#c04040;
+			}
+		}
+	}
+}
+
+.other_wraper{
+	textarea{
+		background:#fff;
+		height: 100px;
+		width: 100%;
+		padding:5px 10px 5px 10px;
+		border:0;
+		@include boxSizing(border-box);
+	}
+}
+.bottom_operate{
+	position:fixed;
+	bottom:0;
+	left:0;
+	width:100%;
+}

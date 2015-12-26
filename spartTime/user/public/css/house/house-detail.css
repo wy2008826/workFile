@@ -1,0 +1,71 @@
+.container {
+  padding-bottom: 60px; }
+
+.my_swiper {
+  height: 200px;
+  width: 100%;
+  margin: 0; }
+  .my_swiper .swiper-slide {
+    position: relative; }
+    .my_swiper .swiper-slide .img_item {
+      height: 100%;
+      width: 100%; }
+    .my_swiper .swiper-slide .slider_mes {
+      position: absolute;
+      bottom: 10px;
+      width: 100%; }
+      .my_swiper .swiper-slide .slider_mes .mes_line {
+        line-height: 24px;
+        color: #fff; }
+        .my_swiper .swiper-slide .slider_mes .mes_line .money {
+          font-size: 24px;
+          color: #fff; }
+  .my_swiper .swiper_pager {
+    position: absolute;
+    right: 10px;
+    bottom: 5px;
+    z-index: 10; }
+    .my_swiper .swiper_pager .swiper-pagination-bullet {
+      background-color: #909493;
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      -webkit-border-radius: 50%;
+      -o-border-radius: 50%;
+      -moz-border-radius: 50%;
+      margin-right: 6px;
+      opacity: 1; }
+    .my_swiper .swiper_pager .swiper-pagination-bullet-active {
+      background-color: #c04040; }
+
+.icon_row .icon_img {
+  vertical-align: middle;
+  width: 18px;
+  margin-right: 6px; }
+
+.evalute_wraper .evalute_ul li {
+  margin-top: 10px;
+  background: #fff; }
+  .evalute_wraper .evalute_ul li .list_top {
+    padding: 0 10px 0 10px;
+    line-height: 34px; }
+  .evalute_wraper .evalute_ul li .list_cont {
+    padding: 10px; }
+    .evalute_wraper .evalute_ul li .list_cont .user_mes .user_img {
+      height: 30px;
+      width: 30px;
+      border-radius: 50%;
+      -webkit-border-radius: 50%;
+      -o-border-radius: 50%;
+      -moz-border-radius: 50%;
+      margin-right: 10px; }
+    .evalute_wraper .evalute_ul li .list_cont .desc {
+      margin: 5px 0 5px 0; }
+    .evalute_wraper .evalute_ul li .list_cont .photoes .house_img {
+      height: 50px;
+      margin-right: 5px; }
+    .evalute_wraper .evalute_ul li .list_cont.config_lists .config_icon {
+      width: 18px;
+      margin-right: 6px;
+      vertical-align: middle; }

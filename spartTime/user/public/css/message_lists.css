@@ -1,0 +1,37 @@
+.message_container .message_ul > li {
+  margin-top: 15px;
+  background: #fff;
+  border-top: 1 px solid #e5e5e5;
+  border-bottom: 1 px solid #e5e5e5; }
+  .message_container .message_ul > li .link {
+    position: relative;
+    padding: 8px 30px 8px 10px;
+    display: block;
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box; }
+    .message_container .message_ul > li .link .title {
+      margin-bottom: 5px; }
+    .message_container .message_ul > li .link .cont .house_img {
+      height: 34px;
+      width: 34px;
+      margin: 5px 5px 0 0;
+      vertical-align: middle; }
+    .message_container .message_ul > li .link .cont p {
+      line-height: 20px; }
+    .message_container .message_ul > li .link .list_arrow {
+      height: 20px;
+      position: absolute;
+      top: 50%;
+      right: 10px;
+      margin-top: -10px; }
+
+@media screen and (min-width: 321px) {
+  .message_container .message_ul > li .link .cont .house_img {
+    height: 44px;
+    width: 44px;
+    margin: 5px 5px 0 0; }
+  .message_container .message_ul > li .link .cont p {
+    line-height: 24px; } }

@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+	
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport' />
+	<meta  name="apple-mobile-web-app-capable" content="yes" />
+	<title>订单详情</title>
+	<link rel="stylesheet" href="../../public/css/base.css">
+	<link rel="stylesheet" href="../../public/css/order/order-detail.css">
+</head>
+<body>
+	<header class="pos-rel top-header">
+		<a onclick="javascript:window.history.go(-1);" class="top_back pos-abs"></a>
+		<p class="top_tit">订单详情</p>
+		
+	</header>
+	<div class="container">
+		<div class="order_detail_container">
+			<div class="border-tb dis-box bg-white house_box">
+				<img src="../../public/images/house1.jpg" class="house_img">
+				<div class="flex-1">
+					<p>武汉大学旁西路XXX号小区</p>
+					<p>
+						<span class="fc-success">家电齐全</span>
+					</p>
+				</div>
+			</div>
+
+			<div class="time_box border-tb bg-white">
+				<div class="row tit">
+					<p class="col-all-6 text-left">入住天数</p>
+					<p class="col-all-6 fc-error text-right">共入住2晚</p>
+				</div>
+				<div class="row text-center cont">
+					<div class="col-all-6 item">
+						<p class="lh-28">入住时间10月02日</p>
+						<p class="lh-28">周一 18:20</p>
+					</div>
+					<div class="col-all-6 item">
+						<p class="lh-28">退房时间10月02日</p>
+						<p class="lh-28">周三 12:20</p>
+					</div>
+				</div>
+				<div class="location">
+					<img src="../../public/images/location_icon.png" class="location_icon">地址：武汉大学XXXXXXXXX
+				</div>
+			</div>
+
+
+			<div class="person_mes_box border-tb bg-white">
+				<p class="tit">预订人信息</p>
+				<p class="lh-28">真实姓名：相识</p>
+				<p class="lh-28">手机：15899996666</p>
+			</div>
+
+			<div class="person_mes_box border-tb bg-white">
+				<p class="tit">交易信息</p>
+				<div class="row">
+					<p class="col-all-6 lh-28">房租：￥120</p>
+					<p class="col-all-6 lh-28">押金：￥50</p>
+				</div>
+			</div>
+
+			<div class="note_box">
+				<p class="lh-20 fs-12 fc-6">订单号：23423532523</p>
+				<p class="lh-20 fs-12 fc-6">2015年10月02日12:30:30</p>
+			</div>
+			
+		
+			<div id="order_operate_labels">
+				<div class="btn-border-group row ">
+					<a class="col-all-6 btn-item cancel_order">取消订单</a>
+					<a class="col-all-6 btn-item commemt" href="../comment/comment-house.html">评价房间</a>
+					<a class="col-all-6 btn-item accusation">举报</a>
+					<a class="col-all-6 btn-item cash_out" href="../refund/apply-cash-out.html">申请退款</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="../../public/js/jquery-1.11.3.min.js"></script>
+	<script src="../../public/js/plugins/layer.m/layer.m.js"></script>
+	<script src="../../public/js/page/order/order-detail.js"></script>
+</body>
+</html>

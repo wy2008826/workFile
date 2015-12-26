@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+	
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport' />
+	<meta  name="apple-mobile-web-app-capable" content="yes" />
+	<title>房东</title>
+	<link rel="stylesheet" href="../../public/css/base.css">
+	<link rel="stylesheet" href="../../public/css/finance/out-cash-step1.css">
+</head>
+<body>
+	<header class="pos-rel top-header">
+		<a  class="top_back pos-abs" href="income.html"></a>
+		<p class="top_tit">输入提现金额</p>
+	</header>
+	<div class="container">
+		<div class="lists_input">
+			<p class="list_desc fc-9 fs-12">当前可提现余额为<span id="cash_rest">88.00</span>元</p>
+			<ul class="lists_input_ul">
+				<li>
+					<label >余额（元）</label>
+					<input type="text" placeholder="请输入提现金额" id="cash_input">
+				</li>
+			</ul>
+			
+			<a class="next btn-full btn-red" href="out-cash-step2.html" id="nextBtn">下一步</a>
+		</div>
+	</div>
+
+	<script src="../../public/js/jquery-1.11.3.min.js"></script>
+	<script src="../../public/js/plugins/layer.m/layer.m.js"></script>
+	<script src="../../public/js/page/finance/out-cash-step1.js"></script>
+</body>
+</html>

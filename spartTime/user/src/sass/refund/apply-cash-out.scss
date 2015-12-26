@@ -1,0 +1,49 @@
+@import "../form";
+@import "../ignore/btns";
+
+.dropzone.not_upload{
+	.main_img{
+		max-width: 100%;
+		max-height: 100%;
+	}
+}
+
+.images_wraper{
+	position: relative;
+	min-height:50px;
+	border:1px solid #e5e5e5;
+	width:100%;
+	background:#fff;
+	padding:10px;
+	@include boxSizing(border-box);
+
+	$height:80px;
+	$width:80px;
+	padding-top:15px;
+	.clickable {
+		$h:36px;
+		height: $h;
+		line-height: $h;
+		border:2px dashed #aaa;
+		margin-bottom: 20px;
+		@include borderRadius(4px);
+		@include afterClear();
+		.left_icon{
+			color:#aaa;
+			font-size: 20px;
+			margin-left: 10px;
+		}
+		.right_mes{
+			margin-right: 10px;
+			color:#aaa;
+		}
+	}
+
+}
+
+select{
+	background-image:url(../../images/select_down.png);
+	background-size:16px;
+	background-repeat:no-repeat;
+	background-position:96% center;
+}

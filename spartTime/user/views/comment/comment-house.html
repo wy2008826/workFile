@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+	
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport' />
+	<meta  name="apple-mobile-web-app-capable" content="yes" />
+	<title>评价房间</title>
+	<link rel="stylesheet" href="../../public/css/base.css">
+	<link rel="stylesheet" href="../../public/css/font-icon.css">
+	<link rel="stylesheet" href="../../public/css/plugins/dropzone/dropzone.min.css">
+	<link rel="stylesheet" href="../../public/css/comment/comment-house.css">
+</head>
+<body>
+	<header class="pos-rel top-header">
+		<a onclick="javascript:window.history.go(-1);" class="top_back pos-abs"></a>
+		<p class="top_tit">评价房间</p>
+	</header>
+	
+	<div class="container">
+		<div class="comment_wraper">
+			<div class="lh-34 fl-clear pd-lr-10">
+				<p class="fn-fl" id="stars_comment">
+					<span class="icon-star-full fc-error"></span>
+					<span class="icon-star-full fc-error"></span>
+					<span class="icon-star-full fc-error"></span>
+					<span class="icon-star-full fc-error"></span>
+					<span class="icon-star-full fc-9"></span>
+				</p>
+				<p class="fn-fr fc-9" id="text_count">
+					
+				</p>
+			</div>
+			<div class="bg-white ">
+				<div class="comment_area pos-rel">
+					<textarea  cols="30" rows="5" placeholder="请输入评价" id="text_area"></textarea>
+					<span class="fc-error pos-abs text_mes" id="text_mes">字数在10-500之间</span>
+				</div>
+				<p class="pd-lr-10 fc-9">
+					写下购买体会或使用过程中带来的帮助，可以为其他小伙伴提供参考~并有机会获得奖品
+				</p>
+				<div  class="dropzone images_wraper " id="image_form">
+					<div class="clickable select" id="clickable">
+						<div class="select_message">
+							添加图片
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<a class="btn btn-full btn-red" >提交</a>
+		</div>
+		
+	</div>
+
+	<script src="../../public/js/jquery-1.11.3.min.js"></script>
+	<script src="../../public/js/plugins/layer.m/layer.m.js"></script>
+	<script src="../../public/js/plugins/dropzone/dropzone.min.js"></script>
+	<script src="../../public/js/page/common.js"></script>
+	<script src="../../public/js/page/comment/comment-house.js"></script>
+</body>
+</html>

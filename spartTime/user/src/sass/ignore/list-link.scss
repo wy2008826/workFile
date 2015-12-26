@@ -1,0 +1,47 @@
+@import "mixin";
+
+
+.lists_link{
+	margin:15px 0 0 0;;
+	.list_ul{
+		$liH:40px;
+		$liBorder:1px solid #e5e5e5;
+		li{
+			position: relative;
+			background:#fff;
+			padding:0 10px 0 10px;
+			line-height:$liH;
+			border-top:$liBorder;
+			border-bottom:$liBorder;
+			margin-top: -1px;
+			@include boxSizing(border-box);
+			>a{
+				display: block;
+				width: 100%;
+				height: 100%;
+				@include afterClear();
+				.link_label{
+					width: 64px;
+					float:left;
+				}
+				.link_mes{
+					float:left;
+				}
+			}
+			&:after{
+				position:absolute;
+				$arrowH:14px;
+				content:"";
+				display: block;
+				height: $arrowH;
+				width:$arrowH * 0.6;
+				background-image:url(../images/list-link-arrow.png);
+				background-repeat:no-repeat;
+				background-size:100% 100%;
+				right:10px;
+				top:50%;
+				margin-top:- $arrowH / 2;
+			}
+		}
+	}
+}

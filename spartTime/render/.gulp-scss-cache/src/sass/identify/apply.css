@@ -1,0 +1,38 @@
+.dropzone {
+  position: relative;
+  min-height: 190px;
+  border: 1px solid #e5e5e5;
+  width: 100%;
+  background: #fff;
+  padding: 10px;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  padding-top: 15px; }
+  .dropzone .clickable {
+    position: relative; }
+    .dropzone .clickable.un_select {
+      height: 100%;
+      width: 100%; }
+      .dropzone .clickable.un_select .un_select_message {
+        display: block;
+        width: 100%;
+        height: 160px;
+        padding-top: 30px; }
+      .dropzone .clickable.un_select .select_message {
+        display: none; }
+    .dropzone .clickable.select {
+      height: 80px;
+      width: 80px;
+      display: inline-block; }
+      .dropzone .clickable.select .un_select_message {
+        display: none; }
+      .dropzone .clickable.select .select_message {
+        height: 100%;
+        width: 100%;
+        border: 1px solid #e5e5e5;
+        background: #f1f1f1;
+        line-height: 80px;
+        text-align: center; }
+
+/*# sourceMappingURL=apply.css.map */

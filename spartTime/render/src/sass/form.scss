@@ -1,0 +1,64 @@
+@import  "ignore/mixin";
+
+
+.lists_input{
+	margin-top:15px;
+	.list_desc{
+		padding:0 10px 0 10px;
+		line-height: 30px;
+	}
+	.lists_input_ul{
+		$liH:46px;
+		$liBorder:1px solid #e5e5e5;
+		>li{
+			width: 100%;
+			height: $liH;
+			line-height: $liH;
+			background: #fff;
+			padding:0 10px 0 10px;
+			border-top:$liBorder;
+			border-bottom:$liBorder;
+			margin-top: -1px;
+			@include boxSizing(border-box);
+			display: box;
+			display:-webkit-box;
+			label{
+				display: block;
+			}
+			input[type="text"]{
+				color:#666;
+				display: block;
+				height:  $liH - 2;
+				text-indent: 6px;
+				box-flex:1;
+				-webkit-box-flex:1;
+				border:0;
+				@include boxSizing(border-box);
+				font-size: 14px;
+				&[disabled]{
+					background:#fff;
+				}
+			}
+			&.textarea{
+				height: 120px;
+
+				textarea{
+					line-height: 24px;
+					padding:5px 0 5px 0;
+					display: block;
+					height: 100%;
+					box-flex:1;
+					-webkit-box-flex:1;
+					border:0;
+					@include boxSizing(border-box);
+					font-size: 14px;
+					color:#666;
+				}
+			}
+		}
+
+	}
+	.next{
+		margin-top: 40px;
+	}
+}

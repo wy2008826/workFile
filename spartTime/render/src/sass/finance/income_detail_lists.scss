@@ -1,0 +1,19 @@
+.income_detail_lists{
+	.list_item{
+		padding:5px 10px 5px 10px;
+		margin-top: 10px;
+		background: #fff;
+		position: relative;
+		p{
+			line-height: 28px;
+		}
+		.count{
+			position:absolute;
+			right:10px;
+			top:50%;
+			transform:translateY(-50%);
+			-webkit-transform:translateY(-50%);
+			-o-transform:translateY(-50%);
+		}
+	}
+}

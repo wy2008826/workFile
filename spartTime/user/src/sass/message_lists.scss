@@ -1,0 +1,73 @@
+@import "ignore/mixin";
+
+
+.message_container{
+	.message_ul{
+		$border:1 px solid #e5e5e5;
+		$marginT:15px;
+		>li{
+			margin-top:$marginT;
+			background:#fff;
+			border-top:$border;
+			border-bottom:$border;
+			
+			.link{
+				$houseH:34px;
+				$houseW:34px;
+				position: relative;
+				padding:8px 30px 8px 10px;
+				display: block;
+				height: 100%;
+				width:100%;
+				@include boxSizing(border-box);
+				.title{
+					margin-bottom: 5px;
+				}
+				.cont{
+					.house_img{
+						height: $houseH;
+						width: $houseW;
+						margin:5px 5px 0 0;
+						vertical-align: middle;
+					}
+					p{
+						line-height: 20px;
+					}
+				}
+				.list_arrow{
+					$arrowH:20px;
+					height:$arrowH;
+					position:absolute;
+					top:50%;
+					right:10px;
+					margin-top:- $arrowH /2 ;
+				}
+			}
+		}
+	}
+}
+
+@media screen and (min-width:321px){
+	.message_container{
+		.message_ul{
+			>li{
+				.link{
+					$houseH:44px;
+					$houseW:44px;
+					
+					.cont{
+						.house_img{
+							height: $houseH;
+							width: $houseW;
+							margin:5px 5px 0 0;
+						}
+						p{
+							line-height: 24px;
+						}
+					}
+					
+				}
+			}
+		}
+	}
+}

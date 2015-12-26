@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+	
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport' />
+	<meta  name="apple-mobile-web-app-capable" content="yes" />
+	<title>发布房源</title>
+	<link rel="stylesheet" href="../../public/css/base.css">
+	<link rel="stylesheet" href="../../public/css/publish/publish-house.css">
+	
+</head>
+<body>
+	<header class="pos-rel top-header">
+		<a href="../index.html" class="top_back pos-abs"></a>
+		<p class="top_tit">发布房源</p>
+	</header>
+	<div class="container">
+		<div class="house_labels_wraper">
+			<h4 class="normal_title fl-clear">
+				<span class="fn-fl">1.详细资料</span>
+				<span class="fn-fr btn btn-md btn-error" id="add_school">添加学校</span>
+			</h4>
+			<ul class="school_ul" id="school_ul">
+				<!-- <li class="panel-border panel-lg" data-id="1">
+					<span>武汉大学</span>
+					<img class="del_img"  src="../../public/images/circle_del_gray.png" >
+				</li>
+				<li class="panel-border panel-lg" data-id="2">
+					<span>武汉大学</span>
+					<img class="del_img"  src="../../public/images/circle_del_gray.png" >
+				</li>
+				<li class="panel-border panel-lg" data-id="3">
+					<span>武汉大学</span>
+					<img class="del_img"  src="../../public/images/circle_del_gray.png" >
+				</li> -->
+
+				<script id="school_ul_tpl" type="text/template">
+					<% _.forEach(data,function(item,i){ %>
+						<li class="panel-border panel-lg" data-text="<%= item.text%>">
+							<span><%= item.text%></span>
+							<img class="del_img"  src="../../public/images/circle_del_gray.png" >
+						</li>
+					<% }); %>
+				</script>
+			</ul>
+		</div>
+		<div class="lists_input">
+			<ul class="lists_input_ul">
+				<li>
+					<label >房源名称</label>
+					<input type="text" placeholder="请输入房源名称">
+				</li>
+				<li>
+					<label >详细地址</label>
+					<input type="text" placeholder="请输入房源地址信息">
+				</li>
+				<li>
+					<label >房间大小</label>
+					<input type="text" placeholder="请输入房间大小">
+				</li>
+				<li>
+					<label >房间床铺</label>
+					<input type="text" placeholder="请输入房间床铺数量">
+				</li>
+
+				
+				<li class="mg-t-10 aver_price_line">
+					<label >价格设置</label>
+					<input type="text" placeholder="请输入日均房价">
+				</li>
+				<p class="lh-40 pd-lr-10 fl-clear aver_price_line">
+					<span class="fn-fr fc-blue" id="week_price_set">高级价格设置</span>
+				</p>
+				
+
+				<div class=" week_price_page hide mg-t-10"  id="week_price_page">
+					<p class="lh-40 bg-white pd-lr-10 border-t">高级价格设置</p>
+					<div class="bg-white week_price_wraper pd-lr-10 border-tb">
+						
+						<ul class="row text-center week_ul">
+							<li class="col-aver-7">日</li>
+							<li class="col-aver-7">一</li>
+							<li class="col-aver-7">二</li>
+							<li class="col-aver-7">三</li>
+							<li class="col-aver-7">四</li>
+							<li class="col-aver-7">五</li>
+							<li class="col-aver-7">六</li>
+						</ul>
+						<ul class="row price_ul text-center" id="page_price_ul">
+							<script id="page_price_tpl" type="text/template">
+								<% _.forEach(data,function(item,i){ %>
+									<li class="col-aver-7">
+										<input type="text" value="<%= item.value %>" >
+									</li>
+								<% }); %>
+							</script>	
+							
+							<!-- <li class="col-aver-7">
+								<input type="text">
+							</li>
+							<li class="col-aver-7">
+								<input type="text">
+							</li>
+							<li class="col-aver-7">
+								<input type="text">
+							</li>
+							<li class="col-aver-7">
+								<input type="text">
+							</li>
+							<li class="col-aver-7">
+								<input type="text">
+							</li>
+							<li class="col-aver-7">
+								<input type="text">
+							</li>
+							<li class="col-aver-7">
+								<input type="text">
+							</li> -->
+						</ul>
+					</div>
+					<p class="lh-40 pd-lr-10 fl-clear " >
+						<span class="fn-fr fc-blue" id="aver_price_set">普通价格设置</span>
+					</p>
+				</div>
+
+
+				<li >
+					<label >押金</label>
+					<input type="text" placeholder="请输入押金">
+				</li>
+				<p class="lh-40 pd-lr-10 fl-clear">
+					<span class="fn-fr fc-error">押金线下支付</span>
+				</p>
+			</ul>
+			<a class="next btn-full btn-red" href="publish-house-step2.html">下一步</a>
+		</div>
+	</div>
+	
+	
+	<script id="alert_price_tpl" type="text/template">
+
+		<div class="week_price_alert">
+			<h3 class="text-center">高级价格设置</h3>
+			
+			<ul class="row text-center week_ul">
+				<li class="col-aver-7">日</li>
+				<li class="col-aver-7">一</li>
+				<li class="col-aver-7">二</li>
+				<li class="col-aver-7">三</li>
+				<li class="col-aver-7">四</li>
+				<li class="col-aver-7">五</li>
+				<li class="col-aver-7">六</li>
+			</ul>
+			<ul class="row price_ul">
+				<% _.forEach(data,function(item,i){ %>
+					<li class="col-aver-7">
+						<input type="text" value="<%= item.value %>" id="alert_week<%=i %>">
+					</li>
+				<% }); %>
+				
+			</ul>
+		</div>
+	</script>
+
+	<script src="../../public/js/jquery-1.11.3.min.js"></script>
+	<script src="../../public/js/plugins/layer.m/layer.m.js"></script>
+	<script src="../../public/js/underscore-min.js"></script>
+	
+	<script src="../../public/js/page/publish/publish-house.js"></script>
+	<script src="../../public/js/page/publish/data.js"></script>
+	<script src="../../public/js/page/publish/multiSlider.js"></script>
+	
+
+</body>
+</html>

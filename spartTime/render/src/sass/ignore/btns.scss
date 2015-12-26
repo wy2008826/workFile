@@ -1,0 +1,44 @@
+@import "mixin";
+
+.label-border{
+	$labelBorder:1px solid #e5e5e5;
+	border:$labelBorder;
+	@include borderRadius(4px);
+	padding:0 5px 0 5px;
+	margin-right:7px;
+}
+
+.label-xs{padding:1px 5px 1px 5px;}
+.label-sm{padding:2px 6px 2px 6px;}
+.label-md{padding:3px 6px 3px 6px;}
+.label-lg{padding:4px 7px 4px 7px;}
+
+
+.panel-border{
+	display:inline-block;
+	border:1px solid #e5e5e5;
+	padding:0 5px 0 5px;
+	background:#fff;
+	
+}
+
+.panel-xs{@include borderRadius(10px);padding:0 5px 0 5px;}
+.panel-sm{@include borderRadius(12px);padding:2px 7px 2px 7px;}
+.panel-md{@include borderRadius(13px);padding:3px  7px 3px 7px;}
+.panel-lg{@include borderRadius(14px);padding:4px 8px 4px 8px;}
+
+
+.btn{display: inline-block;
+	*zoom:1;*display:inline;
+	padding:0 5px 0 5px;
+	@include borderRadius(2px);
+
+}
+
+.btn-error{background:#c04040;color:#fff;}
+
+
+.btn-xs{padding:1px 5px 1px 5px;}
+.btn-sm{padding:2px 6px 2px 6px;}
+.btn-md{padding:3px 6px 3px 6px;}
+.btn-lg{padding:4px 7px 4px 7px;}

@@ -1,0 +1,135 @@
+$(function(){
+
+	var App=function(){
+		
+		this.init();//页面初始化
+        this.stars();//星级评价
+        this.textArea();//输入文字
+		this.imgUpload();//上传图片
+	};
+
+	App.prototype={
+		init:function(){
+
+		},
+        stars:function(){
+            $("#stars_comment").on("click","span",function(){
+                var $span=$(this);
+                $span.removeClass("fc-9").addClass("fc-error");
+                $span.prevAll().removeClass("fc-9").addClass("fc-error");
+                $span.nextAll().removeClass("fc-error").addClass("fc-9");
+            })
+        },
+        textArea:function(){
+            var $text_area=$("#text_area");
+            var $text_mes=$("#text_mes");
+            var $text_count=$("#text_count");
+            var count=500;
+
+            $text_area.on("focus",function(){
+                var length=$text_area.val().length;
+                $text_mes.hide();
+                
+                $text_count.text(count-length).show();
+            }).on("input",function(){
+                var length=$text_area.val().length;
+                $text_count.text(count-length).show();
+            });
+
+        },
+		imgUpload:function(){
+			
+            var resize = function(file) {
+                var info = { srcX: 0, srcY: 0, srcWidth: file.width, srcHeight: file.height },
+                    srcRatio = file.width / file.height;
+                if (file.height > this.options.thumbnailHeight || file.width > this.options.thumbnailWidth) {
+                    info.trgHeight = this.options.thumbnailHeight;
+                    info.trgWidth = info.trgHeight * srcRatio;
+                    if (info.trgWidth > this.options.thumbnailWidth) {
+                        info.trgWidth = this.options.thumbnailWidth;
+                        info.trgHeight = info.trgWidth / srcRatio;
+                    }
+                } else {
+                    info.trgHeight = file.height;
+                    info.trgWidth = file.width;
+                }
+                
+                return info;
+            },
+            acceptedFiles = '.jpg,.jpeg,.bmp,.gif,.png';
+            
+
+            // 上传图片
+            var maxNum=5;
+            var removeLink=document.createElement("span");
+            removeLink.setAttribute("class","icon-cancel-circle");
+            var drop = new Dropzone("#image_form", {
+                url: "https://www.baidu.com",
+                clickable: "#clickable",
+                paramName: "fileData", // The name that will be used to transfer the file
+                maxFiles: maxNum,
+                maxFilesize: 1, // MB
+                acceptedFiles: acceptedFiles,
+                addRemoveLinks : true,
+                dictResponseError: "无法上传文件",
+                dictInvalidFileType: "无法上传此类型的文件",
+                dictMaxFilesExceeded: "最多包含"+maxNum+"张图片",
+                dictCancelUpload: " ",
+                autoProcessQueue: true,
+               	dictRemoveFile: "",
+                // previewTemplate: previewTemplate,
+                thumbnailHeight:80,
+                thumbnailWidth:80,
+                resize: resize,
+                init: function(){
+
+                    $("#image_form .dz-default.dz-message").remove();
+                   
+                    var that=this;
+
+
+                    this.on("addedfile",function(file){
+                    	// $("#clickable").addClass("select");
+                        $("#image_form").append($("#clickable"));
+                       	console.log(that);
+                        if(that.files.length>=maxNum){
+                            if(that.files.length==maxNum){
+                                $("#clickable").hide();
+                            }
+                            else{
+                                $("#clickable").hide();
+                                that.removeFile(file);
+                            }
+                        }
+                       
+                    });
+
+
+                    this.on("removedfile",function(file){
+	                    var imglength=$("#image_form .dz-preview").length;
+                        $("#clickable").show();
+	                    
+                    });
+
+
+                    this.on("success",function(e,data){
+                    	var curWraper=$(e.previewElement);
+                    	var hiddenInput_mainPic=$("<input type='hidden' class='hiddenInput_mainPic' value='"+data.primitivePic+"'/>");
+                    	var hiddenInput_otherPic=$("<input type='hidden' class='hiddenInput_otherPic' value='"+data.contractPic+"'/>");
+                    	curWraper.append(hiddenInput_mainPic);
+                    	curWraper.append(hiddenInput_otherPic);
+                    });
+
+
+                    this.on("maxfilesexceeded",function(file){//达到最大上传个数时删除当下的文件
+                        
+                        this.removeFile(file);//删除前台表现的同时实质性的删除图片 
+                    });
+                }
+                
+            });
+		}
+	};
+
+	var app=new App();
+});

@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no,minimum-scale=1.0, maximum-scale=1.0">
+<title>钱保姆1周岁生日大轰趴</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<link rel="stylesheet" href="public/css/base.css">
+<link rel="stylesheet" href="public/css/zhounian-m.css">
+
+
+<style>
+
+	.slot0{
+			background-image: url(${cdnpath}/images/activity/zhounian/mobile/section3/award_6s.png) !important;
+		}
+		.slot1{
+			background-image: url(${cdnpath}/images/activity/zhounian/mobile/section3/award_iwatch.png) !important;
+		}
+		.slot2{
+			background-image: url(${cdnpath}/images/activity/zhounian/mobile/section3/award_oil.png) !important;
+		}
+		.slot3{
+			background-image: url(${cdnpath}/images/activity/zhounian/mobile/section3/award_bear.png) !important;
+		}
+		.slot4{
+			background-image: url(${cdnpath}/images/activity/zhounian/mobile/section3/award_photo.png) !important;
+		}
+</style>
+</head>
+<body>
+	<script>
+		window.awardsSrc={
+			"phone":"${cdnpath}/images/activity/zhounian/mobile/section3/award_6s.png",
+			"iwatch":"${cdnpath}/images/activity/zhounian/mobile/section3/award_iwatch.png",
+			"oil":"${cdnpath}/images/activity/zhounian/mobile/section3/award_oil.png",
+			"bear":"${cdnpath}/images/activity/zhounian/mobile/section3/award_bear.png",
+			"photo":"${cdnpath}/images/activity/zhounian/mobile/section3/award_photo.png"
+		};
+	</script>
+    <!-- S 站长统计 -->
+    <span class="hide">
+		<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1253473257'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s6.cnzz.com/z_stat.php%3Fid%3D1253473257%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script>
+	</span>
+	<!-- E 站长统计 -->
+
+	<div id="wraper">
+		<section class="section index active">
+			<img src="./public/images/activity/zhounian/mobile/section1/sec1_bg.png" class="sec1_bg relative">
+			<img src="./public/images/activity/zhounian/mobile/section1/sec1_tit.png" class="sec1_tit abs">
+			<img src="./public/images/activity/zhounian/mobile/section1/sec1_time.png" class="sec1_time abs">
+			<div class="sec1_wraper abs">
+				<img src="./public/images/activity/zhounian/mobile/section1/sec1_box.png" class="relative sec1_box">
+
+				<img src="./public/images/activity/zhounian/mobile/section1/sec1_tigger.png" class="abs sec1_tigger" id="sec1_tigger_go">
+				<img src="./public/images/activity/zhounian/mobile/section1/sec1_add.png" class="abs sec1_add" id="sec1_add_go">
+				<img src="./public/images/activity/zhounian/mobile/section1/sec1_package.png" class="abs sec1_package" id="sec1_package_go">
+
+			</div>
+		</section>
+
+		<section class="section add  ">
+			<img src="${cdnpath}/images/activity/zhounian/mobile/section2/sec2_tit.png" class="sec2_tit abs">
+			<div class="add_wraper relative">
+				<img src="${cdnpath}/images/activity/zhounian/mobile/section2/sec2_xsb.png" >
+				<img src="${cdnpath}/images/activity/zhounian/mobile/section2/sec2_wbq.png" >
+				<img src="${cdnpath}/images/activity/zhounian/mobile/section2/sec2_m1.png" >
+				<img src="${cdnpath}/images/activity/zhounian/mobile/section2/sec2_m3.png" >
+				<img src="${cdnpath}/images/activity/zhounian/mobile/section2/sec2_m6.png" >
+			</div>
+			<div class="add_footer abs">
+				<img src="${cdnpath}/images/activity/zhounian/mobile/section2/sec2_cloud.png" class="add_footer_bg">
+				<img src="${cdnpath}/images/activity/zhounian/mobile/section2/sec2_rocket.png" class="add_footer_reocket  abs">
+			</div>
+		</section>
+
+
+		<section class="section slot " >
+
+			<div class="slot_cont abs">
+				<div class="sec3_tit_cont relative">
+					<img src="${cdnpath}/images/activity/zhounian/mobile/section3/sec3_tit.png" class="sec3_tit " >
+					<p class="sec3_tit_num abs">
+						<span id="slot_user_name"></span>
+						您有<span class="count" id="slot_count"></span>次抽奖机会
+					</p>
+				</div>
+				<div class="sec3_tigger_wraper abs">
+					<img src="${cdnpath}/images/activity/zhounian/mobile/section3/sec3_tigger.png" class="sec3_tigger relative">
+					<div class="award_slide abs" id="award_list">
+
+						<ul class="marquee-list" id="award_list_ul">
+							<li><span>a****7777</span>获得797元红包</li>
+
+							<script type="text/template" id="award_list_tpl">
+								{{#each list}}
+								<li>
+									<span>{{telHide phone}}</span>获得
+									<span>{{prize}}</span>
+								</li>
+								{{/each}}
+							</script>
+						</ul>
+
+					</div>
+					<img src="${cdnpath}/images/activity/zhounian/mobile/section3/sec3_tigger_handle.png" class="sec3_tigger_handle abs" id="sec3_tigger_handle">
+					<div class="awards_cont  abs">
+						<div id="slot_left" class="slot_item">
+					        <div class="slot slot0"></div>
+					        <div class="slot slot1"></div>
+					        <div class="slot slot2"></div>
+					        <div class="slot slot3"></div>
+					        <div class="slot slot4"></div>
+					    </div>
+					    
+					    <div id="slot_center" class="slot_item">
+					       	<div class="slot slot0"></div>
+					        <div class="slot slot1"></div>
+					        <div class="slot slot2"></div>
+					        <div class="slot slot3"></div>
+					        <div class="slot slot4"></div>
+					    </div>
+					   
+					    <div id="slot_right" class="slot_item">
+					        <div class="slot slot0"></div>
+					        <div class="slot slot1"></div>
+					        <div class="slot slot2"></div>
+					        <div class="slot slot3"></div>
+					        <div class="slot slot4"></div>
+					    </div>
+					   
+					</div>
+					<div class="sec3_tigger_btn abs" onClick="app.slotBtn()" id="sec3_tigger_btn">
+						点击开始抽奖
+					</div>
+				</div>
+				<div class="sec3_footer abs">
+					<img src="${cdnpath}/images/activity/zhounian/mobile/section3/sec3_bg.png" class="sec3_bg relative">
+					<img src="${cdnpath}/images/activity/zhounian/mobile/section3/sec3_cloud.png" class="sec3_cloud abs">
+					<div class="sec3_rules abs">
+						<span class="rules_item" data-val="0">活动规则</span>
+						<span class="rules_item" data-val="1">大礼花落</span>
+						<span class="rules_item" data-val="2">我的伴手礼</span>
+					</div>
+				</div>
+
+			</div>
+			<div class="tab_content abs">
+				<nav>
+					<span class="tab-item rule  active" data-val="0">活动规则</span>
+					<span class="tab-item flowers active1" data-val="1">大礼花落</span>
+					<span class="tab-item gift " data-val="2">我的伴手礼</span>
+				</nav>
+				<div class="tab_cont_wraper">
+					<div class="tab_cont_item item_0" data-val="0">
+						<dl>
+							<dt>奖项设置</dt>
+							<dd >
+								<span class="fn-fl">一等奖：iphone6S</span>
+								<span class="fn-fr">二等奖：Apple watch</span>
+							</dd>
+							<dd >三等奖：500元加油卡 <span class="fn-fr">四等奖：小熊充电器</span></dd>
+
+							<!-- <dd >四等奖：小熊充电器</dd> -->
+							<dd >五等奖：云腾自拍杆<span class="fn-fr">幸运奖：红包</span></dd>
+							<!-- <dd >五等奖：自拍神器（云腾188自拍杆）</dd>
+							<dd >幸运奖：红包</dd> -->
+						</dl>
+						<dl>
+							<dt>获得抽奖机会的方式有哪些？</dt>
+							<dd class="dot">新用户注册赠送一次抽奖机会</dd>
+							<dd class="dot">每购买一个理财项目只可获一次抽奖机会</dd>
+							<dd class="dot">每天将活动内容通过分享按钮分享到朋友圈，都可获赠一次抽奖机会（每天一次）</dd>
+
+							<dd class="dot">奖品于活动结束后的三个工作日内发放</dd>
+							<dd class="color-yel" style="margin-top:10px;">活动规则解释权归钱保姆所有</dd>
+							<dd class="color-yel">活动和奖品由钱保姆提供，与苹果公司无关</dd>
+							<dd class="color-yel">如有疑问请联系我们的客服400-606-7066</dd>
+						</dl>
+						
+					</div>
+					<div class="tab_cont_item item_1" data-val="1">
+						<h3>
+							<span>谁是手气王</span>
+						</h3>
+						<div class="marquee vertical" id="tab_flower_quee" style="overflow:hidden;">
+							<ul class="marquee-list" id="tab_flower_ul">
+								<!-- <li>
+									<span class="fn-fl">158****8888</span>
+									获得了
+									<span class="fn-fr">
+										<img src="${cdnpath}/images/activity/zhounian/mobile/section3/award_6s.png">
+									</span>
+								</li> -->
+								<script type="text/template" id="tab_flower_tpl">
+									{{#each list}}
+									<li>
+										<span class="fn-fl">{{telHide phone}}</span>
+										获得了
+										<span class="fn-fr">
+											<img src={{imgSrc level}}>
+										</span>
+									</li>
+									{{/each}}
+								</script>
+							</ul>
+						</div>
+					</div>
+					<div class="tab_cont_item item_2" data-val="2">
+						<h3>
+							<span class="fn-fl">您的礼品</span>
+							<span class="fn-fr">领取时间</span>
+						</h3>
+						<div id="tab_hand_quee">
+							<div class="swiper-container" id="hand_swiper_container">
+								<div class="swiper-wrapper" id="hand_swiper_wrapper">
+
+								</div>
+								<div class="hand_swiper_btn abs" onClick="app.mySwiper.swipePrev()" id="hand_swiper_prev" style="background:url(${cdnpath}/images/activity/zhounian/mobile/section3/sec3_arrows.png) no-repeat top left"></div>
+								<div class="hand_swiper_btn abs" onClick="app.mySwiper.swipeNext()" id="hand_swiper_next" style="background:url(${cdnpath}/images/activity/zhounian/mobile/section3/sec3_arrows.png) no-repeat bottom right;"></div>
+							</div>
+
+
+							<ul id="tab_hand_ul">
+								<!-- <li>
+									<span class="fn-fl">12元红包</span>
+									<span class="fn-fr">2015-11-03</span>
+								</li> -->
+								<script type="text/template" id="tab_hand_tpl">
+									{{#each list}}
+									<li>
+										<span class="fn-fl">{{prize}}</span>
+										<span class="fn-fr">{{addtime}}</span>
+									</li>
+									{{/each}}
+								</script>
+							</ul>
+						</div>
+
+						<div class="add_address">
+							<p class="tit">*您还未添加收货地址</p>
+							<span class="add_address_btn" id="add_address_btn">添加收货地址</span>
+						</div>
+					</div>
+					<div class="tab_cont_item item_address" >
+
+						<ul>
+							<li>
+								<input type="text" value="$!name"  placeholder="真实姓名" id="addressName">
+							</li>
+							<li>
+								<input type="text" value="$!phone" placeholder="手机号码" id="addressTel">
+							</li>
+							<li>
+								<textarea  placeholder="详细地址" id="addressDetail" >$!address2</textarea>
+							</li>
+							<li class="error-mes">
+								<p class="text-danger"></p>
+							</li>
+							<li class="agree">
+								<input type="checkbox" id="agree_send" checked>
+								<label for="agree_send">同意将以上信息提供给钱保姆</label>
+							</li>
+							<li>
+								<span class="submit_address" id="submit_address">提交保存</span>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<span class="tab_cont_back abs" id="tab_cont_back">返回转赚乐</span>
+			</div>
+		</section>
+
+		<section class="section package ">
+			<img src="${cdnpath}/images/activity/zhounian/mobile/section4/sec4_cont.gif"  class="sec4_cont">
+			<div class="package_footer abs">
+				<img src="${cdnpath}/images/activity/zhounian/mobile/section4/sec4_cloud.png" class="sec4_cloud relative">
+				<img src="${cdnpath}/images/activity/zhounian/mobile/section4/sec4_footer_font.gif" class="sec4_font abs">
+				<img src="${cdnpath}/images/activity/zhounian/mobile/section4/sec4_rule.png" class="sec4_rule abs">
+			</div>
+		</section>
+	</div>
+
+	<script type="text/template" id="award_fail">
+	{{#with this}}
+		<div class="award_fail">
+			<img src="${cdnpath}/images/activity/zhounian/mobile/section3/sec3_fail.png" class="sec3_fail">
+			<h4>很遗憾，没有抽中大礼</h4>
+			<p>但是！我们有<span class="color-red">{{award}}</span>给你安慰.么么哒</p>
+			<p class="bottom_operate">
+				<span class="lookBtn look" onclick="lookGift()">看看我的礼物</span>
+				<span class="continueBtn"  onclick="closeAll()">继续抽奖</span>
+			</p>
+		</div>
+	{{/with}}
+	</script>
+
+	<!-- <div style="display:none;" id="award_success">
+		<div class="award_success">
+			<img src="${cdnpath}/images/activity/zhounian/mobile/section3/sec3_success.png" class="sec3_success">
+			<h4>恭喜您获得<span class="color-red gift"></span>伴手礼</h4>
+			<p>哇偶！您获得了实物大奖，记得在活动页面<span class="color-orange">【我的伴手礼】</span>中添加<span class="color-red">收货地址</span>呦~</p>
+			<p class="bottom_operate">
+				<span class="lookBtn look">看看我的礼物</span>
+				<span class="continueBtn">继续抽奖</span>
+			</p>
+		</div>
+	</div> -->
+
+
+	<script type="text/template" id="award_success">
+		{{#with this}}
+		<div class="award_success">
+			<img src="${cdnpath}/images/activity/zhounian/mobile/section3/sec3_success.png" class="sec3_success">
+			<h4>恭喜您获得<span class="color-red gift">{{award}}</span>伴手礼</h4>
+			<p>哇偶！您获得了实物大奖，记得在活动页面<span class="color-orange">【我的伴手礼】</span>中添加<span class="color-red">收货地址</span>呦~</p>
+			<p class="bottom_operate">
+				<span class="lookBtn look" onclick="lookGift()">看看我的礼物</span>
+				<span class="continueBtn" onclick="closeAll()">继续抽奖</span>
+			</p>
+		</div>
+		{{/with}}
+	</script>
+	<div class="svgBox hide" style="display:none;"></div>
+	<input type="hidden" value="$user_id" id="userId">
+	<input type="hidden" value="${weburl}" id="webUrl">
+	<input type="hidden" value="$nowtime" id="slotTimer">
+
+	<script src="./public/js/jquery-1.9.1.min.js"></script>
+	<script src="./public/js/jquery-1.9.1.min.js"></script>
+	<script src="./public/js/handlebars/handlebars-3.0.3.min.js"></script>
+	<script src="./public/js/fullpage/jquery.fullPage.min.js"></script>
+
+	<script src="./public/js/swiper/idangerous.swiper.min.js"></script>
+	<script src="./public/js/layer.m/layer.m.js"></script>
+	<script src="./public/js/jquery.slotmachine.js"></script>
+	<script src="./public/js/activity.js"></script>
+	
+	<script>
+		function lookGift(){
+			layer.closeAll();
+			app.setSlotTab(2);
+			var $slotSection=$("section.slot").eq(0);
+			$slotSection.find(".slot_cont").hide().end().find(".tab_content").show();
+		}
+
+		function closeAll(){
+			layer.closeAll();
+		}
+
+		
+	</script>
+
+
+</body>
+</html>

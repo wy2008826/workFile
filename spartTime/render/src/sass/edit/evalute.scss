@@ -1,0 +1,47 @@
+@import "../ignore/mixin";
+
+.evalute_top{
+	padding:10px;
+	.item_link{
+		display: inline-block;
+		line-height: 24px;
+		margin:0 15px 0 0;
+		&.active{
+			color:#c04040;
+		}
+	}
+}
+
+.evalute_wraper{
+	.evalute_ul{
+		li{
+			margin-top: 10px;
+			background:#fff;
+			.list_top{
+				padding:0 10px 0 10px;
+				line-height: 34px;
+			}
+			.list_cont{
+				padding:10px;
+				$imgH:30px;
+				.user_mes{
+					.user_img{
+						height: $imgH;
+						width:$imgH;
+						@include borderRadius(50%);
+						margin-right:10px;
+					}
+				}
+				.desc{
+					margin:5px 0 5px 0;
+				}
+				.photoes{
+					.house_img{
+						height: 50px;
+						margin-right: 5px;
+					}
+				}
+			}
+		}
+	}
+}

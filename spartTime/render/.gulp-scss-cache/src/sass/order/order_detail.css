@@ -1,0 +1,38 @@
+.order_detail_container .house_box {
+  margin-top: 10px;
+  padding: 7px 10px 7px 10px; }
+  .order_detail_container .house_box .house_img {
+    height: 40px;
+    width: 40px;
+    margin: 3px 7px 0; }
+.order_detail_container .time_box {
+  margin-top: 10px; }
+  .order_detail_container .time_box .tit {
+    padding: 0 10px 0 10px;
+    line-height: 30px;
+    border-bottom: 1px solid #e5e5e5; }
+  .order_detail_container .time_box .cont {
+    border-bottom: 1px solid #e5e5e5; }
+    .order_detail_container .time_box .cont .item {
+      padding: 15px 0 15px 0;
+      border-right: 1px solid #e5e5e5; }
+      .order_detail_container .time_box .cont .item:last-child {
+        border-right: 0; }
+  .order_detail_container .time_box .location {
+    line-height: 30px;
+    padding: 0 10px 0 32px;
+    text-indent: -16px; }
+    .order_detail_container .time_box .location .location_icon {
+      width: 16px;
+      position: relative;
+      left: -4px; }
+.order_detail_container .person_mes_box {
+  padding: 5px 10px 5px 10px;
+  margin-top: 10px; }
+  .order_detail_container .person_mes_box .tit {
+    margin-bottom: 5px;
+    line-height: 34px; }
+.order_detail_container .note_box {
+  padding: 5px 10px 5px 10px; }
+
+/*# sourceMappingURL=order_detail.css.map */

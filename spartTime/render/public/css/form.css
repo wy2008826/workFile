@@ -1,0 +1,52 @@
+.lists_input {
+  margin-top: 15px; }
+  .lists_input .list_desc {
+    padding: 0 10px 0 10px;
+    line-height: 30px; }
+  .lists_input .lists_input_ul > li {
+    width: 100%;
+    height: 46px;
+    line-height: 46px;
+    background: #fff;
+    padding: 0 10px 0 10px;
+    border-top: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
+    margin-top: -1px;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    display: box;
+    display: -webkit-box; }
+    .lists_input .lists_input_ul > li label {
+      display: block; }
+    .lists_input .lists_input_ul > li input[type="text"] {
+      color: #666;
+      display: block;
+      height: 44px;
+      text-indent: 6px;
+      box-flex: 1;
+      -webkit-box-flex: 1;
+      border: 0;
+      box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      font-size: 14px; }
+      .lists_input .lists_input_ul > li input[type="text"][disabled] {
+        background: #fff; }
+    .lists_input .lists_input_ul > li.textarea {
+      height: 120px; }
+      .lists_input .lists_input_ul > li.textarea textarea {
+        line-height: 24px;
+        padding: 5px 0 5px 0;
+        display: block;
+        height: 100%;
+        box-flex: 1;
+        -webkit-box-flex: 1;
+        border: 0;
+        box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        font-size: 14px;
+        color: #666; }
+  .lists_input .next {
+    margin-top: 40px; }
