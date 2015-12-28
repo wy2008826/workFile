@@ -428,6 +428,10 @@
 					options.colNum=options.colsScale.split(":").length;
 					multiSlide=new MultiSelect(options);
 					$(elem).focus();
+
+					setTimeout(function(){
+						alert($("."+defaultOption.wraperClass).html());
+					},2000);
 				};
 				
 
