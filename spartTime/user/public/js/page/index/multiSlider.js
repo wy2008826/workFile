@@ -511,6 +511,7 @@
 			function move(){
 				var now=new Date()*1;
 				var transform=_getTransform(dom);
+				alert("move");
 				alert(JSON.stringify(transform));
 				if(now-startTime<=durTime){
 					var disY=y-transform.y;
