@@ -290,13 +290,11 @@
 
 
 			$header.find(".bottom_cancel")[0].onclick=function(e){
-				alert("cancel");
 				_animate($wraper[0],0,0,0,"y",undefined,self._removeMulti.bind(self));
 				
 			};
 
 			$header.find(".bottom_confirm")[0].onclick=function(e){
-				alert("confirm");
 				self._confirm();
 				_animate($wraper[0],0,0,0,"y",undefined,self._removeMulti.bind(self));
 				
@@ -430,15 +428,6 @@
 					options.colNum=options.colsScale.split(":").length;
 					multiSlide=new MultiSelect(options);
 					$(elem).focus();
-					setTimeout(function(){
-						var $wraper=$("."+defaultOption.wraperClass);
-						$wraper.css({
-							marginBottom:"180px"
-						});
-						alert($wraper.html());
-						alert($wraper.height());
-					},1000);
-
 				};
 				
 
@@ -464,21 +453,14 @@
 
 	function _getTransform(dom){//获取元素的transform属性
 		var transform=dom.style.webkitTransform || dom.style.transform;
-		alert("transform:"+transform);
-		try{
-			if(transform==""||transform==undefined){
-				dom.style.webkitTransform="translate3d(0,0,0)";
-				return {x:0,y:0,z:0};
-			}
-			else{
-				var xyz=transform.replace(/translate3d|\(|\)/g,"").split(",");
-				return {x:parseFloat(xyz[0]),y:parseFloat(xyz[1]),z:parseFloat(xyz[2])};
-			}
+		if(!transform){
+			dom.style.webkitTransform="translate3d(0,0,0)";
+			return {x:0,y:0,z:0};
 		}
-		catch(e){
-			alert(e.toString());
+		else{
+			var xyz=transform.replace(/translate3d|\(|\)/g,"").split(",");
+			return {x:parseFloat(xyz[0]),y:parseFloat(xyz[1]),z:parseFloat(xyz[2])};
 		}
-		
 	}
 	function _setTransform(dom,x,y,z){//设置位移属性
 		dom.style.webkitTransform="translate3d("+x+"px,"+y+"px,"+z+"px)";
@@ -508,20 +490,16 @@
 
 
 	function _animate(dom,x,y,z,direction,speedDeta,callback){//执行运动动画
-		
 		var durTime=200;//运动时长
 		var jump=10;//每10ms   运动间隙
-		var transform=_getTransform(dom);
-		// alert("animate1:"+JSON.stringify(transform));
 		if(direction=="y"){
 			var startTime=new Date()*1;
 			var timer=setInterval(move,jump);
-			alert("y");
+
 			function move(){
+				
 				var now=new Date()*1;
 				var transform=_getTransform(dom);
-				alert("move");
-				alert(JSON.stringify(transform));
 				if(now-startTime<=durTime){
 					var disY=y-transform.y;
 					var speed=disY / (durTime-(now-startTime));
@@ -530,7 +508,6 @@
 				}
 				else{
 					clearInterval(timer);
-					alert(dom.style.webkitTransform);
 					_setTransform(dom,transform.x,y,transform.z);
 					if(callback){
 						callback();
