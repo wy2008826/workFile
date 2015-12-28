@@ -370,7 +370,7 @@
 
 
 			$("body").append($shade).append($wraper);
-			_animate($wraper[0],0,-options.rows*options.lineHeight-options.headerHeight,0,"y",undefined);
+			_animate($wraper[0],0,options.rows*options.lineHeight+options.headerHeight,0,"y",undefined);
 			
 		},
 		initLists:function(){
