@@ -466,7 +466,7 @@
 		var transform=dom.style.webkitTransform || dom.style.transform;
 		alert("transform:"+transform);
 		try{
-			if(transform==""){
+			if(transform==""||transform==undefined){
 				dom.style.webkitTransform="translate3d(0,0,0)";
 				return {x:0,y:0,z:0};
 			}
