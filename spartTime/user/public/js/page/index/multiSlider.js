@@ -433,7 +433,7 @@
 						var $wraper=$("."+defaultOption.wraperClass);
 						// alert($wraper.html());
 						$wraper.css("marginBottom","100px");
-						alert($wraper[0].style);
+						alert($wraper.height());
 					},2000);
 				};
 				
