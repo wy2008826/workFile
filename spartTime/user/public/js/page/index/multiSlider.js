@@ -290,11 +290,13 @@
 
 
 			$header.find(".bottom_cancel")[0].onclick=function(e){
+				alert("cancel");
 				_animate($wraper[0],0,0,0,"y",undefined,self._removeMulti.bind(self));
 				
 			};
 
 			$header.find(".bottom_confirm")[0].onclick=function(e){
+				alert("confirm");
 				self._confirm();
 				_animate($wraper[0],0,0,0,"y",undefined,self._removeMulti.bind(self));
 				
@@ -370,7 +372,7 @@
 
 
 			$("body").append($shade).append($wraper);
-			_animate($wraper[0],0,options.rows*options.lineHeight+options.headerHeight,0,"y",undefined);
+			_animate($wraper[0],0,-options.rows*options.lineHeight-options.headerHeight,0,"y",undefined);
 			
 		},
 		initLists:function(){
@@ -428,13 +430,6 @@
 					options.colNum=options.colsScale.split(":").length;
 					multiSlide=new MultiSelect(options);
 					$(elem).focus();
-
-					setTimeout(function(){
-						var $wraper=$("."+defaultOption.wraperClass);
-						// alert($wraper.html());
-						// $wraper.css("marginBottom","100px");
-						alert($wraper.height());
-					},2000);
 				};
 				
 
