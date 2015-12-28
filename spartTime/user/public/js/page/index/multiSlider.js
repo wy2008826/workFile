@@ -498,6 +498,7 @@
 
 
 	function _animate(dom,x,y,z,direction,speedDeta,callback){//执行运动动画
+		alert("animate");
 		var durTime=200;//运动时长
 		var jump=10;//每10ms   运动间隙
 		if(direction=="y"){
@@ -505,7 +506,7 @@
 			var timer=setInterval(move,jump);
 
 			function move(){
-				
+				alert("move");
 				var now=new Date()*1;
 				var transform=_getTransform(dom);
 				if(now-startTime<=durTime){
@@ -516,6 +517,7 @@
 				}
 				else{
 					clearInterval(timer);
+					alert("clearInterval");
 					_setTransform(dom,transform.x,y,transform.z);
 					if(callback){
 						callback();
