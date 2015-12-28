@@ -501,9 +501,11 @@
 
 
 	function _animate(dom,x,y,z,direction,speedDeta,callback){//执行运动动画
-		alert("animate1");
+		
 		var durTime=200;//运动时长
 		var jump=10;//每10ms   运动间隙
+		var transform=_getTransform(dom);
+		alert("animate1:"+JSON.stringify(transform));
 		if(direction=="y"){
 			var startTime=new Date()*1;
 			var timer=setInterval(move,jump);
