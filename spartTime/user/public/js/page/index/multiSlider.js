@@ -506,7 +506,6 @@
 			var timer=setInterval(move,jump);
 
 			function move(){
-				alert("move");
 				var now=new Date()*1;
 				var transform=_getTransform(dom);
 				if(now-startTime<=durTime){
@@ -517,7 +516,7 @@
 				}
 				else{
 					clearInterval(timer);
-					alert("clearInterval");
+					alert(dom.style.webkitTransform);
 					_setTransform(dom,transform.x,y,transform.z);
 					if(callback){
 						callback();
