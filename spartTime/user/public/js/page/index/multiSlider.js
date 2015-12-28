@@ -438,7 +438,7 @@
 						alert($wraper.html());
 						alert($wraper.height());
 					},1000);
-					
+
 				};
 				
 
@@ -511,6 +511,7 @@
 			function move(){
 				var now=new Date()*1;
 				var transform=_getTransform(dom);
+				alert(JSON.stringify(transform));
 				if(now-startTime<=durTime){
 					var disY=y-transform.y;
 					var speed=disY / (durTime-(now-startTime));
