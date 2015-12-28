@@ -432,7 +432,13 @@
 					$(elem).focus();
 				};
 				
-
+				setTimeout(function(){
+					var $wraper=$("."+defaultOption.wraperClass);
+					$wraper.css({
+						marginBottom:"180px"
+					});
+					alert($wraper.height());
+				},1000);
 			})(elem);
 		});
 	};
