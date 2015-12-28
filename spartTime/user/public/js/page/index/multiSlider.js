@@ -430,7 +430,9 @@
 					$(elem).focus();
 
 					setTimeout(function(){
-						alert($("."+defaultOption.wraperClass).html());
+						var $wraper=$("."+defaultOption.wraperClass);
+						alert($wraper.html());
+						$wraper.css("marginBottom","100px");
 					},2000);
 				};
 				
