@@ -437,6 +437,7 @@
 					$wraper.css({
 						marginBottom:"180px"
 					});
+					alert($wraper.html());
 					alert($wraper.height());
 				},1000);
 			})(elem);
