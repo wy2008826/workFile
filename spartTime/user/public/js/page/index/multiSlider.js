@@ -432,7 +432,7 @@
 					setTimeout(function(){
 						var $wraper=$("."+defaultOption.wraperClass);
 						// alert($wraper.html());
-						$wraper.css("marginBottom","100px");
+						// $wraper.css("marginBottom","100px");
 						alert($wraper.height());
 					},2000);
 				};
