@@ -465,14 +465,20 @@
 	function _getTransform(dom){//获取元素的transform属性
 		var transform=dom.style.webkitTransform || dom.style.transform;
 		alert("transform:"+transform);
-		if(transform==""){
-			dom.style.webkitTransform="translate3d(0,0,0)";
-			return {x:0,y:0,z:0};
+		try{
+			if(transform==""){
+				dom.style.webkitTransform="translate3d(0,0,0)";
+				return {x:0,y:0,z:0};
+			}
+			else{
+				var xyz=transform.replace(/translate3d|\(|\)/g,"").split(",");
+				return {x:parseFloat(xyz[0]),y:parseFloat(xyz[1]),z:parseFloat(xyz[2])};
+			}
 		}
-		else{
-			var xyz=transform.replace(/translate3d|\(|\)/g,"").split(",");
-			return {x:parseFloat(xyz[0]),y:parseFloat(xyz[1]),z:parseFloat(xyz[2])};
+		catch(e){
+			alert(e.toString());
 		}
+		
 	}
 	function _setTransform(dom,x,y,z){//设置位移属性
 		dom.style.webkitTransform="translate3d("+x+"px,"+y+"px,"+z+"px)";
