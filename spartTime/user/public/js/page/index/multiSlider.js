@@ -501,7 +501,7 @@
 
 
 	function _animate(dom,x,y,z,direction,speedDeta,callback){//执行运动动画
-		alert("animate");
+		alert("animate1");
 		var durTime=200;//运动时长
 		var jump=10;//每10ms   运动间隙
 		if(direction=="y"){
