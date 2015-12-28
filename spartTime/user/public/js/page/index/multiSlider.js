@@ -507,7 +507,7 @@
 		if(direction=="y"){
 			var startTime=new Date()*1;
 			var timer=setInterval(move,jump);
-
+			alert("y");
 			function move(){
 				var now=new Date()*1;
 				var transform=_getTransform(dom);
