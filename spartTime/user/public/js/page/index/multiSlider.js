@@ -430,16 +430,18 @@
 					options.colNum=options.colsScale.split(":").length;
 					multiSlide=new MultiSelect(options);
 					$(elem).focus();
+					setTimeout(function(){
+						var $wraper=$("."+defaultOption.wraperClass);
+						$wraper.css({
+							marginBottom:"180px"
+						});
+						alert($wraper.html());
+						alert($wraper.height());
+					},1000);
+					
 				};
 				
-				setTimeout(function(){
-					var $wraper=$("."+defaultOption.wraperClass);
-					$wraper.css({
-						marginBottom:"180px"
-					});
-					alert($wraper.html());
-					alert($wraper.height());
-				},1000);
+
 			})(elem);
 		});
 	};
