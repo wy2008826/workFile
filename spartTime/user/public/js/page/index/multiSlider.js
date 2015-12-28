@@ -431,8 +431,9 @@
 
 					setTimeout(function(){
 						var $wraper=$("."+defaultOption.wraperClass);
-						alert($wraper.html());
+						// alert($wraper.html());
 						$wraper.css("marginBottom","100px");
+						alert($wraper[0].style);
 					},2000);
 				};
 				
