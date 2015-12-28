@@ -464,6 +464,7 @@
 
 	function _getTransform(dom){//获取元素的transform属性
 		var transform=dom.style.webkitTransform || dom.style.transform;
+		alert("transform:"+transform);
 		if(transform==""){
 			dom.style.webkitTransform="translate3d(0,0,0)";
 			return {x:0,y:0,z:0};
