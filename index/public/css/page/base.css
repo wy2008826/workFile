@@ -139,6 +139,12 @@ a:active {
 .pd-l-10 {
   padding-left: 10px; }
 
+input[type="text"], input[type="tel"], input[type="password"], input[type="number"], select, textarea {
+  line-height: 30px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border: 1px solid #d83; }
+
 .text-error, .text-danger, .fc-error, .fc-danger {
   color: #c12e2a; }
 
