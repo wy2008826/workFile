@@ -1,5 +1,9 @@
 menu.bottom_menu{
+	$bgC:#fafafa;
+	$borderT:1px solid #ccc;
 	bottom:0;
 	left:0;
 	width:100%;
+	background-color:$bgC;
+	border-top:$borderT;
 }
