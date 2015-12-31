@@ -5,4 +5,5 @@ $inp-pd:5px;
 $inp-color:#d83;
 input[type="text"],input[type="tel"],input[type="password"],input[type="number"],select,textarea{line-height:$inp-h;padding-left:$inp-pd;padding-right:$inp-pd;
 	border:1px solid $inp-color;
+	
 }
