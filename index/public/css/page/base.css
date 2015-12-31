@@ -25,7 +25,12 @@ input, img {
 
 input, select, textarea {
   outline: 0;
-  /*-webkit-appearance:none*/ }
+  -webkit-appearance: none;
+  box-shadow: 0;
+  border-width: 1px; }
+
+section, input, select, textarea {
+  -webkit-tap-highlight-color: transparent; }
 
 a {
   text-decoration: none;
