@@ -104,6 +104,18 @@ a:active {
 .lh-30 {
   line-height: 30px; }
 
+.mt-5 {
+  margin-top: 5px; }
+
+.mt-10 {
+  margin-top: 10px; }
+
+.mt-15 {
+  margin-top: 15px; }
+
+.mt-20 {
+  margin-top: 20px; }
+
 .text-error, .text-danger, .fc-error, .fc-danger {
   color: #c12e2a; }
 
