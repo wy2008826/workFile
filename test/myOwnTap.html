@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+	<meta content="yes" name="apple-mobile-web-app-capable">
+	<meta content="black" name="apple-mobile-web-app-status-bar-style">
+	<meta content="telephone=no" name="format-detection">
+	<meta content="email=no" name="format-detection">
+	<title>Tap</title>
+</head>
+<body>
+	<script>
+		var top_down=document.getElementsByTagName("body")[0];
+		Tap(top_down,function(e){
+			console.log(e);
+			var istopDown=e.target==document.getElementById("top_down");
+			var isTopImg=e.target==document.getElementsByClassName("top_logo")[0];
+			console.log(istopDown,isTopImg);
+		});
+
+
+		function Tap(elem,callBack){
+
+			var startPos={x:0,y:0};
+			var movPos={x:0,y:0};
+			var endPos={x:0,y:0};
+			elem.addEventListener("touchstart",startHandler);
+
+			function startHandler(e){
+
+				elem.removeEventListener("touchmove",moveHandler)
+				elem.removeEventListener("touchend",endHandler)
+
+				var touches=e.touches[0];
+				startPos.x=touches.clientX;
+				startPos.y=touches.clientY;
+				elem.addEventListener("touchmove",moveHandler)
+				elem.addEventListener("touchend",endHandler)
+			}
+
+			function moveHandler(){
+				elem.removeEventListener("touchend",endHandler)
+			}
+
+
+			function endHandler(e){
+				callBack(e);
+			}
+
+		}
+
+	</script>
+</body>
+</html>
