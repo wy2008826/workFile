@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+		<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+		<meta content="yes" name="apple-mobile-web-app-capable">
+		<meta content="black" name="apple-mobile-web-app-status-bar-style">
+		<meta content="telephone=no" name="format-detection">
+		<meta content="email=no" name="format-detection">
+	<title>Document</title>
+</head>
+<body>
+	
+	<div id="container">
+		
+	</div>
+
+	<script type="text/template" id="test">
+		{{each lists}}
+			<li>
+				<span>{{$index}}:{{$value.name}}|{{status}}|{{obj.color}}|</span>
+				<p>安全字符:{{#$value.html}}</p>
+				<p>非安全字符:{{$value.html}}</p>
+				<span>{{$value.age}}</span>
+				<p>
+					{{CITY $value.name status 123}}
+				</p>
+			</li>
+		{{/each}}
+	</script>
+	<script src="template.js"></script>
+
+	<script>
+		var data={
+			status:"hahah",
+			obj:{
+				color:"#fff"
+			},
+			lists:[
+				{
+					name:"习大大",
+					age:55,
+					city:"hz",
+					html:"<span class='index'>这是html文本</span>"
+				},
+				{
+					name:"习大大1",
+					age:56546
+				}
+			]
+		};
+
+		template.helper("CITY",function(v1,v2,v3){
+			console.log(v1,v2,v3);
+			return v1+v2+v3;
+		});
+
+		
+		var container=document.getElementById("container");
+		var templateTpl=document.getElementById("test").innerHTML;
+
+		var htmlTpl=template.compile(templateTpl);
+		var html=htmlTpl(data);
+		container.innerHTML=html;
+		console.log(templateTpl,html);
+
+
+	</script>
+</body>
+</html>
