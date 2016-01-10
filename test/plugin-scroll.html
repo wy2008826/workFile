@@ -83,6 +83,7 @@
 			}
 
 			function moveHandler(e){
+				e.preventDefault();
 				var touch=e.touches[0];
 				var move_x=touch.clientX;
 				var move_y=touch.clientY;
