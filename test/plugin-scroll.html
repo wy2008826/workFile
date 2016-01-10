@@ -69,7 +69,7 @@
 			var startTranslate;
 			var lastMovePos;
 			var lastMoveTime;
-			var speed;
+			var speed=0;
 			var resistDistance=80;
 
 			function startHandler(e){
@@ -80,7 +80,19 @@
 				startPos={x:start_x,y:start_y};
 				lastMovePos=startPos;
 				lastMoveTime=new Date()*1;
-				// console.log(translate,startPos);
+				
+				try{
+					if(slowDownTimer){
+						clearInterval(slowDownTimer);
+					}
+					if(animateTransformTimer){
+						clearInterval(animateTransformTimer);
+					}
+				}
+				catch(e){
+
+				}
+				
 			}
 
 			function moveHandler(e){
@@ -96,27 +108,32 @@
 					var deta=(resistDistance-translate.y)/resistDistance;
 					translate.y+=dis_y * deta;
 				}
+				// else if(translate.y<0 && (inner.offsetHeight<=wraper.offsetHeight-translate.y<=inner.offsetHeight+resistDistance) ){
+				// 	var deta=(wraper.offsetHeight-translate.y-inner.offsetHeight-resistDistance)/resistDistance;
+				// 	translate.y+=dis_y * deta;
+				// }
 				else{
 					translate.y+=dis_y;
 				}
-
-
 				
 				setTransform(inner,translate);
 
 				lastMovePos={x:move_x,y:move_y};
 				lastMoveTime=move_time;
-				speed=dis_y / dur_time;
-				// console.log(translate,speed);
+				speed=(dis_y / dur_time).toFixed(2);
+				console.log(speed,translate);
 			}
 
 			function endHandler(e){
+
+				console.log(speed);
 				var translate=getTransform(inner);
-				if(translate.y>0&&translate.y<=resistDistance){//顶部露出
+				if(translate.y > 0 && translate.y <= resistDistance){//顶部露出
 					animateTransform(inner,{x:0,y:0,z:0})
 				}
 				else{
-					slowDown(inner,speed);
+					
+					slowDown(inner);
 				}
 				
 			}
@@ -142,29 +159,34 @@
 				dom.style.webkitTransform=tranStr;
 			}
 
-			function slowDown(dom,_speed){
+			function slowDown(dom){
 				
-				var deta=0.95;
+				
 				var intervalDur=5;
-				var timer=setInterval(slow,intervalDur);
-
+				slowDownTimer=setInterval(slow,intervalDur);
+				
 				function slow(){
-					_speed=_speed * deta;
+					var deta=0.95;
+					speed=speed * deta;
 					var translate=getTransform(dom);
-					var dis_y=_speed * intervalDur * deta;
-
-					if(Math.abs(dis_y)<=1){//速度足够小  终止运动
-						clearInterval(timer);
+					var dis_y=speed * intervalDur * deta;
+					// console.log(speed,dis_y);
+					if(Math.abs(dis_y)<=0.00001){//速度足够小  终止运动
+						clearInterval(slowDownTimer);
 					}
 					else{
-						if(translate.y>0&&translate.y<=resistDistance){
+
+						if(translate.y>0){
 							var deta=(resistDistance-translate.y)/resistDistance;
 							translate.y+=dis_y * deta;
+							// console.log(dis_y,translate);
 						}
 						else{
 							translate.y+=dis_y;
-							
+							// console.log("slow",dis_y,translate);
+
 						}
+						
 						setTransform(dom,translate)
 					}
 				}
@@ -174,19 +196,19 @@
 			function animateTransform(dom,translateEnd){
 				
 
-				var timer=setInterval(animate,5);
+				animateTransformTimer=setInterval(animate,5);
 
 				function animate(){
 					var translate=getTransform(dom);
 					var dis=translateEnd.y-translate.y;
 
 					var speed=dis * 0.03;
-					if(translate.y>=1){
+					if(translate.y>=0.4){
 						translate.y+=speed;
 						setTransform(dom,translate);
 					}
 					else{
-						clearInterval(timer);
+						clearInterval(animateTransformTimer);
 					}
 					
 				}
