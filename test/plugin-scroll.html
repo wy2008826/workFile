@@ -70,6 +70,7 @@
 			var lastMovePos;
 			var lastMoveTime;
 			var speed;
+			var resistDistance=80;
 
 			function startHandler(e){
 				var touch=e.touches[0];
@@ -90,10 +91,16 @@
 				var move_time=new Date()*1;
 				var dis_y=move_y-lastMovePos.y;
 				var dur_time=move_time-lastMoveTime;
-				
-
 				var translate=getTransform(inner);
-				translate.y+=dis_y;
+				if(translate.y>0&&translate.y<=resistDistance){//顶部露出
+					var deta=(resistDistance-translate.y)/resistDistance;
+					translate.y+=dis_y * deta;
+				}
+				else{
+					translate.y+=dis_y;
+				}
+
+
 				
 				setTransform(inner,translate);
 
@@ -104,51 +111,89 @@
 			}
 
 			function endHandler(e){
-				
-				slowDown(inner,speed);
-			}
-
-		}
-
-		function getTransform(dom){
-			var transform=dom.style.webkitTransform;
-			if(transform){
-				var translateArray=( transform.replace(/translate3d|\(|\)|px/g,"") ).split(",");
-				return {x:parseFloat(translateArray[0]),y:parseFloat(translateArray[1]),z:parseFloat(translateArray[2])};
-			}
-			else{
-				dom.style.webkitTransform="translate3d(0,0,0)";
-				return {x:0,y:0,z:0}
-			}
-			
-		}
-
-		function setTransform(dom,translate){
-			var tranStr="translate3d("+translate.x+"px,"+translate.y+"px,"+translate.z+"px)";
-			
-			dom.style.webkitTransform=tranStr;
-		}
-
-		function slowDown(dom,_speed){
-			
-			var deta=0.95;
-			var intervalDur=5;
-			var timer=setInterval(slow,intervalDur);
-
-			function slow(){
-				_speed=_speed * deta;
-				var dis_y=_speed * intervalDur * deta;
-				// console.log(dis_y);
-				if(Math.abs(dis_y)<=1){
-					clearInterval(timer);
+				var translate=getTransform(inner);
+				if(translate.y>0&&translate.y<=resistDistance){//顶部露出
+					animateTransform(inner,{x:0,y:0,z:0})
 				}
 				else{
+					slowDown(inner,speed);
+				}
+				
+			}
+
+
+
+			function getTransform(dom){
+				var transform=dom.style.webkitTransform;
+				if(transform){
+					var translateArray=( transform.replace(/translate3d|\(|\)|px/g,"") ).split(",");
+					return {x:parseFloat(translateArray[0]),y:parseFloat(translateArray[1]),z:parseFloat(translateArray[2])};
+				}
+				else{
+					dom.style.webkitTransform="translate3d(0,0,0)";
+					return {x:0,y:0,z:0}
+				}
+				
+			}
+
+			function setTransform(dom,translate){
+				var tranStr="translate3d("+translate.x+"px,"+translate.y+"px,"+translate.z+"px)";
+				
+				dom.style.webkitTransform=tranStr;
+			}
+
+			function slowDown(dom,_speed){
+				
+				var deta=0.95;
+				var intervalDur=5;
+				var timer=setInterval(slow,intervalDur);
+
+				function slow(){
+					_speed=_speed * deta;
 					var translate=getTransform(dom);
-					translate.y+=dis_y;
-					setTransform(dom,translate)
+					var dis_y=_speed * intervalDur * deta;
+
+					if(Math.abs(dis_y)<=1){//速度足够小  终止运动
+						clearInterval(timer);
+					}
+					else{
+						if(translate.y>0&&translate.y<=resistDistance){
+							var deta=(resistDistance-translate.y)/resistDistance;
+							translate.y+=dis_y * deta;
+						}
+						else{
+							translate.y+=dis_y;
+							
+						}
+						setTransform(dom,translate)
+					}
+				}
+			}
+
+
+			function animateTransform(dom,translateEnd){
+				
+
+				var timer=setInterval(animate,5);
+
+				function animate(){
+					var translate=getTransform(dom);
+					var dis=translateEnd.y-translate.y;
+
+					var speed=dis * 0.03;
+					if(translate.y>=1){
+						translate.y+=speed;
+						setTransform(dom,translate);
+					}
+					else{
+						clearInterval(timer);
+					}
+					
 				}
 			}
 		}
+
+		
 
 	</script>
 </body>
