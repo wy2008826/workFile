@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+	<meta content="yes" name="apple-mobile-web-app-capable">
+	<meta content="black" name="apple-mobile-web-app-status-bar-style">
+	<meta content="telephone=no" name="format-detection">
+	<meta content="email=no" name="format-detection">
+	<title>自定义缓冲滚动</title>
+
+	<style>
+		*{padding:0;margin:0;}
+		body{background-color: #f8f8f8;}
+		#scrollWraper{width: 80%;margin:10px auto;border:1px solid #ccc;overflow: hidden;height: 300px;background-color: #fff;}
+		#scrollContent ul li{line-height: 40px;text-align: center;border-top: 1px solid #f2f2f2;background-color: #fff;}
+	</style>
+</head>
+<body>
+	<div id="scrollWraper">
+		<div id="scrollContent">
+			<ul>
+				<li>1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+				<li>5</li>
+				<li>6</li>
+				<li>7</li>
+				<li>8</li>
+				<li>9</li>
+				<li>10</li>
+				<li>11</li>
+				<li>12</li>
+				<li>13</li>
+				<li>14</li>
+				<li>15</li>
+				<li>16</li>
+				<li>17</li>
+				<li>18</li>
+				<li>19</li>
+				<li>20</li>
+				<li>21</li>
+				<li>22</li>
+				<li>23</li>
+				<li>24</li>
+				<li>25</li>
+				<li>26</li>
+				<li>27</li>
+				<li>28</li>
+				<li>29</li>
+				<li>30</li>
+			</ul>
+		</div>
+	</div>
+
+
+	<script>
+		window.onload=loaded();
+		function loaded(){
+			var wraper=document.getElementById("scrollWraper");
+			var inner=document.getElementById("scrollContent");
+
+			wraper.addEventListener("touchstart",startHandler);
+			wraper.addEventListener("touchmove",moveHandler);
+			wraper.addEventListener("touchend",endHandler);
+
+			var startPos;
+			var startTranslate;
+			var lastMovePos;
+			var lastMoveTime;
+			var speed;
+
+			function startHandler(e){
+				var touch=e.touches[0];
+				var start_x=touch.clientX;
+				var start_y=touch.clientY;
+				speed=0;
+				startPos={x:start_x,y:start_y};
+				lastMovePos=startPos;
+				lastMoveTime=new Date()*1;
+				// console.log(translate,startPos);
+			}
+
+			function moveHandler(e){
+				var touch=e.touches[0];
+				var move_x=touch.clientX;
+				var move_y=touch.clientY;
+				var move_time=new Date()*1;
+				var dis_y=move_y-lastMovePos.y;
+				var dur_time=move_time-lastMoveTime;
+				
+
+				var translate=getTransform(inner);
+				translate.y+=dis_y;
+				
+				setTransform(inner,translate);
+
+				lastMovePos={x:move_x,y:move_y};
+				lastMoveTime=move_time;
+				speed=dis_y / dur_time;
+				// console.log(translate,speed);
+			}
+
+			function endHandler(e){
+				
+				slowDown(inner,speed);
+			}
+
+		}
+
+		function getTransform(dom){
+			var transform=dom.style.webkitTransform;
+			if(transform){
+				var translateArray=( transform.replace(/translate3d|\(|\)|px/g,"") ).split(",");
+				return {x:parseFloat(translateArray[0]),y:parseFloat(translateArray[1]),z:parseFloat(translateArray[2])};
+			}
+			else{
+				dom.style.webkitTransform="translate3d(0,0,0)";
+				return {x:0,y:0,z:0}
+			}
+			
+		}
+
+		function setTransform(dom,translate){
+			var tranStr="translate3d("+translate.x+"px,"+translate.y+"px,"+translate.z+"px)";
+			
+			dom.style.webkitTransform=tranStr;
+		}
+
+		function slowDown(dom,_speed){
+			
+			var deta=0.95;
+			var intervalDur=10;
+			var timer=setInterval(slow,intervalDur);
+
+			function slow(){
+				_speed=_speed * deta;
+				var dis_y=_speed * intervalDur * deta;
+				// console.log(dis_y);
+				if(Math.abs(dis_y)<=1){
+					clearInterval(timer);
+				}
+				else{
+					var translate=getTransform(dom);
+					translate.y+=dis_y;
+					setTransform(dom,translate)
+				}
+			}
+		}
+
+	</script>
+</body>
+</html>
