@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+	 <meta charset="utf-8">
+    <meta name="msapplication-tap-highlight" content="no"><!-- 取消input的高亮选择显示 -->
+    <meta name="format-detection" content="telephone=no" /><!-- 取消iphone的手机号码默认样式 -->
+    <meta name="apple-mobile-web-app-capable" content="no" /><!-- 取消苹果的菜单栏和工具栏 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no,minimum-scale=1.0, maximum-scale=1.0">
+    
+	<title>swiper测试滑动动效</title>
+	<link rel="stylesheet" href="swiper-3.2.7.min.css">
+
+	<style>
+		*{padding:0;margin:0;}
+		.swiper-container{
+			height: 300px;
+			width: 320px;
+		}
+		.blue-slide{background-color: #39f}
+		.red-slide{background-color: #f93}
+	</style>
+</head>
+<body>
+	
+	<div class="swiper-container" id="swiper">
+		<div class="swiper-wrapper">
+			<div class="swiper-slide blue-slide">
+				1
+			</div>
+			<div class="swiper-slide red-slide">
+				2
+			</div>
+			<div class="swiper-slide blue-slide">
+				3
+			</div>
+		</div>
+	</div>
+
+
+	<script src="swiper-3.2.7.min.js"></script>
+
+	<script>
+		var swiper=new Swiper("#swiper");
+	</script>
+</body>
+</html>
