@@ -41,10 +41,14 @@
 	<script src="swiper-3.2.7.min.js"></script>
 
 	<script>
-		var swiper=new Swiper("#swiper");
+		var swiper=new Swiper("#swiper",{
+			speed:600
+		});
 		var prev=document.getElementById("prev");
 		prev.onclick=function(){
-			swiper.slideNext();
+			swiper.slideNext(function(){
+				console.log(2134);
+			},10000);
 		}
 	</script>
 </body>
