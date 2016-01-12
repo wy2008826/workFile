@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+    <meta name="msapplication-tap-highlight" content="no"><!-- 取消input的高亮选择显示 -->
+    <meta name="format-detection" content="telephone=no" /><!-- 取消iphone的手机号码默认样式 -->
+    <meta name="apple-mobile-web-app-capable" content="no" /><!-- 取消苹果的菜单栏和工具栏 -->
+    <meta name="viewport" content="width=640, initial-scale=0.5,user-scalable=no,minimum-scale=0.5, maximum-scale=0.5">
+	<title>em-rem</title>
+	<style>
+		*{padding:0;margin:0;}
+		html{font-size: 75px;}
+		body{
+			font-size:28px;
+		}
+		.wraper{
+			font-size:1em;
+		}
+		.wraper .inner{line-height: 60px;}
+		.test-rem{
+			border:1px solid #f94;
+			padding-top: 1rem;
+			font-size: 1em;
+		}
+	</style>
+</head>
+<body>
+	
+
+	<div class="wraper">
+		html:font-size:75px;body:font-size:28px;
+		<p class="inner">
+			测试测试测试测试测试测试测试
+		</p>
+		
+	</div>
+	<p style="font-size:14px;">
+		style="font-size:14px;"
+	</p>
+	<p style="font-size:28px;">
+		style="font-size:28px;"
+	</p>
+	<p style="font-size:36px;">
+		style="font-size:36px;"
+	</p>
+	<p style="font-size:1em;">
+		style="font-size:1em;"
+	</p>
+
+	<p style="font-size:2em;">
+		style="font-size:2em;"
+	</p>
+	<div class="test-rem">
+		测试rem  padding-top: 1rem;
+			font-size: 1em;
+	</div>
+</body>
+</html>
