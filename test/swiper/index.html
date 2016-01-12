@@ -35,12 +35,17 @@
 			</div>
 		</div>
 	</div>
-
+	
+	<a id="prev">下一个</a>
 
 	<script src="swiper-3.2.7.min.js"></script>
 
 	<script>
 		var swiper=new Swiper("#swiper");
+		var prev=document.getElementById("prev");
+		prev.onclick=function(){
+			swiper.slideNext();
+		}
 	</script>
 </body>
 </html>
