@@ -44,7 +44,7 @@
 		</form>
 	</fieldset>
 	
-	<menu class="pos-fix row lh-40 text-center bottom_menu">
+	<!-- <menu class="pos-fix row lh-40 text-center bottom_menu">
 		<div class="col-all-4">
 			首页
 		</div>
@@ -55,17 +55,21 @@
 			测试2
 		</div>
 	</menu>
-
+ -->
 	<div class="bottomInput" id="fixed">
 		<input type="text" placeholder="请输入">
 	</div>
 
 	<script>
 		var fixed=document.getElementById("fixed");
-		fixed.onfocus=function(){
+		// fixed.onfocus=function(){
+		// 	alert(2143);
+		// 	document.body.scrollTop=document.body.offsetHeight;
+		// }
+		fixed.addEventListener("click",function(){
 			alert(2143);
 			document.body.scrollTop=document.body.offsetHeight;
-		}
+		});
 	</script>
 </body>
 </html>
