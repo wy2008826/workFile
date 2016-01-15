@@ -67,8 +67,14 @@
 		// 	document.body.scrollTop=document.body.offsetHeight;
 		// }
 		fixed.addEventListener("click",function(){
-			alert(2143);
-			document.body.scrollTop=document.body.offsetHeight * 2;
+			alert("click");
+			// document.body.scrollTop=document.body.offsetHeight * 2;
+			fixed.style.position="static";
+		});
+		fixed.addEventListener("blur",function(){
+			alert("blur");
+			// document.body.scrollTop=document.body.offsetHeight * 2;
+			fixed.style.position="fixed";
 		});
 	</script>
 </body>
