@@ -1,0 +1,365 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node',
+1 verbose cli   'C:\\Users\\Administrator\\AppData\\Roaming\\npm\\node_modules\\cnpm\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   '--userconfig=C:\\Users\\Administrator\\.cnpmrc',
+1 verbose cli   '--disturl=https://npm.taobao.org/mirrors/node',
+1 verbose cli   '--cache=C:\\Users\\Administrator\\.cnpm',
+1 verbose cli   '--registry=https://registry.npm.taobao.org',
+1 verbose cli   '--node-gyp=C:\\Users\\Administrator\\AppData\\Roaming\\npm\\node_modules\\cnpm\\node_modules\\pangyp\\bin\\node-gyp.js',
+1 verbose cli   'install' ]
+2 info using npm@2.13.5
+3 info using node@v0.12.7
+4 verbose readDependencies loading dependencies from F:\github\workFile\index\package.json
+5 warn package.json testgulp@1.0.0 No repository field.
+6 warn package.json testgulp@1.0.0 No README data
+7 warn package.json Dependency 'gulp-clean' exists in both dependencies and devDependencies, using 'gulp-clean@^0.3.1' from dependencies
+8 warn package.json Dependency 'gulp-concat' exists in both dependencies and devDependencies, using 'gulp-concat@^2.6.0' from dependencies
+9 verbose install where, deps [ 'F:\\github\\workFile\\index',
+9 verbose install   [ 'gulp-concat',
+9 verbose install     'gulp-clean',
+9 verbose install     'gulp',
+9 verbose install     'gulp-load-plugins',
+9 verbose install     'gulp-minify-css',
+9 verbose install     'gulp-rev',
+9 verbose install     'gulp-scss' ] ]
+10 verbose install where, peers [ 'F:\\github\\workFile\\index', [] ]
+11 verbose installManyTop reading for lifecycle F:\github\workFile\index\package.json
+12 info preinstall testgulp@1.0.0
+13 verbose readDependencies loading dependencies from F:\github\workFile\index\package.json
+14 silly cache add args [ 'gulp@^3.9.0', null ]
+15 verbose cache add spec gulp@^3.9.0
+16 silly cache add parsed spec { raw: 'gulp@^3.9.0',
+16 silly cache add   scope: null,
+16 silly cache add   name: 'gulp',
+16 silly cache add   rawSpec: '^3.9.0',
+16 silly cache add   spec: '>=3.9.0 <4.0.0',
+16 silly cache add   type: 'range' }
+17 silly addNamed gulp@>=3.9.0 <4.0.0
+18 verbose addNamed ">=3.9.0 <4.0.0" is a valid semver range for gulp
+19 silly addNameRange { name: 'gulp', range: '>=3.9.0 <4.0.0', hasData: false }
+20 silly mapToRegistry name gulp
+21 silly mapToRegistry using default registry
+22 silly mapToRegistry registry https://registry.npm.taobao.org/
+23 silly mapToRegistry uri https://registry.npm.taobao.org/gulp
+24 verbose addNameRange registry:https://registry.npm.taobao.org/gulp not in flight; fetching
+25 silly cache add args [ 'gulp-load-plugins@^1.0.0', null ]
+26 verbose cache add spec gulp-load-plugins@^1.0.0
+27 silly cache add parsed spec { raw: 'gulp-load-plugins@^1.0.0',
+27 silly cache add   scope: null,
+27 silly cache add   name: 'gulp-load-plugins',
+27 silly cache add   rawSpec: '^1.0.0',
+27 silly cache add   spec: '>=1.0.0 <2.0.0',
+27 silly cache add   type: 'range' }
+28 silly addNamed gulp-load-plugins@>=1.0.0 <2.0.0
+29 verbose addNamed ">=1.0.0 <2.0.0" is a valid semver range for gulp-load-plugins
+30 silly addNameRange { name: 'gulp-load-plugins',
+30 silly addNameRange   range: '>=1.0.0 <2.0.0',
+30 silly addNameRange   hasData: false }
+31 silly mapToRegistry name gulp-load-plugins
+32 silly mapToRegistry using default registry
+33 silly mapToRegistry registry https://registry.npm.taobao.org/
+34 silly mapToRegistry uri https://registry.npm.taobao.org/gulp-load-plugins
+35 verbose addNameRange registry:https://registry.npm.taobao.org/gulp-load-plugins not in flight; fetching
+36 silly cache add args [ 'gulp-minify-css@^1.2.2', null ]
+37 verbose cache add spec gulp-minify-css@^1.2.2
+38 silly cache add parsed spec { raw: 'gulp-minify-css@^1.2.2',
+38 silly cache add   scope: null,
+38 silly cache add   name: 'gulp-minify-css',
+38 silly cache add   rawSpec: '^1.2.2',
+38 silly cache add   spec: '>=1.2.2 <2.0.0',
+38 silly cache add   type: 'range' }
+39 silly addNamed gulp-minify-css@>=1.2.2 <2.0.0
+40 verbose addNamed ">=1.2.2 <2.0.0" is a valid semver range for gulp-minify-css
+41 silly addNameRange { name: 'gulp-minify-css',
+41 silly addNameRange   range: '>=1.2.2 <2.0.0',
+41 silly addNameRange   hasData: false }
+42 silly mapToRegistry name gulp-minify-css
+43 silly mapToRegistry using default registry
+44 silly mapToRegistry registry https://registry.npm.taobao.org/
+45 silly mapToRegistry uri https://registry.npm.taobao.org/gulp-minify-css
+46 verbose addNameRange registry:https://registry.npm.taobao.org/gulp-minify-css not in flight; fetching
+47 silly cache add args [ 'gulp-rev@^6.0.1', null ]
+48 verbose cache add spec gulp-rev@^6.0.1
+49 silly cache add parsed spec { raw: 'gulp-rev@^6.0.1',
+49 silly cache add   scope: null,
+49 silly cache add   name: 'gulp-rev',
+49 silly cache add   rawSpec: '^6.0.1',
+49 silly cache add   spec: '>=6.0.1 <7.0.0',
+49 silly cache add   type: 'range' }
+50 silly addNamed gulp-rev@>=6.0.1 <7.0.0
+51 verbose addNamed ">=6.0.1 <7.0.0" is a valid semver range for gulp-rev
+52 silly addNameRange { name: 'gulp-rev', range: '>=6.0.1 <7.0.0', hasData: false }
+53 silly mapToRegistry name gulp-rev
+54 silly mapToRegistry using default registry
+55 silly mapToRegistry registry https://registry.npm.taobao.org/
+56 silly mapToRegistry uri https://registry.npm.taobao.org/gulp-rev
+57 verbose addNameRange registry:https://registry.npm.taobao.org/gulp-rev not in flight; fetching
+58 silly cache add args [ 'gulp-scss@^1.3.15', null ]
+59 verbose cache add spec gulp-scss@^1.3.15
+60 silly cache add parsed spec { raw: 'gulp-scss@^1.3.15',
+60 silly cache add   scope: null,
+60 silly cache add   name: 'gulp-scss',
+60 silly cache add   rawSpec: '^1.3.15',
+60 silly cache add   spec: '>=1.3.15 <2.0.0',
+60 silly cache add   type: 'range' }
+61 silly addNamed gulp-scss@>=1.3.15 <2.0.0
+62 verbose addNamed ">=1.3.15 <2.0.0" is a valid semver range for gulp-scss
+63 silly addNameRange { name: 'gulp-scss', range: '>=1.3.15 <2.0.0', hasData: false }
+64 silly mapToRegistry name gulp-scss
+65 silly mapToRegistry using default registry
+66 silly mapToRegistry registry https://registry.npm.taobao.org/
+67 silly mapToRegistry uri https://registry.npm.taobao.org/gulp-scss
+68 verbose addNameRange registry:https://registry.npm.taobao.org/gulp-scss not in flight; fetching
+69 silly cache add args [ 'gulp-concat@^2.6.0', null ]
+70 verbose cache add spec gulp-concat@^2.6.0
+71 silly cache add parsed spec { raw: 'gulp-concat@^2.6.0',
+71 silly cache add   scope: null,
+71 silly cache add   name: 'gulp-concat',
+71 silly cache add   rawSpec: '^2.6.0',
+71 silly cache add   spec: '>=2.6.0 <3.0.0',
+71 silly cache add   type: 'range' }
+72 silly addNamed gulp-concat@>=2.6.0 <3.0.0
+73 verbose addNamed ">=2.6.0 <3.0.0" is a valid semver range for gulp-concat
+74 silly addNameRange { name: 'gulp-concat', range: '>=2.6.0 <3.0.0', hasData: false }
+75 silly mapToRegistry name gulp-concat
+76 silly mapToRegistry using default registry
+77 silly mapToRegistry registry https://registry.npm.taobao.org/
+78 silly mapToRegistry uri https://registry.npm.taobao.org/gulp-concat
+79 verbose addNameRange registry:https://registry.npm.taobao.org/gulp-concat not in flight; fetching
+80 silly cache add args [ 'gulp-clean@^0.3.1', null ]
+81 verbose cache add spec gulp-clean@^0.3.1
+82 silly cache add parsed spec { raw: 'gulp-clean@^0.3.1',
+82 silly cache add   scope: null,
+82 silly cache add   name: 'gulp-clean',
+82 silly cache add   rawSpec: '^0.3.1',
+82 silly cache add   spec: '>=0.3.1 <0.4.0',
+82 silly cache add   type: 'range' }
+83 silly addNamed gulp-clean@>=0.3.1 <0.4.0
+84 verbose addNamed ">=0.3.1 <0.4.0" is a valid semver range for gulp-clean
+85 silly addNameRange { name: 'gulp-clean', range: '>=0.3.1 <0.4.0', hasData: false }
+86 silly mapToRegistry name gulp-clean
+87 silly mapToRegistry using default registry
+88 silly mapToRegistry registry https://registry.npm.taobao.org/
+89 silly mapToRegistry uri https://registry.npm.taobao.org/gulp-clean
+90 verbose addNameRange registry:https://registry.npm.taobao.org/gulp-clean not in flight; fetching
+91 verbose request uri https://registry.npm.taobao.org/gulp-rev
+92 verbose request no auth needed
+93 info attempt registry request try #1 at 22:36:58
+94 verbose request id 2edd13ae2c8812d9
+95 http request GET https://registry.npm.taobao.org/gulp-rev
+96 verbose request uri https://registry.npm.taobao.org/gulp-scss
+97 verbose request no auth needed
+98 info attempt registry request try #1 at 22:36:58
+99 http request GET https://registry.npm.taobao.org/gulp-scss
+100 verbose request uri https://registry.npm.taobao.org/gulp-concat
+101 verbose request no auth needed
+102 info attempt registry request try #1 at 22:36:58
+103 http request GET https://registry.npm.taobao.org/gulp-concat
+104 verbose request uri https://registry.npm.taobao.org/gulp-clean
+105 verbose request no auth needed
+106 info attempt registry request try #1 at 22:36:58
+107 http request GET https://registry.npm.taobao.org/gulp-clean
+108 verbose request uri https://registry.npm.taobao.org/gulp-load-plugins
+109 verbose request no auth needed
+110 info attempt registry request try #1 at 22:36:58
+111 http request GET https://registry.npm.taobao.org/gulp-load-plugins
+112 verbose request uri https://registry.npm.taobao.org/gulp-minify-css
+113 verbose request no auth needed
+114 info attempt registry request try #1 at 22:36:58
+115 http request GET https://registry.npm.taobao.org/gulp-minify-css
+116 verbose request uri https://registry.npm.taobao.org/gulp
+117 verbose request no auth needed
+118 info attempt registry request try #1 at 22:36:58
+119 verbose etag "1cd65-VbSWSvf57xduFJUH6o89JQ"
+120 http request GET https://registry.npm.taobao.org/gulp
+121 http 200 https://registry.npm.taobao.org/gulp-scss
+122 silly get cb [ 200,
+122 silly get   { date: 'Fri, 15 Jan 2016 14:42:20 GMT',
+122 silly get     'content-type': 'application/json; charset=utf-8',
+122 silly get     'content-length': '22146',
+122 silly get     connection: 'keep-alive',
+122 silly get     etag: '"5682-cg2XRWLYVKSk20NWXBIFrg"',
+122 silly get     'x-readtime': '20' } ]
+123 verbose get saving gulp-scss to C:\Users\Administrator\.cnpm\registry.npm.taobao.org\gulp-scss\.cache.json
+124 silly addNameRange number 2 { name: 'gulp-scss', range: '>=1.3.15 <2.0.0', hasData: true }
+125 silly addNameRange versions [ 'gulp-scss',
+125 silly addNameRange   [ '1.3.15',
+125 silly addNameRange     '1.3.13',
+125 silly addNameRange     '1.3.1',
+125 silly addNameRange     '1.3.0',
+125 silly addNameRange     '1.2.0',
+125 silly addNameRange     '1.1.3',
+125 silly addNameRange     '1.1.2',
+125 silly addNameRange     '1.1.1',
+125 silly addNameRange     '1.1.0',
+125 silly addNameRange     '1.0.2',
+125 silly addNameRange     '1.0.0',
+125 silly addNameRange     '0.0.1' ] ]
+126 silly addNamed gulp-scss@1.3.15
+127 verbose addNamed "1.3.15" is a plain semver version for gulp-scss
+128 silly mapToRegistry name gulp-scss
+129 silly mapToRegistry using default registry
+130 silly mapToRegistry registry https://registry.npm.taobao.org/
+131 silly mapToRegistry uri https://registry.npm.taobao.org/gulp-scss
+132 verbose addRemoteTarball https://registry.npm.taobao.org/gulp-scss/download/gulp-scss-1.3.15.tgz not in flight; adding
+133 verbose addRemoteTarball [ 'https://registry.npm.taobao.org/gulp-scss/download/gulp-scss-1.3.15.tgz',
+133 verbose addRemoteTarball   '9a9def9fff5da389989415dd99975524a3058a99' ]
+134 info retry fetch attempt 1 at 22:37:18
+135 info attempt registry request try #1 at 22:37:18
+136 http fetch GET https://registry.npm.taobao.org/gulp-scss/download/gulp-scss-1.3.15.tgz
+137 info retry will retry, error on last attempt: Error: read ECONNRESET
+138 http 200 https://registry.npm.taobao.org/gulp-clean
+139 silly get cb [ 200,
+139 silly get   { date: 'Fri, 15 Jan 2016 14:42:20 GMT',
+139 silly get     'content-type': 'application/json; charset=utf-8',
+139 silly get     'content-length': '15509',
+139 silly get     connection: 'keep-alive',
+139 silly get     etag: '"3c95-X0EAf/KheJpfC5XE5z869Q"',
+139 silly get     'x-readtime': '38' } ]
+140 verbose get saving gulp-clean to C:\Users\Administrator\.cnpm\registry.npm.taobao.org\gulp-clean\.cache.json
+141 silly addNameRange number 2 { name: 'gulp-clean', range: '>=0.3.1 <0.4.0', hasData: true }
+142 silly addNameRange versions [ 'gulp-clean',
+142 silly addNameRange   [ '0.3.1',
+142 silly addNameRange     '0.3.0',
+142 silly addNameRange     '0.2.4',
+142 silly addNameRange     '0.2.3',
+142 silly addNameRange     '0.2.2',
+142 silly addNameRange     '0.2.1',
+142 silly addNameRange     '0.2.0',
+142 silly addNameRange     '0.1.3',
+142 silly addNameRange     '0.1.2',
+142 silly addNameRange     '0.1.1' ] ]
+143 silly addNamed gulp-clean@0.3.1
+144 verbose addNamed "0.3.1" is a plain semver version for gulp-clean
+145 warn deprecated gulp-clean@0.3.1: use gulp-rimraf instead
+146 silly mapToRegistry name gulp-clean
+147 silly mapToRegistry using default registry
+148 silly mapToRegistry registry https://registry.npm.taobao.org/
+149 silly mapToRegistry uri https://registry.npm.taobao.org/gulp-clean
+150 verbose addRemoteTarball https://registry.npm.taobao.org/gulp-clean/download/gulp-clean-0.3.1.tgz not in flight; adding
+151 verbose addRemoteTarball [ 'https://registry.npm.taobao.org/gulp-clean/download/gulp-clean-0.3.1.tgz',
+151 verbose addRemoteTarball   '52b08a6dfab27a81c67826eeb97affb4aa5f756d' ]
+152 info retry fetch attempt 1 at 22:37:22
+153 info attempt registry request try #1 at 22:37:22
+154 http fetch GET https://registry.npm.taobao.org/gulp-clean/download/gulp-clean-0.3.1.tgz
+155 info attempt registry request try #2 at 22:37:30
+156 verbose etag "1cd65-VbSWSvf57xduFJUH6o89JQ"
+157 http request GET https://registry.npm.taobao.org/gulp
+158 info retry will retry, error on last attempt: Error: read ECONNRESET
+159 http 200 https://registry.npm.taobao.org/gulp-rev
+160 silly get cb [ 200,
+160 silly get   { date: 'Fri, 15 Jan 2016 14:42:20 GMT',
+160 silly get     'content-type': 'application/json; charset=utf-8',
+160 silly get     'content-length': '37051',
+160 silly get     connection: 'keep-alive',
+160 silly get     etag: '"90bb-STKsZ9HoBIloUVCDryE+DQ"',
+160 silly get     'x-readtime': '57' } ]
+161 verbose get saving gulp-rev to C:\Users\Administrator\.cnpm\registry.npm.taobao.org\gulp-rev\.cache.json
+162 silly addNameRange number 2 { name: 'gulp-rev', range: '>=6.0.1 <7.0.0', hasData: true }
+163 silly addNameRange versions [ 'gulp-rev',
+163 silly addNameRange   [ '6.0.1',
+163 silly addNameRange     '6.0.0',
+163 silly addNameRange     '5.1.0',
+163 silly addNameRange     '5.0.1',
+163 silly addNameRange     '5.0.0',
+163 silly addNameRange     '4.0.0',
+163 silly addNameRange     '3.0.1',
+163 silly addNameRange     '3.0.0',
+163 silly addNameRange     '2.0.1',
+163 silly addNameRange     '2.0.0',
+163 silly addNameRange     '1.1.0',
+163 silly addNameRange     '1.0.0',
+163 silly addNameRange     '0.4.2',
+163 silly addNameRange     '0.4.1',
+163 silly addNameRange     '0.4.0',
+163 silly addNameRange     '0.3.2',
+163 silly addNameRange     '0.3.1',
+163 silly addNameRange     '0.3.0',
+163 silly addNameRange     '0.2.1',
+163 silly addNameRange     '0.2.0',
+163 silly addNameRange     '0.1.0' ] ]
+164 silly addNamed gulp-rev@6.0.1
+165 verbose addNamed "6.0.1" is a plain semver version for gulp-rev
+166 silly mapToRegistry name gulp-rev
+167 silly mapToRegistry using default registry
+168 silly mapToRegistry registry https://registry.npm.taobao.org/
+169 silly mapToRegistry uri https://registry.npm.taobao.org/gulp-rev
+170 verbose addRemoteTarball https://registry.npm.taobao.org/gulp-rev/download/gulp-rev-6.0.1.tgz not in flight; adding
+171 verbose addRemoteTarball [ 'https://registry.npm.taobao.org/gulp-rev/download/gulp-rev-6.0.1.tgz',
+171 verbose addRemoteTarball   'd886a1dc2131d2202bf36a238f8f48065782a0bd' ]
+172 info retry fetch attempt 1 at 22:37:47
+173 info attempt registry request try #1 at 22:37:47
+174 http fetch GET https://registry.npm.taobao.org/gulp-rev/download/gulp-rev-6.0.1.tgz
+175 info attempt registry request try #2 at 22:37:51
+176 http fetch GET https://registry.npm.taobao.org/gulp-clean/download/gulp-clean-0.3.1.tgz
+177 info retry will retry, error on last attempt: Error: read ECONNRESET
+178 http fetch 200 https://registry.npm.taobao.org/gulp-scss/download/gulp-scss-1.3.15.tgz
+179 silly fetchAndShaCheck shasum 9a9def9fff5da389989415dd99975524a3058a99
+180 verbose addTmpTarball C:\Users\ADMINI~1\AppData\Local\Temp\npm-5988-b988c84a\registry.npm.taobao.org\gulp-scss\download\gulp-scss-1.3.15.tgz not in flight; adding
+181 verbose addTmpTarball already have metadata; skipping unpack for gulp-scss@1.3.15
+182 silly cache afterAdd gulp-scss@1.3.15
+183 verbose afterAdd C:\Users\Administrator\.cnpm\gulp-scss\1.3.15\package\package.json not in flight; writing
+184 verbose afterAdd C:\Users\Administrator\.cnpm\gulp-scss\1.3.15\package\package.json written
+185 http 200 https://registry.npm.taobao.org/gulp-concat
+186 silly get cb [ 200,
+186 silly get   { date: 'Fri, 15 Jan 2016 14:42:20 GMT',
+186 silly get     'content-type': 'application/json; charset=utf-8',
+186 silly get     'content-length': '41395',
+186 silly get     connection: 'keep-alive',
+186 silly get     etag: '"a1b3-FxtDz6MPFmuZNzbahvc5yw"',
+186 silly get     'x-readtime': '50' } ]
+187 verbose get saving gulp-concat to C:\Users\Administrator\.cnpm\registry.npm.taobao.org\gulp-concat\.cache.json
+188 silly addNameRange number 2 { name: 'gulp-concat', range: '>=2.6.0 <3.0.0', hasData: true }
+189 silly addNameRange versions [ 'gulp-concat',
+189 silly addNameRange   [ '2.6.0',
+189 silly addNameRange     '2.5.2',
+189 silly addNameRange     '2.5.1',
+189 silly addNameRange     '2.5.0',
+189 silly addNameRange     '2.4.3',
+189 silly addNameRange     '2.4.2',
+189 silly addNameRange     '2.4.1',
+189 silly addNameRange     '2.4.0',
+189 silly addNameRange     '2.3.5',
+189 silly addNameRange     '2.3.4',
+189 silly addNameRange     '2.3.3',
+189 silly addNameRange     '2.3.0',
+189 silly addNameRange     '2.1.3',
+189 silly addNameRange     '2.2.0',
+189 silly addNameRange     '2.1.7',
+189 silly addNameRange     '2.1.6',
+189 silly addNameRange     '2.1.5',
+189 silly addNameRange     '2.1.4',
+189 silly addNameRange     '2.1.2',
+189 silly addNameRange     '2.1.1',
+189 silly addNameRange     '2.1.0',
+189 silly addNameRange     '2.0.0',
+189 silly addNameRange     '1.1.0',
+189 silly addNameRange     '1.0.0',
+189 silly addNameRange     '0.0.1' ] ]
+190 silly addNamed gulp-concat@2.6.0
+191 verbose addNamed "2.6.0" is a plain semver version for gulp-concat
+192 silly mapToRegistry name gulp-concat
+193 silly mapToRegistry using default registry
+194 silly mapToRegistry registry https://registry.npm.taobao.org/
+195 silly mapToRegistry uri https://registry.npm.taobao.org/gulp-concat
+196 verbose addRemoteTarball https://registry.npm.taobao.org/gulp-concat/download/gulp-concat-2.6.0.tgz not in flight; adding
+197 verbose addRemoteTarball [ 'https://registry.npm.taobao.org/gulp-concat/download/gulp-concat-2.6.0.tgz',
+197 verbose addRemoteTarball   '585cfb115411f348773131140566b6a81c69cb91' ]
+198 info retry fetch attempt 1 at 22:38:15
+199 info attempt registry request try #1 at 22:38:15
+200 http fetch GET https://registry.npm.taobao.org/gulp-concat/download/gulp-concat-2.6.0.tgz
+201 verbose stack TypeError: Cannot read property 'emit' of null
+201 verbose stack     at TLSSocket.connectionErrorHandler (C:\Users\Administrator\AppData\Roaming\npm\node_modules\cnpm\node_modules\npm\node_modules\request\request.js:80:24)
+201 verbose stack     at TLSSocket.g (events.js:199:16)
+201 verbose stack     at TLSSocket.emit (events.js:129:20)
+201 verbose stack     at net.js:459:14
+201 verbose stack     at process._tickCallback (node.js:355:11)
+202 verbose cwd F:\github\workFile\index
+203 error Windows_NT 6.1.7601
+204 error argv "node" "C:\\Users\\Administrator\\AppData\\Roaming\\npm\\node_modules\\cnpm\\node_modules\\npm\\bin\\npm-cli.js" "--userconfig=C:\\Users\\Administrator\\.cnpmrc" "--disturl=https://npm.taobao.org/mirrors/node" "--cache=C:\\Users\\Administrator\\.cnpm" "--registry=https://registry.npm.taobao.org" "--node-gyp=C:\\Users\\Administrator\\AppData\\Roaming\\npm\\node_modules\\cnpm\\node_modules\\pangyp\\bin\\node-gyp.js" "install"
+205 error node v0.12.7
+206 error npm  v2.13.5
+207 error Cannot read property 'emit' of null
+208 error If you need help, you may report this error at:
+208 error     <https://github.com/npm/npm/issues>
+209 verbose exit [ 1, true ]

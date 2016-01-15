@@ -7,3 +7,18 @@ menu.bottom_menu{
 	background-color:$bgC;
 	border-top:$borderT;
 }
+
+.bottomInput{
+	$h:50px;
+	position: fixed;
+	bottom:0;
+	left:0;
+	height:$h;
+	line-height:$h;
+	border:1px solid #f93;
+	input{
+		height: 100%;
+		width:100%;
+	}
+
+}
