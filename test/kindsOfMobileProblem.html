@@ -56,8 +56,16 @@
 		</div>
 	</menu>
 
-	<div class="bottomInput">
+	<div class="bottomInput" id="fixed">
 		<input type="text" placeholder="请输入">
 	</div>
+
+	<script>
+		var fixed=document.getElementById("fixed");
+		fixed.onfocus=function(){
+			alert(2143);
+			document.body.scrollTop=document.body.offsetHeight;
+		}
+	</script>
 </body>
 </html>
