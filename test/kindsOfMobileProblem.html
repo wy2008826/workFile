@@ -74,7 +74,9 @@
 			//fixed.style.position="static";
 			$("body")[0].removeEventListener("touchmove",moveHandler);
 			var $tel=$("#tel");
-			$tel.val(n);
+
+			var scrollTop=$("body").scrollTop();
+			$tel.val("scrollTop:"+scrollTop);
 			n+=1;
 
 			$("body")[0].addEventListener("touchmove",moveHandler);
