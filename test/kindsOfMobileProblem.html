@@ -68,19 +68,28 @@
 		// 	document.body.scrollTop=document.body.offsetHeight;
 		// }
 		var n=1;
-		fixed.addEventListener("touchend",function(){
-			//alert("click");
+		fixed.addEventListener("click",function(){
+			// alert("click");
 			// document.body.scrollTop=document.body.offsetHeight * 2;
 			//fixed.style.position="static";
+			$("body")[0].removeEventListener("touchmove",moveHandler);
 			var $tel=$("#tel");
 			$tel.val(n);
 			n+=1;
 
+			$("body")[0].addEventListener("touchmove",moveHandler);
+
+			function moveHandler(e){
+				e.preventDefault();
+				e.stopPropagation();
+				return false;
+			}
 		});
-		fixed.addEventListener("blur",function(){
+
+		$(fixed).blur(function(){
 			alert("blur");
 			// document.body.scrollTop=document.body.offsetHeight * 2;
-			fixed.style.position="fixed";
+			// fixed.style.position="fixed";
 		});
 	</script>
 </body>
