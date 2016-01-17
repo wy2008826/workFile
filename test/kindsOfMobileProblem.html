@@ -57,18 +57,18 @@
 	</menu>
  -->
 	<div class="bottomInput" id="fixed">
-		<input type="text" placeholder="请输入">
+		<input type="text" placeholder="请输入" id="input">
 	</div>
 	
 	<script type="text/javascript" src="../index/public/js/zepto.min.js"></script>
 	<script>
-		var fixed=document.getElementById("fixed");
+		var fixed=document.getElementById("input");
 		// fixed.onfocus=function(){
 		// 	alert(2143);
 		// 	document.body.scrollTop=document.body.offsetHeight;
 		// }
 		var n=1;
-		fixed.addEventListener("click",function(){
+		fixed.addEventListener("focus",function(){
 			// alert("click");
 			// document.body.scrollTop=document.body.offsetHeight * 2;
 			//fixed.style.position="static";
@@ -87,7 +87,7 @@
 		});
 
 		$(fixed).blur(function(){
-			alert("blur");
+			// alert("blur");
 			// document.body.scrollTop=document.body.offsetHeight * 2;
 			// fixed.style.position="fixed";
 		});
