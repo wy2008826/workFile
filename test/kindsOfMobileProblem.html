@@ -83,9 +83,10 @@
 			var scrollTop=$("body").scrollTop();
 			$tel.val("scrollTop:"+scrollTop);
 			n+=1;
-			if(scrollTop==0){
+			// if(scrollTop==0){//页面没有滚动  fixed会保留在底部
 				$("body").scrollTop( $("body").height()-$(window).height() );
-			}
+			// }
+			
 			$("body")[0].addEventListener("touchmove",moveHandler);
 
 			function moveHandler(e){
