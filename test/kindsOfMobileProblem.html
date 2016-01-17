@@ -43,7 +43,12 @@
 			<input type="text">
 		</form>
 	</fieldset>
-	
+	<ul>
+		<li>
+			1.页面高度小于屏幕高度（a.奇数次点击不会弹起，偶数次点击会弹起-中间如若滑动页面，也不会弹起）
+			2.页面高度大于屏幕高度
+		</li>
+	</ul>
 	<!-- <menu class="pos-fix row lh-40 text-center bottom_menu">
 		<div class="col-all-4">
 			首页
@@ -86,12 +91,10 @@
 			if(scrollTop==0){//页面没有滚动  fixed会保留在底部
 				$("body").scrollTop( $("body").height()-$(window).height() );
 			}
-			else if(){//页面距离底最低部向上互动距离小于输入框高度
-
-			}
-			else{
-				
-			}
+			setTimeout(function(){
+				$(fixed).focus();
+			},100);
+			
 			$("body")[0].addEventListener("touchmove",moveHandler);
 
 			function moveHandler(e){
