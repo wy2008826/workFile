@@ -33,7 +33,7 @@
 		<legend>输入框调用不同的输入法以及默认样式消除</legend>
 		<p>
 			<label for="">tel</label>
-			<input type="tel">
+			<input type="tel" id="tel">
 		</p>
 		<p>
 			<label for="">number</label>
@@ -59,17 +59,23 @@
 	<div class="bottomInput" id="fixed">
 		<input type="text" placeholder="请输入">
 	</div>
-
+	
+	<script type="text/javascript" src="../index/public/js/zepto.min.js"></script>
 	<script>
 		var fixed=document.getElementById("fixed");
 		// fixed.onfocus=function(){
 		// 	alert(2143);
 		// 	document.body.scrollTop=document.body.offsetHeight;
 		// }
-		fixed.addEventListener("click",function(){
+		var n=1;
+		fixed.addEventListener("touchend",function(){
 			//alert("click");
 			// document.body.scrollTop=document.body.offsetHeight * 2;
 			//fixed.style.position="static";
+			var $tel=$("#tel");
+			$tel.val(n);
+			n+=1;
+
 		});
 		fixed.addEventListener("blur",function(){
 			alert("blur");
