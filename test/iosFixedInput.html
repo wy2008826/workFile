@@ -67,29 +67,14 @@ $('#input').focus(function(){
 	var $wraper=$(".wraper");
 	var $input=$("#input");
 	var scrollTop=$("body").scrollTop();
-	// $wraper.css({
-	// 	position:"absolute",
-	// 	top:scrollTop,
-	// 	left:0,
-	// 	right:0,
-	// 	bottom:0,
-	// 	height:$(window).height(),
-	// 	width:$(window).width()
-	// });
-	// $input.css({
-	// 	position:"absolute",
-	// 	bottom:0,
-	// 	left:0,
-	// 	right:0
-	// });
-	
-	
+
 	alert("bodyScrollTop:"+ $("body").scrollTop());
 	alert("windowHeight:"+ $(window).height());
 
 	setTimeout(function(){
+		var scrollTop=$("body").scrollTop();
 		alert("bodyScrollTop1:"+ $("body").scrollTop());
-		// $("body").scrollTop("0");
+		$("body").scrollTop("0");
 		$wraper.css({
 			position:"absolute",
 			top:scrollTop,
