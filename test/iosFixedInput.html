@@ -87,7 +87,11 @@ $('#input').focus(function(){
 	alert("bodyScrollTop:"+ $("body").scrollTop());
 	alert("windowHeight:"+ $(window).height());
 
-	alert("bodyScrollTop1:"+ $("body").scrollTop());
+	setTimeout(function(){
+		alert("bodyScrollTop1:"+ $("body").scrollTop());
+	},1000);
+	
+	
 	// $shade.css({
 	// 	position:"absolute",
 	// 	width:"100%",
