@@ -66,9 +66,10 @@ $('#input').focus(function(){
 	var $shade=$("#shade");
 	var $wraper=$(".wraper");
 	var $input=$("#input");
+	var scrollTop=$("body").scrollTop();
 	$wraper.css({
 		position:"absolute",
-		top:0,
+		top:scrollTop,
 		left:0,
 		right:0,
 		bottom:0,
@@ -83,8 +84,8 @@ $('#input').focus(function(){
 	});
 	
 	$("body").scrollTop("0");
-	// alert("bodyScrollTop:"+ $("body").scrollTop());
-	// alert("windowHeight:"+ $(window).height());
+	alert("bodyScrollTop:"+ $("body").scrollTop());
+	alert("windowHeight:"+ $(window).height());
 
 	
 	$shade.css({
