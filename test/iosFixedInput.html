@@ -65,6 +65,25 @@ input {position: absolute;
 //只作用于输入框获得焦点时
 $('#input').focus(function(){
 	var $shade=$("#shade");
+	var $wraper=$(".wraper");
+	$wraper.css({
+		position:"absolute",
+		top:0,
+		left:0,
+		right:0,
+		bottom:0,
+		height:$(window).height(),
+		width:$(window).width()
+	});
+	
+	$shade.css({
+		position:"absolute",
+		width:"100%",
+		height:"100%",
+		top:0,
+		left:0,
+		bottom:0
+	});
 	$shade.css({
 		position:"absolute",
 		width:"100%",
