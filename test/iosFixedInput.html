@@ -63,7 +63,53 @@ $('#input').focus(function(){
 		bottom:0
 	});
 
+	function setCss(){
+		$(".layermmain").css({
+			position:"absolute",
+			top:"10%",
+			// marginTop:"-50%"
+		});
+		$(".laymshade").css({
+			position:"absolute",
+			width:"100%",
+			height:"100%"
+		});
+		$(".layermbox").css({
+			position:"absolute",
+			top:0,
+			left:0,
+			right:0,
+			bottom:0,
+			height:$(window).height(),
+			width:$(window).width()
+		});
+	}
+	function resetCss(){
+		$(".layermmain").css({
+			position:"fixed",
+			top:"0",
+			left:"0",
+			width:"100%",
+			height:"100%"
+		});
 
+		$(".laymshade").css({
+			position:"fixed",
+			width:"100%",
+			height:"100%"
+		});
+
+		$(".layermbox").css({
+			position:"relative",
+			top:0,
+			left:0,
+			// right:0,
+			// bottom:0,
+			// height:$(window).height(),
+			// width:$(window).width()
+		});
+
+	}
 });
 </script>
 
