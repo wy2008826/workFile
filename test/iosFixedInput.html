@@ -5,7 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 <title>解决IOS safari在input focus弹出输入法时不支持position fixed的问题</title>
 <style type="text/css" rel="stylesheet">
-input {position: absolute; bottom:2px; width: 100%; height:30px; font-size: 30px;display: block;}
+input {position: absolute;
+	width: 100%; 
+	height:30px;
+	font-size: 30px;
+	display: block;
+	left:0;
+	right:0;
+	bottom:0;
+	display:block;
+}
 .shade{
 	display: block;
 	position: absolute;
