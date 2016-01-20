@@ -13,7 +13,7 @@
 
 <title>解决IOS safari在input focus弹出输入法时不支持position fixed的问题</title>
 <style type="text/css" rel="stylesheet">
-input {position: absolute;
+input {position: fixed;
 	width: 100%; 
 	height:30px;
 	font-size: 30px;
@@ -53,9 +53,7 @@ input {position: absolute;
 <div class="wraper">
 	<div class="shade" id="shade">
 	</div>
-	<div class="layermain">
-		<input type="text" id="input" />
-	</div>
+	<input type="text" id="input" />
 </div>
 
 
@@ -66,6 +64,7 @@ input {position: absolute;
 $('#input').focus(function(){
 	var $shade=$("#shade");
 	var $wraper=$(".wraper");
+	var $input=$("#input");
 	$wraper.css({
 		position:"absolute",
 		top:0,
@@ -75,16 +74,22 @@ $('#input').focus(function(){
 		height:$(window).height(),
 		width:$(window).width()
 	});
-	alert("windowHeight:"+ $(window).height());
-	
-	$shade.css({
+	$input.css({
 		position:"absolute",
-		width:"100%",
-		height:"100%",
-		top:0,
+		bottom:0,
 		left:0,
-		bottom:0
+		right:0
 	});
+	alert("windowHeight:"+ $(window).height());
+
+	// $shade.css({
+	// 	position:"absolute",
+	// 	width:"100%",
+	// 	height:"100%",
+	// 	top:0,
+	// 	left:0,
+	// 	bottom:0
+	// });
 	$shade.css({
 		position:"absolute",
 		width:"100%",
