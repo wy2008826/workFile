@@ -21,10 +21,34 @@
 			box-sizing:border-box;
 			-webkit-box-sizing:border-box;
 		}
+		.operation .clear{
+			display: block;
+			text-align: center;
+			line-height: 40px;
+			background-color: #eee;
+			width: 90%;
+			margin:20px auto;
+		}
+		.operation input{
+			-webkit-appearance:none;
+			line-height: 40px;
+			display: block;
+			width: 90%;
+			text-indent: 10px;
+			border:1px solid #e8e8e8;
+			margin:0 auto;
+			box-shadow: none;
+			background-color: #fff;
+		}
 	</style>
 </head>
 <body>
 	<canvas id="canvas"></canvas>
+
+	<div class="operation">
+		<span class="clear" id="clear">清除</span>
+		<input type="text" id="color" placeholder="请输入字体颜色">
+	</div>
 	<script>
 		var canvas=document.getElementById("canvas");
 		var cxt=canvas.getContext("2d");
@@ -39,13 +63,27 @@
 			init:function(){
 				canvas.width=wW * 0.9;
 				canvas.height=wW * 0.9;
+
+				var clear=document.getElementById("clear");
+				clear.addEventListener("click",clickHandler);
+
+				function clickHandler(){
+					cxt.clearRect(0,0,canvas.width,canvas.height);
+				}
 			},
 			drawWord:function(){
 				canvas.addEventListener("touchstart",startHandler);
 				canvas.addEventListener("touchmove",moveHandler);
 				
 				var pinW=10;//笔画宽度
-				var pinColor="#000";
+				var input=document.getElementById("color");
+				var pinColor=function(){
+					var reg=/[0-9a-fA-F]{3,6}/;
+					var value=input.value;
+					var color=reg.test(value)?"#"+value:"#000";
+					return color;
+				};
+
 				var offsetX=canvas.offsetLeft;
 				var offsetY=canvas.offsetTop;
 				var start={};
@@ -103,7 +141,7 @@
 					cxt.lineWidth=pinW;
 					cxt.lineCap="round";
 					cxt.lineJoin="round";
-					cxt.strokeStyle=pinColor;
+					cxt.strokeStyle=pinColor();
 					cxt.stroke();
 					cxt.restore();
 				}
