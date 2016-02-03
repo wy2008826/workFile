@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+	<meta content="yes" name="apple-mobile-web-app-capable">
+	<meta content="black" name="apple-mobile-web-app-status-bar-style">
+	<meta content="telephone=no" name="format-detection">
+	<meta content="email=no" name="format-detection">
+	<meta name="x5-fullscreen"content="true"/><!--强制QQ浏览器全屏-->
+	<meta name="full-screen"content="yes"><!--强制UC浏览器全屏-->
+	<title>学写一个字</title>
+	<style >
+		*{padding:0;
+		margin:0;
+		}
+		#canvas{
+			display: block;
+			margin:10px auto;
+			border:2px solid #f93;
+			box-sizing:border-box;
+			-webkit-box-sizing:border-box;
+		}
+	</style>
+</head>
+<body>
+	<canvas id="canvas"></canvas>
+	<script>
+		var canvas=document.getElementById("canvas");
+		var cxt=canvas.getContext("2d");
+		var wW=window.innerWidth;
+
+		var App=function(){
+
+			this.init();
+			this.drawWord();
+		};
+		App.prototype={
+			init:function(){
+				canvas.width=wW * 0.9;
+				canvas.height=wW * 0.9;
+			},
+			drawWord:function(){
+				canvas.addEventListener("touchstart",startHandler);
+				canvas.addEventListener("touchmove",moveHandler);
+				
+				var pinW=10;//笔画宽度
+				var pinColor="#000";
+				var offsetX=canvas.offsetLeft;
+				var offsetY=canvas.offsetTop;
+				var start={};
+				var lastMove={};
+				var lastTime;
+				var move={};
+				var end={};
+				var lineWarr=[];
+				function startHandler(e){
+					var touch=e.touches[0];
+					lastMove.x=start.x=touch.clientX-offsetX;
+					lastMove.y=start.y=touch.clientY-offsetY;
+					lastTime=new Date()*1;
+					_line(start,lastMove);
+				}
+				function moveHandler(e){
+					var touch=e.touches[0];
+					var now=new Date()*1;
+					move.x=touch.clientX-offsetX;
+					move.y=touch.clientY-offsetY;
+					var lineW=calLineWidth(lastTime,now,move);
+					_line(lastMove,move,lineW);
+					lastMove.x=move.x;
+					lastMove.y=move.y;
+					lastTime=now;
+				}
+				
+
+				function calLineWidth(lastTime,now){
+					var dis_x=Math.abs(move.x-lastMove.x);
+					var dis_y=Math.abs(move.y-lastMove.y);
+					var distance=dis_x*dis_x+dis_y*dis_y;
+					var dur_time=now-lastTime;
+					var speed=distance / dur_time /10;
+					var lineW=pinW/speed;
+					var finalW=lineW>10?10:(lineW<2?2:lineW);
+					lineWarr.push(finalW);
+					if(lineWarr.length>3){
+						lineWarr.unshift();
+					}
+					var sum=0;
+					lineWarr.forEach(function(item,index){
+						sum+=item;
+						console.log(item);
+					});
+
+					return sum/lineWarr.length;
+				}
+
+				function _line(start,end,pinW){
+					cxt.save();
+					cxt.beginPath();
+					cxt.moveTo(start.x,start.y);
+					cxt.lineTo(end.x,end.y);
+					cxt.lineWidth=pinW;
+					cxt.lineCap="round";
+					cxt.lineJoin="round";
+					cxt.strokeStyle=pinColor;
+					cxt.stroke();
+					cxt.restore();
+				}
+			}
+		};
+		var app=new App();
+	</script>
+</body>
+</html>
