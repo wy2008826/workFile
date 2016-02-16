@@ -100,44 +100,47 @@ define(function(require,module,exports){
 					e.preventDefault();
 					
 					//status -1手机已注册  0 手机未注册
-					$.ajax({
-						url:self.url.wapUrl+self.url.loginByTelUrl+"?phoneNumber="+phoneVal,
-						type:"get",
-						dataType:"jsonp",
-						success:function(data){
-							//console.log(data);
-							if(data.result){//有结果
-								if(data.status=="0"){//未注册 跳转到注册页面
-									var href=self.url.wapUrl+"/passport/reg.html?phoneNumber="+data.phoneNumber;
-									window.location.href=href;								 
-								}
-								else if(data.status=="-1"){//已经注册 跳转到输入密码界面
-									var href=self.url.wapUrl+"/passport/enterPwd.html?phoneNumber="+data.phoneNumber;
-									window.location.href=href;	
-								}
-								// else if(data.status=="7"){//当天短信验证码已经达到上限
-								// 	// var href=self.url.wapUrl+"/passport/reg.html?phoneNumber="+data.phoneNumber;
-								// 	var html="<p class='lh-40'>"+data.msg+"</p>";
-								// 	self.alertMes(html);
-								// }
-								else{
-									var html="<p class='lh-40'>"+data.msg+"</p>";
-									self.alertMes(html);
-								}
-							}
-							else{
-								var html="<p class='lh-40'>"+data.msg+"</p>";
-								self.alertMes(html);
-							}
-						},
-						error:function(){
-							var html="<p class='lh-40'>"+data.msg+"</p>";
-							self.alertMes(html);
-									
-							// var href=self.url.wapUrl+"/passport/reg.html?phoneNumber="+data.phoneNumber;
-							// window.location.href=href;		
-						}
-					});
+					var href="../passport/reg.html?phoneNumber="+phoneVal;
+					window.location.href=href;	
+
+					// $.ajax({
+					// 	url:self.url.wapUrl+self.url.loginByTelUrl+"?phoneNumber="+phoneVal,
+					// 	type:"get",
+					// 	dataType:"jsonp",
+					// 	success:function(data){
+					// 		//console.log(data);
+					// 		if(data.result){//有结果
+					// 			if(data.status=="0"){//未注册 跳转到注册页面
+					// 				var href=self.url.wapUrl+"/passport/reg.html?phoneNumber="+data.phoneNumber;
+					// 				window.location.href=href;								 
+					// 			}
+					// 			else if(data.status=="-1"){//已经注册 跳转到输入密码界面
+					// 				var href=self.url.wapUrl+"/passport/enterPwd.html?phoneNumber="+data.phoneNumber;
+					// 				window.location.href=href;	
+					// 			}
+					// 			// else if(data.status=="7"){//当天短信验证码已经达到上限
+					// 			// 	// var href=self.url.wapUrl+"/passport/reg.html?phoneNumber="+data.phoneNumber;
+					// 			// 	var html="<p class='lh-40'>"+data.msg+"</p>";
+					// 			// 	self.alertMes(html);
+					// 			// }
+					// 			else{
+					// 				var html="<p class='lh-40'>"+data.msg+"</p>";
+					// 				self.alertMes(html);
+					// 			}
+					// 		}
+					// 		else{
+					// 			var html="<p class='lh-40'>"+data.msg+"</p>";
+					// 			self.alertMes(html);
+					// 		}
+					// 	},
+					// 	error:function(){
+					// 		var html="<p class='lh-40'>"+data.msg+"</p>";
+					// 		self.alertMes(html);
+
+					// 		// var href=self.url.wapUrl+"/passport/reg.html?phoneNumber="+data.phoneNumber;
+					// 		// window.location.href=href;		
+					// 	}
+					// });
 				});
 			}
 		};
