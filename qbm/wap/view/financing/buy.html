@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta charset="utf-8">
+		<meta content="yes" name="apple-mobile-web-app-capable"> 
+  		<meta content="yes" name="apple-touch-fullscreen"> 
+ 		<meta content="telephone=no,email=no" name="format-detection"> 	
+		<meta content="yes" name="apple-mobile-web-app-capable">
+		<meta content="black" name="apple-mobile-web-app-status-bar-style">
+		<meta name="x5-fullscreen"content="true"/>
+    	<meta name="full-screen"content="yes">
+		<title>$!name</title>
+		
+		<link rel="stylesheet" href="$wapcdnpath/css/financing/buy.min.css?v=${ver}">
+		<link rel="stylesheet" href="${wapcdnpath}/js/plugin/layer.m/need/layer.css?v=${ver}">
+		<script src="$wapcdnpath/js/flexible.js?v=${ver}"></script>
+	</head>
+	<body>
+		
+		<div class="content">
+
+			<div class="normal_lists_wraper mg-30 pd-l-24 bd-default bg-white buyRow">
+				<ul class="normal_lists_ul">
+					<li class="list_item " data-href="">
+						<label >购买金额</label>
+						<input class="list_text" type="number" placeholder="≥100元" id="cashNum">
+						<span class="list_tail bg-primary text-center tailW-230 disabled" id="buyNow">立即购买</span>
+					</li>
+				</ul>
+			</div>
+			
+			<div class="normal_lists_wraper mg-30 pd-l-24 bd-default bg-white ">
+				<ul class="normal_lists_ul">
+					<li class="list_item " data-href="">
+						<p class="list_text">
+							可用余额:<span class="fc-primary" id="userMoney">$userMoney</span>元
+						</p>
+						<span class="list_tail fc-link text-center border_left tailW-230 pos-rel tap-link" id="addCash"
+						 data-href="$wapurl/member/recharge.html">充值</span>
+					</li>
+				</ul>
+			</div>
+			
+			<div class="normal_lists_wraper mg-30 pd-l-24 bd-default bg-white ">
+				<ul class="normal_lists_ul">
+					<li class="list_item " id="selectHongBao" data-id="" >
+						<p class="list_text" id="hongbao_not">
+							输入购买金额后匹配红包
+						</p>
+						<p class="list_text hide" id="hongbao_yes">
+							使用:<span class="fc-primary" id="pageHbMoney">0</span>元红包
+						</p>
+						<span class="list_tail fc-link text-center" id="addCash">
+							<span class="iconfont icon-back"></span>
+						</span>
+					</li>
+				</ul>
+			</div>
+
+			<div class="mg-lr-30 pd-l-24">
+				<p class="lh-50">
+					实际购买金额：<span class="fc-primary" id="actural_money">0</span>元
+				</p>
+				<p class="lh-50">
+					红包为您加息：<span class="fc-primary" id="add_raise">0%</span>
+				</p>
+			</div>
+		</div>
+		
+		<script type="text/template" id="inputPwdTpl">
+			<div class="normal_lists_wraper mg-lr-30 pd-lr-24 bd-default bg-white inputPwdAlert">
+				<ul class="normal_lists_ul">
+					<li class="list_item">
+						<label >购买金额：</label>
+						<p class="list_text text-right">{{money}}元</p>
+					</li>
+					<li class="list_item">
+						<label >购买项目：</label>
+						<p class="list_text text-right ">$!name</p>
+					</li>
+					<li class="list_item bd-default" data-href="">
+						<input class="list_text payPwdInput" placeholder="初始交易密码为登录密码" type="password" />
+						<span class="list_tail fc-link text-right forgetPwdTail tap-link" data-href="$wapurl/passport/forgetPayPwd.html">忘记密码?</span>
+					</li>
+				</ul>
+				
+			</div>
+		</script>
+
+		<script type="text/template" id="hongbaoListTpl">
+			<div class="closeHongBaoBtn pos-abs" id="closeHongBaoBtn">
+				<span class="iconfont icon-qingchu"></span>
+			</div>
+			<div class="hongbao_wraper">
+				<ul class="hongbao_ul">
+				{{each hongbaoList as item}}
+					<label class="hongbao_li {{selectedClass item.selected}}" data-id="{{item.id}}" data-rateHike="{{item.rateHike}}" data-money="{{item.money}}" for="{{$index}}">
+						<div class="left_hongbao_mes fn-fl">
+							<p class="">
+								<span class="hongbaoName lh-50">{{item.name}}</span>
+								<span class="fc-9 fs-18 lh-30">(还有{{timeLeft item.expiredtime}}天过期)</span>
+							</p>
+							<p class="fc-9 fs-18 lh-50">有效期至：{{item.expiredtime}}</p>
+							<p class="fc-9 fs-18 lh-30">备注：{{item.content}}</p>
+							<p class="fc-9 fs-18 lh-30">该红包最高可加息{{item.rateHike}}</p>
+						</div>
+						<div class="right_hongbao_img pos-rel fn-fr">
+							<h4 class="fc-f hongbaoLine text-center" >￥<span class="hongbaoNum">{{item.money}}</span></h4>
+							<h4 class="fc-f use_text text-center">立即使用</h4>
+							<span class="iconfont icon-gouxuan useNow"></span>
+						</div>
+					</label>
+				{{/each}}
+				</ul>
+			</div>
+			
+		</script>
+		
+
+		<input type="hidden" value="$!name" id="curBorrowName">
+		<input type="hidden" value="$wapurl" id="wapurl">
+		<input type="hidden" value="$timeLimit" id="borrowTimeLimit">
+		<img src="$wapcdnpath/images/loading.gif"  class="loadding_lists hide" id="loading_img">
+		<script src="$wapcdnpath/js/sea.js"></script>
+		<script src="$wapcdnpath/js/sea-config.js"></script>
+
+		<script>
+			seajs.use("page/financing/buy.min.js");
+		</script>
+
+		<!--start 百度统计 -->
+		<div class="hide"><script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1257405256'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1257405256%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script></div>
+		<!--end 百度统计 -->
+
+	</body>
+</html>

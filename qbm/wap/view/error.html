@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta charset="utf-8">
+		<meta content="yes" name="apple-mobile-web-app-capable"> 
+  		<meta content="yes" name="apple-touch-fullscreen"> 
+ 		<meta content="telephone=no,email=no" name="format-detection"> 	
+		<meta content="yes" name="apple-mobile-web-app-capable">
+		<meta content="black" name="apple-mobile-web-app-status-bar-style">
+		<meta name="x5-fullscreen"content="true"/>
+    	<meta name="full-screen"content="yes">
+		<title>钱保姆理财</title>
+		<link rel="stylesheet" href="$wapcdnpath/css/errorTip.min.css?v=${ver}">
+		<script src="$wapcdnpath/js/flexible.js?v=${ver}"></script>
+	</head>
+	<body>
+		
+		<div class="mg-30 text-center fc-31 error-tip">
+			<img  src="$wapcdnpath/images/error.png" class="error-img"/>
+			<p class="fs-24">$msg</p>
+			<button class="text-center fs-32 fc-f form-btn" id="backBtn">返回首页</button>
+		</div>
+		
+		<input type="hidden" value="$wapurl" id="wapurl">
+		<script src="$wapcdnpath/js/sea.js"></script>
+		<script src="$wapcdnpath/js/sea-config.js"></script>
+		<script>
+			seajs.use("page/errorTip.min");
+		</script>
+	</body>
+</html>

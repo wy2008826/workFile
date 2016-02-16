@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta charset="utf-8">
+		<meta content="yes" name="apple-mobile-web-app-capable"> 
+  		<meta content="yes" name="apple-touch-fullscreen"> 
+ 		<meta content="telephone=no,email=no" name="format-detection"> 	
+		<meta content="yes" name="apple-mobile-web-app-capable">
+		<meta content="black" name="apple-mobile-web-app-status-bar-style">
+		<meta name="x5-fullscreen"content="true"/>
+    	<meta name="full-screen"content="yes">
+		<title>提现</title>
+		<link rel="stylesheet" href="$wapcdnpath/css/member/cashSuccess.min.css?v=${ver}">
+		<script src="$wapcdnpath/js/flexible.js?v=${ver}"></script>
+	</head>
+	<body>
+		
+		<div class="mg-30 text-center fc-31 cash-success">
+			<img  src="$wapcdnpath/images/member/cashSuccess.png" class="success-tip"/>
+			<p class="fs-28">恭喜您，提现申请成功！</p>
+			<p class="fs-24">请耐心等待审核</p>
+			<p class="fs-24">如审核通过，预计1~3个工作日内到账</p>
+			<button class="text-center fs-32 fc-f form-btn" id="formBtn">完成</button>
+		</div>
+		
+		<input type="hidden" value="$wapurl" id="wapurl">
+		<script src="$wapcdnpath/js/sea.js"></script>
+		<script src="$wapcdnpath/js/sea-config.js"></script>
+		<script>
+			seajs.use("page/member/cashSuccess.min");
+		</script>
+		<div class="hide"><script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1257405256'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1257405256%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script></div>
+	</body>
+</html>

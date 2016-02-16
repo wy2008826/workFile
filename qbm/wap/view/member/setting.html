@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta charset="utf-8">
+		<meta content="yes" name="apple-mobile-web-app-capable"> 
+  		<meta content="yes" name="apple-touch-fullscreen"> 
+ 		<meta content="telephone=no,email=no" name="format-detection"> 	
+		<meta content="yes" name="apple-mobile-web-app-capable">
+		<meta content="black" name="apple-mobile-web-app-status-bar-style">
+		<meta name="x5-fullscreen"content="true"/>
+    	<meta name="full-screen"content="yes">
+		<title>个人中心</title>
+		<link rel="stylesheet" href="$wapcdnpath/css/member/setting.min.css?v=${ver}">
+		<script src="$wapcdnpath/js/flexible.js?v=${ver}"></script>
+	</head>
+	<body>
+		<div class="normal_lists_wraper mg-lr-30 pd-lr-24 bd-default bg-white fs-24 mg-t-30">
+			<ul class="normal_lists_ul">
+				<li class="list_item" id="authentication">
+					<label>身份认证</label>
+					<p class="list_text text-right fc-link">
+						#if($realStatus=='1')
+						已认证
+						#else
+						未认证
+						#end
+					</p>
+					<span class="iconfont icon-back"></span>
+				</li>
+				#if($sameCard == '1')
+				<!--已开启同卡进出-->
+				<li class="list_item" id="bindCard">
+					<label>银行卡认证</label>
+					<p class="list_text text-right fc-link">$account</p>
+					<span class="iconfont icon-back"></span>
+				</li>
+				#else
+				<!--没有银行卡或未开启同卡进出-->
+				<li class="list_item" id="unBindCard">
+					<label>银行卡认证</label>
+					<p class="list_text text-right fc-link">充值以绑定银行卡</p>
+					<span class="iconfont icon-back"></span>
+				</li>
+				#end
+			</ul>
+		</div>
+		
+		<div class="normal_lists_wraper mg-lr-30 pd-lr-24 bd-default bg-white fs-24 mg-t-30">
+			<ul class="normal_lists_ul">
+				<li class="list_item" id="modifyLoginPwd">
+					<label>修改登录密码</label>
+					<span class="list_text text-right iconfont icon-back"></span>
+				</li>
+				<li class="list_item" id="modifyPayPwd">
+					<label>修改交易密码</label>
+					<span class="list_text text-right iconfont icon-back"></span>
+				</li>
+				<li class="list_item" id="forgetPayPwd">
+					<label>找回交易密码</label>
+					<span class="list_text text-right iconfont icon-back"></span>
+				</li>
+			</ul>
+		</div>
+		<div class="mg-lr-30 mg-t-70">
+			<input type="button" class="text-center fs-32 fc-f form-btn" id="loginOut" value="退出登录">
+		</div>
+		
+		
+		<input type="hidden" value="$wapurl" id="wapurl">
+		<script src="$wapcdnpath/js/sea.js"></script>
+		<script src="$wapcdnpath/js/seajs-css.js"></script>
+		<script src="$wapcdnpath/js/sea-config.js"></script>
+		<script>
+			seajs.use("page/member/setting.min.js");
+		</script>
+		<div class="hide"><script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1257405256'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1257405256%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script></div>
+	</body>
+</html>

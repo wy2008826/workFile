@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta charset="utf-8">
+		<meta content="yes" name="apple-mobile-web-app-capable"> 
+  		<meta content="yes" name="apple-touch-fullscreen"> 
+ 		<meta content="telephone=no,email=no" name="format-detection"> 	
+		<meta content="yes" name="apple-mobile-web-app-capable">
+		<meta content="black" name="apple-mobile-web-app-status-bar-style">
+		<meta name="x5-fullscreen"content="true"/>
+    	<meta name="full-screen"content="yes">
+		<title>交易明细</title>
+		<link rel="stylesheet" href="$wapcdnpath/css/member/dealDetail.min.css?v=${ver}">
+		<script src="$wapcdnpath/js/flexible.js?v=${ver}"></script>
+	</head>
+	<body>
+		
+		<div class="pos-fix data-table-header">
+			<div class="bd fs-24 row">
+				<span class="col-all-6">交易用途<span id="test"></span></span>
+				<span class="col-all-6 text-right">金额（元）/交易时间</span>
+			</div>
+		</div>
+		<div class="no-data fs-24 fc-6 text-center hide" id="noData">
+			<img src="$wapcdnpath/images/member/noData.png">
+			<p>暂无记录</p>
+		</div>
+		<div id="pageWrap" class="bd-default mg-lr-30 pd-lr-24 bg-white ">
+			<div class="fs-20 fc-6 data-table-view" id="list">
+				<script id="listTpl" type="text/html">
+					{{each dataList}}
+					<div class="row">
+						<span class="col-all-6">
+							<span>{{$value.type}}</span>
+						</span>
+						<span class="col-all-6 text-right">
+							<p>{{moneyFixedFun $value.operateMoney}}</p>
+							<p class="fs-18">{{dateFormat $value.dealTime 1}}</p>
+						</span>
+					</div>
+					{{/each}}
+				</script>
+			</div>
+		</div>
+		<input type="hidden" value="$wapurl" id="wapurl">
+		<script src="$wapcdnpath/js/sea.js"></script>
+		<script src="$wapcdnpath/js/seajs-css.js"></script>
+		<script src="$wapcdnpath/js/sea-config.js"></script>
+		<script>
+			seajs.use("page/member/dealDetail.min");
+		</script>
+		<div class="hide"><script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1257405256'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1257405256%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script></div>
+	</body>
+</html>

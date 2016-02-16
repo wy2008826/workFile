@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta charset="utf-8">
+		<meta content="yes" name="apple-mobile-web-app-capable"> 
+  		<meta content="yes" name="apple-touch-fullscreen"> 
+ 		<meta content="telephone=no,email=no" name="format-detection"> 	
+		<meta content="yes" name="apple-mobile-web-app-capable">
+		<meta content="black" name="apple-mobile-web-app-status-bar-style">
+		<meta name="x5-fullscreen"content="true"/>
+    	<meta name="full-screen"content="yes">
+		<title>我的投资</title>
+		<link rel="stylesheet" href="$wapcdnpath/css/member/investmentRecord.min.css?v=${ver}">
+		<script src="$wapcdnpath/js/flexible.js?v=${ver}"></script>
+	</head>
+	<body>
+		<div class="fs-24 fc-f record-header">
+			<div class="row">
+				<span class="col-all-6">累计投资额（元）</span>
+				<span class="col-all-6 text-right" id="totalInterrest">0.00</span>
+			</div>
+			<div class="row" id="tabs">
+				<span class="col-all-4" data-id="0">全部</span>
+				<span class="col-all-4 text-center selected" data-id="1">待收中</span>
+				<span class="col-all-4 text-right" data-id="2">已还款</span>
+			</div>
+		</div>
+		<!--无数据时-->
+		<div class="no-data fs-24 fc-6 text-center hide" id="noData">
+			<p>您的投资记录有点空哦~</p>
+			<span class="fs-28" id="goFinancing">点此去理财</span>
+		</div>
+		<!--数据列表-->
+		<div id="pageWrap">
+			<div class="record-list" id="list">
+				<script id="listTpl" type="text/html">
+				{{each dataList}}	
+				<div class="record-item fs-24" data-id="{{$value.tenderId}}" data-status="{{$value.tStatus}}" >
+					<p class="time fc-6"><span class="iconfont icon-shijian fs-32"></span>{{dateFormat $value.addTime 2}}</p>
+					<div class="bd-default bg-white pd-lr-24 box">
+						<div class="row">
+							<span class="col-all-6 fc-31">{{$value.borrowName}}</span>
+							<span class="col-all-6 text-right">
+								{{inverstStatsFun $value.borrowStatus}}
+							</span>
+						</div>
+						<div class="row fc-31">
+							<span class="col-all-4">{{moneyFixedFun $value.tRepaymentMoney}}</span>
+							<span class="col-all-4 text-center">{{moneyFixedFun $value.tRepaymentInterest}}</span>
+							<span class="col-all-4 text-right">
+								{{if $value.endTime == '等待满标'}}
+								<span class="fc-9 wait">等待满标</span>
+								{{else}}
+								<span>{{$value.endTime}}</span>
+								{{/if}}
+							</span>
+						</div>
+						<div class="row fc-9">
+							<span class="col-all-4">购买金额</span>
+							<span class="col-all-4 text-center">收益</span>
+							<span class="col-all-4 text-right fc-9">{{listStatsFun $value.borrowStatus}}</span>
+						</div>
+					</div>
+				</div>
+				{{/each}}
+				</script>
+			</div>
+		</div>
+		<input type="hidden" value="$weburl" id="weburl">
+		<input type="hidden" value="$wapurl" id="wapurl">
+		<script src="$wapcdnpath/js/sea.js"></script>
+		<script src="$wapcdnpath/js/seajs-css.js"></script>
+		<script src="$wapcdnpath/js/sea-config.js"></script>
+		<script>
+			seajs.use("page/member/investmentRecordReceived.min");
+		</script>
+		<div class="hide"><script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1257405256'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1257405256%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script></div>
+	</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta charset="utf-8">
+		<meta content="yes" name="apple-mobile-web-app-capable"> 
+  		<meta content="yes" name="apple-touch-fullscreen"> 
+ 		<meta content="telephone=no,email=no" name="format-detection"> 	
+		<meta content="yes" name="apple-mobile-web-app-capable">
+		<meta content="black" name="apple-mobile-web-app-status-bar-style">
+		<meta name="x5-fullscreen"content="true"/>
+    	<meta name="full-screen"content="yes">
+		<title>银行卡管理</title>
+		<link rel="stylesheet" href="$wapcdnpath/css/member/bankCardManage.min.css?v=${ver}">
+		<script src="$wapcdnpath/js/flexible.js?v=${ver}"></script>
+	</head>
+	<body>
+		<dl class="mg-lr-30 mg-t-30 text-center fs-28 bank-card" id="editCard">
+			<dt><img src="$wapcdnpath/images/member/bankIcon/$bankaccount.imgsrc" class="bank-icon">$bankaccount.bankname</dt>
+			<dd class="fc-f">$bankaccount.bankaccount<span>储蓄卡</span></dd>
+		</dl>
+		<p class="text-center mg-t-30 fs-18 fc-9">为了用户资金安全，本平台移动端仅支持绑定一张银行卡</p>
+		
+		<input type="hidden" value="$wapurl" id="wapurl">
+		<script src="$wapcdnpath/js/sea.js"></script>
+		<script src="$wapcdnpath/js/sea-config.js"></script>
+		<script>
+			seajs.use("page/member/bankCardManage.min");
+		</script>
+		<div class="hide"><script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1257405256'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1257405256%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script></div>
+	</body>
+</html>

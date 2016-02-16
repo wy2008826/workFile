@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta charset="utf-8">
+		<meta content="yes" name="apple-mobile-web-app-capable"> 
+  		<meta content="yes" name="apple-touch-fullscreen"> 
+ 		<meta content="telephone=no,email=no" name="format-detection"> 	
+		<meta content="yes" name="apple-mobile-web-app-capable">
+		<meta content="black" name="apple-mobile-web-app-status-bar-style">
+		<meta name="x5-fullscreen"content="true"/>
+    	<meta name="full-screen"content="yes">
+		<title>提现</title>
+		<link rel="stylesheet" href="$wapcdnpath/css/member/cash.min.css?v=${ver}">
+		<script src="$wapcdnpath/js/flexible.js?v=${ver}"></script>
+		<script type="text/javascript">
+			SESSION_ID='${session.id}';
+			TONGDUN_ENV='${tongdun_env}';
+		</script>
+	</head>
+	<body>
+		<p class="mg-lr-30 text-right fc-link fs-18 cash-rule" id="cashRule">
+			<span>提现规则</span>
+		</p>
+		<div class="normal_lists_wraper mg-lr-30 pd-lr-24 bd-default bg-white fs-24">
+			<ul class="normal_lists_ul fc-31">
+				#if($status == '1')
+					<!--已同卡-->
+					<li class="list_item">
+						<label>银行卡</label>
+						<p class="list_text fc-6"><img src="$wapcdnpath/images/member/bankIcon/$accountBank.imgsrc" class="bank-icon">$accountBank.bankname&nbsp;($accountBank.bankaccount)</p>
+						<input type="hidden" id="accountBankId" name="accountBankId" value="$accountBank.accountBankId">
+					</li>
+				#elseif($status == '2')
+					<!--多张银行卡-->
+					<li class="list_item" id="moreBank">
+						<label>银行卡</label>
+						<p class="list_text fc-6"><img src="$wapcdnpath/images/member/bankIcon/zsyh.png" class="bank-icon" id="bankIcon"><span id="bankInfo">招商银行&nbsp;尾号0025</span></p>
+						<input type="hidden" id="accountBankId" name="accountBankId" value="">
+						<span class="iconfont icon-back"></span>
+					</li>
+				#else
+					<!--无银行卡-->
+					<li class="list_item" id="bindCard">
+						<label>银行卡</label>
+						<p class="list_text fc-6">请绑定一张银行卡</p>
+						<span class="iconfont icon-back"></span>
+					</li>
+				#end
+				<li class="list_item">
+					<label>开户支行</label>
+					<input type="text" class="list_text" placeholder="$!accountBank.bank" name="branch" value="$!accountBank.bank" data-branch="" id="branch">
+				</li>
+				<li class="list_item">
+					<label>提现金额</label>
+					<input type="text" class="list_text fc-31" placeholder="≥1.00" maxlength="10" name="money" value="" id="money">
+					<span class="fc-6">元</span>
+				</li>
+			</ul>
+		</div>
+		<div class="fs-18 fc-9 mg-lr-30 cash-info">
+			<div class="pd-l-24 row">
+				<span class="col-all-6">可用余额：<label class="fc-6">￥<span id="useMoney">$userMoney</span></label></span>
+				<span class="col-all-6 text-right">预计手续费：<label class="fc-primary">￥<span id="fees">0.00</span></</span>
+			</div>
+			<div class="pd-l-24 row">
+				<span class="col-all-12">免费提现额度：<label class="fc-6">￥<span id="freeCashFees">$freeMoney</span></label></span>
+			</div>
+		</div>
+		<div class="normal_lists_wraper mg-lr-30 pd-lr-24 bd-default bg-white fs-24">
+			<ul class="normal_lists_ul">
+				<li class="list_item">
+					<label>交易密码</label>
+					<input type="password" class="list_text fc-31" name="password" value="" id="payPassword">
+					<span class="fc-link" id="forgetPayPwd">忘记密码？</span>
+				</li>
+			</ul>
+			<input type="hidden" id="isza" value="$user.isza" />
+		</div>
+		<div class="mg-lr-30 mg-t-70">
+			<input type="button" class="text-center fs-32 fc-f form-btn form-btn-dis" id="form-btn" value="立即提现">
+		</div>
+		<div class="cash-shade hide" id="cashShade"></div>
+		<div class="cash-side fs-24 fc-6 hide">
+			<h1 class="fc-31 fs-24 text-center">选择银行卡</h1>
+			<ul>
+				#foreach($bank in $accountBankList)
+					<li data-id="$bank.accountBankId" data-branch="$!bank.bank"><img src="$wapcdnpath/images/member/bankIcon/$bank.imgsrc" class="bank-icon"><span>$bank.bankname ($bank.bankaccount)</span></li>
+				#end
+				<li class="select-other" id="otherCard">使用其他银行卡</li>
+			</ul>
+		</div>
+		
+		<p class="mg-lr-30 text-center fs-30 record-btn" id="cashRecord">查看所有提现记录</p>
+		
+		<input type="hidden" value="$wapurl" id="wapurl">
+		<script src="$wapcdnpath/js/sea.js"></script>
+		<script src="$wapcdnpath/js/seajs-css.js"></script>
+		<script src="$wapcdnpath/js/sea-config.js"></script>
+		<script src="$wapcdnpath/js/fraudmetrix.js?v=${ver}"></script>
+		<script>
+			seajs.use("page/member/cash.min");
+		</script>
+		<div class="hide"><script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1257405256'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1257405256%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script></div>
+	</body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta charset="utf-8">
+		<meta content="yes" name="apple-mobile-web-app-capable"> 
+  		<meta content="yes" name="apple-touch-fullscreen"> 
+ 		<meta content="telephone=no,email=no" name="format-detection"> 	
+		<meta content="yes" name="apple-mobile-web-app-capable">
+		<meta content="black" name="apple-mobile-web-app-status-bar-style">
+		<meta name="x5-fullscreen"content="true"/>
+    	<meta name="full-screen"content="yes">
+		<title>投资详情</title>
+		<link rel="stylesheet" href="$wapcdnpath/css/member/investmentRecordDetail.min.css?v=${ver}">
+		<script src="$wapcdnpath/js/flexible.js?v=${ver}"></script>
+	</head>
+	<body>
+	#if($tenderDataApi.borrowStatus=='1')
+		<!--冻结中-->
+		<div class="mg-30" data-id="${tenderApi.borrowId}" id="goItemDetail">
+			<div class="row pd-lr-24 fs-24 fc-f item-header">
+				<div class="col-all-7">${tenderApi.borrowName}</div>
+				<div class="col-all-5 text-right">
+					${tenderDataApi.strStatus}
+					<span class="iconfont icon-back fs-24"></span>
+				</div>
+			</div>
+		</div>
+		#else
+		<!--待收中、已还款、已结清-->
+		<div class="mg-30" data-id="${tenderApi.borrowId}">
+			<div class="row pd-lr-24 fs-24 fc-f item-header">
+				<div class="col-all-7">${tenderApi.borrowName}</div>
+				<div class="col-all-5 text-right">${tenderDataApi.strStatus}</div>
+			</div>
+		</div>
+		#end
+		<div class="normal_lists_wraper mg-lr-30 pd-lr-24 bd-default bg-white fs-24 mg-b-30">
+			<ul class="normal_lists_ul fc-6">
+				<li class="list_item">
+					<label>应收利息</label>
+					<p class="list_text text-right fc-primary">${tenderDataApi.tRepaymentInterest}</p>
+				</li>
+				<li class="list_item">
+					<label>购买金额</label>
+					<p class="list_text text-right">${tenderDataApi.tRepaymentMoney}</p>
+				</li>
+				<li class="list_item">
+					<label>购买时间</label>
+					<p class="list_text text-right">${tenderDataApi.addTime}</p>
+				</li>
+				<li class="list_item">
+					<label>还款方式</label>
+					<p class="list_text text-right">${tenderDataApi.repayStyle}</p>
+				</li>
+				<li class="list_item">
+					<label>到期时间</label>
+					<p class="list_text text-right">${tenderDataApi.endTime}</p>
+				</li>
+				<li class="list_item" id="baoQuanCode">
+					<label>保全码</label>
+					<p class="list_text text-right">
+						<span class="baoquancode">$!{tenderDataApi.recordNo}</span>
+					</p>
+				</li>
+			</ul>
+		</div>
+		<!--投资详情-待收中-->
+		<!-- <div class="normal_lists_wraper mg-lr-30 pd-lr-24 bd-default bg-white fs-24 mg-b-30">
+			<ul class="normal_lists_ul fc-6">
+				<li class="list_item">
+					<label>还款进度</label>
+					<p class="list_text text-right">0/1</p>
+				</li>
+				<li class="list_item">
+					<label>已还利息</label>
+					<p class="list_text text-right">0.00</p>
+				</li>
+				<li class="list_item">
+					<label>待收利息</label>
+					<p class="list_text text-right">200.30</p>
+				</li>
+			</ul>
+		</div> -->
+		<!--投资详情-待收中-已还款-->
+		#if($detailtype==1 )
+		<div class="normal_lists_wraper mg-lr-30 pd-lr-24 bd-default bg-white fs-24 mg-b-30">
+			<ul class="normal_lists_ul fc-6">
+				<li class="list_item">
+					<label>还款进度</label>
+					<p class="list_text text-right">${tenderDataApi.repayProgress}</p>
+				</li>
+				<li class="list_item">
+					<label>已还利息</label>
+					<p class="list_text text-right">${tenderDataApi.intrestReceive}</p>
+				</li>
+				<li class="list_item">
+					<label>待收利息</label>
+					<p class="list_text text-right">${tenderDataApi.intrestWait}</p>
+				</li>
+			</ul>
+		</div>
+		
+		 #elseif($detailtype==2)
+		<!--投资详情-已结清-->
+		<div class="normal_lists_wraper mg-lr-30 pd-lr-24 bd-default bg-white fs-24 mg-b-30">
+			<ul class="normal_lists_ul fc-6">
+				<li class="list_item">
+					<label>转出时间</label>
+					<p class="list_text text-right">${transferModel.transferOutTime}</p>
+				</li>
+				<li class="list_item">
+					<label>我的出让价</label>
+					<p class="list_text text-right">${transferModel.salePriceStr}</p>
+				</li>
+				<li class="list_item">
+					<label>转让手续费</label>
+					<p class="list_text text-right">-${transferModel.transferFeeStr}</p>
+				</li>
+				<li class="list_item">
+					<label>扣减红包</label>
+					<p class="list_text text-right">-${transferModel.packageMoneyStr}</p>
+				</li>
+				<li class="list_item">
+					<label>转出获得</label>
+					<p class="list_text text-right">${transferModel.OutAmount}</p>
+				</li>
+			</ul>
+		</div>
+		#end
+		<input type="hidden" value="$wapurl" id="wapurl">
+		<script src="$wapcdnpath/js/sea.js"></script>
+		<script src="$wapcdnpath/js/seajs-css.js"></script>
+		<script src="$wapcdnpath/js/sea-config.js"></script>
+		<script>
+			seajs.use("page/member/investmentRecordDetail.min");
+		</script>
+		<div class="hide"><script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1257405256'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1257405256%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script></div>
+	</body>
+</html>

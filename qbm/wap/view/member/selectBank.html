@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta charset="utf-8">
+		<meta content="yes" name="apple-mobile-web-app-capable"> 
+  		<meta content="yes" name="apple-touch-fullscreen"> 
+ 		<meta content="telephone=no,email=no" name="format-detection"> 	
+		<meta content="yes" name="apple-mobile-web-app-capable">
+		<meta content="black" name="apple-mobile-web-app-status-bar-style">
+		<meta name="x5-fullscreen"content="true"/>
+    	<meta name="full-screen"content="yes">
+		<title>选择银行卡</title>
+		<link rel="stylesheet" href="$wapcdnpath/css/member/selectBank.min.css?v=${ver}">
+		<script src="$wapcdnpath/js/flexible.js?v=${ver}"></script>
+	</head>
+	<body>
+		<form action="$wapurl/member/recharge.html" method="post" id="selectBankForm">
+			<div class="mg-lr-30 fs-24 fc-31">
+				#foreach($bank in $accountBankList)
+					#if($bank.authpay == '1')
+						<div class="card-item mg-t-30 pd-lr-24 bd-default" data-id="$bank.accountBankId">
+							<span class="col-all-7"><img src="$wapcdnpath/images/member/bankIcon/$bank.imgsrc" class="bank-icon">$bank.bankname</span>
+							<span class="col-all-5 text-right">$bank.bankaccount</span>
+						</div>
+					#else
+						<div class="card-item mg-t-30 pd-lr-24 bd-default card-item-disabled" data-id="$bank.accountBankId">
+							<span class="col-all-7"><img src="$wapcdnpath/images/member/bankIcon/$bank.imgsrc" class="bank-icon">$bank.bankname</span>
+							<span class="col-all-5 text-right">
+								$bank.bankaccount<br>
+								<span class="fs-18 fc-9">该卡不支持快捷支付</span>
+							</span>
+						</div>
+					#end
+				#end
+				<div class="other-card mg-t-30 bd-default bg-white text-center fc-link" id="addCard">使用其他银行卡</div>
+			</div>
+			<input type="hidden" name="bankId" id="bankId"/>
+		</form>
+		
+		<p class="text-center fs-18 fc-9 mg-t-70 mg-b-30 tip-text">移动端仅支持快捷支付银行卡充值，查看<span class="fc-link" id="bankList">支持的银行卡列表</span></p>
+		
+		<input type="hidden" value="$wapurl" id="wapurl">
+		<script src="$wapcdnpath/js/sea.js"></script>
+		<script src="$wapcdnpath/js/sea-config.js"></script>
+		<script>
+			seajs.use("page/member/selectBank.min");
+		</script>
+		<div class="hide"><script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1257405256'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1257405256%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script></div>
+	</body>
+</html>

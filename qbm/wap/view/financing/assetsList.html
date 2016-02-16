@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta charset="utf-8">
+		<meta content="yes" name="apple-mobile-web-app-capable"> 
+  		<meta content="yes" name="apple-touch-fullscreen"> 
+ 		<meta content="telephone=no,email=no" name="format-detection"> 	
+		<meta content="yes" name="apple-mobile-web-app-capable">
+		<meta content="black" name="apple-mobile-web-app-status-bar-style">
+		<meta name="x5-fullscreen"content="true"/>
+    	<meta name="full-screen"content="yes">
+		<title>资产清单</title>
+		<link rel="stylesheet" href="$wapcdnpath/css/financing/assetsList.min.css?v=${ver}">
+		<script src="$wapcdnpath/js/flexible.js?v=${ver}"></script>
+	</head>
+	<body>
+		
+		<input type="hidden" value="$wapurl" id="wapurl">
+		<script src="$wapcdnpath/js/sea.js"></script>
+		<script src="$wapcdnpath/js/sea-config.js"></script>
+		
+		<div class="content">
+			<div class="pos-fix data-table-header">
+				<div class="bd fs-24 row">
+					<span class="col-all-4">购车人</span>
+					<span class="col-all-4 text-left">按揭金额(元)</span>
+					<span class="col-all-4 text-right">状态</span>
+				</div>
+			</div>
+			<div class="mg-lr-30 pd-lr-24 bd-default bg-white fs-24 mg-t-116 data-table-view" id="listTable">
+				<script type="text/template" id="listTpl">
+				{{each borrowDetailsList}}
+					<div class="row" data-id="{{$value.borrowId}}">
+						<span class="col-all-4">
+							{{$value.borrowPersonName}}
+						</span>
+						<span class="col-all-4">
+							{{fixedNumber $value.borrowMoney}}
+						</span>
+						<span class="col-all-4 text-right">
+							{{status $value.type}}
+						</span>
+					</div>
+				{{/each}}
+				</script>
+			</div>
+
+			<div class="loading_wraper">
+				<img src="$wapcdnpath/images/loading.gif"  class="loading_img" id="loading">
+				<span class="loading_text fc-6">正在加载中</span>
+			</div>
+		</div>
+		
+
+		<script>
+			seajs.use("page/financing/assetsList.min.js");
+		</script>
+
+		<!--start 百度统计 -->
+		<div class="hide"><script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1257405256'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1257405256%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script></div>
+		<!--end 百度统计 -->
+	</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta charset="utf-8">
+		<meta content="yes" name="apple-mobile-web-app-capable"> 
+  		<meta content="yes" name="apple-touch-fullscreen"> 
+ 		<meta content="telephone=no,email=no" name="format-detection"> 	
+		<meta content="yes" name="apple-mobile-web-app-capable">
+		<meta content="black" name="apple-mobile-web-app-status-bar-style">
+		<meta name="x5-fullscreen"content="true"/>
+    	<meta name="full-screen"content="yes">
+    	
+		<title>$!borrow.baseTitle</title>
+		<link rel="stylesheet" href="${wapcdnpath}/css/financing/detail.min.css?v=${ver}">
+		<link rel="stylesheet" href="${wapcdnpath}/js/plugin/layer.m/need/layer.css?v=${ver}">
+		<script src="$wapcdnpath/js/flexible.js?v=${ver}"></script>
+	</head>
+	<body>
+		#set($int = 0)
+		<div class="content">
+			<section class="label_mes_wraper  pd-lr-24 mg-30 bd-default bg-white ">
+				<div class="wraper_tit clearfix ">
+					<span class="fn-fl">预期年化收益</span>
+					<span class="fn-fr right_label">
+					期限
+					#if($borrow.baseIsDayMarked == 'N')
+						$borrow.loanPeriodCount
+						个月
+					#else
+						$borrow.loanPeriodCount
+						天
+					#end
+					</span>
+				</div>
+				<p class="dashed_line">
+					<img src="$wapcdnpath/images/dash_line_white.png" class="dash_img">
+				</p>
+				<div class="label_prog">
+					<h3 class="prog_text fc-primary text-center">
+						<span class="per_num fc-primary">$!borrow.baseAprStr</span>
+						<span class="fc-primary">%</span>
+					</h3>
+					<p class="prog_bar pos-rel">
+						<span class="bar_inner pos-abs" id="bar_inner"></span>
+					</p>
+					<div class="clearfix fs-22">
+						<span class="fn-fl fc-9" >项目总额：$!borrow.TotalAmountStr元</span>
+						<input type="hidden" value="$!borrow.TotalAmountStr" id="money_all">
+						#set($canBuyMoney = $!borrow.baseTotalAmountBorrow - $!borrow.baseTotalSuccessBorrow)
+						<span class="fn-fr fc-9">剩余可购：$!borrow.CanBuyAmountStr元</span>
+						<input type="hidden" value="$!borrow.CanBuyAmountStr" id="money_left">
+
+					</div>
+					<div class="clearfix bottom_labels fs-22">
+						<label class="fn-fl fc-primary ">$!borrow.interestType</label>
+						<label class="fn-fr fc-primary ">$!borrow.repaymentStyle</label>
+					</div>
+				</div>
+			</section>
+
+			<div class="normal_lists_wraper mg-30 pd-lr-24 bd-default bg-white">
+				<ul class="normal_lists_ul">
+					<li class="list_item">
+						<label >保障方式</label>
+						<p class="list_text text-right">安东担保本息保障</p>
+					</li>
+					#if(!$borrow.riskLevel)
+					<li class="list_item">
+						<label >风险等级</label>
+						<p class="list_text text-right fc-link">$!borrow.riskLevel级</p>
+					</li>
+					#end
+					<li class="list_item tap-link" data-href="$wapurl/financing/assetsList.html">
+						<label >资产清单</label>
+						<p class="list_text text-right">
+							<span class="iconfont icon-back"></span>
+						</p>
+					</li>
+					<li class="list_item tap-link" data-href="$wapurl/wap/getBorrowContent.html">
+						<label >项目详情</label>
+						<p class="list_text text-right fc-link">
+							<span class="iconfont icon-back"></span>
+						</p>
+					</li>
+					#if($int.parseInt($borrow.startBuyTime)<=$nowTime)
+					<li class="list_item tap-link" data-href="$wapurl/financing/purchaseRecords.html">
+						<label >购买记录</label>
+						<p class="list_text text-right">
+							<span class="fc-link">$tenderCount笔</span>
+							<span class="iconfont icon-back"></span>
+						</p>
+					</li>
+					<!-- 项目剩余可购买时间 -->
+					<li class="list_item " data-href="">
+						<label >剩余时间</label>
+						<p class="list_text text-right fc-link"  id="borrowEndTime" data-time-end="$!borrow.effectiveTime"></p>
+					</li>
+					#end
+				</ul>
+			</div>
+			#if($int.parseInt($borrow.startBuyTime)>$nowTime)
+			<!-- 项目何时开售 -->
+			<!-- data-start:服务器当前时间 data-end:结束时间 -->
+			<div class="btn_group fixed_group">
+				<span class="btn_item bg-default"  data-time-end="$borrow.startBuyTime" id="borrowStartTime">
+					<!-- 12:23:56后开售，敬请期待 -->
+				</span>
+			</div>
+			#elseif(!$user)
+			<div class="btn_group fixed_group">
+				<span class="btn_item bg-primary tap-link" data-href="$wapurl/passport/login.html">
+					登录
+				</span>
+			</div>
+			#else
+				#if($canBuy == '1')
+					<div class="btn_group fixed_group">
+						<span class="btn_item bg-primary" id="buy_now" data-href="$wapurl/member/tenderPage.html">
+							立即购买
+						</span>
+					</div>
+				#else
+					<div class="btn_group fixed_group">
+						<span class="btn_item bg-default" >
+							只有新手才可以购买哦
+						</span>
+					</div>
+				#end
+			#end
+		</div>
+		
+		
+		<input type="hidden" value="$wapurl" id="wapurl">
+		<input type="hidden" value="$realStatus" id="realStatus"><!-- 是否实名认证过 -->
+		<input type="hidden" value="$nowTime" id="sysTime"><!-- 系统时间 时间戳 -->
+		<script src="$wapcdnpath/js/sea.js"></script>
+		<script src="$wapcdnpath/js/sea-config.js"></script>
+
+		<script>
+			seajs.use("page/financing/detail.min.js");
+		</script>
+
+		<!--start 百度统计 -->
+		<div class="hide"><script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1257405256'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1257405256%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script></div>
+		<!--end 百度统计 -->
+
+	</body>
+</html>

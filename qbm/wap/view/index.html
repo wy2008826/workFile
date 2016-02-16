@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta charset="utf-8">
+		<meta content="yes" name="apple-mobile-web-app-capable"> 
+  		<meta content="yes" name="apple-touch-fullscreen"> 
+ 		<meta content="telephone=no,email=no" name="format-detection"> 	
+		<meta content="yes" name="apple-mobile-web-app-capable">
+		<meta content="black" name="apple-mobile-web-app-status-bar-style">
+		<meta name="x5-fullscreen"content="true"/>
+    	<meta name="full-screen"content="yes">
+		<title>钱保姆理财</title>
+
+		<link rel="stylesheet" href="${wapcdnpath}/css/plugin/swiper/swiper.min.css?v=${ver}">
+		<link rel="stylesheet" href="${wapcdnpath}/css/index.min.css?v=${ver}">
+		<script src="$wapcdnpath/js/flexible.js?v=${ver}"></script>
+	</head>
+	<body>
+		
+		<div class="content">
+			<div class="top_down_app">
+				<img src="$wapcdnpath/images/index_logo.png" class="top_logo">
+				<span data-href="$weburl/applink.html" class="top_down tap-link" id="top_down">下载</span>
+			</div>
+			<div class="swiper-container swiper-container-horizontal" id="indexSlider">
+				<div class="swiper-wrapper">
+				</div>
+			</div>
+		<!-- 非登录状态下需要处理下数据，避免非登录用户查看 -->
+				<script type="text/template" id="topBannerTpl">
+					{{each imageResourcesList as item}}
+						<div class="swiper-slide tap-link" data-href="{{item.imageUrl}}" style="background-color:{{item.background_color}}">
+							<img src="${image_prefix}{{#item.imageAddress}} " class="slider_img" >
+						</div>
+					{{/each}}
+				</script>
+
+			#if(!$user)<!-- session_user -->
+			<!-- 根据是否登录显示下面的div或者a标签 -->
+			<div class="not_login_box bg-white bd-b-default text-center fs-28">
+				<span data-href="$wapurl/passport/login.html"  class="login_btn fc-6  tap-link">登录/注册</span>
+				<img src="$wapcdnpath/images/text_logo.png" class="text_logo" >
+			</div>
+			#else
+			<div data-href="$wapurl/member/index.html" class="has_login_box bg-white bd-b-default text-center fs-28 tap-link">
+				<p class="fc-9 ">累计收益(元)<span class="fc-primary mg-l-10">${interestTotal}</span></p>
+				<span class="bm_btn fc-6 ">进入我的保姆</span>
+			</div>
+			#end
+			
+			<!-- 正常标列表 -->
+			<div class="labels_lists_wraper">
+				<img src="$wapcdnpath/images/loading.gif"  class="loadding_lists" id="loading_lists">
+				<ul class="index_label_ul" id="index_label_ul">
+					
+
+					<!-- 默认第一条是推荐标 -->
+					<script id="borrow-list-template" type="text/x-handlebars-template">
+						{{each dataList}}
+							{{if !$index}}
+								<div class="label_li bd-default bg-white tuijian_li tap-link fc-3" data-href="$wapurl/wap/getBorrowInfo.html?borrow_id={{$value.borrowId}}">
+									<h4 class="label_tit pd-lr-10 text-center">{{$value.baseTitle}}</h4>
+									<img src="$wapcdnpath/images/index/list_flag.png" class="list_flag">
+									<p class="dashed_line mg-b-10">
+										<img src="$wapcdnpath/images/dash_line_white.png" class="dash_img">
+									</p>
+									<p class="tuijian_num_big fc-primary text-center ">
+										<span class="num">{{fixToSecond $value.baseApr}}</span>%
+									</p>
+									<div class="prog_bar_wraper mg-t-10">
+										<p class="prog_bar pos-rel flex-1">
+											<span class="bar_inner pos-abs"  data-width="{{BarProgress $value.baseSuccessAmount $value.totalAmount}}%"></span>
+										</p>
+										<label class="bar_state  {{LabelClass $value.isCanBid}}">
+											{{LabelStatus $value.isCanBid}}
+										</label>
+									</div>
+									<div class="row label_nums lh-28 mg-b-10">
+										<p class="col-all-6 text-center fc-9">
+											{{labelPeriod $value.baseIsDayMarked $value.basePeriodCount $index}}
+										</p>
+										<p class="col-all-6 text-center fc-9 has_border_l">
+											{{$value.lowestAccount}}元起投
+										</p>
+									</div>
+								</div>
+							{{/if}}
+							{{if $index}}
+							<div class="label_li bd-default bg-white tap-link" data-href="$wapurl/wap/getBorrowInfo.html?borrow_id={{$value.borrowId}}">
+								<p class="label_tit pd-lr-10">{{$value.baseTitle}}</p>
+								<p class="dashed_line mg-b-10">
+									<img src="$wapcdnpath/images/dash_line_white.png" class="dash_img">
+								</p>
+								<div class="row label_nums ">
+									<p class="col-all-4  fc-9">
+										<span class="fs-18 fc-3 per_num">{{fixToSecond $value.baseApr}}</span>%
+									</p>
+									<p class="col-all-4 text-center fc-9">
+										{{labelPeriod $value.baseIsDayMarked $value.basePeriodCount}}
+									</p>
+									<p class="col-all-4 text-right fc-9">
+										<span class="fc-3">{{$value.lowestAccount}}</span>元起投
+									</p>
+								</div>
+								<div class="prog_bar_wraper mg-t-10">
+									<p class="prog_bar pos-rel flex-1">
+										<span class="bar_inner pos-abs"  data-width="{{BarProgress $value.baseSuccessAmount $value.totalAmount}}%">
+										</span>
+									</p>
+									<label class="bar_state  {{LabelClass $value.isCanBid}}">
+										{{LabelStatus $value.isCanBid}}
+									</label>
+								</div>
+							</div>
+							{{/if}}
+						{{/each}}
+					</script>
+				</ul>
+			</div>
+
+			<div class="bottom_about">
+				<p class="text-center">
+					<span  class="fc-link text-deco tap-link" data-href="http://mp.weixin.qq.com/s?__biz=MjM5NDg3Mjg3OQ==&mid=402272338&idx=1&sn=e169e114d8d8214dd21f4f818f3392b7&scene=23&srcid=0128oGmW9tt6TIOVkgNKHHnn#rd&ADUIN=760104178&ADSESSION=1454030724&ADTAG=CLIENT.QQ.5443_.0&ADPUBNO=26536">关于钱保姆</span>
+					<a href="tel:400606706" class="fc-link text-deco mg-l-10">客服热线：400-606-7066</a>
+				</p>
+
+				<p class="danger_note text-center fc-9">
+					*投资有风险，理财需谨慎
+				</p>
+			</div>
+			<p class="copyright fc-9 text-center">
+				©2014 浙江佰财金融信息服务有限公司<br/> All Rights Reserved 
+			</p>
+		</div>
+		
+		<input type="hidden" value="$wapurl" id="wapurl">
+		<script src="$wapcdnpath/js/sea.js"></script>
+		<script src="$wapcdnpath/js/sea-config.js"></script>
+
+		<script>
+			seajs.use("page/index.min.js");
+		</script>
+		
+		<!--start 百度统计 -->
+		<div class="hide"><script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1257405256'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1257405256%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script></div>
+		<!--end 百度统计 -->
+	</body>
+</html>

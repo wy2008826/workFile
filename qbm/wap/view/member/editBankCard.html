@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta charset="utf-8">
+		<meta content="yes" name="apple-mobile-web-app-capable"> 
+  		<meta content="yes" name="apple-touch-fullscreen"> 
+ 		<meta content="telephone=no,email=no" name="format-detection"> 	
+		<meta content="yes" name="apple-mobile-web-app-capable">
+		<meta content="black" name="apple-mobile-web-app-status-bar-style">
+		<meta name="x5-fullscreen"content="true"/>
+    	<meta name="full-screen"content="yes">
+		<title>已绑定银行卡</title>
+		<link rel="stylesheet" href="$wapcdnpath/css/member/editBankCard.min.css?v=${ver}">
+		<script src="$wapcdnpath/js/flexible.js?v=${ver}"></script>
+	</head>
+	<body>
+		<div class="normal_lists_wraper mg-lr-30 pd-lr-24 bd-default bg-white fs-24 mg-t-30 no-user-select">
+			<input type="hidden" name="id" value="$id" id="bankId"/>
+			<ul class="normal_lists_ul fc-31 card-info">
+				<li class="list_item">
+					<label>开户名</label>
+					<p class="list_text">$hideRealName</p>
+				</li>
+				<li class="list_item">
+					<label>银行卡号</label>
+					<p class="list_text">$hideAccount</p>
+				</li>
+				<li class="list_item">
+					<label>开户银行</label>
+					<p class="list_text">$bankName</p>
+				</li>
+				#if(!$branch)
+					<!--无开户支行信息-->
+					<li class="list_item" id="normal">
+						<label>开户支行</label>
+						<p class="list_text text-right fc-link" id="edit">填写</p>
+					</li>
+				#else
+					<!--有开户支行信息-->
+					<li class="list_item" id="normal">
+						<label>开户支行</label>
+						<p class="list_text">$!branch</p>
+						<span class="fc-link" id="edit">修改</span>
+					</li>
+				#end
+				<!--修改开户支行信息-->
+				<li class="list_item hide" id="editForm">
+					<label>开户支行</label>
+					<input type="text" class="list_text" placeholder="请输入开户支行" name="branch" value="" id="branch">
+					<span class="fc-link" id="cancel">取消</span>
+				</li>
+			</ul>
+		</div>
+		<div class="mg-lr-30 mg-t-70 hide" id="formBtn">
+			<input type="button" class="text-center fs-32 fc-f form-btn" value="完成">
+		</div>
+		
+		<div class="mg-lr-30 mg-t-70 fc-9 fs-20 tip-block">
+			<h1 class="fs-20">温馨提示:</h1>
+			<p><label>1.</label>为了保障您的安全，若您当前账户总额为0可直接在钱保姆理财app端换卡； 若大于0，请拨打我们的客服热线<span class="fc-primary">400-606-7066</span>申请换卡。</p>
+			<p><label>2.</label>换卡流程较复杂，建议原卡未丢失的情况下不要轻易换卡。</p>
+		</div>
+		
+		<input type="hidden" value="$wapurl" id="wapurl">
+		<script src="$wapcdnpath/js/sea.js"></script>
+		<script src="$wapcdnpath/js/seajs-css.js"></script>
+		<script src="$wapcdnpath/js/sea-config.js"></script>
+		<script>
+			seajs.use("page/member/editBankCard.min.js");
+		</script>
+		<div class="hide"><script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1257405256'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1257405256%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script></div>
+	</body>
+</html>

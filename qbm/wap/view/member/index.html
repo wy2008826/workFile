@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta charset="utf-8">
+		<meta content="yes" name="apple-mobile-web-app-capable"> 
+  		<meta content="yes" name="apple-touch-fullscreen"> 
+ 		<meta content="telephone=no,email=no" name="format-detection"> 	
+		<meta content="yes" name="apple-mobile-web-app-capable">
+		<meta content="black" name="apple-mobile-web-app-status-bar-style">
+		<meta name="x5-fullscreen"content="true"/>
+    	<meta name="full-screen"content="yes">
+		<title>我的保姆</title>
+		<link rel="stylesheet" href="$wapcdnpath/css/member/index.min.css?v=${ver}">
+		<script src="$wapcdnpath/js/flexible.js?v=${ver}"></script>
+	</head>
+	<body>
+		<header class="member-info text-center fc-f">
+			<span class="pos-abs iconfont icon-shezhi fc-f" id="setting"></span>
+			<img src="$wapcdnpath/images/member/avatar.png" class="avatar">
+			<p class="fs-28">$hidePhone</p>
+			<p class="balance fs-22">还有<span>$accountUseMoney</span>可用</p>
+			<ul class="pos-abs text-center account-info fs-30">
+				<li class="col-all-6">
+					<span class="money fs-32">$accountTotal</span>
+					<span class="text fs-22">资产总额(元)</span>
+				</li>
+				<li class="col-all-6">
+					<span class="money fs-32">$interestTotal</span>
+					<span class="text fs-22">累计收益(元)</span>
+				</li>
+			</ul>	
+		</header>
+		
+		<ul class="text-center grid-view fs-20 fc-6">
+			<li class="col-all-4" id="rechargeBtn">
+				<span class="iconfont icon-chongzhi fc-link"></span>
+				<div class="view-body">充值</div>
+			</li>
+			<li class="col-all-4" id="cashBtn">
+				<span class="iconfont icon-tixian fc-link"></span>
+				<div class="view-body">提现</div>
+			</li>
+			<li class="col-all-4" id="dealDetailBtn">
+				<span class="iconfont icon-jilu fc-link"></span>
+				<div class="view-body">交易明细</div>
+			</li>
+			<li class="col-all-4" id="investmentBtn">
+				<span class="iconfont icon-touzi fc-link"></span>
+				<div class="view-body">我的投资</div>
+			</li>
+			<li class="col-all-4" id="redPacketBtn">
+				<span class="iconfont icon-hongbao fc-link"></span>
+				<div class="view-body">我的红包</div>
+			</li>
+			<li class="col-all-4" id="loanBtn">
+				<span class="iconfont icon-jiekuan fc-link"></span>
+				<div class="view-body">我要借款</div>
+			</li>
+		</ul>
+		<footer class="member-footer text-center fs-20">
+			<div class="footer-grid">
+				<span class="col-all-4" id="backHome">返回首页</span>
+				<span class="col-all-4" id="down">APP下载</span>
+				<span class="col-all-4" id="contact">联系我们</span>
+			</div>
+		</footer>
+		<input type="hidden" value="$weburl" id="weburl">
+		<input type="hidden" value="$wapurl" id="wapurl">
+		<script src="$wapcdnpath/js/sea.js"></script>
+		<script src="$wapcdnpath/js/sea-config.js"></script>
+		<script>
+			seajs.use("page/member/index.min");
+		</script>
+		<div class="hide"><script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1257405256'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1257405256%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script></div>
+	</body>
+</html>

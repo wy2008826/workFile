@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta charset="utf-8">
+		<meta content="yes" name="apple-mobile-web-app-capable"> 
+  		<meta content="yes" name="apple-touch-fullscreen"> 
+ 		<meta content="telephone=no,email=no" name="format-detection"> 	
+		<meta content="yes" name="apple-mobile-web-app-capable">
+		<meta content="black" name="apple-mobile-web-app-status-bar-style">
+		<meta name="x5-fullscreen"content="true"/>
+    	<meta name="full-screen"content="yes">
+		<title>实名认证</title>
+		<link rel="stylesheet" href="$wapcdnpath/css/member/authentication.min.css?v=${ver}">
+		<script src="$wapcdnpath/js/flexible.js?v=${ver}"></script>
+	</head>
+	<body>
+		#if($realStatus=='1')
+		<!--已实名认证-->
+		<div class="normal_lists_wraper mg-lr-30 pd-lr-24 bd-default bg-white fs-24 mg-t-30">
+			<ul class="normal_lists_ul">
+				<li class="list_item">
+					<label>姓名</label>
+					<p class="list_text text-right fc-31">$hideuRealName</p>
+				</li>
+				<li class="list_item">
+					<label>身份证号</label>
+					<p class="list_text text-right fc-31">$hideuIDCard</p>
+				</li>
+			</ul>
+		</div>
+		#else
+		<!--未实名认证-->
+		<div class="passport_form_wraper mg-lr-30 mg-t-30">
+			<ul class="login_form_ul">
+				<li class="list_item bd-w-1">
+					<input type="text"  class="list_text" id="realName" placeholder="您的姓名" >
+				</li>
+				<li class="list_item bd-w-1">
+					<input type="text" id="IDCard" class="list_text" maxlength="18" placeholder="身份证号" >
+				</li>
+				<p class="lh-30 text-right fs-20 fc-9">
+					根据相关规定，购买理财产品需要实名认证
+				</p>
+				<li class="list_item btn_item fc-f text-center disabled" id="submit">
+					点击认证
+				</li>
+			</ul>
+		</div>	
+		#end
+		<input type="hidden" value="$wapurl" id="wapurl">
+		<script src="$wapcdnpath/js/sea.js"></script>
+		<script src="$wapcdnpath/js/seajs-css.js"></script>
+		<script src="$wapcdnpath/js/sea-config.js"></script>
+		<script>
+			seajs.use("page/member/authentication.min");
+		</script>
+		<div class="hide"><script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1257405256'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1257405256%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script></div>
+	</body>
+</html>

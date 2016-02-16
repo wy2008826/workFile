@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta charset="utf-8">
+		<meta content="yes" name="apple-mobile-web-app-capable"> 
+  		<meta content="yes" name="apple-touch-fullscreen"> 
+ 		<meta content="telephone=no,email=no" name="format-detection"> 	
+		<meta content="yes" name="apple-mobile-web-app-capable">
+		<meta content="black" name="apple-mobile-web-app-status-bar-style">
+		<meta name="x5-fullscreen"content="true"/>
+    	<meta name="full-screen"content="yes">
+		<title>我的红包</title>
+		<link rel="stylesheet" href="$wapcdnpath/css/member/redPacket.min.css?v=${ver}">
+		<script src="$wapcdnpath/js/flexible.js?v=${ver}"></script>
+	</head>
+	<body>
+		<div class="mg-30">
+			<p class="fs-18 fc-link text-right rule-text"><span id="redPacketRule">红包使用规则</span></p>
+			<p class="text-center fc-9 fs-28 hide no-data" id="noData">红包暂时不在家哦~</p>
+			<div id="pageWrap">
+				<ul class="red-packet-list" id="list">
+					<script id="listTpl" type="text/html">
+					{{each dataList}}
+					<li {{if $value.useStatus !=  0}} class="disabled" {{/if}}>
+						<dl>
+							<dt class="fs-24 fc-31">{{$value.name}}<span class="fs-18 fc-9">({{redPacketStatsFun $value.useStatus nowTime $value.expiredtime}})</span></dt>
+							<dd class="fs-20 fc-9">
+								<p>有效期至：{{dateFormat $value.expiredtime 4}}</p>
+								<p>{{$value.content}}</p>
+							</dd>
+						</dl>
+						{{if $value.useStatus == 0}}
+						<img src="$wapcdnpath/images/member/normalBg.png">
+						{{else}}
+						<img src="$wapcdnpath/images/member/unavailableBg.png">
+						{{/if}}	
+						<span class="text-center amount">￥<em>{{$value.money}}</em></span>	
+					</li>
+					{{/each}}
+					</script>
+				</ul>
+			</div>
+		</div>
+		<input type="hidden" value="$wapurl" id="wapurl">
+		<script src="$wapcdnpath/js/sea.js"></script>
+		<script src="$wapcdnpath/js/seajs-css.js"></script>
+		<script src="$wapcdnpath/js/sea-config.js"></script>
+		<script>
+			seajs.use("page/member/redPacket.min");
+		</script>
+		<div class="hide"><script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1257405256'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1257405256%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script></div>
+	</body>
+</html>

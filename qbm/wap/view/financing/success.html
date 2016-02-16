@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta charset="utf-8">
+		<meta content="yes" name="apple-mobile-web-app-capable"> 
+  		<meta content="yes" name="apple-touch-fullscreen"> 
+ 		<meta content="telephone=no,email=no" name="format-detection"> 	
+		<meta content="yes" name="apple-mobile-web-app-capable">
+		<meta content="black" name="apple-mobile-web-app-status-bar-style">
+		<meta name="x5-fullscreen"content="true"/>
+    	<meta name="full-screen"content="yes">
+		<title>购买成功</title>
+		<link rel="stylesheet" href="$wapcdnpath/css/financing/success.min.css?v=${ver}">
+		<script src="$wapcdnpath/js/flexible.js?v=${ver}"></script>
+	</head>
+	<body>
+	
+		<div class="content">
+			<img src="$wapcdnpath/images/financing/buy_success.png" class="buy_success">
+			<p class="lh-70 text-center">
+				购买成功了！请静静坐等满标！
+			</p>
+			<p class="lh-70 text-center hide" id="add_raise_wraper" >
+				红包为您加息：<span class="fc-primary" id="addRaise"></span>
+			</p>
+			
+			<div class="btn_group">
+				<span class="btn_item bg-light-primary tap-link" data-href="$wapurl/index.html">浏览其它产品</span>
+				<span class="btn_item bg-primary tap-link" data-href="$wapurl/member/index.html">看看我的账户</span>
+			</div>
+		</div>
+
+
+		<input type="hidden" value="$wapurl" id="wapurl">
+
+		<script src="$wapcdnpath/js/sea.js"></script>
+		<script src="$wapcdnpath/js/sea-config.js"></script>
+		
+
+
+		<script>
+			seajs.use("page/financing/success.min.js");
+		</script>
+		
+		<!--start 百度统计 -->
+		<div class="hide"><script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1257405256'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1257405256%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script></div>
+		<!--end 百度统计 -->
+	</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta charset="utf-8">
+		<meta content="yes" name="apple-mobile-web-app-capable"> 
+  		<meta content="yes" name="apple-touch-fullscreen"> 
+ 		<meta content="telephone=no,email=no" name="format-detection"> 	
+		<meta content="yes" name="apple-mobile-web-app-capable">
+		<meta content="black" name="apple-mobile-web-app-status-bar-style">
+		<meta name="x5-fullscreen"content="true"/>
+    	<meta name="full-screen"content="yes">
+		<title>购买失败</title>
+		
+		<link rel="stylesheet" href="$wapcdnpath/css/financing/fail.min.css?v=${ver}">
+		<script src="$wapcdnpath/js/flexible.js?v=${ver}"></script>
+	</head>
+	<body>
+		
+		<div class="content">
+			<img src="$wapcdnpath/images/financing/buy_fail.png" class="buy_fail">
+			<p class="lh-70 text-center">
+				购买失败...
+			</p>
+			<p class="lh-70 text-center">
+				原因：<span id="failReason"></span>
+			</p>
+
+			<div class="btn_group">
+				<span class="btn_item bg-light-primary tap-link " data-href="$wapurl/wap/getBorrowInfo.html">重新再来</span>
+				<a class="btn_item bg-primary" href="tel:400-606-7066">我想给客服谈谈</a>
+			</div>
+		</div>
+
+
+		<input type="hidden" value="$wapurl" id="wapurl">
+
+		
+		<script src="$wapcdnpath/js/sea.js"></script>
+		<script src="$wapcdnpath/js/sea-config.js"></script>
+		
+		<script>
+			seajs.use("page/financing/fail.min.js");
+		</script>
+		
+		<!--start 百度统计 -->
+		<div class="hide"><script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1257405256'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1257405256%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script></div>
+		<!--end 百度统计 -->
+
+	</body>
+</html>

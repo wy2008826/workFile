@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta charset="utf-8">
+		<meta content="yes" name="apple-mobile-web-app-capable"> 
+  		<meta content="yes" name="apple-touch-fullscreen"> 
+ 		<meta content="telephone=no,email=no" name="format-detection"> 	
+		<meta content="yes" name="apple-mobile-web-app-capable">
+		<meta content="black" name="apple-mobile-web-app-status-bar-style">
+		<meta name="x5-fullscreen"content="true"/>
+    	<meta name="full-screen"content="yes">
+		<title>注册</title>
+		<link rel="stylesheet" href="$wapcdnpath/css/passport/reg.min.css?v=${ver}">
+		<link rel="stylesheet" href="${wapcdnpath}/js/plugin/layer.m/need/layer.css?v=${ver}">
+		<script src="$wapcdnpath/js/flexible.js?v=${ver}"></script>
+		<script type="text/javascript">
+		SESSION_ID='${session.id}';
+		TONGDUN_ENV='${tongdun_env}';
+		</script>
+
+	</head>
+	<body>
+
+		<div class="content">
+			<div class="passport_form_wraper mg-lr-30">
+				<p class="fc-9 lh-50">
+					新来的小主，终于等到您啦！
+				</p>
+				#if($times< 6)
+				<p class="fc-9 lh-50">
+					我们已将验证码(免费)发至：<span class="fc-primary" id="pagePhone"></span>
+				</p>
+				#else
+				<p class="fc-9 lh-50">
+					超出系统限制，暂时无法发送验证码至您的手机
+				</p>
+				#end
+				<ul class="login_form_ul">
+					<li class="list_item bd-w-1 imgRow hide" id="imgRow">
+						<input type="tel"  class="list_text telMes" id="imgInput" placeholder="请输入图形验证码" maxlength="4">
+						<span class="list_tail border_left fc-9 text-left" id="img_random_wraper">
+							<img src="$wapurl/api/pcrimg.html" class="img_random" id="img_random">
+							<span class="refresh_img iconfont icon-shuaxin fc-link" id="refresh_img"></span>
+						</span>
+					</li>
+					
+					<li class="list_item bd-w-1 mesRow">
+						<input type="tel"  class="list_text telMes" id="telMesInput" placeholder="请输入短信验证码" maxlength="6">
+						<span class="list_tail border_left fc-link text-center " id="getCode">获取验证码</span>
+						<input type="hidden" value="${times}" id="times">
+					</li>
+					<p class="lh-50 text-right fs-20 fc-9 hide" id="kefuMes">
+						啊哦，等不到短信？联系客服：<a class="fc-link" href="tel:400-606-7066">400-606-7066</a>
+					</p>
+					<li class="list_item bd-w-1">
+						<input type="password" type="password" class="list_text pwd0" id="pwdInput0" maxlength="12"  placeholder="登录密码(6-12位数字加字母组合)">
+						<span class="list_tail  text-right iconfont icon-bukejian" id="passportSea"></span>
+					</li>
+					<li class="list_item bd-w-1">
+						<input type="password" type="password" class="list_text pwd1" id="pwdInput1" maxlength="12" placeholder="请再次输入登录密码" >
+					</li>
+					<li class="list_item bd-w-1">
+						<input type="tel"  id="tuijianInput" class="list_text" placeholder="推荐人手机号码(非必填)" maxlength="11" value="$inviteUserPhone">
+					</li>
+					<li class="list_item btn_item fc-f text-center disabled" id="submit">
+						提交
+					</li>
+					<p class="lh-50 fc-9 text-center lh-50 fs-22">
+						点击“提交”时，我已同意<span class="fc-link text-deco tap-link" data-href="$wapurl/passport/regAgreement.html">《钱保姆注册协议》</span>
+					</p>
+				</ul>
+			</div>
+		</div>
+
+		<input type="hidden" value="$wapurl" id="wapurl">
+		<input type="hidden" value="$weburl" id="weburl">
+		<script src="$wapcdnpath/js/sea.js"></script>
+		<script src="$wapcdnpath/js/sea-config.js"></script>
+		<script src="$wapcdnpath/js/fraudmetrix.js?v=${ver}"></script>
+		<script>
+			seajs.use("page/passport/reg.min.js");
+		</script>
+		
+		<!--start 百度统计 -->
+		<div class="hide"><script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1257405256'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1257405256%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script></div>
+		<!--end 百度统计 -->
+		
+	</body>
+</html>

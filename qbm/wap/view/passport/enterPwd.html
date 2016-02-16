@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta charset="utf-8">
+		<meta content="yes" name="apple-mobile-web-app-capable"> 
+  		<meta content="yes" name="apple-touch-fullscreen"> 
+ 		<meta content="telephone=no,email=no" name="format-detection"> 	
+		<meta content="yes" name="apple-mobile-web-app-capable">
+		<meta content="black" name="apple-mobile-web-app-status-bar-style">
+		<meta name="x5-fullscreen"content="true"/>
+    	<meta name="full-screen"content="yes">
+		<title>登录</title>
+		<link rel="stylesheet" href="$wapcdnpath/css/passport/enterPwd.min.css?v=${ver}">
+		<link rel="stylesheet" href="${wapcdnpath}/js/plugin/layer.m/need/layer.css?v=${ver}">
+		<script src="$wapcdnpath/js/flexible.js?v=${ver}"></script>
+		<script type="text/javascript">
+		SESSION_ID='${session.id}';
+		TONGDUN_ENV='${tongdun_env}';
+		</script>
+	</head>
+	<body>
+		
+		<div class="content">
+			<div class="passport_form_wraper mg-lr-30">
+				
+				<p class="fc-9 lh-50">
+					您正在登陆的账号为  <span class="fc-primary" id="phoneVal"></span>
+				</p>
+				<ul class="login_form_ul">
+					
+					<li class="list_item bd-w-1 mesRow">
+						<input  type="password" class="list_text telMes" id="passportInput" maxlength="12" placeholder="6-12位数字加字母组合">
+						<span class="list_tail border_left fc-link text-center tap-link" data-href="$wapurl/passport/forgetLoginPwd.html" id="forgetPwd">忘记密码？</span>
+					</li>
+					
+					<li class="list_item btn_item fc-f text-center disabled" id="submit">
+						登录
+					</li>
+					
+				</ul>
+			</div>
+		</div>
+
+		<input type="hidden" value="$wapurl" id="wapurl">
+		<script src="$wapcdnpath/js/sea.js"></script>
+		<script src="$wapcdnpath/js/sea-config.js"></script>
+		<script src="$wapcdnpath/js/fraudmetrix.js?v=${ver}"></script>
+
+		<script>
+			seajs.use("page/passport/enterPwd.min.js");
+		</script>
+
+		<!--start 百度统计 -->
+		<div class="hide"><script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1257405256'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1257405256%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script></div>
+		<!--end 百度统计 -->
+		
+	</body>
+</html>
