@@ -10,9 +10,9 @@
 		<meta name="x5-fullscreen"content="true"/>
     	<meta name="full-screen"content="yes">
 		<title>登录/注册</title>
-		<link rel="stylesheet" href="$wapcdnpath/css/passport/login.min.css?v=${ver}">
-		<link rel="stylesheet" href="${wapcdnpath}/js/plugin/layer.m/need/layer.css?v=${ver}">
-		<script src="$wapcdnpath/js/flexible.js?v=${ver}"></script>
+		<link rel="stylesheet" href="../../statics/css/passport/login.min.css?v=${ver}">
+		<link rel="stylesheet" href="../../statics/js/plugin/layer.m/need/layer.css?v=${ver}">
+		<script src="../../statics/js/flexible.js?v=${ver}"></script>
 		<script type="text/javascript">
 			SESSION_ID='${session.id}';
 			TONGDUN_ENV='${tongdun_env}';
@@ -21,7 +21,7 @@
 	<body>
 
 		<div class="content">
-			<img src="$wapcdnpath/images/big_white_logo.png"  class="big_white_logo">
+			<img src="../../statics/images/big_white_logo.png"  class="big_white_logo">
 			<div class="passport_form_wraper mg-lr-30" id="loginForm" action="$wapurl/passport/loginByPhone.html" method="post">
 				<ul class="login_form_ul">
 					<li class="list_item bd-w-1">
@@ -39,9 +39,9 @@
 		</div>
 
 		<input type="hidden" value="$wapurl" id="wapurl">
-		<script src="$wapcdnpath/js/sea.js"></script>
-		<script src="$wapcdnpath/js/sea-config.js"></script>
-		<script src="$wapcdnpath/js/fraudmetrix.js?v=${ver}"></script>
+		<script src="../../statics/js/sea.js"></script>
+		<script src="../../statics/js/sea-config.js"></script>
+		<script src="../../statics/js/fraudmetrix.js?v=${ver}"></script>
 		
 		<script>
 			seajs.use("page/passport/login.min.js");
