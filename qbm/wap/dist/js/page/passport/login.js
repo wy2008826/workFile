@@ -129,6 +129,13 @@ define(function(require,module,exports){
 								var html="<p class='lh-40'>"+data.msg+"</p>";
 								self.alertMes(html);
 							}
+						},
+						error:function(){
+							var html="<p class='lh-40'>"+data.msg+"</p>";
+							self.alertMes(html);
+									
+							// var href=self.url.wapUrl+"/passport/reg.html?phoneNumber="+data.phoneNumber;
+							// window.location.href=href;		
 						}
 					});
 				});
