@@ -1,0 +1,31 @@
+@import "../base";
+
+$white:#fff;
+$bdcolor:#e5e5e5;
+
+.contact-bd{
+    color: #313131;
+    li{
+        overflow: hidden;
+        padding-top: pxToRem(48);
+    }
+    label{
+        float:left;
+        width: pxToRem(152);
+        margin-right: pxToRem(-152);
+        text-align: center;
+        color: #999;
+    }
+    p{
+        vertical-align:middle;
+        margin-left:pxToRem(152);
+    }
+}
+
+.qrcode{
+    margin-top: pxToRem(60);
+    width: pxToRem(465);
+    height: pxToRem(465);
+}
+
+

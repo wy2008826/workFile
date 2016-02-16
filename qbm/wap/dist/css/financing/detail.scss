@@ -1,0 +1,97 @@
+@import "../base";
+@import "../_ignore/normal_lists";
+@import "../_ignore/mylayer";
+@import "../_ignore/mixin";
+@import "../_ignore/btn";
+
+
+@include fontFace("../");
+.content{
+	padding-bottom:pxToRem(120);
+}
+
+@include dpr(".content",24px);
+
+@include dpr(".label_mes_wraper .label_prog .prog_text",34px);
+@include dpr(".label_mes_wraper .label_prog .per_num",68px);
+.label_mes_wraper{
+	$colorLink:#0092ff;
+	.wraper_tit{
+		$h:pxToRem(40);
+		height: $h;
+		line-height: $h;
+		color:#111;
+		margin-top: pxToRem(20);
+		.right_label{
+			position: relative;
+			top:0;
+			line-height: $h ;
+			color:$colorLink;
+			border:1px solid $colorLink;
+			-webkit-border-radius:pxToRem(6);
+			padding:0 pxToRem(20) 0 pxToRem(20);
+		}
+	}
+	.dashed_line{
+		$h:pxToRem(40);
+		position:relative;
+		height: $h;
+		margin-left:pxToRem(-26);
+		margin-right:pxToRem(-26);
+		.dash_img{
+			vertical-align: middle;
+			width: 100%;
+		}
+		
+	}
+	.label_prog{
+		padding:pxToRem(40) 0 pxToRem(30) 0;
+		.prog_text{
+			font-weight: normal;
+			// .per_num{
+			// 	font-size: 36px;
+			// }
+			// @include dpr(".per_num",72px);
+		}
+		.prog_bar{
+			$barH:pxToRem(6);
+			margin:pxToRem(44) 0 pxToRem(44) 0;
+			height: $barH;
+			background-color:#e5e5e5;
+			.bar_inner{
+				display: block;
+				height: 100%;
+				width: 0%;
+				top:0;
+				left:0;
+				background-color:#ff6900;
+			}
+		}
+		.bottom_labels{
+			$h:40;
+			margin-top: pxToRem($h);
+			label{
+				border:1px solid #ff6900;
+				line-height: pxToRem($h);
+				padding:0 pxToRem(14);
+				-webkit-border-radius:pxToRem(6);
+			}
+		}
+	}
+}
+
+
+
+.list_tail{
+	&.tailW-230{
+		width:pxToRem(230) !important;
+	}
+}
+
+.fixed_group{
+	margin:0;
+	position:fixed;
+	bottom:pxToRem(30);
+	left:pxToRem(30);
+	right:pxToRem(30);
+}

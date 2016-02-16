@@ -1,0 +1,116 @@
+@import "../base";
+@import "../_ignore/normal_lists";
+@import "../_ignore/mylayer";
+
+$white:#fff;
+$bdcolor:#e5e5e5;
+
+input.list_text{
+    height: pxToRem(90) !important;
+}
+
+.read{
+    padding: pxToRem(20) 0 pxToRem(10) 0;
+}
+.user-money{
+    padding-bottom: pxToRem(20);
+}
+
+.bank-icon{
+    margin-right: pxToRem(8);
+    width: pxToRem(34);
+    height: pxToRem(34);
+    vertical-align: middle;
+}
+
+.tip-block{
+    h1{
+        font-weight: normal;
+    }
+    p{
+        line-height: pxToRem(40);
+        label{
+            display: inline-block;
+        }
+    }
+}
+.support{
+    padding: pxToRem(20) 0 pxToRem(10) 0;
+    span{
+        border-bottom: 1px solid #0092ff;
+    }
+}
+.pop-layer{
+    padding: pxToRem(24);
+    p{
+        text-indent: 28px;
+    }
+}
+[data-dpr="2"] .pop-layer p{
+    text-indent: 57.6px;
+}
+[data-dpr="2.5"] .pop-layer p{
+    text-indent: 60px;
+}
+[data-dpr="2.75"] .pop-layer p{
+    text-indent: 84px;
+}
+[data-dpr="3"] .pop-layer p{
+    text-indent: 96px;
+}
+[data-dpr="4"] .pop-layer p{
+    text-indent: 144px;
+}
+
+
+
+.dropload-up,.dropload-down{
+    position: relative;
+    height: 0;
+    overflow: hidden;
+    font-size: 12px;
+    -webkit-transform:translateZ(0);
+    transform:translateZ(0);
+}
+.dropload-down{
+    height: pxToRem(50);
+}
+.dropload-refresh,.dropload-update,.dropload-load,.dropload-noData{
+    height: pxToRem(50);
+    line-height: pxToRem(50);
+    text-align: center;
+}
+.dropload-load .loading{
+    display: inline-block;
+    height: 15px;
+    width: 15px;
+    border-radius: 100%;
+    margin: 6px;
+    border: 2px solid #666;
+    border-bottom-color: transparent;
+    vertical-align: middle;
+    -webkit-animation: rotate 0.75s linear infinite;
+    animation: rotate 0.75s linear infinite;
+}
+@-webkit-keyframes rotate {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+    50% {
+        -webkit-transform: rotate(180deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(180deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

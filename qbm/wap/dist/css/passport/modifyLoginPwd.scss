@@ -1,0 +1,66 @@
+@import "../base";
+@import "../_ignore/mixin";
+@import "../_ignore/mylayer";
+@import "../_ignore/passport_form";
+
+@include dpr(".content",24px);
+@include fontFace("../");
+
+.content{
+	padding:pxToRem(40) 0 pxToRem(60) 0;
+	
+}
+.passport_form_wraper{
+	.login_form_ul{
+		.list_item{
+			.list_tail{
+				width: pxToRem(210);
+			}
+
+		}
+
+		.imgRow{
+			.img_random{
+				height: 60%;
+
+			}
+		}
+		.mesRow{
+			.list_tail.disabled{
+				color:#999;
+
+			}
+		}
+		.icon-shuaxin{
+			width: pxToRem(90) !important;
+			display: block;
+			position: absolute;
+			top:0;
+			right: 0;
+			text-align:center;
+		}
+
+		.icon-kejian{
+			color:#fedac2;
+			width: pxToRem(90) !important;
+			margin-right:pxToRem(22);
+		}
+		.icon-bukejian{
+			color:#c7c7c7;
+			width: pxToRem(90) !important;
+			margin-right:pxToRem(22);
+		}
+	}
+}
+
+@include dpr(".icon-kejian",36px);
+@include dpr(".icon-bukejian",36px);
+
+.layermbox1 {
+	.hasPadding{
+		.layermcont{
+			padding:0.8rem 0.6rem !important;
+			text-align: center !important;
+		}
+	}
+}

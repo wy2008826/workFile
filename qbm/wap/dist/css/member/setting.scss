@@ -1,0 +1,8 @@
+@import "../base";
+@import "../_ignore/normal_lists";
+@import "../_ignore/mylayer";
+
+@include fontFace("../");
+.normal_lists_wraper .normal_lists_ul .list_item label{
+    width: pxToRem(210);
+}

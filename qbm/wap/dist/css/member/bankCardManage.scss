@@ -1,0 +1,32 @@
+@import "../base";
+@import "../_ignore/mixin";
+
+$white:#fff;
+$bdcolor:#e5e5e5;
+
+.bank-card{
+    border: 1px solid $bdcolor;
+    border-radius: pxToRem(5);
+    background-color: $white;
+    dt{
+        line-height: pxToRem(94);
+        color: #313131;
+        .bank-icon{
+            margin-right: pxToRem(8);
+            width: pxToRem(34);
+            height: pxToRem(34);
+            vertical-align: middle;
+        }
+    }
+    dd{
+        line-height: pxToRem(94);
+        background-color: #fc944d;
+        color: $white;
+        border-bottom-right-radius: pxToRem(5);
+        border-bottom-left-radius: pxToRem(5);
+        span{
+            padding-left: pxToRem(8);
+        }
+    }
+}
+

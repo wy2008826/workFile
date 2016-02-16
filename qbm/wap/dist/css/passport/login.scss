@@ -1,0 +1,33 @@
+@import "../base";
+@import "../_ignore/mylayer";
+@import "../_ignore/mixin";
+@import "../_ignore/passport_form";
+
+@include fontFace("../");
+
+.big_white_logo{
+	display: block;
+	width:pxToRem(260);
+	height:pxToRem(110);
+	margin:pxToRem(68) auto pxToRem(68);
+}
+a.fc-f,a.fc-f:active,a.fc-f:hover,a.fc-f:link{
+	color:#fff;
+}
+@include dpr(".login_form_ul",14);
+
+.icon-qingchu{
+	width:pxToRem(100);
+	text-align:right;
+	color:#fed6ba;
+	margin-right:pxToRem(10);
+}
+@include dpr(".icon-qingchu",44px);
+
+.layermbox1 {
+	.hasPadding{
+		.layermcont{
+			padding:0.8rem 0.6rem !important;
+		}
+	}
+}

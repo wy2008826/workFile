@@ -1,0 +1,28 @@
+@import "../base";
+@import "../_ignore/passport_form";
+@import "../_ignore/mylayer";
+@import "../_ignore/mixin";
+
+
+@include dpr(".content",24px);
+
+.content{
+	padding:pxToRem(40) 0 pxToRem(60) 0;
+	
+}
+.passport_form_wraper{
+	.login_form_ul{
+		.list_item{
+			.list_tail{
+				width: pxToRem(200);
+			}
+		}
+	}
+}
+
+.layermbox1 {
+	.layermcont{
+		padding:0.8rem 0.6rem !important;
+		text-align: center !important;
+	}
+}

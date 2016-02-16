@@ -1,0 +1,55 @@
+@import "mixin";
+
+.normal_lists_wraper{
+
+	$rowH:pxToRem(96);
+	$labelW:pxToRem(140);
+	$rowBorder:1px solid #e5e5e5;
+	.normal_lists_ul{
+		.list_item{
+			@include disBox();
+			line-height: $rowH;
+			border-top:$rowBorder;
+			&:first-child{
+				border-top:0;
+			}
+			label{
+				display: block;
+				width: $labelW;
+				color:#999;
+			}
+			.list_text{
+				display: block;
+				-webkit-box-flex:1;
+				box-flex:1;
+				height: 100%;
+			}
+			input.list_text{
+				border:0;
+				height:$rowH;
+				background-color:#fff;
+			}
+			.list_tail{
+				width: pxToRem(100);
+				display: block;
+				&.border_left{
+					&:before{
+						content:"";
+						display: block;
+						position:absolute;
+						width: 1px;
+						height: 60%;
+						left:0;
+						top:20%;
+						background-color:#ececec;
+					}
+				}
+			}
+			.icon-back{
+			    color: #c7c7c7;
+			}
+		}
+	}
+}
+
+@include dpr(".normal_lists_wraper .list_item .icon-back", 32px);

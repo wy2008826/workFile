@@ -1,0 +1,19 @@
+@import "base";
+@import "_ignore/mixin";
+
+body{
+    background-color: #fff !important;
+}
+.error-tip{
+    .error-img{
+        width: pxToRem(412);
+        height: pxToRem(298);
+        margin: pxToRem(394) 0 pxToRem(40) 0;
+    }
+    p{
+        padding-top: pxToRem(8);
+    }
+    button{
+        margin-top: pxToRem(40);
+    }
+}

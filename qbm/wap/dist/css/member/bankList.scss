@@ -1,0 +1,18 @@
+@import "../base";
+
+$white:#fff;
+$bdcolor:#e5e5e5;
+
+body{background-color: #fff !important;}
+
+.bank-list li{
+    border-bottom: 1px solid $bdcolor;
+    padding: pxToRem(34) 0;
+    line-height: pxToRem(26);
+    .bank-icon{
+        margin-right: pxToRem(8);
+        width: pxToRem(34);
+        height: pxToRem(34);
+        vertical-align: middle;
+    }
+}

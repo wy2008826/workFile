@@ -1,0 +1,11 @@
+@import "../base";
+@import "../_ignore/mixin";
+@import "../_ignore/btn";
+
+@include dpr(".content",28px);
+
+.buy_success{
+	display: block;
+	width:pxToRem(550);
+	margin:pxToRem(60) auto;
+}

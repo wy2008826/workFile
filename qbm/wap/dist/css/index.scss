@@ -1,0 +1,170 @@
+@import "_ignore/mixin";
+@import "base";
+
+body{
+	color:#333;
+}
+/*topdown*/
+@include dpr(".top_down_app",28px);
+.top_down_app{
+	$imgH:pxToRem(56);
+	height:pxToRem(96);
+	position:relative;
+	.top_logo{
+		height: $imgH;
+		vertical-align: middle;
+		top:pxToRem(20);
+		left:pxToRem(26);
+		position: relative;
+	}
+
+	.top_down{
+
+		height: $imgH;
+		padding:0 pxToRem(26);
+		line-height: $imgH;
+		position: absolute;
+		top:(pxToRem(96) - $imgH) / 2;
+		right:pxToRem(24);
+		border:1px solid #0092ff;
+		color:#0092ff;
+		border-radius:pxToRem(8);
+		box-sizing:border-box;
+	}
+}
+
+/*swiper*/
+.swiper-container{
+	width: 10rem;
+	.swiper-wrapper{
+		width: 100%;
+		transition-duration: 500ms;
+		-webkit-transition-duration: 500ms;
+		transition:all 500ms;
+		-webkit-transition:all 500ms;
+		.swiper-slide{
+			display:block;
+			.slider_img{
+				width: 100%;
+			}
+		}
+	}
+}
+
+
+/*login and loginout */
+@include dpr(".not_login_box,.has_login_box",24px);
+
+.not_login_box,.has_login_box{
+	line-height:pxToRem(60);
+	padding:pxToRem(36) 0 pxToRem(26) 0;
+	display: block;
+}
+.not_login_box .login_btn,.has_login_box .bm_btn{
+	// font-size: 16px;
+	margin:pxToRem(26);
+	line-height:pxToRem(60);
+	padding:0 pxToRem(42);
+	-webkit-border-radius:pxToRem(8);
+	display:inline-block;
+	border:1px solid #7a7a7a;
+}
+
+.not_login_box .text_logo{width: pxToRem(510);margin-top: pxToRem(30);}
+.has_login_box .bm_btn{margin-top:pxToRem(24);}
+
+
+.loadding_lists{
+	$ldSize:pxToRem(60);
+	width:$ldSize;
+	height:$ldSize;
+	display:block;
+	margin:pxToRem(100) auto;
+}
+
+/*label-lists*/
+
+/*tuijianbiao*/
+@include dpr(".labels_lists_wraper",24px);
+.labels_lists_wraper .index_label_ul{margin:pxToRem(30) pxToRem(30) 0 pxToRem(30);}
+.labels_lists_wraper .index_label_ul .label_li{
+	margin-top:pxToRem(20);
+	position: relative;
+	display: block;
+	padding-top:pxToRem(20);
+}
+.labels_lists_wraper .label_li.tuijian_li .prog_bar_wraper{margin-bottom: 0px !important;}
+.labels_lists_wraper .label_li.tuijian_li .list_flag{position: absolute;width:pxToRem(66);top:pxToRem(-5);right:pxToRem(-5);}
+.labels_lists_wraper .label_li.tuijian_li .tuijian_num_big{padding:pxToRem(60) 0 pxToRem(60) 0;}
+
+@include dpr(".labels_lists_wraper .label_li.tuijian_li .tuijian_num_big .num",70px);
+
+/*noramal-lists*/
+.labels_lists_wraper .index_label_ul .label_li .label_tit{
+	line-height: pxToRem(42);
+	font-weight: normal;
+	color:#313131;
+}
+@include dpr(".labels_lists_wraper .index_label_ul .label_li .label_tit",28px);
+
+.labels_lists_wraper .index_label_ul .label_li .dashed_line{
+	margin-left: pxToRem(-3);margin-right:pxToRem(-3);
+}
+.labels_lists_wraper .index_label_ul .dash_img{width: 100%;}
+.labels_lists_wraper .index_label_ul .label_nums{
+	margin:0 pxToRem(16);
+	line-height:pxToRem(50);
+}
+
+@include dpr(".labels_lists_wraper .index_label_ul .label_nums .per_num",40px);
+
+.labels_lists_wraper .index_label_ul .label_nums .has_border_l{border-left:pxToRem(3) solid #e5e5e5;}
+.labels_lists_wraper .index_label_ul .prog_bar_wraper{margin:pxToRem(16);display: box;display: -webkit-box;}
+.labels_lists_wraper .index_label_ul .prog_bar_wraper .prog_bar{
+	height: pxToRem(6);
+	background-color:#e5e5e5;
+	position: relative;
+	top:pxToRem(16);
+}
+.labels_lists_wraper .index_label_ul .prog_bar_wraper .prog_bar .bar_inner{
+	height: 100%;
+	width:0%;
+	display: block;
+	background-color: #ff6900;
+	transition:all 400ms;
+	-webkit-transition:all 400ms;
+}
+.labels_lists_wraper .index_label_ul .prog_bar_wraper  .bar_state{
+	display: block;
+	width: pxToRem(80);
+	text-align: center;
+	line-height: pxToRem(30);
+	padding:pxToRem(4) pxToRem(8);
+	border:1px solid #0092ff;
+	color:#0092ff;
+	-webkit-border-radius:pxToRem(6);
+	margin-left: pxToRem(10);
+	// font-size:12px;
+}
+.labels_lists_wraper .index_label_ul .prog_bar_wraper  .bar_state.not_start{border:1px solid #ff9f00;color:#ff9f00;}
+@include dpr(".labels_lists_wraper .index_label_ul .prog_bar_wraper  .bar_state",16px);
+
+
+/*bottom copys*/
+@include dpr(".bottom_about",24px);
+.bottom_about{
+	padding:pxToRem(26) 0 pxToRem(26) 0;
+}
+a.fc-link,a.fc-link:active,a.fc-link:hover,a.fc-link:active{color:#0092ff}
+.bottom_about .danger_note{
+	line-height: pxToRem(32);
+	margin:pxToRem(48) 0 0;
+}
+
+@include dpr(".copyright",20px);
+
+.copyright{
+	background-color:#e5e5e5;
+	padding:pxToRem(20) 0 pxToRem(20) 0;
+	line-height:pxToRem(40);
+}

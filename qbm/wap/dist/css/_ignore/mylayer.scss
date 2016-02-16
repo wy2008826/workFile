@@ -1,0 +1,117 @@
+@import "mixin";
+
+[data-dpr="2"] .layermmain{
+    // transform:scale(2);
+
+    // -webkit-transform:scale(2);
+
+}
+[data-dpr="2.5"] .layermmain{
+    // transform:scale(2.5);
+    // -webkit-transform:scale(2.5);
+
+}
+[data-dpr="2.75"] .layermmain{
+    // transform:scale(2.75);
+    // -webkit-transform:scale(2.75);
+
+}
+[data-dpr="3"] .layermmain{
+    // transform:scale(3);
+    // -webkit-transform:scale(3);
+
+}
+[data-dpr="4"] .layermmain{
+    // transform:scale(4);
+    // -webkit-transform:scale(4);
+
+}
+
+@include dpr(".layermchild",24px);
+@include dpr(".layermbtn span",24px);
+@include dpr(".layermmain .layermchild h3",24px);
+
+.layermbox0 {
+	.laymshade{
+		background-color:rgba(255,255,255,0) !important;
+	}
+}
+.layermbox1 {
+	.laymshade{
+		background-color:rgba(0,0,0,0.4) !important;
+	}
+}
+
+.layermchild{
+	// font-size:36px !important;
+	width:7.8rem !important;
+	$themeColor:#ff6900;
+	background-color:transparent !important;
+	box-shadow:none !important;
+	h3{
+		padding:0 !important;
+		background-color:$themeColor;
+		color:#fff;
+		text-align: center;
+		border-bottom:none !important;
+		$H:80;
+		height:pxToRem($H) !important;
+		line-height:pxToRem($H) !important;
+	}
+	.layermend{
+		display:none;
+	}
+	.layermcont{
+		$mgTB:pxToRem(10);
+		$pdTB:pxToRem(26);
+		margin-top:$mgTB;
+		margin-bottom:$mgTB;
+		padding:$pdTB $pdTB $pdTB $pdTB;
+		background-color: #fff;
+		.mg-b-20{
+			margin-bottom: pxToRem(20);
+		}
+		.lh-40{
+			line-height: pxToRem(40);
+		}
+	}
+	.layermbtn{
+		$H:80;
+		border-top:0 !important;
+		display: box;
+		display:-webkit-box;
+		height:pxToRem($H);
+		line-height:pxToRem($H);
+		&:before{
+			content:"";
+			display: none !important;
+		}
+		span{
+			box-flex:1;
+			-webkit-box-flex:1;
+			display: block !important;
+			height:100% !important;
+			line-height:pxToRem($H);
+			&[type="0"]{
+				background-color:#fff;
+				color:$themeColor ;
+			}
+			&[type="1"]{
+				background-color:$themeColor !important;
+				color:#fff !important;
+			}
+		}
+		span+span{
+			margin-left:pxToRem(10);
+		}
+	}
+}
+
+.layer-tip .layermcont{
+   background-color: rgba(0,0,0,0.8)!important;
+   line-height: pxToRem(90);
+   border:none !important;
+   color:#fff;
+   border-radius: pxToRem(5) !important;
+}
+

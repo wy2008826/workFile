@@ -1,0 +1,238 @@
+@import "../base";
+@import "../_ignore/normal_lists";
+@import "../_ignore/mylayer";
+@import "../_ignore/mixin";
+@import "../_ignore/btn";
+
+
+@include dpr(".content",24px);
+@include fontFace("../");
+
+body{
+	padding-bottom:pxToRem(180);
+}
+.content{
+	padding-bottom:pxToRem(180);
+}
+
+@include dpr(".label_mes_wraper .label_prog .prog_text",34px);
+@include dpr(".label_mes_wraper .label_prog .per_num",68px);
+.label_mes_wraper{
+	$colorLink:#0092ff;
+	.wraper_tit{
+		$h:pxToRem(40);
+		height: $h;
+		line-height: $h;
+		color:#111;
+		margin-top: pxToRem(20);
+		.right_label{
+			position: relative;
+			top:0;
+			line-height: $h ;
+			color:$colorLink;
+			border:1px solid $colorLink;
+			-webkit-border-radius:pxToRem(6);
+			padding:0 pxToRem(20) 0 pxToRem(20);
+		}
+	}
+	.dashed_line{
+		$h:pxToRem(40);
+		position:relative;
+		height: $h;
+		margin-left:pxToRem(-26);
+		margin-right:pxToRem(-26);
+		.dash_img{
+			vertical-align: middle;
+			width: 100%;
+		}
+		
+	}
+	.label_prog{
+		padding:pxToRem(40) 0 pxToRem(30) 0;
+		.prog_text{
+			font-weight: normal;
+		}
+		.prog_bar{
+			$barH:pxToRem(6);
+			margin:pxToRem(44) 0 pxToRem(44) 0;
+			height: $barH;
+			background-color:#e5e5e5;
+			.bar_inner{
+				display: block;
+				height: 100%;
+				top:0;
+				left:0;
+				background-color:#ff6900;
+			}
+		}
+		.bottom_labels{
+			$h:40;
+			margin-top: pxToRem($h);
+			label{
+				border:1px solid #ff6900;
+				line-height: pxToRem($h);
+				padding:0 pxToRem(14);
+				-webkit-border-radius:pxToRem(6);
+			}
+		}
+	}
+}
+
+.my_btnGroup{
+	position:fixed;
+	left:pxToRem(30);
+	right:pxToRem(30);
+	bottom:0;
+	padding-left:0;
+	padding-right:0;
+	margin:0;
+}
+
+
+.list_tail{
+	&.tailW-230{
+		width:pxToRem(230) !important;
+	}
+	&.disabled{
+		background-color:#b3b3b3;
+	}
+}
+
+
+.white_header{
+	h3{
+		background-color:#fff !important;
+		color:#000 !important;
+	}
+}
+
+.inputPwdAlert{
+	border:0!important;
+	margin:0 !important;
+	padding-bottom:pxToRem(30);
+	.list_item{
+		label{
+			width:pxToRem(200) !important;
+		}
+	}
+	.payPwdInput{
+		text-indent:pxToRem(5);
+	}
+	.forgetPwdTail{
+		width: pxToRem(160) !important;
+		padding-right:pxToRem(5);
+	}
+}
+
+.layermbtn{
+	span[type='0']{
+		color:#333 !important;
+	}
+}
+
+
+@include dpr(".left_hongbao_mes .hongbaoName",24px);
+.alert_hb_loading_wraper{
+	padding:pxToRem(80);
+	.loading{
+		width:pxToRem(60);
+	}
+}
+.hongbao_wraper{
+	$liH:pxToRem(240);
+	$liW:pxToRem(556);
+	$leftW:pxToRem(410);
+	$mgTb:pxToRem(24);
+	width: $liW;
+	margin:20px auto;
+	overflow: scroll;
+	height:10rem;
+	.hongbao_ul{
+		.hongbao_li{
+			display: block;
+			position:relative;
+			width: $liW;
+			height:$liH;
+			border:1px solid #e74c2d;
+			margin: $mgTb 0 $mgTb 0;
+			box-sizing:border-box;
+			-webkit-box-sizing:border-box;
+			border-right:0 !important;
+			.left_hongbao_mes{
+				height: 100%;
+				width: $leftW;
+				padding:pxToRem(20) 0 0 pxToRem(20);
+				@include boxSizing(border-box);
+				.hongbaoName{
+					color:#313131;
+				}
+			}
+			.right_hongbao_img{
+				height: 100%;
+				width:$liW - $leftW - 0.2;
+				background-image:url("../../images/financing/hongbao_bg.png");
+				background-size:100% 100%;
+				background-position:0 0;
+				padding:pxToRem(64) 0 0 0;
+				@include boxSizing(border-box);
+				.icon-gouxuan{
+					$h:pxToRem(26);
+					display: inline-block;
+					-webkit-border-radius:50%;
+					border:2px solid #fff;
+					background-color:transparent;
+					height: $h;
+					line-height: $h;
+					width: $h;
+					color:transparent;
+					position:absolute;
+					top:pxToRem(18);
+					right: pxToRem(18);
+					text-align: center;
+				}
+			}
+			&.active{
+				.icon-gouxuan{
+					background-color:#fff;
+					color:#e74c2d;
+				}
+			}
+		}
+	}
+}
+
+.closeHongBaoBtn{
+	position:absolute;
+	$size:pxToRem(50);
+	top:- pxToRem(82);
+	right:0;
+	color:#fff;
+	display:block;
+	height:$size;
+	width:$size;
+
+	.icon-qingchu{
+		position:relative;
+		&:after{
+			position:absolute;
+			content:"";
+			display: block;
+			width: pxToRem(4);
+			height:pxToRem(90) - $size;
+			background-color:#fff;
+			left:50%;
+			bottom: - pxToRem(90) + $size;
+			margin-left: - pxToRem(4) / 2;
+		}
+	}
+	
+}
+
+@include dpr(".closeHongBaoBtn .iconfont.icon-qingchu",50px);
+
+
+@include dpr(".hongbao_li .right_hongbao_img .icon-gouxuan",20px);
+@include dpr(".hongbao_li .right_hongbao_img .hongbaoLine ",22px);
+@include dpr(".hongbao_li .right_hongbao_img .hongbaoLine .hongbaoNum",40px);
+@include dpr(".hongbao_li .right_hongbao_img .use_text",22px);
+

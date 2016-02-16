@@ -1,0 +1,12 @@
+@import "../base";
+
+.jump{
+    padding-top: pxToRem(110);
+    img{
+        width: pxToRem(148);
+        height: pxToRem(280);
+    }
+    p{
+        padding-top: pxToRem(80);
+    }
+}

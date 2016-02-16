@@ -1,0 +1,35 @@
+@import "../base";
+@import "../_ignore/normal_lists";
+@import "../_ignore/mylayer";
+
+@include fontFace("../");
+
+$white:#fff;
+$bdcolor:#e5e5e5;
+
+input.list_text{
+    height: pxToRem(90) !important;
+}
+
+.card-info{
+    label{
+        width: pxToRem(128);
+    }
+    span{
+        display: inline-block;
+        padding-left: pxToRem(10);
+    }
+}
+
+.tip-block{
+    h1{
+        font-weight: normal;
+    }
+    p{
+        line-height: pxToRem(40);
+        label{
+            display: inline-block;
+        }
+    }
+}
+

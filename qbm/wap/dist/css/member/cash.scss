@@ -1,0 +1,89 @@
+@import "../base";
+@import "../_ignore/normal_lists";
+@import "../_ignore/mylayer";
+
+@include fontFace("../");
+
+$white:#fff;
+$bdcolor:#e5e5e5;
+
+.cash-rule{
+    padding: pxToRem(30) 0 pxToRem(22) 0;
+    span{
+        border-bottom: 1px solid #0092ff;
+    }
+}
+.bank-icon{
+    margin-right: pxToRem(8);
+    width: pxToRem(34);
+    height: pxToRem(34);
+    vertical-align: middle;
+}
+
+.cash-info{
+    padding: pxToRem(16) 0 pxToRem(6) 0;
+    .row{
+        padding-bottom: pxToRem(10);
+    }
+}
+.record-btn{
+    margin-top: pxToRem(20);
+    border: 1px solid #fc944d;
+    display: block;
+    line-height: pxToRem(92);
+    border-radius: pxToRem(5);
+    color: #fc944d;
+}
+
+.pop-layer{
+    padding: pxToRem(24);
+    p{
+        text-indent: 28px;
+    }
+}
+[data-dpr="2"] .pop-layer p{
+    text-indent: 57.6px;
+}
+[data-dpr="2.5"] .pop-layer p{
+    text-indent: 60px;
+}
+[data-dpr="2.75"] .pop-layer p{
+    text-indent: 84px;
+}
+[data-dpr="3"] .pop-layer p{
+    text-indent: 96px;
+}
+[data-dpr="4"] .pop-layer p{
+    text-indent: 144px;
+}
+.cash-shade{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.5);
+}
+.cash-side{
+    position: absolute;
+    background-color: $white;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: pxToRem(500) ;
+    border-top: 1px solid $bdcolor;
+    h1{
+        line-height: pxToRem(80);
+        background-color: #f8f8f8;
+        font-weight: normal;
+    }
+    ul{
+        height: pxToRem(420) ;
+        padding: 0 pxToRem(24);
+        overflow-y: auto;
+        li{
+            border-bottom: 1px solid $bdcolor;
+            padding: pxToRem(24) 0;
+        }
+    }
+}

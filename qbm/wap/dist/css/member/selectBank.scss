@@ -1,0 +1,33 @@
+@import "../base";
+@import "../_ignore/normal_lists";
+
+$white:#fff;
+$bdcolor:#e5e5e5;
+
+.card-item{
+    height: pxToRem(90);
+    padding-top: pxToRem(50);
+    overflow: hidden;
+    background-color: $white;
+    .bank-icon{
+        margin-right: pxToRem(8);
+        width: pxToRem(34);
+        height: pxToRem(34);
+        vertical-align: middle;
+    }
+    .select-icon{
+        width: pxToRem(28);
+        height: pxToRem(28);
+    }
+}
+.card-item-disabled{
+    background-color: #c7c7c7;
+}
+.other-card{
+    line-height: pxToRem(140);
+}
+.tip-text{
+    span{
+        border-bottom: 1px solid #0092ff;
+    }
+}

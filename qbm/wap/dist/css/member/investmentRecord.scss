@@ -1,0 +1,178 @@
+@import "../base";
+@import "../_ignore/grid_system";
+@import "../_ignore/dropload";
+
+@include fontFace("../");
+
+$white:#fff;
+$bdcolor:#e5e5e5;
+
+.record-header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background-color: #ff6900;
+    height: pxToRem(210);
+    padding: 0 pxToRem(46);
+    .row:first-child{
+        line-height: pxToRem(116);
+    }
+    .row:last-child{
+        height: pxToRem(94);
+        line-height: pxToRem(94);
+        .col-all-4{
+            color: #fecca8;
+        }
+        .col-all-4.selected{
+            color: $white;
+            position: relative;
+        }
+        .col-all-4.selected:after{
+            content: ' ';
+            height: 0;
+            position: absolute;
+            width: 0;
+            border: pxToRem(14) solid transparent;
+            border-top-color: #ff6900;
+            top: 100%;
+            left: 42%;
+        }
+        .col-all-4:first-child.selected:after{
+            left: 6%;
+        }
+        .col-all-4:last-child.selected:after{
+            left: 72%;
+        }
+    }
+}
+
+.no-data{
+    margin-top: pxToRem(392);
+    span{
+        display: inline-block;
+        width: pxToRem(340);
+        line-height: pxToRem(92);
+        background-color: #ff6900;
+        color: $white;
+        border-radius: pxToRem(5);
+        margin-top: pxToRem(60);
+    }
+}
+
+#pageWrap{
+    margin-top: pxToRem(210);
+}
+.record-list{
+    margin: 0 pxToRem(30) pxToRem(30) pxToRem(30);
+    .record-item{
+        position: relative;
+        .list-dot{
+            position: absolute;
+            left: pxToRem(10);
+            top: pxToRem(60);
+            width: pxToRem(18);
+            height: pxToRem(14);
+        }
+        .time{
+            line-height:pxToRem(68);
+            .icon-shijian{
+                color: #1a1a1a;
+                margin-right: pxToRem(20);
+            }
+        }
+        .box{
+            position: relative;
+            height:pxToRem(234);
+            .row{
+                margin-top: pxToRem(5);
+                .state{
+                    position: relative;
+                    display: inline-block;
+                    width: pxToRem(90);
+                    height: pxToRem(36);
+                    line-height: pxToRem(36);
+                    border-radius: pxToRem(5);
+                    color: $white;
+                }
+                .state:after{
+                    content: ' ';
+                    height: 0;
+                    position: absolute;
+                    width: 0;
+                    border: pxToRem(6) solid transparent;
+                    right: 100%;
+                    top: 50%;
+                    margin-top: pxToRem(-6);
+                }
+                .daishou{
+                    background-color: #ff6900;
+                }
+                .daishou:after{
+                    border-right-color: #ff6900;
+                }
+                .dongjie{
+                    background-color: #0092ff;
+                }
+                .dongjie:after{
+                    border-right-color: #0092ff;
+                }
+                .yihuankuan{
+                    background-color: #b3b3b3;
+                }
+                .yihuankuan:after{
+                    border-right-color: #b3b3b3;
+                }
+                .yishixiao{
+                    background-color: #f24656;
+                }
+                .yishixiao:after{
+                    border-right-color: #f24656;
+                }
+                .chulizhong{
+                    background-color: #fd9438;
+                }
+                .chulizhong:after{
+                    border-right-color: #fd9438;
+                }
+                .wait{
+                    position: absolute;
+                    top: pxToRem(132);
+                    right: pxToRem(24);
+                }
+            }
+            .row:first-child{
+                border-bottom: 1px solid $bdcolor;
+                line-height: pxToRem(94);
+                margin: 0 0 pxToRem(16) 0;
+            }
+        }
+        .box:after, .box:before {
+           border: solid transparent;
+           content: ' ';
+           height: 0;
+           left: 0;
+           position: absolute;
+           width: 0;
+           top: pxToRem(-26);
+           z-index: 80;
+        }
+        
+        .box:after {
+           border-width: pxToRem(12);
+           border-bottom-color: $white;
+           left: pxToRem(12);
+           top: pxToRem(-22);
+        }
+        
+        .box:before {
+           border-width: pxToRem(14);
+           border-bottom-color: $bdcolor;
+           left: pxToRem(10);
+        } 
+    }
+}
+
+
+

@@ -1,0 +1,95 @@
+@import "../base";
+@import "../_ignore/grid_system";
+
+@include fontFace("../");
+
+$white:#fff;
+$bdcolor:#e5e5e5;
+
+.col-all-4:nth-child(3n+0){
+      border-right: 0;
+}
+.member-info{
+    width: 100%;
+    position: relative;
+    font-size: 24px;
+    overflow: hidden;
+    height: pxToRem(528);
+    background-color: #f6821d;
+    .iconfont{
+        top: 0;
+        right: 0;
+        padding: pxToRem(24);
+    }
+    .avatar{
+        width: pxToRem(146);
+        height: pxToRem(146);
+        margin: pxToRem(50) 0 pxToRem(34) 0;
+        border-radius:100%;
+        box-shadow:0 0 0.075rem $white;
+    }
+    .balance{
+        padding-top: pxToRem(8);
+    }
+    .account-info{
+        bottom: 0;
+        background-color: #f4790e;
+        padding: pxToRem(24) 0 pxToRem(20) 0;
+        width: 100%;
+        .col-all-6{
+            position: relative;
+            height: pxToRem(92);
+            border-right: 1px solid $white;
+            span{
+                display: block;
+            }
+        }
+        .col-all-6:last-child{
+            border-right: 0;
+        }
+    }
+}
+@include dpr(".member-info .iconfont", 50px);
+@include dpr(".member-info .balance span",36px);
+    
+.grid-view{
+  width: 100%;
+  background-color:$white ;
+  margin: pxToRem(22) 0 pxToRem(122) 0;
+  border-top: 1px solid $bdcolor;
+  overflow: hidden;
+  .col-all-4{
+    position: relative;
+    min-height: 1px;
+    margin: 0;
+    height: pxToRem(245);
+    padding-top: pxToRem(60);
+    vertical-align: top;
+    border-right: 1px solid $bdcolor;
+    border-bottom: 1px solid $bdcolor;
+  }
+  .view-body{
+    margin-top: pxToRem(15);
+  }
+}
+
+footer{
+    width: 100%;
+    height: pxToRem(100);
+    color: #999;
+    .footer-grid{
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #f8f8f8;
+        padding: pxToRem(20) 0;
+        .col-all-4{
+            line-height: pxToRem(60);
+            border-right: 1px solid $bdcolor;
+        }
+    }
+    
+}
+@include dpr(".grid-view .iconfont",60px);
+

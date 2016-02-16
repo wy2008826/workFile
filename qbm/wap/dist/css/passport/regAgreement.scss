@@ -1,0 +1,22 @@
+@import "../base";
+@import "../_ignore/mixin";
+
+@include dpr(".content",22px);
+@include dpr(".agreenMentUl h4",26px);
+
+
+.content{
+	margin:pxToRem(20) pxToRem(30);
+}
+
+.agreenMentUl{
+	h4{
+		line-height: pxToRem(70);
+		color:#444;
+		font-weight: normal;
+	}
+	.agreen_li{
+		line-height: pxToRem(40);
+		color:#666;
+	}
+}

@@ -1,0 +1,17 @@
+@import "../base";
+@import "../_ignore/normal_lists";
+
+.recharge-success{
+    .success-tip{
+        width: pxToRem(248);
+        height: pxToRem(334);
+        margin: pxToRem(50) 0 pxToRem(40) 0;
+    }
+    p{
+        padding-top: pxToRem(8);
+    }
+    button{
+        margin-top: pxToRem(40);
+    }
+}
+

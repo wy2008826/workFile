@@ -1,0 +1,47 @@
+@import "mixin";
+
+.data-table-header{
+    width: 100%;
+    background-color: #f8f8f8;
+    top: 0;
+    .bd{
+        border:1px solid #e5e5e5;
+        border-bottom: none;
+        background-color: #fc944d;
+        margin: pxToRem(30) pxToRem(30) 0 pxToRem(30);
+        line-height: pxToRem(94);
+        padding:0 pxToRem(24);
+        color: #fff;
+    }
+}
+
+#pageWrap{
+    margin-top: pxToRem(124);
+}
+.data-table-view{
+    
+    .row{
+        border-bottom: 1px solid #e5e5e5;
+        padding: pxToRem(30) 0;
+        .col-all-6:first-child span{
+            display: inline-block;
+            line-height: pxToRem(55);
+        }
+
+    }
+    .row:last-child{
+        border-bottom: none;
+    }
+}
+
+
+.no-data{
+    margin-top: pxToRem(210);
+    img{
+        width: pxToRem(212);
+        height: pxToRem(200);
+    }
+    p{
+        padding-top: pxToRem(30);
+    }
+}

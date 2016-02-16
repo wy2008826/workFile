@@ -1,0 +1,78 @@
+@import "mixin";
+
+@include dpr(".passport_form_wraper",24px);
+
+.passport_form_wraper{
+	$rowH:pxToRem(96);
+	$labelW:pxToRem(80);
+	$rowBorder:1px solid #e5e5e5;
+	$activeRowBorder:1px solid #fd8f42;
+	.login_form_ul{
+		.list_item{
+			background-color:#fff;
+			$pd:pxToRem(10);;
+			padding-left:$pd ;
+			padding-right:$pd;;
+			@include disBox();
+			height: $rowH;
+			line-height: $rowH;
+			border:$rowBorder;
+			margin-top:pxToRem(24);
+			margin-bottom:pxToRem(24);
+			-webkit-border-radius:$rowH / 2 ;
+			overflow: hidden;
+			&.active{
+				border:$activeRowBorder;
+			}
+			&.btn_item{
+				background-color:#fc944d;
+				border:0;
+				display: block;
+				margin-top:pxToRem(68);
+				&.disabled{
+					background-color:#b3b3b3;
+				}
+			}
+			label{
+				height: 100%;
+				display: block;
+				width: $labelW;
+				color:#999;
+			}
+			.list_text{
+				background:transparent;
+				display: block;
+				-webkit-box-flex:1;
+				box-flex:1;
+				border:0;
+				text-indent:pxToRem(5);
+				color:#333;
+			}
+			input.list_text{
+				height: 100%;
+				text-indent: pxToRem(10);
+				border:0;
+				color:#333;
+				background-color:#fff;
+			}
+			.list_tail{
+				height: 100%;
+				width: pxToRem(140);
+				display: block;
+				position: relative;
+				&.border_left{
+					&:before{
+						content:"";
+						display: block;
+						position:absolute;
+						width: pxToRem(3);
+						height: 60%;
+						left:0;
+						top:20%;
+						background-color:#ececec;
+					}
+				}
+			}
+		}
+	}
+}

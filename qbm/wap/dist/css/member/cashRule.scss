@@ -1,0 +1,16 @@
+@import "../base";
+
+.cash-rule{
+    h1,h2{
+        font-weight: normal;
+    }
+    h1{
+       padding-bottom: pxToRem(20);
+    }
+    h2{
+       padding: pxToRem(40) 0 pxToRem(20) 0;
+    }
+    p{
+        line-height: 150%;
+    }
+}

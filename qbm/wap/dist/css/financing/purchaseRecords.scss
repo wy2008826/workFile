@@ -1,0 +1,24 @@
+@import "../base";
+@import "../_ignore/mixin";
+@import "../_ignore/data_table";
+
+
+.data-table-view{
+	margin-top:pxToRem(124);
+	.row{
+		span{
+			color:#666;
+		}
+	}
+}
+
+@include dpr(".loading_wraper",24px);
+
+.loading_wraper{
+	text-align:center;
+	line-height:pxToRem(100);
+	.loading_img{
+		width: pxToRem(50);
+	}
+	
+}

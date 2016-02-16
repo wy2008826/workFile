@@ -1,0 +1,17 @@
+@import "../base";
+@import "../_ignore/normal_lists";
+
+.cash-success{
+    .success-tip{
+        width: pxToRem(282);
+        height: pxToRem(382);
+        margin: pxToRem(50) 0 pxToRem(40) 0;
+    }
+    p{
+        padding-top: pxToRem(8);
+    }
+    button{
+        margin-top: pxToRem(40);
+    }
+}
+

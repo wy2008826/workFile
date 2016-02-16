@@ -1,0 +1,33 @@
+@import "../base";
+@import "../_ignore/mixin";
+@import "../_ignore/passport_form";
+@import "../_ignore/mylayer";
+
+@include fontFace("../");
+@include dpr(".content",24px);
+@include dpr(".login_form_ul .list_item .icon-gouxuan",36px);
+
+.login_form_ul{
+	.list_item{
+		.icon-gouxuan{
+			color:#82ba0b;
+			width:pxToRem(60) !important;
+		}
+	}
+}
+
+.layermmain{
+	.layermchild {
+		&.hasPadding {
+			.layermcont{
+				$pd:0.3rem !important;
+				$pdlr:0.2rem !important;
+				padding-top:$pd ;
+				padding-bottom:$pd ;
+				padding-left:$pdlr;
+				padding-right:$pdlr;
+			}
+		}
+	}
+	
+}

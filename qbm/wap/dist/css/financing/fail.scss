@@ -1,0 +1,24 @@
+@import "../base";
+@import "../_ignore/mixin";
+@import "../_ignore/btn";
+
+@include dpr(".content",28px);
+
+.buy_fail{
+	display: block;
+	width:pxToRem(550);
+	margin:pxToRem(60) auto;
+
+}
+.btn_group{
+	.btn_item{
+		width: 50%;
+	}
+}
+a{
+	&.bg-primary{
+		&:hover,&:link,&:active{
+			color:#fff;
+		}
+	}
+}

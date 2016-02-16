@@ -1,0 +1,42 @@
+@import "../base";
+@import "../_ignore/normal_lists";
+@import "../_ignore/mylayer";
+
+@include fontFace("../");
+
+$white:#fff;
+$bdcolor:#e5e5e5;
+
+.item-header{
+    background-color: #ff6900;
+    line-height: pxToRem(94);
+}
+.normal_lists_wraper .normal_lists_ul .list_item label{
+    width: pxToRem(210);
+}
+
+.baoquancode{
+    border-bottom: 1px solid #666;
+}
+
+.pop-layer{
+    padding: pxToRem(24);
+    p{
+        text-indent: 28px;
+    }
+}
+[data-dpr="2"] .pop-layer p{
+    text-indent: 57.6px;
+}
+[data-dpr="2.5"] .pop-layer p{
+    text-indent: 60px;
+}
+[data-dpr="2.75"] .pop-layer p{
+    text-indent: 84px;
+}
+[data-dpr="3"] .pop-layer p{
+    text-indent: 96px;
+}
+[data-dpr="4"] .pop-layer p{
+    text-indent: 144px;
+}

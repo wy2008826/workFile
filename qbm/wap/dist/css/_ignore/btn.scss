@@ -1,0 +1,33 @@
+@import "mixin";
+
+.btn_group{
+	$btnH:pxToRem(96);
+	$mgLR:pxToRem(30);
+	$mgTB:pxToRem(40);
+	$disabledColor:#b3b3b3;
+	margin-top:$mgTB;
+	margin-bottom:$mgTB;
+	margin-left:$mgLR;
+	margin-right:$mgLR;
+	display: box;
+	display:-webkit-box;
+	height:$btnH;
+	line-height:$btnH;
+	.btn_item{
+		box-flex:1;
+		-webkit-box-flex:1;
+		display: block;
+		text-align: center;
+		border-radius: pxToRem(6);
+		-webkit-border-radius: pxToRem(6);
+
+		& + &{
+			margin-left:pxToRem(26);
+		}
+	}
+	.btn_item + .btn_item{
+		margin-left:pxToRem(26);
+	}
+}
+
+@include dpr(".btn_group .btn_item",32px);

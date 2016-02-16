@@ -1,0 +1,54 @@
+@import "../base";
+@import "../_ignore/mixin";
+@import "../_ignore/dropload";
+
+$white:#fff;
+$bdcolor:#e5e5e5;
+
+.rule-text span{
+    border-bottom: 1px solid #0092ff;
+}
+.no-data{
+    padding-top: pxToRem(150);
+}
+
+.red-packet-list{
+    li{
+        position: relative;
+        background-color: $white;
+        border: 1px solid #e74c2d;
+        border-right: none;
+        height: pxToRem(254);
+        margin-top: pxToRem(22);
+        dl{
+            position: absolute;
+            top: pxToRem(40);
+            left: pxToRem(20);
+            width: pxToRem(400);
+            dd{
+                padding-top: pxToRem(10);
+            }
+        }
+        img,.amount{
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: pxToRem(235);
+            height: pxToRem(254);
+        }
+        .amount{
+            color: $white;
+            line-height: pxToRem(254);
+            em{
+                font-style: normal;
+            }
+        }
+    }
+    li.disabled{
+        border-color: #c7c7c7;
+    }
+}
+
+
+@include dpr(".amount",40px);
+@include dpr(".amount em",66px);
