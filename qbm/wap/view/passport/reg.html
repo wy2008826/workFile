@@ -26,15 +26,11 @@
 				<p class="fc-9 lh-50">
 					新来的小主，终于等到您啦！
 				</p>
-				#if($times< 6)
+				
 				<p class="fc-9 lh-50">
 					我们已将验证码(免费)发至：<span class="fc-primary" id="pagePhone"></span>
 				</p>
-				#else
-				<p class="fc-9 lh-50">
-					超出系统限制，暂时无法发送验证码至您的手机
-				</p>
-				#end
+				
 				<ul class="login_form_ul">
 					<li class="list_item bd-w-1 imgRow hide" id="imgRow">
 						<input type="tel"  class="list_text telMes" id="imgInput" placeholder="请输入图形验证码" maxlength="4">
@@ -60,7 +56,7 @@
 						<input type="password" type="password" class="list_text pwd1" id="pwdInput1" maxlength="12" placeholder="请再次输入登录密码" >
 					</li>
 					<li class="list_item bd-w-1">
-						<input type="tel"  id="tuijianInput" class="list_text" placeholder="推荐人手机号码(非必填)" maxlength="11" value="$inviteUserPhone">
+						<input type="tel"  id="tuijianInput" class="list_text" placeholder="推荐人手机号码(非必填)" maxlength="11" >
 					</li>
 					<li class="list_item btn_item fc-f text-center disabled" id="submit">
 						提交
