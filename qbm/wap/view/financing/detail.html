@@ -22,18 +22,11 @@
 				<div class="wraper_tit clearfix ">
 					<span class="fn-fl">预期年化收益</span>
 					<span class="fn-fr right_label">
-					期限
-					#if($borrow.baseIsDayMarked == 'N')
-						$borrow.loanPeriodCount
-						个月
-					#else
-						$borrow.loanPeriodCount
-						天
-					#end
+					期限7天			
 					</span>
 				</div>
 				<p class="dashed_line">
-					<img src="$wapcdnpath/images/dash_line_white.png" class="dash_img">
+					<img src="../../statics/images/dash_line_white.png" class="dash_img">
 				</p>
 				<div class="label_prog">
 					<h3 class="prog_text fc-primary text-center">
@@ -51,8 +44,8 @@
 
 					</div>
 					<div class="clearfix bottom_labels fs-22">
-						<label class="fn-fl fc-primary ">$!borrow.interestType</label>
-						<label class="fn-fr fc-primary ">$!borrow.repaymentStyle</label>
+						<label class="fn-fl fc-primary ">满标审核后即时开始</label>
+						<label class="fn-fr fc-primary ">一次性还款</label>
 					</div>
 				</div>
 			</section>
