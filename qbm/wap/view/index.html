@@ -19,7 +19,7 @@
 		
 		<div class="content">
 			<div class="top_down_app">
-				<img src="$wapcdnpath/images/index_logo.png" class="top_logo">
+				<img src="../statics/images/index_logo.png" class="top_logo">
 				<span data-href="$weburl/applink.html" class="top_down tap-link" id="top_down">下载</span>
 			</div>
 			<div class="swiper-container swiper-container-horizontal" id="indexSlider">
@@ -35,25 +35,23 @@
 					{{/each}}
 				</script>
 
-			#if(!$user)<!-- session_user -->
+			<!-- session_user -->
 			<!-- 根据是否登录显示下面的div或者a标签 -->
 			<div class="not_login_box bg-white bd-b-default text-center fs-28">
-				<span data-href="$wapurl/passport/login.html"  class="login_btn fc-6  tap-link">登录/注册</span>
+				<span data-href="passport/login.html"  class="login_btn fc-6  tap-link">登录/注册</span>
 				<img src="../statics/images/text_logo.png" class="text_logo" >
 			</div>
-			#else
-			<div data-href="$wapurl/member/index.html" class="has_login_box bg-white bd-b-default text-center fs-28 tap-link">
-				<p class="fc-9 ">累计收益(元)<span class="fc-primary mg-l-10">${interestTotal}</span></p>
+			
+			<div data-href="member/index.html" class="has_login_box bg-white bd-b-default text-center fs-28 tap-link">
+				<p class="fc-9 ">累计收益(元)<span class="fc-primary mg-l-10">100.00</span></p>
 				<span class="bm_btn fc-6 ">进入我的保姆</span>
 			</div>
-			#end
 			
 			<!-- 正常标列表 -->
 			<div class="labels_lists_wraper">
 				<img src="../statics/images/loading.gif"  class="loadding_lists" id="loading_lists">
 				<ul class="index_label_ul" id="index_label_ul">
 					
-
 					<!-- 默认第一条是推荐标 -->
 					<script id="borrow-list-template" type="text/x-handlebars-template">
 						{{each dataList}}
