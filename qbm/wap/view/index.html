@@ -39,7 +39,7 @@
 			<!-- 根据是否登录显示下面的div或者a标签 -->
 			<div class="not_login_box bg-white bd-b-default text-center fs-28">
 				<span data-href="$wapurl/passport/login.html"  class="login_btn fc-6  tap-link">登录/注册</span>
-				<img src="$wapcdnpath/images/text_logo.png" class="text_logo" >
+				<img src="../statics/images/text_logo.png" class="text_logo" >
 			</div>
 			#else
 			<div data-href="$wapurl/member/index.html" class="has_login_box bg-white bd-b-default text-center fs-28 tap-link">
@@ -50,7 +50,7 @@
 			
 			<!-- 正常标列表 -->
 			<div class="labels_lists_wraper">
-				<img src="$wapcdnpath/images/loading.gif"  class="loadding_lists" id="loading_lists">
+				<img src="../statics/images/loading.gif"  class="loadding_lists" id="loading_lists">
 				<ul class="index_label_ul" id="index_label_ul">
 					
 
@@ -60,9 +60,9 @@
 							{{if !$index}}
 								<div class="label_li bd-default bg-white tuijian_li tap-link fc-3" data-href="$wapurl/wap/getBorrowInfo.html?borrow_id={{$value.borrowId}}">
 									<h4 class="label_tit pd-lr-10 text-center">{{$value.baseTitle}}</h4>
-									<img src="$wapcdnpath/images/index/list_flag.png" class="list_flag">
+									<img src="../statics/images/index/list_flag.png" class="list_flag">
 									<p class="dashed_line mg-b-10">
-										<img src="$wapcdnpath/images/dash_line_white.png" class="dash_img">
+										<img src="../statics/images/dash_line_white.png" class="dash_img">
 									</p>
 									<p class="tuijian_num_big fc-primary text-center ">
 										<span class="num">{{fixToSecond $value.baseApr}}</span>%
@@ -89,7 +89,7 @@
 							<div class="label_li bd-default bg-white tap-link" data-href="$wapurl/wap/getBorrowInfo.html?borrow_id={{$value.borrowId}}">
 								<p class="label_tit pd-lr-10">{{$value.baseTitle}}</p>
 								<p class="dashed_line mg-b-10">
-									<img src="$wapcdnpath/images/dash_line_white.png" class="dash_img">
+									<img src="../statics/images/dash_line_white.png" class="dash_img">
 								</p>
 								<div class="row label_nums ">
 									<p class="col-all-4  fc-9">
