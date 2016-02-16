@@ -11,9 +11,9 @@
     	<meta name="full-screen"content="yes">
     	
 		<title>$!borrow.baseTitle</title>
-		<link rel="stylesheet" href="${wapcdnpath}/css/financing/detail.min.css?v=${ver}">
-		<link rel="stylesheet" href="${wapcdnpath}/js/plugin/layer.m/need/layer.css?v=${ver}">
-		<script src="$wapcdnpath/js/flexible.js?v=${ver}"></script>
+		<link rel="stylesheet" href="../../statics/css/financing/detail.min.css?v=${ver}">
+		<link rel="stylesheet" href="../../statics/js/plugin/layer.m/need/layer.css?v=${ver}">
+		<script src="../../statics/js/flexible.js?v=${ver}"></script>
 	</head>
 	<body>
 		#set($int = 0)
@@ -44,10 +44,9 @@
 						<span class="bar_inner pos-abs" id="bar_inner"></span>
 					</p>
 					<div class="clearfix fs-22">
-						<span class="fn-fl fc-9" >项目总额：$!borrow.TotalAmountStr元</span>
+						<span class="fn-fl fc-9" >项目总额：1000.00元</span>
 						<input type="hidden" value="$!borrow.TotalAmountStr" id="money_all">
-						#set($canBuyMoney = $!borrow.baseTotalAmountBorrow - $!borrow.baseTotalSuccessBorrow)
-						<span class="fn-fr fc-9">剩余可购：$!borrow.CanBuyAmountStr元</span>
+						<span class="fn-fr fc-9">剩余可购：800.00元</span>
 						<input type="hidden" value="$!borrow.CanBuyAmountStr" id="money_left">
 
 					</div>
@@ -64,12 +63,10 @@
 						<label >保障方式</label>
 						<p class="list_text text-right">安东担保本息保障</p>
 					</li>
-					#if(!$borrow.riskLevel)
 					<li class="list_item">
 						<label >风险等级</label>
-						<p class="list_text text-right fc-link">$!borrow.riskLevel级</p>
+						<p class="list_text text-right fc-link">A级</p>
 					</li>
-					#end
 					<li class="list_item tap-link" data-href="$wapurl/financing/assetsList.html">
 						<label >资产清单</label>
 						<p class="list_text text-right">
@@ -82,11 +79,11 @@
 							<span class="iconfont icon-back"></span>
 						</p>
 					</li>
-					#if($int.parseInt($borrow.startBuyTime)<=$nowTime)
+					
 					<li class="list_item tap-link" data-href="$wapurl/financing/purchaseRecords.html">
 						<label >购买记录</label>
 						<p class="list_text text-right">
-							<span class="fc-link">$tenderCount笔</span>
+							<span class="fc-link">2笔</span>
 							<span class="iconfont icon-back"></span>
 						</p>
 					</li>
@@ -95,10 +92,10 @@
 						<label >剩余时间</label>
 						<p class="list_text text-right fc-link"  id="borrowEndTime" data-time-end="$!borrow.effectiveTime"></p>
 					</li>
-					#end
+					
 				</ul>
 			</div>
-			#if($int.parseInt($borrow.startBuyTime)>$nowTime)
+			
 			<!-- 项目何时开售 -->
 			<!-- data-start:服务器当前时间 data-end:结束时间 -->
 			<div class="btn_group fixed_group">
@@ -106,35 +103,33 @@
 					<!-- 12:23:56后开售，敬请期待 -->
 				</span>
 			</div>
-			#elseif(!$user)
+			
 			<div class="btn_group fixed_group">
-				<span class="btn_item bg-primary tap-link" data-href="$wapurl/passport/login.html">
+				<span class="btn_item bg-primary tap-link" data-href="../passport/login.html">
 					登录
 				</span>
 			</div>
-			#else
-				#if($canBuy == '1')
+			
 					<div class="btn_group fixed_group">
-						<span class="btn_item bg-primary" id="buy_now" data-href="$wapurl/member/tenderPage.html">
+						<span class="btn_item bg-primary" id="buy_now" data-href="../member/tenderPage.html">
 							立即购买
 						</span>
 					</div>
-				#else
+				
 					<div class="btn_group fixed_group">
 						<span class="btn_item bg-default" >
 							只有新手才可以购买哦
 						</span>
 					</div>
-				#end
-			#end
+				
 		</div>
 		
 		
 		<input type="hidden" value="$wapurl" id="wapurl">
 		<input type="hidden" value="$realStatus" id="realStatus"><!-- 是否实名认证过 -->
 		<input type="hidden" value="$nowTime" id="sysTime"><!-- 系统时间 时间戳 -->
-		<script src="$wapcdnpath/js/sea.js"></script>
-		<script src="$wapcdnpath/js/sea-config.js"></script>
+		<script src="../../statics/js/sea.js"></script>
+		<script src="../../statics/js/sea-config.js"></script>
 
 		<script>
 			seajs.use("page/financing/detail.min.js");
