@@ -56,7 +56,7 @@
 					<script id="borrow-list-template" type="text/x-handlebars-template">
 						{{each dataList}}
 							{{if !$index}}
-								<div class="label_li bd-default bg-white tuijian_li tap-link fc-3" data-href="$wapurl/wap/getBorrowInfo.html?borrow_id={{$value.borrowId}}">
+								<div class="label_li bd-default bg-white tuijian_li tap-link fc-3" data-href="financing/detail.html">
 									<h4 class="label_tit pd-lr-10 text-center">{{$value.baseTitle}}</h4>
 									<img src="../statics/images/index/list_flag.png" class="list_flag">
 									<p class="dashed_line mg-b-10">
@@ -84,7 +84,7 @@
 								</div>
 							{{/if}}
 							{{if $index}}
-							<div class="label_li bd-default bg-white tap-link" data-href="$wapurl/wap/getBorrowInfo.html?borrow_id={{$value.borrowId}}">
+							<div class="label_li bd-default bg-white tap-link" data-href="financing/detail.html">
 								<p class="label_tit pd-lr-10">{{$value.baseTitle}}</p>
 								<p class="dashed_line mg-b-10">
 									<img src="../statics/images/dash_line_white.png" class="dash_img">
