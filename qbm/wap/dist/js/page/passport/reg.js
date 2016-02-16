@@ -312,6 +312,10 @@ define(function(require,module,exports){
 								}
 							}
 
+							var href="../index.html";
+							window.location.href=href;
+							return false;
+
 							var params={
 								verify:$imgInput.val()||"",//图形码
 								code:$telMesInput.val(),//短信码
