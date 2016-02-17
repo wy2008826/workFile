@@ -57,19 +57,19 @@ define(function(require,exports,module){
 				});
 
 				var $buyBtn=$("#buy_now");
-				if($buyBtn.length>0){
-					$buyBtn.on("click",function(){
-						var realStatus=$("#realStatus").val();//是否实名认证通过
-						if(realStatus==1){//认证通过
-							var borrow_id=self.borrow_id;
-							var href=$(this).attr("data-href")+"?borrow_id="+borrow_id;
-						}
-						else{//没有认证通过
-							var href=self.url.wapUrl+"/member/authentication.html";
-						}
-						window.location.href=href;
-					});
-				}
+				// if($buyBtn.length>0){
+				// 	$buyBtn.on("click",function(){
+				// 		var realStatus=$("#realStatus").val();//是否实名认证通过
+				// 		if(realStatus==1){//认证通过
+				// 			var borrow_id=self.borrow_id;
+				// 			var href=$(this).attr("data-href")+"?borrow_id="+borrow_id;
+				// 		}
+				// 		else{//没有认证通过
+				// 			var href=self.url.wapUrl+"/member/authentication.html";
+				// 		}
+				// 		window.location.href=href;
+				// 	});
+				// }
 			},
 			borrowTime:function(){
 				var self=this;
