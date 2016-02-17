@@ -86,13 +86,14 @@ define(function(require,exports,module){
 					};
 
 					isGetting=true;
-					$.ajax({
-						url:url,
-						type:"get",
-						dataType:"jsonp",
-						data:param,
-						success:function(data){
+					// $.ajax({
+					// 	url:url,
+					// 	type:"get",
+					// 	dataType:"jsonp",
+					// 	data:param,
+						//success:function(data){
 							//console.log(data);
+							var data={"borrowDetailsList":[{"borrowId":8414,"borrowPersonName":"周虎","borrowMoney":"39000.000000","type":1,"id":37546},{"borrowId":8414,"borrowPersonName":"蒋海波","borrowMoney":"45000.000000","type":1,"id":37541},{"borrowId":8414,"borrowPersonName":"熊智荣","borrowMoney":"70000.000000","type":1,"id":37485}],"code":1,"msg":"成功获取资产清单记录","result":true};
 							if(data.result){//正确返回数据
 								var dataLength=data.borrowDetailsList.length;
 								if(dataLength>0){//存在数据
@@ -122,8 +123,8 @@ define(function(require,exports,module){
 							}
 							self.curPage+=1;
 							isGetting=false;
-						}
-					});
+						//}
+					// });
 				};
 				getListData();//页面加载首次获取列表数据
 
