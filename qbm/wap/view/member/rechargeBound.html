@@ -20,7 +20,7 @@
 	<body>
 		<form action="../../statics/api/authpayCharge.html" method="post" id="rechargeForm">
 			<input type="hidden" name="name_goods" id="name_goods" value="钱保姆WAP端充值">
-			#if($status == '1')
+			
 			<input type="hidden" name="card_no" id="cardNo" value="$card_no">
 			<input type="hidden" name="bank_id" id="bank_id" value="$accountBank.accountBankId">
 			<p class="mg-lr-30 pd-l-24 fc-9 fs-24 mg-t-30 user-money">您已绑定认证银行卡 :</p>
@@ -31,8 +31,8 @@
 					</li>
 				</ul>
 			</div>
-			<p class="mg-lr-30 fc-9 fs-20 text-right read">单笔限额<span class="fc-primary">$accountBank.single_amt</span>万,日累计<span class="fc-primary">$accountBank.day_amt</span>万</p>
-			#else
+			<p class="mg-lr-30 fc-9 fs-20 text-right read">单笔限额<span class="fc-primary">$accountBank.single_amt</span>万,日累计<span class="fc-primary">5</span>万</p>
+			
 			<p class="mg-lr-30 pd-l-24 fc-9 fs-24 mg-t-30 user-money">您的银行储蓄卡号 :</p>
 			<div class="normal_lists_wraper mg-lr-30 pd-lr-24 bd-default bg-white fs-24">
 				<ul class="normal_lists_ul fc-31">
@@ -42,9 +42,9 @@
 				</ul>
 			</div>
 			<p class="mg-lr-30 fc-9 fs-20 text-right support"><span class="fc-link" id="bankList">15家支持的银行</span></p>
-			#end
 			
-			<p class="mg-lr-30 pd-l-24 fc-9 fs-24 user-money">您当前可用余额：<span class="fc-primary">$userMoney</span>元</p>
+			
+			<p class="mg-lr-30 pd-l-24 fc-9 fs-24 user-money">您当前可用余额：<span class="fc-primary">8888</span>元</p>
 			<div class="normal_lists_wraper mg-lr-30 pd-lr-24 bd-default bg-white fs-24">
 				<ul class="normal_lists_ul">
 					<li class="list_item">
@@ -60,21 +60,11 @@
 		
 		<div class="mg-lr-30 pd-lr-24 mg-t-70 fc-9 fs-20 tip-block">
 			<h1 class="fs-20">温馨提示:</h1>
-			#if($contentType == '0')
-				<p>1.移动端充值有限额，具体额度以不同银行设置为准；</p>
-				<p>2.如需充值大额资金，您可以在钱保姆网页端进行充值</p>
-			#elseif($contentType == '1')
+
 				<p>1.为保障您的资金安全，您新绑定的银行卡将作为您在移动端唯一的充值以及提现卡；</p>
 				<p>2.移动端充值有限额，以各银行设置为准；</p>
 				<p>3.如需充值大额资金，您可以在钱保姆网页端进行充值。</p>
-			#elseif($contentType == '2')
-				<p>1.为保障您的资金安全，您新绑定的银行卡将作为您在移动端唯一的充值以及提现卡；</p>
-				<p>2.移动端充值有限额，以各银行设置为准；</p>
-				<p>3.如需充值大额资金，您可以在钱保姆网页端进行充值</p>
-			#elseif($contentType == '3')
-				<p>1.移动端充值有限额，具体额度以不同银行设置为准；</p>
-				<p>2.如需充值大额资金，您可以在钱保姆网页端进行充值。</p>
-			#end
+
 		</div>
 		
 		<input type="hidden" value="$wapurl" id="wapurl">
