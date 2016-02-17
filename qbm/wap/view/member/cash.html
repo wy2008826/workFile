@@ -10,8 +10,8 @@
 		<meta name="x5-fullscreen"content="true"/>
     	<meta name="full-screen"content="yes">
 		<title>提现</title>
-		<link rel="stylesheet" href="$wapcdnpath/css/member/cash.min.css?v=${ver}">
-		<script src="$wapcdnpath/js/flexible.js?v=${ver}"></script>
+		<link rel="stylesheet" href="../../statics/css/member/cash.min.css?v=${ver}">
+		<script src="../../statics/js/flexible.js?v=${ver}"></script>
 		<script type="text/javascript">
 			SESSION_ID='${session.id}';
 			TONGDUN_ENV='${tongdun_env}';
@@ -27,14 +27,14 @@
 					<!--已同卡-->
 					<li class="list_item">
 						<label>银行卡</label>
-						<p class="list_text fc-6"><img src="$wapcdnpath/images/member/bankIcon/$accountBank.imgsrc" class="bank-icon">$accountBank.bankname&nbsp;($accountBank.bankaccount)</p>
+						<p class="list_text fc-6"><img src="../../statics/images/member/bankIcon/$accountBank.imgsrc" class="bank-icon">$accountBank.bankname&nbsp;($accountBank.bankaccount)</p>
 						<input type="hidden" id="accountBankId" name="accountBankId" value="$accountBank.accountBankId">
 					</li>
 				#elseif($status == '2')
 					<!--多张银行卡-->
 					<li class="list_item" id="moreBank">
 						<label>银行卡</label>
-						<p class="list_text fc-6"><img src="$wapcdnpath/images/member/bankIcon/zsyh.png" class="bank-icon" id="bankIcon"><span id="bankInfo">招商银行&nbsp;尾号0025</span></p>
+						<p class="list_text fc-6"><img src="../../statics/images/member/bankIcon/zsyh.png" class="bank-icon" id="bankIcon"><span id="bankInfo">招商银行&nbsp;尾号0025</span></p>
 						<input type="hidden" id="accountBankId" name="accountBankId" value="">
 						<span class="iconfont icon-back"></span>
 					</li>
@@ -84,7 +84,7 @@
 			<h1 class="fc-31 fs-24 text-center">选择银行卡</h1>
 			<ul>
 				#foreach($bank in $accountBankList)
-					<li data-id="$bank.accountBankId" data-branch="$!bank.bank"><img src="$wapcdnpath/images/member/bankIcon/$bank.imgsrc" class="bank-icon"><span>$bank.bankname ($bank.bankaccount)</span></li>
+					<li data-id="$bank.accountBankId" data-branch="$!bank.bank"><img src="../../statics/images/member/bankIcon/$bank.imgsrc" class="bank-icon"><span>$bank.bankname ($bank.bankaccount)</span></li>
 				#end
 				<li class="select-other" id="otherCard">使用其他银行卡</li>
 			</ul>
@@ -93,10 +93,10 @@
 		<p class="mg-lr-30 text-center fs-30 record-btn" id="cashRecord">查看所有提现记录</p>
 		
 		<input type="hidden" value="$wapurl" id="wapurl">
-		<script src="$wapcdnpath/js/sea.js"></script>
-		<script src="$wapcdnpath/js/seajs-css.js"></script>
-		<script src="$wapcdnpath/js/sea-config.js"></script>
-		<script src="$wapcdnpath/js/fraudmetrix.js?v=${ver}"></script>
+		<script src="../../statics/js/sea.js"></script>
+		<script src="../../statics/js/seajs-css.js"></script>
+		<script src="../../statics/js/sea-config.js"></script>
+		<script src="../../statics/js/fraudmetrix.js?v=${ver}"></script>
 		<script>
 			seajs.use("page/member/cash.min");
 		</script>

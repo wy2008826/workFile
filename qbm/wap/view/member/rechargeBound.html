@@ -10,15 +10,15 @@
 		<meta name="x5-fullscreen"content="true"/>
     	<meta name="full-screen"content="yes">
 		<title>充值</title>
-		<link rel="stylesheet" href="$wapcdnpath/css/member/rechargeBound.min.css?v=${ver}">
-		<script src="$wapcdnpath/js/flexible.js?v=${ver}"></script>
+		<link rel="stylesheet" href="../../statics/css/member/rechargeBound.min.css?v=${ver}">
+		<script src="../../statics/js/flexible.js?v=${ver}"></script>
 		<script type="text/javascript">
 			SESSION_ID='${session.id}';
 			TONGDUN_ENV='${tongdun_env}';
 		</script>
 	</head>
 	<body>
-		<form action="$wapurl/api/authpayCharge.html" method="post" id="rechargeForm">
+		<form action="../../statics/api/authpayCharge.html" method="post" id="rechargeForm">
 			<input type="hidden" name="name_goods" id="name_goods" value="钱保姆WAP端充值">
 			#if($status == '1')
 			<input type="hidden" name="card_no" id="cardNo" value="$card_no">
@@ -79,10 +79,10 @@
 		
 		<input type="hidden" value="$wapurl" id="wapurl">
 		<input type="hidden" value="$fromSelectBank" id="fromSelectBank">	
-		<script src="$wapcdnpath/js/sea.js"></script>
-		<script src="$wapcdnpath/js/seajs-css.js"></script>
-		<script src="$wapcdnpath/js/sea-config.js"></script>
-		<script src="$wapcdnpath/js/fraudmetrix.js?v=${ver}"></script>
+		<script src="../../statics/js/sea.js"></script>
+		<script src="../../statics/js/seajs-css.js"></script>
+		<script src="../../statics/js/sea-config.js"></script>
+		<script src="../../statics/js/fraudmetrix.js?v=${ver}"></script>
 		<script>
 			seajs.use("page/member/rechargeBound.min");
 		</script>
