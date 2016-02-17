@@ -19,43 +19,37 @@
 				<li class="list_item" id="authentication">
 					<label>身份认证</label>
 					<p class="list_text text-right fc-link">
-						#if($realStatus=='1')
 						已认证
-						#else
-						未认证
-						#end
 					</p>
 					<span class="iconfont icon-back"></span>
 				</li>
-				#if($sameCard == '1')
 				<!--已开启同卡进出-->
 				<li class="list_item" id="bindCard">
 					<label>银行卡认证</label>
 					<p class="list_text text-right fc-link">$account</p>
 					<span class="iconfont icon-back"></span>
 				</li>
-				#else
 				<!--没有银行卡或未开启同卡进出-->
 				<li class="list_item" id="unBindCard">
 					<label>银行卡认证</label>
 					<p class="list_text text-right fc-link">充值以绑定银行卡</p>
 					<span class="iconfont icon-back"></span>
 				</li>
-				#end
+				
 			</ul>
 		</div>
 		
 		<div class="normal_lists_wraper mg-lr-30 pd-lr-24 bd-default bg-white fs-24 mg-t-30">
 			<ul class="normal_lists_ul">
-				<li class="list_item tap-link" data-href="../passport/" id="modifyLoginPwd">
+				<li class="list_item tap-link" data-href="../passport/modifyLoginPwd.html" id="modifyLoginPwd">
 					<label>修改登录密码</label>
 					<span class="list_text text-right iconfont icon-back"></span>
 				</li>
-				<li class="list_item tap-link" data-href="../passport/" id="modifyPayPwd">
+				<li class="list_item tap-link" data-href="../passport/modifyPayPwd.html" id="modifyPayPwd">
 					<label>修改交易密码</label>
 					<span class="list_text text-right iconfont icon-back"></span>
 				</li>
-				<li class="list_item tap-link" data-href="../passport/" id="forgetPayPwd">
+				<li class="list_item tap-link" data-href="../passport/forgetPayPwd.html" id="forgetPayPwd">
 					<label>找回交易密码</label>
 					<span class="list_text text-right iconfont icon-back"></span>
 				</li>

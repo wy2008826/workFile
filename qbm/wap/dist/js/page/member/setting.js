@@ -16,6 +16,15 @@ define(function(require, exports, module) {
 	$(function(){
 		var wapurl = $("#wapurl").val();
 		
+
+		$("body").on("click",".tap-link",function(e){//预处理默认的跳转
+			e.preventDefault();
+			e.stopPropagation();
+			var href=$(this).attr("data-href")+"?borrow_id="+self.borrow_id;
+			window.location.href=href;
+		});
+
+		
 		//身份认证
 		$("#authentication").on("click",function(){
 	        location.href = wapurl+ "/member/authentication.html";
