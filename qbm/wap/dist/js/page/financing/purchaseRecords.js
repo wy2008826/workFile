@@ -84,13 +84,15 @@ define(function(require,exports,module){
 						return false;
 					};
 					isGetting=true;
-					$.ajax({
-						url:url,
-						type:"get",
-						dataType:"jsonp",
-						data:param,
-						success:function(data){
+					// $.ajax({
+					// 	url:url,
+					// 	type:"get",
+					// 	dataType:"jsonp",
+					// 	data:param,
+						//success:function(data){
 							//console.log(data);
+
+							var data={"dataList":[{"tCreateTime":"2016-02-17 16:59:33","tUserName":"13061397881","tMoney":300.0,"tAccount":300.0,"isAutoTender":0},{"tCreateTime":"2016-02-17 16:08:03","tUserName":"13996316195","tMoney":8043.93,"tAccount":8043.93,"isAutoTender":0},{"tCreateTime":"2016-02-17 15:54:19","tUserName":"15800939024","tMoney":500.0,"tAccount":500.0,"isAutoTender":0},{"tCreateTime":"2016-02-17 15:54:17","tUserName":"13952663666","tMoney":1504.04,"tAccount":1504.04,"isAutoTender":0},{"tCreateTime":"2016-02-17 15:51:56","tUserName":"jellyyang","tMoney":20500.0,"tAccount":20500.0,"isAutoTender":0},{"tCreateTime":"2016-02-17 15:41:55","tUserName":"猪猪的巢穴","tMoney":10000.0,"tAccount":10000.0,"isAutoTender":1}],"code":1,"msg":"获取成功","result":true};
 							if(data.result){//正确返回数据
 								if(data.dataList.length>0){//存在数据
 									var html=self.tpl.listTpl(data);
@@ -122,8 +124,8 @@ define(function(require,exports,module){
 							}
 							self.curPage+=1;
 							isGetting=false;
-						}
-					});
+						//}
+					// });
 				};
 				getListData();//页面加载首次获取列表数据
 
