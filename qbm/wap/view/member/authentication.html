@@ -10,11 +10,11 @@
 		<meta name="x5-fullscreen"content="true"/>
     	<meta name="full-screen"content="yes">
 		<title>实名认证</title>
-		<link rel="stylesheet" href="$wapcdnpath/css/member/authentication.min.css?v=${ver}">
-		<script src="$wapcdnpath/js/flexible.js?v=${ver}"></script>
+		<link rel="stylesheet" href="../../statics/css/member/authentication.min.css?v=${ver}">
+		<script src="../../statics/js/flexible.js?v=${ver}"></script>
 	</head>
 	<body>
-		#if($realStatus=='1')
+		
 		<!--已实名认证-->
 		<div class="normal_lists_wraper mg-lr-30 pd-lr-24 bd-default bg-white fs-24 mg-t-30">
 			<ul class="normal_lists_ul">
@@ -28,7 +28,7 @@
 				</li>
 			</ul>
 		</div>
-		#else
+		
 		<!--未实名认证-->
 		<div class="passport_form_wraper mg-lr-30 mg-t-30">
 			<ul class="login_form_ul">
@@ -46,11 +46,11 @@
 				</li>
 			</ul>
 		</div>	
-		#end
+		
 		<input type="hidden" value="$wapurl" id="wapurl">
-		<script src="$wapcdnpath/js/sea.js"></script>
-		<script src="$wapcdnpath/js/seajs-css.js"></script>
-		<script src="$wapcdnpath/js/sea-config.js"></script>
+		<script src="../../statics/js/sea.js"></script>
+		<script src="../../statics/js/seajs-css.js"></script>
+		<script src="../../statics/js/sea-config.js"></script>
 		<script>
 			seajs.use("page/member/authentication.min");
 		</script>

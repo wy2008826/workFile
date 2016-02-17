@@ -55,7 +55,7 @@ define(function(require, exports, module) {
 				                    className: 'layer-tip',
 				                    time: 2,
 				                    end:function(){
-				                   		location.href = wapurl;
+				                   		location.href = "../index.html";
 				                    }
 				                });
 					    	// }
