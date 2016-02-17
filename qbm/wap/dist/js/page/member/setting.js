@@ -24,7 +24,7 @@ define(function(require, exports, module) {
 			window.location.href=href;
 		});
 
-		
+
 		//身份认证
 		$("#authentication").on("click",function(){
 	        location.href = wapurl+ "/member/authentication.html";
@@ -40,31 +40,16 @@ define(function(require, exports, module) {
 	       location.href = wapurl+ "/member/recharge.html";
 	    })
 		
-		//修改登录密码
-		$("#modifyLoginPwd").on("click",function(){
-	        location.href = wapurl+ "/passport/modifyLoginPwd.html";
-	    })
-		
-		//修改交易密码
-		$("#modifyPayPwd").on("click",function(){
-	        location.href = wapurl+ "/passport/modifyPayPwd.html";
-	    })
-		
-		//找回交易密码
-		$("#forgetPayPwd").on("click",function(){
-	        location.href = wapurl+ "/passport/forgetPayPwd.html";
-	    })
-	    
 	    //退出登录
 		$("#loginOut").on("click",function(){
 			require.async('layerCss',function(){
 	           require.async('layer',function(layer){
-	           		$.ajax({
-					    type: "get",
-					    url: wapurl+"/api/exit.html",
-					    dataType:"jsonp",
-					    success: function(data){
-					    	if(data.result){
+	        //    		$.ajax({
+					    // type: "get",
+					    // url: wapurl+"/api/exit.html",
+					    // dataType:"jsonp",
+					    // success: function(data){
+					    	// if(data.result){
 					    		layer.open({
 				                    content: '您已退出登录，页面将跳转至首页',
 				                    className: 'layer-tip',
@@ -73,9 +58,9 @@ define(function(require, exports, module) {
 				                   		location.href = wapurl;
 				                    }
 				                });
-					    	}
-					    }
-					})
+					    	// }
+					    // }
+					// })
 	            })
 	        })
 	    });
