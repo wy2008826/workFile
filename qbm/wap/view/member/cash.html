@@ -23,14 +23,14 @@
 		</p>
 		<div class="normal_lists_wraper mg-lr-30 pd-lr-24 bd-default bg-white fs-24">
 			<ul class="normal_lists_ul fc-31">
-				#if($status == '1')
+				
 					<!--已同卡-->
 					<li class="list_item">
 						<label>银行卡</label>
 						<p class="list_text fc-6"><img src="../../statics/images/member/bankIcon/$accountBank.imgsrc" class="bank-icon">$accountBank.bankname&nbsp;($accountBank.bankaccount)</p>
 						<input type="hidden" id="accountBankId" name="accountBankId" value="$accountBank.accountBankId">
 					</li>
-				#elseif($status == '2')
+				
 					<!--多张银行卡-->
 					<li class="list_item" id="moreBank">
 						<label>银行卡</label>
@@ -38,14 +38,14 @@
 						<input type="hidden" id="accountBankId" name="accountBankId" value="">
 						<span class="iconfont icon-back"></span>
 					</li>
-				#else
+				
 					<!--无银行卡-->
 					<li class="list_item" id="bindCard">
 						<label>银行卡</label>
 						<p class="list_text fc-6">请绑定一张银行卡</p>
 						<span class="iconfont icon-back"></span>
 					</li>
-				#end
+				
 				<li class="list_item">
 					<label>开户支行</label>
 					<input type="text" class="list_text" placeholder="$!accountBank.bank" name="branch" value="$!accountBank.bank" data-branch="" id="branch">
@@ -59,11 +59,11 @@
 		</div>
 		<div class="fs-18 fc-9 mg-lr-30 cash-info">
 			<div class="pd-l-24 row">
-				<span class="col-all-6">可用余额：<label class="fc-6">￥<span id="useMoney">$userMoney</span></label></span>
+				<span class="col-all-6">可用余额：<label class="fc-6">￥<span id="useMoney">555</span></label></span>
 				<span class="col-all-6 text-right">预计手续费：<label class="fc-primary">￥<span id="fees">0.00</span></</span>
 			</div>
 			<div class="pd-l-24 row">
-				<span class="col-all-12">免费提现额度：<label class="fc-6">￥<span id="freeCashFees">$freeMoney</span></label></span>
+				<span class="col-all-12">免费提现额度：<label class="fc-6">￥<span id="freeCashFees">20000</span></label></span>
 			</div>
 		</div>
 		<div class="normal_lists_wraper mg-lr-30 pd-lr-24 bd-default bg-white fs-24">
@@ -84,7 +84,7 @@
 			<h1 class="fc-31 fs-24 text-center">选择银行卡</h1>
 			<ul>
 				#foreach($bank in $accountBankList)
-					<li data-id="$bank.accountBankId" data-branch="$!bank.bank"><img src="../../statics/images/member/bankIcon/$bank.imgsrc" class="bank-icon"><span>$bank.bankname ($bank.bankaccount)</span></li>
+					<li data-id="$bank.accountBankId" data-branch="$!bank.bank"><img src="../../statics/images/member/bankIcon/nyyh.png" class="bank-icon"><span>中国农业银行 (2113)</span></li>
 				#end
 				<li class="select-other" id="otherCard">使用其他银行卡</li>
 			</ul>
