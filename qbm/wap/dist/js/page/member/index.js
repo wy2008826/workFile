@@ -28,6 +28,10 @@ define(function(require, exports, module) {
 			window.location.href=href;
 		});
 		
+		//充值页面跳转
+	    $('#rechargeBtn').on("click",function(){
+	    	location.href = wapurl+ "/member/recharge.html";
+	    })
 		
 	    //提现页面跳转
 	    $('#cashBtn').on("click",function(){
