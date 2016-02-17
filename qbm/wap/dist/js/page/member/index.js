@@ -19,15 +19,15 @@ define(function(require, exports, module) {
 		var wapurl = $("#wapurl").val();//wap端根路径
 		var realStatus = $("#realStatus").val();//获取实名状态
 		
-		//设置
-		$("#setting").on("click",function(){
-	        location.href = wapurl+ "/member/setting.html";
-	    })
 		
-		//充值页面跳转
-	    $('#rechargeBtn').on("click",function(){
-	    	location.href = wapurl+ "/member/recharge.html";
-	    })
+
+		$("body").on("click",".tap-link",function(e){//预处理默认的跳转
+			e.preventDefault();
+			e.stopPropagation();
+			var href=$(this).attr("data-href")+"?borrow_id="+self.borrow_id;
+			window.location.href=href;
+		});
+		
 		
 	    //提现页面跳转
 	    $('#cashBtn').on("click",function(){
