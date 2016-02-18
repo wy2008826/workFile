@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no,minimum-scale=1.0, maximum-scale=1.0">
+<title>钱保姆理财</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<link rel="stylesheet" href="${cdnpath}/css/base.css">
+<link rel="stylesheet" href="${cdnpath}/css/activity/redPacket4.css?v=${ver}">
+</head>
+<body>
+	<section class="cards_section pos-rel">
+		<img src="${cdnpath}/images/activity/redPacket4/receive_bg.png" class="receive_bg">
+		<div class="cards_wraper pos-abs">
+		#set($i = 0)
+		#foreach($receive in $hongbaoList)
+			#set($i = $i + 1)
+			#if($i == 1)
+				<div class="cards_row">
+			#end
+			#if($receive.phone)
+				#if($receive.phone == $!phone)
+				<p class="card_item card_me" data-id="$receive.id" data-money="$receive.money"><!-- 已被自己翻牌 -->
+					<span class="card_text">$receive.money元</span>
+				</p>
+				#else
+					<p class="card_item card_other" data-id="$receive.id" data-money="$receive.money"><!-- 被他人翻走-->
+					</p>
+				#end
+			#else
+				<p class="card_item card_not" data-id="$receive.id" data-money="$receive.money"><!-- 还未翻牌  -->
+				</p>
+			#end
+			#if($i == 3 || $i == 7)
+				</div> 
+				<div class="cards_row">
+			#end
+			#if($i == 10)
+				</div> 
+			#end
+		#end
+<!-- 			<div class="cards_row"> -->
+<!-- 				<p class="card_item card_me">已被自己翻牌 -->
+<!-- 					<span class="card_text">50元</span> -->
+<!-- 				</p> -->
+				                                                                                                                                     
+<!-- 				<p class="card_item card_not">还未翻牌  -->
+<!-- 				</p> -->
+<!-- 				<p class="card_item card_other">被他人翻走 -->
+<!-- 				</p> -->
+<!-- 			</div>  -->
+<!-- 			<div class="cards_row"> -->
+<!-- 				<p class="card_item card_not"> -->
+<!-- 				</p> -->
+<!-- 				<p class="card_item card_not"> -->
+<!-- 				</p> -->
+<!-- 				<p class="card_item card_not"> -->
+<!-- 				</p> -->
+<!-- 				<p class="card_item card_other"> -->
+<!-- 				</p> -->
+<!-- 			</div> -->
+<!-- 			<div class="cards_row"> -->
+<!-- 				<p class="card_item card_not"> -->
+<!-- 				</p> -->
+<!-- 				<p class="card_item card_not"> -->
+<!-- 				</p> -->
+<!-- 				<p class="card_item card_other"> -->
+					
+<!-- 				</p> -->
+<!-- 			</div> -->
+		</div>
+		<input type="hidden" id="mark" name="mark" value="$!mark" />
+		<div class="user_phone">
+			<p>手机账户 <span id="userPhone" data-val="$!phone">$!nickname</span>
+			#if($!phone != "")
+				<span class="change_phone" id="change_phone">修改</span>
+			#else
+				<span class="change_phone " id="change_phone" style="display:none;">修改</span>
+			#end
+			</p>
+		</div>
+	</section>
+	<a href="$weburl/applink.html" class="downAppBtn">下载钱保姆App使用红包</a>
+	
+	<span class="how_to_use" id="how_to_use">我是新人如何使用红包</span>
+	
+	<div class="award_lists_wraper">
+		<p class="list_title"><span>看看谁抢到红包</span></p>
+		<ul class="award_ul">
+			#foreach($receive in $dataList)
+			<li class="clearfix">
+				<div class="fn-fl left_img_wraper">
+					 #if ($!visitResource == "wx" || $!visitResource == "")
+					     #if ($receive.headimgurl)
+							
+					        <img src="$!receive.face" class="user_img">
+					     #else
+					        <img src="${cdnpath}/images/activity/redPacket2/$!receive.face" class="user_img">
+					     #end
+					 #else
+					     <img src="${cdnpath}/images/activity/redPacket2/$!receive.face" class="user_img">
+					 #end
+				 </div>
+				<div class="fn-fl right_mes">
+					<p>
+						<span class="name fs-16">$!receive.nickname</span>
+						<span class="time fs-12">$!receive.receive_time</span>
+					</p>
+					<p class="fs-14 normal_mes">
+						红包最高可为您加息<span>$!receive.interest</span>
+					</p>
+				</div>
+				<span class="money">$!receive.money元</span>
+			</li>
+			#end
+		</ul>
+		<img src="${cdnpath}/images/activity/redPacket4/hat_femal.png" class="user_top_img hat_femal hide">
+		<img src="${cdnpath}/images/activity/redPacket4/hat_male.png" class="user_top_img hat_male hide">
+	</div>
+	<div class="how_to_use_wraper">
+		<p class="list_title"><span>红包使用方法</span></p>
+		<div class="strategy">
+			<p>
+				1.红包新老用户都可领取并使用
+			</p>
+			<p>
+				2.每个投资项目仅能使用一次，您可以尽量按照红包门槛条件合理使用
+			</p>
+			<p>
+				3.红包仅限于在【钱保姆理财】最新客户端购买理财产品时选择并使用
+			</p>
+			<p>
+				4.使用红包时注册账户必须为领红包时手机号码
+			</p>
+			<p>
+				5.新用户注册完成时还可以领取“感恩特惠红包”
+			</p>
+			<p>
+				6.本活动最终解释权归钱保姆所有
+			</p>
+		</div>
+	</div>
+	
+	
+	
+	<!-- 预先加载图片，避免完成动画后重新请求图片导致的延迟 -->
+	<div class="img_pre_load cards_row hide">
+		<p class="card_item card_me"></p>
+		<p class="card_item card_not"></p>
+		<p class="card_item card_other"></p>
+	</div>
+	
+
+
+	<div class="hide successAlert" id="successAlert">
+		<div class="pos-rel success_html">
+			<img src="${cdnpath}/images/activity/redPacket4/alert_bg.png" class="alert_bg">
+			<div class="mes_wraper">
+				<p class="money_line"><span class="alertMoney">50</span>元</p>
+				<p class="fs-16 fc-9 normal_mes">主子今儿个手气不错</p>
+				<span class="alert_confirm" onclick="layer.closeAll()">确定</span>
+			</div>
+			
+		</div>
+	</div>
+	
+
+
+	<script type="text/template" id="mesAlert">
+		<div class="pos-rel success_html">
+			<img src="${cdnpath}/images/activity/redPacket4/alert_bg.png" class="alert_bg">
+			<div class="mes_wraper" style="top:106px;">
+				<% _.forEach(lists,function(item){%>
+					<p class="fs-16 fc-9 normal_mes"><%= item.text%>~</p>
+				<%})%>
+				<span class="alert_confirm" onclick="layer.closeAll()">确定</span>
+			</div>
+		</div>
+	</script>
+
+	<div class="hide successAlert" id="errorAlert">
+		<div class="pos-rel success_html">
+			<img src="${cdnpath}/images/activity/redPacket4/alert_bg.png" class="alert_bg">
+			<div class="mes_wraper" style="top:106px;">
+				<p class="fs-16 fc-9 normal_mes">很抱歉，红包已经被领走~</p>
+				<span class="alert_confirm" onclick="layer.closeAll()">确定</span>
+			</div>
+		</div>
+	</div>
+	
+	
+	<div class="hide successAlert" id="allFetchAlert">
+		<div class="pos-rel success_html">
+			<img src="${cdnpath}/images/activity/redPacket4/alert_bg.png" class="alert_bg">
+			<div class="mes_wraper" style="top:106px;">
+				<p class="fs-16 fc-9 normal_mes text-center">啊哦，牌子都被翻完了，</p>
+				<p class="fs-16 fc-9 normal_mes text-center">下次再来吧。</p>
+				<span class="alert_confirm" onclick="layer.closeAll()">确定</span>
+			</div>
+		</div>
+	</div>
+	
+	
+
+
+	<div class="hide successAlert" id="changePhoneAlert">
+		<div class="pos-rel success_html">
+			<img src="${cdnpath}/images/activity/redPacket4/alert_bg.png" class="alert_bg">
+			<div class="mes_wraper">
+				
+				<p class="fs-16 fc-9 ">
+					<input  class="phone_input" type="text" maxlength="11" placeholder="请输入您的手机号">
+				</p>
+				<p class="tip text-error" ></p>
+				<span class="alert_confirm" onclick="app.sendPhone()">确定</span>
+			</div>
+			
+		</div>
+	</div>
+
+	<input type="hidden" value="$weburl" id="weburl">
+	<input type="hidden" value="$!openid" id="openid" name="openid" />
+	<script src="${cdnpath}/js/jquery-1.9.1.min.js"></script>
+	<script src="${cdnpath}/js/plugin/underscore/underscore.min.js"></script>
+	<script src="${cdnpath}/js/plugin/layer.m/layer.m.js"></script>
+	<script src="$weburl/statics/js/activity/redPacket4.js?v=${ver}"></script>
+</body>
+</html>
