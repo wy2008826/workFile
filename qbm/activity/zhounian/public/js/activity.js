@@ -304,7 +304,8 @@ $(function(){
 						var data={result:true,
 								randomNumberOne:3,
 								randomNumberTwo:3,
-								randomNumberThree:3
+								randomNumberThree:3,
+								level:3
 						};
 						self.slotBtnAnimation();
 						$("#sec3_tigger_btn").html("点击开始抽奖").css("font-size","16px");
