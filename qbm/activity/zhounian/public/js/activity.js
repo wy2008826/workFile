@@ -303,8 +303,8 @@ $(function(){
 					error:function(){
 						var data={result:true,
 								randomNumberOne:3,
-								randomNumberTwo:4,
-								randomNumberThree:2
+								randomNumberTwo:3,
+								randomNumberThree:3
 						};
 						self.slotBtnAnimation();
 						$("#sec3_tigger_btn").html("点击开始抽奖").css("font-size","16px");
