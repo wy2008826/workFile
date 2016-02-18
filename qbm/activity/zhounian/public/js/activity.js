@@ -196,6 +196,16 @@ $(function(){
 					showSlotSlide(data);
 					//alert(JSON.stringify(data));
 					//alert(self.webURL+"/"+self.postURL.awardsAndCount+"?user_id="+self.user_id);
+				},
+				error:function(){
+					var data={list:[
+							{phone:13588495566,prize:"15元红包"},
+							{phone:13588495566,prize:"iphone6s一台"},
+							{phone:13588495566,prize:"16元红包"},
+							{phone:13588495566,prize:"iphone6s一台"},
+							]
+					};
+					showSlotSlide(data);
 				}
 			});
 			//showSlotSlide();
@@ -518,48 +528,6 @@ $(function(){
 				active	: 2,
 				delay	: 1500
 			});
-
-
-			// $("#sec3_tigger_btn").click(function(){
-
-			// 	if(isComplete() && !isDisabled() ){//避免在跳动的间隙重复点击
-					
-			// 		self.slotTopSlide();
-			// 		$.ajax({
-			// 			url:self.webURL+"/"+self.postURL.slotResult+"?user_id="+self.user_id,
-			// 			type:"POST",
-			// 			dataType:"json",
-			// 			success:function(data){
-			// 				console.log("抽奖结果数据：",data);
-			// 				if(data.result){//有抽奖结果 1-6
-			// 					self.slotBtnAnimation();
-			// 					$("#sec3_tigger_btn").html("点击开始抽奖").css("font-size","16px");
-			// 					setAwardsAnimation(data);
-			// 				}
-			// 				else{
-			// 					if(data.status){
-			// 						$("#sec3_tigger_btn").html("发送请柬，每日再抽一次！").css("font-size","12px");
-									
-			// 					}
-			// 					else{
-			// 						$("#sec3_tigger_btn").html("发送请柬，一起庆祝！");
-
-			// 					}
-			// 					layer.open({
-			// 						content: '点击右上方“分享”按钮，分享页面到微信朋友圈！',
-			// 					    time: 1000,
-			// 					    end:function(){
-			// 					    	self.slotTopSlide();
-			// 					    }
-			// 					});
-			// 					self.slotTopSlide();
-			// 				}
-			// 			}
-			// 		});
-			// 		//setAwardsAnimation();
-
-			// 	}
-			// });
 
 			function onComplete($el,active){//单个老虎机的事件回调
 				// console.log(this);
