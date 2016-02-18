@@ -199,10 +199,10 @@ $(function(){
 				},
 				error:function(){
 					var data={list:[
-							{phone:13588495566,prize:"15元红包"},
-							{phone:13588495566,prize:"iphone6s一台"},
-							{phone:13588495566,prize:"16元红包"},
-							{phone:13588495566,prize:"iphone6s一台"},
+							{phone:"13588495566",prize:"15元红包"},
+							{phone:"13588495566",prize:"iphone6s一台"},
+							{phone:"13588495566",prize:"16元红包"},
+							{phone:"13588495566",prize:"iphone6s一台"},
 							]
 					};
 					showSlotSlide(data);
