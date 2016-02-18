@@ -42,7 +42,7 @@ width: 86%;left:8%;color:#d1ded8;overflow: hidden;}
 .cards_section .cards_wraper .cards_row{height: 24%;text-align: center;margin-left: 17%;margin-right: 17%;}
 .cards_section .cards_wraper .cards_row .cards_item{position:relative;display: inline-block;width: 28%;height:100%;margin-left:2%;
 	background-size:100% 100%;background-repeat:no-repeat;
-	background-image: url("../images/activity/double/christmas_award_card.png");
+	background-image: url("../images/double/christmas_award_card.png");
 	text-align: center;color:#027a3e;font-size:50px;line-height: 70px;
 	font-family: "SimHei";font-weight:900;
 }
@@ -141,7 +141,7 @@ width: 86%;left:8%;color:#d1ded8;overflow: hidden;}
 .award_img_section .big_wraper .img_item:nth-child(2){margin:0 0.4999% 0 0.4999%;}
 .award_img_section .big_wraper .img_item .img_item_tit{line-height: 28px;background-color: #02793d;color:#fff;font-size:12px;}
 .award_img_section .big_wraper .img_item .img_item_tit span{display: inline-block;width:50px;height: 100%;
-	text-indent: 2px;background-image:url("../images/activity/double/award_tit_tringle.png"); 
+	text-indent: 2px;background-image:url("../images/double/award_tit_tringle.png"); 
 	background-size:100% 100%;background-repeat:no-repeat;
 }
 
