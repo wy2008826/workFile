@@ -133,7 +133,7 @@ $(function(){
 					url:self.url.webUrl+self.url.getOtherAwardsLists,
 					type:"GET",
 					dataType:"json",
-					success:function(data){
+					error:function(data){
 						//alert(JSON.stringify(data));
 						if(data.list.length<=0){//没有列表就显示没有列表时候的提示信息
 							$tableWraper.find(".no_list").show();
@@ -150,7 +150,7 @@ $(function(){
 						var html=self.tpl.otherAwardsTableTpl(data);
 						$("#other_awards_table_ul").html(html);
 					},
-					error:function(){
+					error1:function(){
 						// var html=self.tpl.otherAwardsTableTpl(data);
 						// $("#other_awards_table_ul").html(html);
 					}
@@ -169,7 +169,7 @@ $(function(){
 					url:self.url.webUrl+self.url.getMeAwardsLists+"?user_id="+self.user_id,
 					type:"POST",
 					dataType:"json",
-					success:function(data){
+					error:function(data){
 						//alert("我的获奖列表："+JSON.stringify(data));
 						if(data.list.length<=5){
 							$("#hand_swiper_next").hide();
@@ -181,7 +181,7 @@ $(function(){
 						}
 						showHandList(data);
 					},
-					error:function(){
+					error1:function(){
 						showHandList(data||dt);
 					}
 				});
@@ -325,8 +325,10 @@ $(function(){
 					self.setMarqune(html);
 				},
 				error:function(){
-					// var html=self.tpl.awardsMarquneTpl(data);
-					// self.setMarqune(html);
+
+					var html=self.tpl.awardsMarquneTpl(data);
+					self.getCountNum();
+					self.setMarqune(html);
 				}
 			});
 		},
@@ -342,9 +344,14 @@ $(function(){
 						url:self.url.webUrl+self.url.getClickAward+"?user_id="+self.user_id+"&phoneType="+self.phone_type,
 						type:"POST",
 						dataType:'json',
-						success:function(data){
+						error:function(data){
 							// var data=JSON.parse(JSON.stringify(data));
 							//alert(JSON.stringify(data));
+							var data={
+								result:true,
+								level:1,
+								prize:"iphone6s一台"
+							};
 							if(data.result){//有抽奖结果 1-6
 								isAnimating=true;
 								if( (data.level<=5) && (data.level>0) ){//实物奖品
@@ -380,7 +387,7 @@ $(function(){
 							}
 
 						},
-						error:function(){
+						error1:function(){
 							isAnimating=true;
 							//alert("error");
 							// getBigSuccss($card,"name")
