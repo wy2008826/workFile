@@ -55,6 +55,7 @@
 				durTime:6000,//动画持续时间
 			};
 			this.config=$.extend(config,_config);
+			this.isAnimating=false;
 			console.log(config);
 			
 		};
@@ -142,7 +143,7 @@
 		}
 		
 		var callBack=function(index){
-			alert("index");//动画执行完成后的回调函数
+			alert(index);//动画执行完成后的回调函数
 		}
 
 		var slot=new Slot({
