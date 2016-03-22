@@ -108,9 +108,6 @@
 						function callTimeout(time,callBack){
 							setTimeout(function(){
 								animateItem(startInd,callBack);
-								if(callBack){
-									callBack(startInd);
-								}
 								startInd=self.getNextIndex(startInd);
 							},time);
 						}
@@ -122,6 +119,9 @@
 				function animateItem(index,callBack){
 					$(".slot.active").removeClass("active");
 					self.config.slotItems[index].addClass("active");
+					if(callBack){
+						callBack(index);
+					}
 				}
 
 
