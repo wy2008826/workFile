@@ -107,10 +107,8 @@
 
 						function callTimeout(time,callBack){
 							setTimeout(function(){
-								animateItem(startInd);
-								if(callBack){
-									callBack(startInd);//整个动画完成后的回调函数
-								}
+								animateItem(startInd,callBack);
+								
 								startInd=self.getNextIndex(startInd);
 								
 							},time);
@@ -120,9 +118,12 @@
 
 				},durTime);
 
-				function animateItem(index){
+				function animateItem(index,callBack){
 					$(".slot.active").removeClass("active");
 					self.config.slotItems[index].addClass("active");
+					if(callBack){
+						callBack(index);//整个动画完成后的回调函数
+					}
 				}
 
 
