@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no,minimum-scale=1.0, maximum-scale=1.0">
+	<title>老虎机</title>
+
+	<style>
+		*{margin:0;padding:0;}
+		.slot_wraper{
+			width: 300px;
+			height:300px;
+			border:1px solid red;
+			-webkit-box-sizing:border-box;
+		}
+		.slot_wraper .row{width: 100%;height:33.3%;}
+		.slot_wraper .row .slot{width: 31%;height:100%;
+			border:1px solid #f93;
+			-webkit-box-sizing:border-box;
+			display: inline-block;
+			line-height: 100px;
+			text-align: center;
+		}
+		.startBtn{
+
+		}
+		.slot.active{
+			background-color:#f33;
+		}
+	</style>
+</head>
+<body>
+	<div class="slot_wraper" >
+		<section class="row">
+			<div class="slot " id="slot0">0</div>
+			<div class="slot " id="slot1">1</div>
+			<div class="slot " id="slot2">2</div>
+		</section>
+		<section class="row">
+			<div class="slot " id="slot7">7</div>
+			<div class="slot  startBtn" id="statrBtn">开始</div>
+			<div class="slot" id="slot3">3</div>
+		</section>
+		<section class="row">
+			<div class="slot " id="slot6">6</div>
+			<div class="slot " id="slot5">5</div>
+			<div class="slot " id="slot4">4</div>
+		</section>
+	</div>
+	<script src="./jquery-1.9.1.min.js"></script>
+	<script>
+		var Slot=function(_config){
+			var config={
+				durTime:6000,//动画持续时间
+			};
+			this.config=$.extend(config,_config);
+			console.log(config);
+			
+		};
+
+		Slot.prototype={
+			init:function(){
+
+			},
+			getNextIndex:function(curIndex){//获取下一个元素索引
+				var self=this;
+				var itemL=self.config.slotItems.length;
+				if(curIndex<itemL-1){
+					return curIndex+1;
+				}
+				else if(curIndex==itemL-1){
+					return 0;
+				}
+			},
+			getCountNum:function(startInd,endInd){//获取从开始到结束的总共跳动的格子数量
+				var self=this;
+				var slotL=self.config.slotItems.length;
+				var margin=slotL+5-(slotL-endInd);
+				return self.config.slotItems.length*5 + 1 -(5-(endInd-startInd));
+
+			},
+			startAnimate:function(startInd,endInd){//设置初始联动动画
+				var self=this;
+				var countNum=self.getCountNum(startInd,endInd);
+				self.isAnimating=true;//当前正在动画
+				self.config.slotItems[startInd].addClass("active");
+				
+				var secondDur=100;//第二个和第一个的跳动间隔
+				var durTime=50;//第三个和第二个以及三个一起的跳动间隔
+
+				var count=0;
+				var timer=setInterval(function(){
+					animateItem(startInd);
+					startInd=self.getNextIndex(startInd);
+					count+=1;
+					
+					if(count>=countNum){
+						clearInterval(timer);
+						
+						var base=1.7;
+						callTimeout(durTime*Math.pow(base,2.5));
+						callTimeout(durTime*Math.pow(base,3.5));
+						callTimeout(durTime*Math.pow(base,4.5));
+						callTimeout(durTime*Math.pow(base,5.5));
+						callTimeout(durTime*Math.pow(base,6.5),self.config.allComplateCallBack);
+
+						function callTimeout(time,callBack){
+							setTimeout(function(){
+								animateItem(startInd);
+								if(callBack){
+									callBack(startInd);//整个动画完成后的回调函数
+								}
+								startInd=self.getNextIndex(startInd);
+								
+							},time);
+						}
+						self.isAnimating=false;//当前结束动画
+					}
+
+				},durTime);
+
+				function animateItem(index){
+					$(".slot.active").removeClass("active");
+					self.config.slotItems[index].addClass("active");
+				}
+
+
+			},
+			setSlotAnimation:function(start,end){//设置整体的动画
+				var self=this;
+				if(!self.isAnimating){
+					self.startAnimate(start,end);
+				}
+			}
+		};
+
+		var slotArr=[];//做动画的元素的集合
+		var slotL=8;
+		for(var i=0;i<slotL;i++){
+			var id="slot"+i;
+			slotArr.push($("#"+id));
+		}
+		
+		var callBack=function(index){
+			alert(index);.//动画执行完成后的回调函数
+		}
+
+		var slot=new Slot({
+			slotItems:slotArr,//元素集合，从左上角顺时针开始
+			allComplateCallBack:callBack
+		});
+
+		$("#statrBtn").on("click",function(){
+			if($(".slot.active").length!=0){//是否已经有老虎机处于激活状态
+				var startIndex=$(".slot.active").attr("id").replace("slot","")*1;
+			}
+			else{//没有老虎机处于激活状态
+				var startIndex=Math.round(Math.random()*(slotL-1));
+			}
+			var endIndex=Math.round(Math.random()*(slotL-1));
+			console.log(startIndex,endIndex);
+			slot.setSlotAnimation(startIndex,endIndex);//设置中奖信息 第一个是起跳索引 第二个是中奖索引
+		});
+
+	</script>
+
+
+</body>
+</html>

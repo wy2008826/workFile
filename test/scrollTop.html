@@ -1,135 +1,48 @@
-<!doctype html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no,minimum-scale=1.0, maximum-scale=1.0">
-	<title>Document</title>
-	<style>
-		li{
-			height:30px;
-		}
-	</style>
-</head>
-<body>
-	<ul>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-	</ul>
-	<input type="button" id="test">
-	<script>
-		var id=document.getElementById("test");
-		id.onclick=function(){
-			var body=document.getElementsByTagName("body")[0];
-			var scrollTop=body.scrollTop;
-			var time=400;
-			var speed=2;
-			var timer=setInterval(scroll,1);
-
-			function scroll(){
-				var scrollTop=body.scrollTop;
-				scrollTop-=speed;
-				console.log(scrollTop);
-				body.scrollTop=scrollTop;
-			}
-		}
-	</script>
-</body>
-</html>
+!function(win, option) {
+  var count = 0, 
+      designWidth = option.designWidth, 
+      designHeight = option.designHeight || 0, 
+      designFontSize = option.designFontSize || 20, 
+      callback = option.callback || null,
+      root = document.documentElement,
+      body = document.body,
+      rootWidth, newSize, t, self;
+      root.style.width = 100%;
+  //返回root元素字体计算结果
+  function _getNewFontSize() {
+    var scale = designHeight !== 0 ? Math.min(win.innerWidth / designWidth, win.innerHeight / designHeight) : win.innerWidth / designWidth;
+    return parseInt( scale * 10000 * designFontSize ) / 10000;
+  }
+  !function () {
+    rootWidth = root.getBoundingClientRect().width;
+    self = self ? self : arguments.callee;
+    //如果此时屏幕宽度不准确，就尝试再次获取分辨率，只尝试20次，否则使用win.innerWidth计算
+    if( rootWidth !== win.innerWidth &&  count < 20 ) {
+      win.setTimeout(function () {
+        count++;
+        self();
+      }, 0);
+    } else {
+      newSize = _getNewFontSize();
+      //如果css已经兼容当前分辨率就不管了
+      if( newSize + 'px' !== getComputedStyle(root)['font-size'] ) {
+        root.style.fontSize = newSize + "px";
+        return callback && callback(newSize);
+      };
+    };
+  }();
+  //横竖屏切换的时候改变fontSize，根据需要选择使用
+  win.addEventListener("onorientationchange" in window ? "orientationchange" : "resize", function() {
+    clearTimeout(t);
+    t = setTimeout(function () {
+      self();
+    }, 300);
+  }, false);
+}(window, {
+  designWidth: 640, 
+  designHeight: 1136,
+  designFontSize: 20,
+  callback: function (argument) {
+    console.timeEnd("test")
+  }
+});
