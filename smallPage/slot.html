@@ -121,7 +121,9 @@
 					$(".slot.active").removeClass("active");
 					self.config.slotItems[index].addClass("active");
 					if(callBack){
-						callBack(index);
+						setTimeout(function(){
+							callBack(index);
+						},400);
 					}
 				}
 
