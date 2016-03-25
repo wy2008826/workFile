@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+	<title>Document</title>
+	<style>
+	*{padding:0;margin:0;}
+	#wraper{border:1px solid red;width: 200px;overflow: hidden;}
+	#inner{display: inline-block;}
+	</style>
+</head>
+<body>	
+
+	<div id="wraper">
+		<p id="inner">123123213212312321321321312131231232131213132131213</p>
+	</div>
+	<script>
+
+		var speed=100;
+		var inner=document.getElementById("inner");
+		var wraper=document.getElementById("wraper");
+		var direction="left";
+		setInterval(Marquee,speed);
+		function Marquee(){
+			if(direction=="left"){
+				if(wraper.scrollLeft>= (inner.offsetWidth-wraper.offsetWidth)){
+					direction="right";
+				}
+				else{
+				  	wraper.scrollLeft++
+				}
+			}
+			else if(direction=="right"){
+				if(wraper.scrollLeft<=0){
+					direction="left";
+				}
+				else{
+				  	wraper.scrollLeft--
+				}
+			}
+		}
+	</script>
+</body>
+</html>

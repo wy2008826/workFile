@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no,minimum-scale=1.0, maximum-scale=1.0">
+	<title>转码图片为base64</title>
+	<style>
+		img{
+			display: block;
+			width: 80%;
+			margin:20px auto;
+		}
+	</style>
+</head>
+<body>
+	<input type="file" id="file">
+	<img src="./images/test1.png" alt="">
+
+	<img src="" alt="">
+	<script src="./plugins/jquery.min.js"></script>
+	<script>
+		
+
+	function getBase64Image(img) {
+      var canvas=document.createElement("canvas");
+      console.log(img,canvas);
+      canvas.width = img.width;
+      canvas.height = img.height;
+
+      var ctx = canvas.getContext("2d");
+      ctx.drawImage(img, 0, 0, img.width, img.height);
+      var dataURL = canvas.toDataURL("image/png");
+      //document.body.appendChild(canvas);
+      return dataURL;
+
+      // return dataURL.replace("data:image/png;base64,", "");
+    }
+
+	function main() {
+      var img = document.createElement('img');
+      img.src = './images/test1.png';
+      img.onload =function() {
+        var data = getBase64Image(img);
+        console.log(data);
+      }
+
+     // document.body.appendChild(img);
+    }
+
+    main()
+	</script>
+</body>
+</html>
