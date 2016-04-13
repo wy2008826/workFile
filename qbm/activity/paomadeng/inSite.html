@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta content="yes" name="apple-mobile-web-app-capable"> 
+	<meta content="yes" name="apple-touch-fullscreen"> 
+	<meta content="telephone=no,email=no" name="format-detection"> 	
+	<meta content="yes" name="apple-mobile-web-app-capable">
+	<meta content="black" name="apple-mobile-web-app-status-bar-style">
+	<meta name="x5-fullscreen"content="true"/>
+	<meta name="full-screen"content="yes">
+	<title>钱保姆理财</title>
+	<link rel="stylesheet" href="${cdnpath}/css/swiper.min.css?v=${ver}">
+	<link rel="stylesheet" href="${cdnpath}/css/activity/2016/paomadeng/inSite.min.css?v=${ver}">
+	<script src="${cdnpath}/js/plugin/flexible.js?v=${ver}"></script>
+</head>
+<body>
+	<div class="top_container pos-rel">
+		<div class="top_mes">
+			<div>
+				<p>最新祝福：</p>
+				<p class="mes_wraper" id="mes_wraper">
+					<span class="mes_inner" id="mes_inner">
+						御前侍卫祝福self 
+						<label>哇哇哇哇哇哇哇哇哇哇御前侍卫祝福self御前侍卫祝福self</label>
+					</span>
+				</p>
+			</div>
+		</div>
+		<div class="slot_wraper">
+			<div class="cards_wraper">
+				<div class="cards_row">
+					<div class="cards_item item_0" id="slot0" data-id="">0</div>
+					<div class="cards_item item_1" id="slot1" data-id="">1</div>
+					<div class="cards_item item_2" id="slot2" data-id="">2</div>
+				</div>
+				<div class="cards_row">
+					<div class="cards_item item_7" id="slot7" data-id="">7</div>
+					<div class="cards_item" >
+						<div class="start_item" id="start_item">
+							开跑<span id="count_num">6次</span>
+						</div>
+					</div>
+					<div class="cards_item item_3" id="slot3" data-id="">3</div>
+				</div>
+				<div class="cards_row">
+					<div class="cards_item item_6" id="slot6" data-id="">6</div>
+					<div class="cards_item item_5" id="slot5" data-id="">5</div>
+					<div class="cards_item item_4" id="slot4" data-id="">4</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="user_mes">
+			135****8888 &nbsp 共获得<span class="count" id="wishes_num">66</span>条祝福
+			<input type="hidden" val="13455558888" id="refer_phone"><!-- val指的是当前页面的self -->
+		</div>
+		<p class="share_mes">
+			点击右上角分享集祝福，获开跑机会
+		</p>
+	</div>
+
+	<div class="wishes_lists_wraper">
+		<p class="list_title"><span>您获得的祝福</span></p>
+		<div class="swiper-container wishes_lists_container" id="wishes_lists_container">
+			<div class="swiper-wrapper">
+				
+			</div>
+		</div>
+		<p class="no_data_lists hide" >
+			您暂未获得祝福，快去分享收集吧
+		</p>
+		<div class="pagination" id="wishes_pagination">
+			<span class="swiper_switch swiper_prev">
+				<
+			</span>
+			<span class="page" id="wishes_swiper_page">1</span>
+			<span class="swiper_switch swiper_next">
+				>
+			</span>
+		</div>
+	</div>
+	
+	<div class="award_lists_wraper">
+		<p class="list_title"><span>您的获奖记录</span></p>
+		<div class="award_header clearfix">
+			<span class="fn-fl">奖品名称</span>
+			<span class="fn-fr">获奖时间</span>
+		</div>
+		<div class="swiper-container award_lists_container" id="award_lists_container">
+			<div class="swiper-wrapper">
+				
+			</div>
+		</div>
+		
+
+		<p class="no_data_lists hide">
+			您暂未获得奖品，赶紧试试手气
+		</p>
+
+		<div class="pagination" id="award_pagination">
+			<span class="swiper_switch swiper_prev">
+				<
+			</span>
+			<span class="page" id="award_swiper_page">1</span>
+			<span class="swiper_switch swiper_next">
+				>
+			</span>
+		</div>
+	</div>
+
+	<div class="how_to_use_wraper">
+		<p class="list_title"><span>活动说明</span></p>
+		<div class="strategy" >
+			<p>
+				1.投资2个月以上项目100元以上可获得1次抽奖机会。
+			</p>
+			<p>
+				2.每收到3个好友的祝福，可以获得1次抽奖机会。（同一好友多次祝福无效，且通过该方式每日最多只能获得10次机会哦）
+			</p>
+			<p>
+				3.通过本活动每邀请1个好友注册可获得2次抽奖机会。
+			</p>
+			<p>
+				4.奖品将于活动结束后7个工作日内统一发放。
+			</p>
+			<p>
+				5.活动时间：4月15日-4月30日。
+			</p>
+			<p>
+				6.本活动最终解释权归钱保姆所有。
+			</p>
+		</div>
+	</div>
+
+	
+
+	<img src="${cdnpath}/images/activity/2016/paomadeng/alert_heart.png" class="alert_heart hide">
+	<script type="text/template" id="normalMsg">
+		<div class="alert_container">
+			<img src="${cdnpath}/images/activity/2016/paomadeng/alert_heart.png" class="alert_heart">
+			{{each normalMsg}}
+				{{#$value.text}}
+			{{/each}}
+			<p class="alert_btn" data-href="{{dirUrl}}">
+				好哒
+			</p>
+		</div>
+	</script>
+	
+
+	<script type="text/template" id="wishes_tpl">
+		<ul class="swiper-slide wishes_ul">
+			{{each lists}}
+				<li class="clearfix">
+					<div class="fn-fl left_img_wraper">
+						<img src="{{$value.imgSrc}}" class="user_img">
+					</div>
+					<div class="fn-fl right_mes">
+						<p>
+							<span class="name">{{$value.nickName}}</span>
+							<span class="time">{{$value.addTime}}</span>
+						</p>
+						<p class="normal_mes">
+							{{$value.intro}}
+						</p>
+					</div>
+				</li>
+			{{/each}}
+		</ul>
+	</script>
+
+	<script type="text/template" id="awards_tpl">
+		<ul class="swiper-slide award_ul">
+			{{each lists}}
+				<li class="clearfix">
+					<span class="fn-fl">{{$value.prize}}</span>
+					<span class="fn-fr">{{$value.addTime}}</span>
+				</li>
+			{{/each}}
+		</ul>
+	</script>
+
+	<input type="hidden" value="${weburl}" id="webUrl">
+	<input type="hidden" value="" id="serverTime"><!-- 服务器时间，用于活动过期提醒 -->
+	<script src="${cdnpath}/js/plugin/layer.m/layer.m.js?v=${ver}"></script>
+	<script src="${cdnpath}/js/sea.js"></script>
+	<script src="${cdnpath}/js/sea-config.js"></script>
+	<script>
+		seajs.use("activity/2016/paomadeng/inSite.min.js");
+	</script>
+
+</body>
+</html>

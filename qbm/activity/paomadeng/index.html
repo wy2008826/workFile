@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta content="yes" name="apple-mobile-web-app-capable"> 
+	<meta content="yes" name="apple-touch-fullscreen"> 
+	<meta content="telephone=no,email=no" name="format-detection"> 	
+	<meta content="yes" name="apple-mobile-web-app-capable">
+	<meta content="black" name="apple-mobile-web-app-status-bar-style">
+	<meta name="x5-fullscreen"content="true"/>
+	<meta name="full-screen"content="yes">
+	<title>钱保姆理财</title>
+	<link rel="stylesheet" href="public/css/index.min.css">
+	<script src="public/js/plugin/flexible.js?v=${ver}"></script>
+</head>
+<body>
+	<img src="./public/images/paomadeng/index/index_bg.png"  class="index_bg">
+	<div class="bottom_btn pos-abs" id="clickStart">
+		点击开启爱情跑马灯
+	</div>
+	
+	
+
+	<script type="text/template" id="submitNickNameTpl">
+		<form class="alert_container" action="https://www.baidu.com">
+			<p class="alert_mes">
+				要想表白，总要知道你的名字哟~
+			</p>
+			<input type="text" class="alert_inp" placeholder="您的昵称或姓名" maxlength="28" id="alert_nickname">
+			<p class="alert_error hide">
+				
+			</p>
+			
+			<input type="submit" class="alert_btn disabled" id="alert_btn">
+		</form>
+	</script>
+	
+	<input type="hidden" value="${weburl}" id="webUrl">
+	<script src="public/js/plugin/layer.m/layer.m.js?v=${ver}"></script>
+	<script src="public/js/sea.js"></script>
+	<script src="public/js/sea-config.js"></script>
+	<script>
+		seajs.use("page/index.min.js");
+	</script>
+	
+</body>
+</html>

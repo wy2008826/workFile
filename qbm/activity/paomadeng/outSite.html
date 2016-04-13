@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta content="yes" name="apple-mobile-web-app-capable"> 
+	<meta content="yes" name="apple-touch-fullscreen"> 
+	<meta content="telephone=no,email=no" name="format-detection"> 	
+	<meta content="yes" name="apple-mobile-web-app-capable">
+	<meta content="black" name="apple-mobile-web-app-status-bar-style">
+	<meta name="x5-fullscreen"content="true"/>
+	<meta name="full-screen"content="yes">
+	<title>钱保姆理财</title>
+	<link rel="stylesheet" href="${cdnpath}/css/activity/2016/paomadeng/outSite.min.css?v=${ver}">
+	<script src="${cdnpath}/js/plugin/flexible.js?v=${ver}"></script>
+</head>
+<body>
+
+	<div class="top_container pos-rel">
+		<!-- <img src="${cdnpath}/images/activity/2016/paomadeng/outSite/outSite_bg.png" class="outSite_bg"> -->
+		<div class="top_mes">
+			<div>
+				<p>最新祝福：</p>
+				<p class="mes_wraper" id="mes_wraper">
+					<span class="mes_inner" id="mes_inner">
+						御前侍卫祝福self 
+						<label>哇哇哇哇哇哇哇哇哇哇御前侍卫祝福self御前侍卫祝福self</label>
+					</span>
+				</p>
+			</div>
+		</div>
+		<div class="slot_wraper">
+			<div class="cards_wraper">
+				<div class="cards_row">
+					<div class="cards_item item_0" id="slot0" data-id="">0</div>
+					<div class="cards_item item_1" id="slot1" data-id="">1</div>
+					<div class="cards_item item_2" id="slot2" data-id="">2</div>
+				</div>
+				<div class="cards_row">
+					<div class="cards_item item_7" id="slot7" data-id="">7</div>
+					<div class="cards_item" >
+						<div class="start_item" id="start_item">
+							开跑<span id="count_num"></span>
+						</div>
+					</div>
+					<div class="cards_item item_3" id="slot3" data-id="">3</div>
+				</div>
+				<div class="cards_row">
+					<div class="cards_item item_6" id="slot6" data-id="">6</div>
+					<div class="cards_item item_5" id="slot5" data-id="">5</div>
+					<div class="cards_item item_4" id="slot4" data-id="">4</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="user_mes" >
+			134****8888 &nbsp 共获得<span class="count" id="wishes_num">66</span>条祝福
+			<input type="hidden" val="13477778888" id="refer_phone"><!-- val指的是当前页面的self的手机 -->
+		</div>
+
+
+		<div class="wish_btn pos-abs" id="wishPeople">
+			<!-- 如果今日还没有祝福  显示祝福133****5555 如果今日已经祝福过，内部文字为“今日已祝福” -->
+			<!-- data-phone指的是当前页面的self 的手机-->
+			<p id="wish_text" data-phone="13477778888">祝福134****8888</p>
+		</div>
+		
+		<!-- 如果该用户已经被认证过，显示第一个class="phone_mes" 否则显示紧接着的class="phone_mes hide" -->
+	<!-- 	<p class="phone_mes" id="phone_mes">
+			您的手机：<span id="pagePhone" data-phone="15633337777">156****7777</span> <span class="changePhone" id="changePhone">修改</span>
+		</p> -->
+		
+		<p class="phone_mes hide" id="phone_mes">
+			您的手机：<span id="pagePhone"></span> <span class="changePhone" id="changePhone">修改</span>
+		</p>
+
+
+		<p class="wish_mes">
+			未注册用户第一次祝福后会赢得一次开跑机会哦
+		</p>
+	</div>
+	<div class="placeholder">
+		
+	</div>
+	<div class="fixed_reg">
+		钱保姆-女性理财季 正在进行中<a class="link_reg" href="${weburl}/activity/2016/reg/reg.html?type=woman">立即注册</a>
+	</div>
+	
+
+	<script type="text/template" id="wishNoPhoneTpl">
+		<div class="alert_container">
+			<p class="alert_mes">
+				手机号码也要哟~
+			</p>
+			<input type="tel" class="alert_inp alert_phone" placeholder="请输入您的手机号码" maxlength="11" >
+			<p class="alert_mes">
+				想对ta说点什么呢？
+			</p>
+			<input type="text" class="alert_inp alert_wish" placeholder="请输入您的祝福" maxlength="40" >
+			<p class="alert_error hide">
+				
+			</p>
+			<p class="alert_btn" id="alert_wish_btn">
+				完成
+			</p>
+			<p class="alert_tip">
+				注册用户能获得更多开跑机会哦
+			</p>
+		</div>
+	</script>
+
+
+	<script type="text/template" id="wishHasPhoneTpl">
+		<div class="alert_container">
+			<p class="alert_mes">
+				想对ta说点什么呢？
+			</p>
+			<input type="text" class="alert_inp alert_wish" placeholder="请输入您的祝福" maxlength="40" >
+			<p class="alert_error hide">
+				
+			</p>
+			<p class="alert_btn" id="alert_wish_btn">
+				完成
+			</p>
+			<p class="alert_tip">
+				注册用户能获得更多开跑机会哦
+			</p>
+		</div>
+	</script>
+	
+	<script type="text/template" id="changePhoneTpl">
+		<div class="alert_container">
+			<p class="alert_mes">
+				修改手机号码
+			</p>
+			<input type="tel" class="alert_inp alert_change_phone" placeholder="请输入您的手机号码" maxlength="11" >
+			<p class="alert_error hide">
+			</p>
+			<p class="alert_btn disabled" id="alert_change_btn">
+				确认修改
+			</p>
+			<p class="alert_mes">
+				当前手机号：{{curPhone}}
+			</p>
+		</div>
+	</script>
+
+
+	<img src="${cdnpath}/images/activity/2016/paomadeng/alert_heart.png" class="alert_heart hide">
+	<script type="text/template" id="normalMsg">
+		<div class="alert_container">
+			<img src="${cdnpath}/images/activity/2016/paomadeng/alert_heart.png" class="alert_heart">
+			{{each normalMsg}}
+				{{#$value.text}}
+			{{/each}}
+			<p class="alert_btn {{needClose}}" data-href="{{dirUrl}}">
+				{{if btnText}}
+					{{btnText}}
+				{{else}}
+				好哒
+				{{/if}}
+			</p>
+		</div>
+	</script>
+	
+	
+	<input type="hidden" value="${weburl}" id="webUrl">
+	<input type="hidden" value="" id="serverTime"><!-- 服务器时间，用于活动过期提醒 -->
+	<script src="${cdnpath}/js/plugin/layer.m/layer.m.js?v=${ver}"></script>
+	<script src="${cdnpath}/js/sea.js"></script>
+	<script src="${cdnpath}/js/sea-config.js"></script>
+	<script>
+		seajs.use("activity/2016/paomadeng/outSite.min.js");
+	</script>
+</body>
+</html>
