@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta content="yes" name="apple-mobile-web-app-capable"> 
+	<meta content="yes" name="apple-touch-fullscreen"> 
+	<meta content="telephone=no,email=no" name="format-detection"> 	
+	<meta content="yes" name="apple-mobile-web-app-capable">
+	<meta content="black" name="apple-mobile-web-app-status-bar-style">
+	<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
+	<meta name="x5-fullscreen"content="true"/>
+	<meta name="full-screen"content="yes">
+	<title>我的发布</title>
+	<link rel="stylesheet" type="text/css" href="$cdnpath/css/app.css?v=${ver}123">
+	<link rel="stylesheet" type="text/css" href="$cdnpath/css/reset.css?v=${ver}">
+</head>
+<body>   
+	<!-- forumindex-list 论坛列表-->
+	<div class="forumindex-list forumindex-alone" >
+		<!-- list -->
+		<div class="forumlistcon" id="forumlistcon">
+		
+		   <script id="table-template" type="text/x-handlebars-template">
+			{{#each articleList.result}}
+				<dl data-url="$weburl/app/article.html?id={{id}}&flag=collection&back=member">
+					<dt>						
+						{{{alltop is_all_top}}}{{{labels see_value 1000 is_top is_all_top is_good}}}{{{good is_good}}}
+						<a href="javascript:;" class="{{{color}}}">{{{decode title}}}</a>
+					</dt>
+					<dd>
+						<label class="normal_label">{{username}}</label>
+						<label class="forumlist-ellipsis normal_label">{{timePassedText addtime}}</label>
+					</dd>
+					<dd><span>{{replycount}}</span><span>{{see_value}}</span><span>{{good_value}}</span></dd>
+				</dl>
+			  {{/each}}
+ 			</script>
+		</div>
+	</div>
+
+	<p class='loading text-center' style="visibility:hidden" id="loading">加载中...</p>
+	<div class="no_lists text-center fc-9 hide">
+		<img src="$cdnpath/images/app/center/sorry_list.png" class="sorry_list">
+		<p class="lh-50 msg">暂无内容</p>
+	</div>
+
+	<input type="hidden" value="$weburl" id="webUrl">
+   <script src="$cdnpath/js/plugin/zepto/zepto.min.js"></script>
+	<script src="$cdnpath/js/plugin/zepto/touch.js"></script>
+	<script src="$cdnpath/js/plugin/handlebars/handlebars-3.0.3.min.js"></script>
+	<script src="$cdnpath/js/plugin/handlebars/helper.js?v=${ver}123"></script>
+   <script src="$cdnpath/js/app/appmember/collection.min.js?v=${ver}"></script>
+   <span style="display:none;"><script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1256932590'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1256932590%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script></span>
+</body>
+</html>

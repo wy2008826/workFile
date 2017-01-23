@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta content="yes" name="apple-mobile-web-app-capable"> 
+	<meta content="yes" name="apple-touch-fullscreen"> 
+	<meta content="telephone=no,email=no" name="format-detection"> 	
+	<meta content="yes" name="apple-mobile-web-app-capable">
+	<meta content="black" name="apple-mobile-web-app-status-bar-style">
+	<meta name="x5-fullscreen"content="true"/>
+	<meta name="full-screen"content="yes">
+	<title>个人中心</title>
+	<link rel="stylesheet" type="text/css"  href="$cdnpath/css/member_center.min.css?v=${ver}123">
+	<script src="$cdnpath/js/flexible.js?v=${ver}"></script>
+</head>
+<body>                         
+	<header class="member_header bg-white">
+		<img src="$webImgUrl/$uf.head_pic" class="member_img" >
+		<p class="member_nick text-center">$uf.name</p>
+	</header>
+	
+	<div class="normal_lists_wraper">
+		<ul class="normal_lists_ul mg-t-30  bg-white">
+			<li class="list_item tap-link" data-title="我的发布" data-url="$weburl/appmember/release.html">
+				<div class="list_text fc-6 fabu_text">
+					我的发布
+				</div>
+				<div class="list_tail text-right fc-6">
+					$mem.articleCount
+				</div>
+			</li>
+			<li class="list_item tap-link" data-title="我的收藏" data-url="$weburl/appmember/collection.html">
+				<div class="list_text fc-6 shoucang_text">
+					我的收藏
+				</div>
+				<div class="list_tail text-right fc-6">
+					$mem.collectionCount
+				</div>
+			</li>
+			<li class="list_item tap-link" data-title="我的评论" data-url="$weburl/appmember/reply.html">
+				<div class="list_text fc-6  huifu_text">
+					我的评论
+				</div>
+				<div class="list_tail text-right fc-6">
+					$mem.replyCount
+				</div>
+			</li>
+			<li class="list_item tap-link" data-title="我赞过的帖子" data-url="$weburl/appmember/praisedPost.html">
+				<div class="list_text fc-6 zan_text">
+					我赞过的帖子
+				</div>
+				<div class="list_tail text-right fc-6">
+					$mem.zanCount
+				</div>
+			</li>
+		</ul>
+		<ul class="normal_lists_ul mg-t-30 bg-white">
+			<li class="list_item xiaoxi_item tap-link" data-title="消息" data-url="$weburl/appmember/message.html">
+				<div class="list_text fc-6 xiaoxi_text">
+					消息
+				</div>
+				<div class="list_tail text-right fc-6">
+				#if($messageCount>0)
+					<span class="red_point"></span><!-- 有新消息就显示该span标签 -->
+				#end	
+				</div>
+			</li>
+		</ul>
+	</div>
+	
+	
+	<div class="member_image_tip">
+		<p>温馨提示</p>
+		<p>
+			头像和昵称可在【我的】中直接点击头像进行设置哦
+		</p>
+	</div>
+	
+
+	<input type="hidden" value="$weburl" id="webUrl">
+	<script src="../public/js/sea.js"></script>
+	<script src="../public/js/sea-config.js"></script>
+	<script>
+		seajs.use("$cdnpath/js/app/appmember/index.min.js?v=${ver}");
+	</script>
+	 <span style="display:none;"><script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1256932590'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1256932590%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script></span>
+</body>
+</html>

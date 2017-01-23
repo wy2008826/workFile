@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta content="yes" name="apple-mobile-web-app-capable"> 
+	<meta content="yes" name="apple-touch-fullscreen"> 
+	<meta content="telephone=no,email=no" name="format-detection"> 	
+	<meta content="yes" name="apple-mobile-web-app-capable">
+	<meta content="black" name="apple-mobile-web-app-status-bar-style">
+	<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
+	<meta name="x5-fullscreen"content="true"/>
+	<meta name="full-screen"content="yes">
+	<title>我的评论</title>
+	<link rel="stylesheet" type="text/css" href="$cdnpath/css/app.css?v=${ver}">
+	<link rel="stylesheet" type="text/css" href="$cdnpath/css/reset.css?v=${ver}">
+	<style>
+		/*论坛的样式集中在一个文件中 少部分写在内联样式中避免污染*/
+		.reply_wraper .reply_cont img{display: none !important}/*回复内容作为列表头部的话，回复的图片不做显示*/
+		.reply_wraper .reply_cont .reply_text{width: 60%;}
+	</style>
+</head>
+<body>    
+	<!-- forumindex-list 论坛列表-->
+	<div class="forumindex-list forumindex-alone">
+		<!-- list -->
+		<div class="forumlistcon reply_wraper" id="forumlistcon">
+		
+		   <script id="table-template" type="text/x-handlebars-template">
+			{{#each articleList.result}}
+				<dl data-url="$weburl/app/article.html?id={{article_id}}&flag=reply&back=member">
+					<dt class="reply_cont clearfix">						
+						<a href="javascript:;" class="{{{color}}} clearfix">
+							<div class="fn-fl">评论内容：</div>
+							<div class="fn-fl reply_text text-clip">{{{decode content}}}</div>
+						</a>
+					</dt>
+					<dd class="full-width">帖子标题：<b class="forumlist-ellipsis long-ellipsis">{{{decode title}}}</b></dd>
+				</dl>
+			  {{/each}}
+ 			</script>
+		</div>
+	</div>
+	<p class='loading text-center' style="visibility:hidden" id="loading">正在加载中...</p>
+	<div class="no_lists text-center fc-9 hide">
+		<img src="$cdnpath/images/app/center/sorry_list.png" class="sorry_list">
+		<p class="lh-50 msg">暂无内容</p>
+	</div>
+
+
+	<input type="hidden" value="$weburl" id="webUrl">
+   <script src="$cdnpath/js/plugin/zepto/zepto.min.js"></script>
+	<script src="$cdnpath/js/plugin/zepto/touch.js"></script>
+	<script src="$cdnpath/js/plugin/handlebars/handlebars-3.0.3.min.js"></script>
+	<script src="$cdnpath/js/plugin/handlebars/helper.js?v=${ver}"></script>
+   <script src="$cdnpath/js/app/appmember/reply.min.js?v=${ver}"></script>
+   <span style="display:none;"><script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1256932590'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1256932590%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script></span>
+</body>
+</html>

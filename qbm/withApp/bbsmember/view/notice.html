@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta content="yes" name="apple-mobile-web-app-capable"> 
+	<meta content="yes" name="apple-touch-fullscreen"> 
+	<meta content="telephone=no,email=no" name="format-detection"> 	
+	<meta content="yes" name="apple-mobile-web-app-capable">
+	<meta content="black" name="apple-mobile-web-app-status-bar-style">
+	<meta name="x5-fullscreen"content="true"/>
+	<meta name="full-screen"content="yes">
+	<title>通知</title>
+	<link rel="stylesheet" type="text/css" href="$cdnpath/css/member_center.min.css?v=${ver}213">
+	<script src="$cdnpath/js/flexible.js?v=${ver}"></script>
+</head>
+<body class="has_fixed_bottom">                         
+	<div class="formum_wraper bg-white">
+		<ul class="forum_ul" id="noticeListsUl">
+			<script type="text/template" id="noticeTpl">
+			{{each noticelist.result}}
+				<li class="forum_item{{hasReadClass $value.status}}" data-notice-id="{{$value.id}}">
+					<div class="item_head">
+						<span>{{$value.content}}</span>
+					</div>
+					<div class="item_labels clearfix">
+						<span class="fn-fr">{{dateFormatStyle $value.addtime 2}}</span>
+					</div>
+				</li>
+			{{/each}}
+			</script>
+		</ul>
+	</div>
+	<div class="loading text-center lh-96" style="visibility:hidden" id="loading">正在加载中...</div>
+
+	<div class="no_lists text-center fc-9 hide">
+		<img src="$cdnpath/images/app/center/sorry_list.png" class="sorry_list">
+		<p class="lh-50">暂无内容</p>
+		<p class="lh-50">下一个加精贴说不定就是你写的</p>
+	</div>
+	
+	<div class="btn_group pos-fix set_all_read">
+		<div class="btn_item bg-primary" id="readAllBtn">
+			设为全部已读
+		</div>
+	</div>
+	
+	<input type="hidden" value="$weburl" id="webUrl">
+	<script src="$cdnpath/js/sea.js"></script>
+	<script src="$cdnpath/js/sea-config.js"></script>
+	<script>
+		seajs.use("$cdnpath/js/app/appmember/notice.min.js?v=${ver}123");
+	</script>
+	 <span style="display:none;"><script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1256932590'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1256932590%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script></span>
+</body>
+</html>
