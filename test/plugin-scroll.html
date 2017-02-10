@@ -14,9 +14,35 @@
 		body{background-color: #f8f8f8;min-height: 500px;padding-bottom: 300px;}
 		#scrollWraper{width: 80%;margin:10px auto;border:1px solid #ccc;overflow: hidden;height: 300px;background-color: #fff;}
 		#scrollContent  li{line-height: 40px;text-align: center;border-top: 1px solid #f2f2f2;background-color: #fff;}
+		dl{padding:10px;}
+		dl dt{line-height: 30px;color:#f93;}
+		dl dd{line-height: 20px;color:#666;font-size: 14px;}
 	</style>
 </head>
 <body>
+	<dl>
+		<dt>实现功能</dt>
+		<dd>1.滚动条</dd>
+		<dd>2.上拉刷新</dd>
+		<dd>3.下拉加载</dd>
+		<dd>4.区块滚动 snap</dd>
+		<dd>5.轮播图</dd>
+		<dd>6.接口化，插件化，模块化</dd>
+	</dl>
+	<dl>
+		<dt>技术难点</dt>
+		<dd>1.缓冲运动</dd>
+		<dd>2.边界问题</dd>
+		<dd>3.刷新</dd>
+		<dd>4.加载</dd>
+		<dd>5.速度计算</dd>
+		<dd>6.缓冲目标位就算</dd>
+		<dd>7.动画结束回调</dd>
+	</dl>
+	<dl>
+		<dt>注意</dt>
+		<dd>1.可以模仿bscroller去做一些适配和兼容性</dd>
+	</dl>
 	<div id="scrollWraper">
 		<ul id="scrollContent">
 			<li>1</li>
@@ -54,7 +80,127 @@
 
 
 	<script>
-		window.onload=loaded();
+
+		function extend(target,src){//对象扩展
+			for(key in src){
+				target[key]=src[key];
+			}
+		};
+
+		var vendor = (function() {//浏览器供应商 获取浏览器前缀
+
+			var elementStyle=document.createElement("div").style;
+			var transformNames = {
+			   webkit: 'webkitTransform',
+			   Moz: 'MozTransform',
+			   O: 'OTransform',
+			   ms: 'msTransform',
+			   standard: 'transform'
+			};
+
+			for (var key in transformNames) {
+			   if (elementStyle[transformNames[key]] !== undefined) {
+			      return key;
+			   }
+			}
+
+			return false;
+		})();
+
+		var prefixStyle=function(style){//获取兼容各浏览器前缀样式
+			if(vendor==false){
+				return false;
+			}
+			if(vendor=="standard"){
+				return style;
+			}
+			else{
+				return vendor+style.charAt(0).toUpperCase()+style.substr(1);
+			}
+		};
+
+
+		function WYscroller(el,options){
+			this.options={
+				startX:0,
+				startY:0,
+				scrollY: true,//滚动方向
+				snap:false,//是否分隔
+			};
+			extend(this.options,options);
+			this.wraper=typeof el=="string"?document.queryselector(el):el;//外层元素
+			this.inner=this.wraper.children[0];//包含的滚动元素
+
+			this.direction=!this.options.scrollY?"x":"y";
+
+			this.init();//初始化
+			console.log(this.options);
+		}
+
+		WYscroller.prototype={ 
+			init:function(){
+				var self=this;
+				if(self.options.snap==false){
+					self.initScroll();
+					
+				}
+				else{
+
+				}
+			},
+			initScroll:function(){
+				var self=this;
+				var startX=self.options.startX+"px";
+				var startY=self.options.startY+"px";
+
+				//过渡函数 过渡时间 过渡终点位置
+				
+				self.inner.style[prefixStyle("transitionTimingFunction")]="cubic-bezier(1,1.64,.88,.41)";
+				self.inner.style[prefixStyle("transitionDuration")]="0ms";
+				self.setTransform({x:self.options.startX,y:self.options.startY});
+
+				self.wraper.addEventListener("touchstart",self.startHandler);
+				self.wraper.addEventListener("touchmove",self.moveHandler);
+				self.wraper.addEventListener("touchend",self.endHandler);
+
+
+			},
+			startHandler:function(){
+				var self=this;
+				
+			},
+			moveHandler:function(){
+				var self=this;
+
+			},
+			endHandler:function(){
+				var self=this;
+
+			},
+			setTransform:function(pos){
+				var self=this;
+				self.inner.style[prefixStyle("transform")]="translate3d("+pos.x+"px,"+pos.y+"px,"+"0px)";
+			}
+		};
+
+		var wraper=document.getElementById("scrollWraper");
+		scroller=new WYscroller(wraper,{
+			startY:100
+		});
+
+
+
+
+
+
+
+
+
+
+
+
+
+		//window.onload=loaded();
 		function loaded(){
 			var wraper=document.getElementById("scrollWraper");
 			var inner=document.getElementById("scrollContent");
@@ -124,10 +270,15 @@
 
 			function endHandler(e){
 
-				console.log(speed);
+				
 				var translate=getTransform(inner);
-				if(translate.y > 0 && translate.y <= resistDistance){//顶部露出
+				console.log(speed,-translate.y+wraper.clientHeight,inner.clientHeight);
+				if(translate.y > 0){//顶部露出
 					animateTransform(inner,{x:0,y:0,z:0})
+				}
+				else if(-translate.y+wraper.clientHeight>inner.clientHeight){
+					console.log("bottom");
+					animateTransform(inner,{x:0,y:0,z:0});
 				}
 				else{
 					
