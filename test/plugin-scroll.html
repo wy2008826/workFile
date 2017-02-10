@@ -155,37 +155,57 @@
 
 				//过渡函数 过渡时间 过渡终点位置
 				
-				self.inner.style[prefixStyle("transitionTimingFunction")]="cubic-bezier(1,1.64,.88,.41)";
+				self.inner.style[prefixStyle("transitionTimingFunction")]="cubic-bezier(.35,.58,.27,.88)";
 				self.inner.style[prefixStyle("transitionDuration")]="0ms";
 				self.setTransform({x:self.options.startX,y:self.options.startY});
 
-				self.wraper.addEventListener("touchstart",self.startHandler);
-				self.wraper.addEventListener("touchmove",self.moveHandler);
-				self.wraper.addEventListener("touchend",self.endHandler);
-
+				self.wraper.addEventListener("touchstart",self.startHandler.bind(self));
+				self.wraper.addEventListener("touchmove",self.moveHandler.bind(self));
+				self.wraper.addEventListener("touchend",self.endHandler.bind(self));
 
 			},
-			startHandler:function(){
+			startHandler:function(e){
+				e.preventDefault();
 				var self=this;
-				
-			},
-			moveHandler:function(){
-				var self=this;
+				var touch=e.touches[0];
 
+				var start_x=self.start_x=touch.clientX;
+				var start_y=self.start_y=touch.clientY;
+
+				console.log(touch,start_x,start_y,self);
 			},
-			endHandler:function(){
+			moveHandler:function(e){
+				e.preventDefault();
+				var self=this;
+				var touch=e.touches[0];
+				var move_x=self.move_x=touch.clientX;
+				var move_y=self.move_y=touch.clientY;
+
+				var dis_x=self.move_x-self.start_x;
+				var dis_y=self.move_y-self.start_y;
+				self.setTransform({x:dis_x,y:dis_y});
+				console.log(touch);
+			},
+			endHandler:function(e){
+				e.preventDefault();
 				var self=this;
 
 			},
 			setTransform:function(pos){
 				var self=this;
+				if(self.direction=="y"){
+					pos.x=0;
+				}
+				else{
+					pos.y=0;
+				}
 				self.inner.style[prefixStyle("transform")]="translate3d("+pos.x+"px,"+pos.y+"px,"+"0px)";
 			}
 		};
 
 		var wraper=document.getElementById("scrollWraper");
 		scroller=new WYscroller(wraper,{
-			startY:100
+			startY:0
 		});
 
 
