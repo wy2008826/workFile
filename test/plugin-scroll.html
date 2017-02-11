@@ -12,7 +12,10 @@
 	<style>
 		*{padding:0;margin:0;}
 		body{background-color: #f8f8f8;min-height: 500px;padding-bottom: 300px;}
-		#scrollWraper{width: 80%;margin:10px auto;border:1px solid #ccc;overflow: hidden;height: 300px;background-color: #fff;}
+		#scrollWraper{width: 80%;margin:10px auto;border:1px solid #ccc;overflow: hidden;height: 300px;background-color: #fff;position: relative;}
+		#scrollWraper #scrollContent{background-color: #fff;z-index:1;position: relative;}
+		#scrollWraper .refresh{line-height: 40px;text-align: center;position: absolute;top:0;left:0;width: 100%;z-index:0;}
+		#scrollWraper .more{line-height: 40px;text-align: center;position: absolute;bottom:0;left:0;width: 100%;z-index:0;}
 		#scrollContent  li{line-height: 40px;text-align: center;border-top: 1px solid #f2f2f2;background-color: #fff;}
 		dl{padding:10px;}
 		dl dt{line-height: 30px;color:#f93;}
@@ -76,6 +79,8 @@
 			<li>29</li>
 			<li>30</li>
 		</ul>
+		<h4 class="refresh">下拉刷新</h4>
+		<p class="more">加载更多</p>
 	</div>
 
 
@@ -119,6 +124,19 @@
 			}
 		};
 
+		var caculateSpeed=function(arr){//[{x:x,y:y,time:timeStap}]
+
+			var dur=arr[arr.length-1].time-arr[0].time;
+			var dis_x=arr[arr.length-1].x-arr[0].x;
+			var dis_y=arr[arr.length-1].y-arr[0].y;
+
+			return {
+				"speed-x":dis_x/dur,
+				"speed-y":dis_y/dur
+			}
+		}
+
+
 
 		function WYscroller(el,options){
 			this.options={
@@ -126,13 +144,27 @@
 				startY:0,
 				scrollY: true,//滚动方向
 				snap:false,//是否分隔
+				adjustTime:"400ms",//松手后自适应时间
+				touchstart:function(){},
+				touchmove:function(){},
+				touchend:function(){},
+				
+			};
+			this.transType={
+				"ease":"cubic-bezier(.25,.1,.25,1)",
+				"linear":"cubic-bezier(0,0,1,1)",
+				"ease-in":"cubic-bezier(.42,0,1,1)",
+				"ease-out":"cubic-bezier(0,0,.58,1)",
+				"test":"cubic-bezier(.27,.08,.38,.97)"
 			};
 			extend(this.options,options);
 			this.wraper=typeof el=="string"?document.queryselector(el):el;//外层元素
 			this.inner=this.wraper.children[0];//包含的滚动元素
+			this.refreshDom=this.options.refreshEle;
+			this.moreDom=this.options.moreEle;
 
 			this.direction=!this.options.scrollY?"x":"y";
-
+			
 			this.init();//初始化
 			console.log(this.options);
 		}
@@ -147,6 +179,11 @@
 				else{
 
 				}
+
+				self.refreshDom&&self.initRefresh();
+				self.moreDom&&self.initMore();
+
+
 			},
 			initScroll:function(){
 				var self=this;
@@ -154,45 +191,126 @@
 				var startY=self.options.startY+"px";
 
 				//过渡函数 过渡时间 过渡终点位置
-				
-				self.inner.style[prefixStyle("transitionTimingFunction")]="cubic-bezier(.35,.58,.27,.88)";
-				self.inner.style[prefixStyle("transitionDuration")]="0ms";
-				self.setTransform({x:self.options.startX,y:self.options.startY});
+				self.setTransition(self.inner,"ease","0ms",{x:self.options.startX,y:self.options.startY});
 
 				self.wraper.addEventListener("touchstart",self.startHandler.bind(self));
 				self.wraper.addEventListener("touchmove",self.moveHandler.bind(self));
 				self.wraper.addEventListener("touchend",self.endHandler.bind(self));
 
 			},
+			initRefresh:function(){
+				var self=this;
+				self.setTransition(self.refreshDom,"ease","0ms",{x:0,y:-self.refreshDom.offsetHeight});
+			},
+			initMore:function(){
+				var self=this;
+				self.setTransition(self.moreDom,"ease","0ms",{x:0,y:self.moreDom.offsetHeight});
+			},
 			startHandler:function(e){
 				e.preventDefault();
 				var self=this;
 				var touch=e.touches[0];
 
-				var start_x=self.start_x=touch.clientX;
-				var start_y=self.start_y=touch.clientY;
+				var click_finger_x=self.click_finger_x=touch.clientX;
+				var click_finger_y=self.click_finger_y=touch.clientY;
 
-				console.log(touch,start_x,start_y,self);
+				var relative_pos=self.click_relative_pos=self.getRelativePos();
+				self.fingerArray=[];
+				self.fingerArray.push({x:click_finger_x,y:click_finger_y,time:new Date()*1});
+
+				self.setTransition(self.inner,"ease","0ms",{x:relative_pos.x,y:relative_pos.y});
+				if(self.direction=="x"){
+
+				}
+
+				self.options.touchstart&&self.options.touchstart.call(self,relative_pos);//滚动监听
+				console.log(touch,click_finger_x,click_finger_y,self.client_pos,relative_pos);
 			},
 			moveHandler:function(e){
 				e.preventDefault();
 				var self=this;
 				var touch=e.touches[0];
-				var move_x=self.move_x=touch.clientX;
-				var move_y=self.move_y=touch.clientY;
+				var move_finger_x=self.move_finger_x=touch.clientX;
+				var move_finger_y=self.move_finger_y=touch.clientY;
 
-				var dis_x=self.move_x-self.start_x;
-				var dis_y=self.move_y-self.start_y;
+				var length=2;
+				if(self.fingerArray.length<length){
+					self.fingerArray.push({x:move_finger_x,y:move_finger_y,time:new Date()*1});
+				}
+				else{
+					self.fingerArray=self.fingerArray.slice(1);
+					self.fingerArray.push({x:move_finger_x,y:move_finger_y,time:new Date()*1});
+				}
+				var speedX=caculateSpeed(self.fingerArray)["speed-x"];
+				var speedY=caculateSpeed(self.fingerArray)["speed-y"];
+
+				var relative_pos={
+					x:self.move_finger_x-self.click_finger_x+self.click_relative_pos.x,
+					y:self.move_finger_y-self.click_finger_y+self.click_relative_pos.y
+				};
 				
-				self.setTransform({x:dis_x,y:dis_y});
-				console.log(touch);
+				self.setTransform(self.inner,relative_pos);
+				if(self.refreshDom){
+					if(relative_pos.y<=self.refreshDom.offsetHeight){
+						self.setTransform(self.refreshDom,{x:relative_pos.x,y:relative_pos.y-self.refreshDom.offsetHeight});
+					}
+					else{
+						self.setTransform(self.refreshDom,{x:relative_pos.x,y:0});
+					}
+				}
+				
+
+				self.options.touchmove&&self.options.touchmove.call(self,relative_pos);//滚动监听
+				
+				// console.log(self.fingerArray,speedX,speedY);
 			},
 			endHandler:function(e){
 				e.preventDefault();
 				var self=this;
+				var relative_pos=self.getRelativePos();
+				var adjust=self.options.adjustTime;
+				if(relative_pos.y>0){
+					if(relative_pos.y<self.refreshDom.offsetHeight){
+						self.setTransition(self.inner,"test",adjust,{x:0,y:0});
+					}
+					else{
+						self.setTransition(self.inner,"test",adjust,{x:0,y:self.refreshDom.offsetHeight});
+					}
+					
+					//need reload
+					if(self.refreshDom){
+						if(relative_pos.y<self.refreshDom.offsetHeight){
+							self.setTransition(self.refreshDom,"test",adjust,{x:relative_pos.x,y:relative_pos.y-self.refreshDom.offsetHeight});
+						}
+						else if(relative_pos.y>=self.refreshDom.offsetHeight){//执行刷新数据动作
 
+							self.options.reload&&self.options.reload.apply(self);
+						}
+						else{
+							self.setTransition(self.refreshDom,"test",adjust,{x:relative_pos.x,y:0});
+						}
+					}
+				}
+				else if(self.wraper.clientHeight-relative_pos.y>self.inner.clientHeight){
+					self.setTransition(self.inner,"ease",adjust,{x:0,y:self.wraper.clientHeight-self.inner.clientHeight});
+				}
+
+				
+				self.options.touchend&&self.options.touchend.call(self,relative_pos);
 			},
-			setTransform:function(pos){
+			getTransform:function(dom){
+				var self=this;
+				var transform=dom.style[prefixStyle("transform")];
+				if(transform){
+					var translateArray=( transform.replace(/translate3d|\(|\)|px/g,"") ).split(",");
+					return {x:parseFloat(translateArray[0]),y:parseFloat(translateArray[1]),z:parseFloat(translateArray[2])};
+				}
+				else{
+					dom.style[prefixStyle("transform")]="translate3d(0,0,0)";
+					return {x:0,y:0,z:0}
+				}
+			},
+			setTransform:function(dom,pos){
 				var self=this;
 				if(self.direction=="y"){
 					pos.x=0;
@@ -200,13 +318,79 @@
 				else{
 					pos.y=0;
 				}
-				self.inner.style[prefixStyle("transform")]="translate3d("+pos.x+"px,"+pos.y+"px,"+"0px)";
+				dom.style[prefixStyle("transform")]="translate3d("+pos.x+"px,"+pos.y+"px,"+"0px)";
+			},
+			setTransition:function(dom,type,time,pos){
+				var self=this;
+				dom.style[prefixStyle("transitionTimingFunction")]=self.transType[type];
+				dom.style[prefixStyle("transitionDuration")]=time;
+				self.setTransform(dom,{x:pos.x,y:pos.y});
+
+			},
+			getClinetRect:function(dom){//当transform有值而且getBoundingClientRect不支持的话，offset是不准确的
+				var self=this;
+				if (!!dom.getBoundingClientRect) {
+				  var rect = dom.getBoundingClientRect();
+				  return {
+				    x: rect.left,
+				    y: rect.top,
+				    width: rect.width,
+				    height: rect.height
+				  };
+				} else {
+				  return {
+				    x: dom.offsetTop,
+				    y: dom.offsetLeft,
+				    width: dom.offsetWidth,
+				    height: dom.offsetHeight
+				  };
+				}
+			},
+			getRelativePos:function(){
+				var self=this;
+
+				var wraper_client_pos=self.getClinetRect(self.wraper);
+				var inner_client_pos=self.getClinetRect(self.inner);
+				if(getComputedStyle){
+					var borderTW=getComputedStyle(self.wraper)["border-top-width"].replace("px","")*1;
+					var borderLW=getComputedStyle(self.wraper)["border-left-width"].replace("px","")*1;
+				}
+				else{
+					var borderTW=0;
+					var borderLW=0;
+				}
+				
+				return {x:inner_client_pos.x-wraper_client_pos.x-borderTW,y:inner_client_pos.y-wraper_client_pos.y-borderLW};
+			},
+			reloaded:function(){
+				var self=this;
+				console.log("loaded");
+				self.setTransition(self.inner,"ease",self.options.adjustTime,{x:0,y:0});
+				self.setTransition(self.refreshDom,"ease",self.options.adjustTime,{x:0,y:-self.refreshDom.offsetHeight});
 			}
 		};
 
 		var wraper=document.getElementById("scrollWraper");
 		scroller=new WYscroller(wraper,{
-			startY:0
+			startY:0,
+			touchstart:function(pos){
+				console.log("start",pos);
+			},
+			touchmove:function(pos){
+				console.log("move",pos);
+			},
+			touchend:function(pos){
+				console.log("end",pos);
+			},
+			refreshEle:document.querySelector("#scrollWraper .refresh"),
+			moreEle:document.querySelector("#scrollWraper .more"),
+			reload:function(){
+				var self=this;
+				setTimeout(function(){
+					console.log(213);
+					self.reloaded();
+				},2000);
+			}
 		});
 
 
