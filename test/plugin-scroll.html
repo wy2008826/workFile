@@ -269,7 +269,7 @@
 				var self=this;
 				var relative_pos=self.getRelativePos();
 				var adjust=self.options.adjustTime;
-				if(relative_pos.y>0){
+				if(relative_pos.y>0){//企图刷新
 					if(relative_pos.y<self.refreshDom.offsetHeight){
 						self.setTransition(self.inner,"test",adjust,{x:0,y:0});
 					}
