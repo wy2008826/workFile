@@ -31,6 +31,8 @@
 		<dd>4.区块滚动 snap</dd>
 		<dd>5.轮播图</dd>
 		<dd>6.接口化，插件化，模块化</dd>
+		<dd>7.惯性设置，边界超出设置</dd>
+		<dd>8.拖动粘性</dd>
 	</dl>
 	<dl>
 		<dt>技术难点</dt>
@@ -165,10 +167,12 @@
 			this.inner=this.wraper.children[0];//包含的滚动元素
 			this.refreshDom=this.options.refreshEle;
 			this.moreDom=this.options.moreEle;
+			var direction=this.direction=!this.options.scrollY?"x":"y";
 
+			this.dragSlowLength=direction=="y"?this.wraper.offsetHeight*0.25:this.wraper.offsetWidth*0.25;//容器尺寸的4分之一
 			this.reloading=false;//正在下拉重新加载
 
-			this.direction=!this.options.scrollY?"x":"y";
+			
 			
 			this.init();//初始化
 			console.log(this.options);
@@ -224,7 +228,7 @@
 				bar.style.position="absolute";
 				bar.style.top=0;
 				bar.style.right=0;
-				bar.style.width="5px";
+				bar.style.width="4px";
 				bar.style.height=barSize+"px";
 				bar.style.backgroundColor="#e3e3e3";
 				bar.style.zIndex=innerIndex+1;
@@ -285,8 +289,24 @@
 					x:self.move_finger_x-self.click_finger_x+self.click_relative_pos.x,
 					y:self.move_finger_y-self.click_finger_y+self.click_relative_pos.y
 				};
-				
+
+				//边界拖动抵抗
+				var resistDistance=self.dragSlowLength;
+				console.log(resistDistance);
+				// if(relative_pos.y>resistDistance){
+				// 	var deta=resistDistance/(relative_pos.y-resistDistance);
+				// 	relative_pos.y=resistDistance+(relative_pos.y-resistDistance) * deta;
+
+
+				// 	// console.log("draft");
+				// 	// var deta=(relative_pos.y-resistDistance)/(resistDistance*resistDistance);
+				// 	// relative_pos.y-=relative_pos.y*deta;
+				// }
+
 				self.setTransform(self.inner,relative_pos);
+
+
+
 				if(self.refreshDom){
 					if(relative_pos.y<=self.refreshDom.offsetHeight){
 						self.setTransform(self.refreshDom,{x:relative_pos.x,y:relative_pos.y-self.refreshDom.offsetHeight});
@@ -319,11 +339,15 @@
 						self.refreshDom&&self.setTransition(self.inner,"test",adjust,{x:0,y:self.refreshDom.offsetHeight});
 					}
 					else{//触发刷新动作
-						self.setTransition(self.inner,"test",adjust,{x:0,y:self.refreshDom.offsetHeight});
-
 
 						if(self.refreshDom){//需要下拉刷新
-							self.options.reload&&self.options.reload.apply(self);
+							self.setTransition(self.inner,"test",adjust,{x:0,y:self.refreshDom.offsetHeight});
+							
+							!self.reloading&&self.options.reload&&self.options.reload.apply(self);//执行重新加载回调函数
+							self.reloading=true;//正在加载
+						}
+						else{
+							self.setTransition(self.inner,"test",adjust,{x:0,y:0});
 						}
 					}
 				}
@@ -337,21 +361,32 @@
 					var slow_time=self.options.adjustTime.match(/\d+/)[0];
 					var slow_distance_y=Math.round(slow_time*self.speedY);//
 					var dist_y=relative_pos.y+slow_distance_y;
+					var needBar=self.options.scrollBar;//是否需要滚动条
 
 					if(slow_distance_y>=0){//企图刷新
 						if(dist_y>=0){
 							self.setTransition(self.inner,"slowdown",adjust,{x:0,y:0});
+							needBar&&self.setTransition(self.bar,"slowdown",adjust,{x:0,y:0});
 						}
 						else{
-							self.setTransition(self.inner,"slowdown",adjust,{x:0,y:relative_pos.y+slow_distance_y});
+							var top=-dist_y*self.barSize/self.wraper.offsetHeight;
+							self.setTransition(self.inner,"slowdown",adjust,{x:0,y:dist_y});
+							needBar&&self.setTransition(self.bar,"slowdown",adjust,{x:0,y:top});
 						}
 					}
 					else{//
-						if(dist_y<self.wraper.offsetHeight-self.inner.offsetHeight){
-							self.setTransition(self.inner,"slowdown",adjust,{x:0,y:self.wraper.offsetHeight-self.inner.offsetHeight});
+						var bottomEndPos=self.wraper.offsetHeight-self.inner.offsetHeight;
+						
+
+						if(dist_y<bottomEndPos){
+							var top=-bottomEndPos*self.barSize/self.wraper.offsetHeight;
+							self.setTransition(self.inner,"slowdown",adjust,{x:0,y:bottomEndPos});
+							needBar&&self.setTransition(self.bar,"slowdown",adjust,{x:0,y:top});
 						}
 						else{
-							self.setTransition(self.inner,"slowdown",adjust,{x:0,y:relative_pos.y+slow_distance_y});
+							var top=-dist_y*self.barSize/self.wraper.offsetHeight;
+							self.setTransition(self.inner,"slowdown",adjust,{x:0,y:dist_y});
+							needBar&&self.setTransition(self.bar,"slowdown",adjust,{x:0,y:top});
 						}
 					}
 					
