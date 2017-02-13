@@ -145,9 +145,11 @@
 				scrollY: true,//滚动方向
 				snap:false,//是否分隔
 				adjustTime:"400ms",//松手后自适应时间
+				scrollBar:false,//是否需要滚动条
 				touchstart:function(){},
 				touchmove:function(){},
 				touchend:function(){},
+				reload:function(){},//在配置了下拉刷新的时候需要此配置项
 				
 			};
 			this.transType={
@@ -155,13 +157,16 @@
 				"linear":"cubic-bezier(0,0,1,1)",
 				"ease-in":"cubic-bezier(.42,0,1,1)",
 				"ease-out":"cubic-bezier(0,0,.58,1)",
-				"test":"cubic-bezier(.27,.08,.38,.97)"
+				"test":"cubic-bezier(.27,.08,.38,.97)",
+				"slowdown":"cubic-bezier(.33,.47,.35,.91)"
 			};
 			extend(this.options,options);
 			this.wraper=typeof el=="string"?document.queryselector(el):el;//外层元素
 			this.inner=this.wraper.children[0];//包含的滚动元素
 			this.refreshDom=this.options.refreshEle;
 			this.moreDom=this.options.moreEle;
+
+			this.reloading=false;//正在下拉重新加载
 
 			this.direction=!this.options.scrollY?"x":"y";
 			
@@ -182,7 +187,7 @@
 
 				self.refreshDom&&self.initRefresh();
 				self.moreDom&&self.initMore();
-
+				self.options.scrollBar&&self.initScrollBar();
 
 			},
 			initScroll:function(){
@@ -205,6 +210,38 @@
 			initMore:function(){
 				var self=this;
 				self.setTransition(self.moreDom,"ease","0ms",{x:0,y:self.moreDom.offsetHeight});
+			},
+			initScrollBar:function(){
+				var self=this;
+
+				var innerH=self.inner.offsetHeight;
+				var wraperH=self.wraper.offsetHeight;
+				var scale=innerH / wraperH;
+				var barSize=wraperH / scale;
+				var innerIndex=window.getComputedStyle(self.inner).zIndex;
+				var bar=self.bar=document.createElement("div");
+				bar.style.display="block";
+				bar.style.position="absolute";
+				bar.style.top=0;
+				bar.style.right=0;
+				bar.style.width="5px";
+				bar.style.height=barSize+"px";
+				bar.style.backgroundColor="#e3e3e3";
+				bar.style.zIndex=innerIndex+1;
+				bar.style.borderRadius="2px";
+				self.wraper.style.position="relative";
+
+				self.barSize=barSize;
+				self.wraper.appendChild(bar);
+			},
+			scrollBar:function(){
+				var self=this;
+				var innerH=self.inner.offsetHeight;
+				var wraperH=self.wraper.offsetHeight;
+				var scale=innerH / wraperH;
+				var barSize=wraperH / scale;
+
+
 			},
 			startHandler:function(e){
 				e.preventDefault();
@@ -241,8 +278,8 @@
 					self.fingerArray=self.fingerArray.slice(1);
 					self.fingerArray.push({x:move_finger_x,y:move_finger_y,time:new Date()*1});
 				}
-				var speedX=caculateSpeed(self.fingerArray)["speed-x"];
-				var speedY=caculateSpeed(self.fingerArray)["speed-y"];
+				var speedX=self.speedX=caculateSpeed(self.fingerArray)["speed-x"];
+				var speedY=self.speedY=caculateSpeed(self.fingerArray)["speed-y"];
 
 				var relative_pos={
 					x:self.move_finger_x-self.click_finger_x+self.click_relative_pos.x,
@@ -259,6 +296,10 @@
 					}
 				}
 				
+				if(self.options.scrollBar){//需要滚动条
+					var top=-relative_pos.y*self.barSize/self.wraper.offsetHeight;
+					self.setTransform(self.bar,{x:0,y:top});
+				}
 
 				self.options.touchmove&&self.options.touchmove.call(self,relative_pos);//滚动监听
 				
@@ -269,33 +310,56 @@
 				var self=this;
 				var relative_pos=self.getRelativePos();
 				var adjust=self.options.adjustTime;
+
+				//设置内容位置  
 				if(relative_pos.y>0){//企图刷新
 					if(relative_pos.y<self.refreshDom.offsetHeight){
 						self.setTransition(self.inner,"test",adjust,{x:0,y:0});
-					}
-					else{
-						self.setTransition(self.inner,"test",adjust,{x:0,y:self.refreshDom.offsetHeight});
-					}
-					
-					//need reload
-					if(self.refreshDom){
-						if(relative_pos.y<self.refreshDom.offsetHeight){
-							self.setTransition(self.refreshDom,"test",adjust,{x:relative_pos.x,y:relative_pos.y-self.refreshDom.offsetHeight});
-						}
-						else if(relative_pos.y>=self.refreshDom.offsetHeight){//执行刷新数据动作
 
+						self.refreshDom&&self.setTransition(self.inner,"test",adjust,{x:0,y:self.refreshDom.offsetHeight});
+					}
+					else{//触发刷新动作
+						self.setTransition(self.inner,"test",adjust,{x:0,y:self.refreshDom.offsetHeight});
+
+
+						if(self.refreshDom){//需要下拉刷新
 							self.options.reload&&self.options.reload.apply(self);
-						}
-						else{
-							self.setTransition(self.refreshDom,"test",adjust,{x:relative_pos.x,y:0});
 						}
 					}
 				}
 				else if(self.wraper.clientHeight-relative_pos.y>self.inner.clientHeight){
 					self.setTransition(self.inner,"ease",adjust,{x:0,y:self.wraper.clientHeight-self.inner.clientHeight});
 				}
+				else{//此处需要缓冲处理
+					//缓冲运动
+
+					var adjust=self.options.adjustTime;
+					var slow_time=self.options.adjustTime.match(/\d+/)[0];
+					var slow_distance_y=Math.round(slow_time*self.speedY);//
+					var dist_y=relative_pos.y+slow_distance_y;
+
+					if(slow_distance_y>=0){//企图刷新
+						if(dist_y>=0){
+							self.setTransition(self.inner,"slowdown",adjust,{x:0,y:0});
+						}
+						else{
+							self.setTransition(self.inner,"slowdown",adjust,{x:0,y:relative_pos.y+slow_distance_y});
+						}
+					}
+					else{//
+						if(dist_y<self.wraper.offsetHeight-self.inner.offsetHeight){
+							self.setTransition(self.inner,"slowdown",adjust,{x:0,y:self.wraper.offsetHeight-self.inner.offsetHeight});
+						}
+						else{
+							self.setTransition(self.inner,"slowdown",adjust,{x:0,y:relative_pos.y+slow_distance_y});
+						}
+					}
+					
+				}
 
 				
+
+				console.log(self.speedX,slow_distance_y);
 				self.options.touchend&&self.options.touchend.call(self,relative_pos);
 			},
 			getTransform:function(dom){
@@ -367,6 +431,7 @@
 				console.log("loaded");
 				self.setTransition(self.inner,"ease",self.options.adjustTime,{x:0,y:0});
 				self.setTransition(self.refreshDom,"ease",self.options.adjustTime,{x:0,y:-self.refreshDom.offsetHeight});
+				self.reloading=false;
 			}
 		};
 
@@ -377,13 +442,14 @@
 				console.log("start",pos);
 			},
 			touchmove:function(pos){
-				console.log("move",pos);
+				// console.log("move",pos);
 			},
 			touchend:function(pos){
 				console.log("end",pos);
 			},
 			refreshEle:document.querySelector("#scrollWraper .refresh"),
 			moreEle:document.querySelector("#scrollWraper .more"),
+			scrollBar:true,
 			reload:function(){
 				var self=this;
 				setTimeout(function(){
