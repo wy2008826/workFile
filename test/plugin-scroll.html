@@ -40,6 +40,7 @@
 			height: 100%;
 			float: left;
 		}
+		.swiper ul li{text-align: center;line-height: 100px;color: #333;font-size: 24px;}
 		.swiper ul li.gray{background-color:#e8e8e8}
 		.swiper ul li.orange{background-color:#f93}
 		.swiper ul li.red{background-color:#f33}
@@ -111,9 +112,9 @@
 	
 	<div id="swiperWraper" class="swiper">
 		<ul id="scrollContent" >
-			<li class="gray"></li>
-			<li class="orange"></li>
-			<li class="red"></li>
+			<li class="gray">1</li>
+			<li class="orange">2</li>
+			<li class="red">3</li>
 		</ul>
 	</div>
 
@@ -179,6 +180,7 @@
 				startY:0,
 				scrollY: true,//滚动方向
 				adjustTime:"400ms",//松手后自适应时间
+				snapTime:"600ms",
 				scrollBar:false,//是否需要滚动条
 				snap:false,//是否分隔
 				loop:false,
@@ -206,7 +208,7 @@
 			this.speed=0;//手指滑动速度
 			this.dragSlowLength=direction=="y"?this.wraper.offsetHeight*0.25:this.wraper.offsetWidth*0.25;//容器尺寸的4分之一
 			this.reloading=false;//正在下拉重新加载
-
+			this.down=false;//手指已按下
 			
 			
 			this.init();//初始化
@@ -229,13 +231,20 @@
 				var startY=self.options.startY+"px";
 
 				//过渡函数 过渡时间 过渡终点位置
-				self.setTransition(self.inner,"ease","0ms",{x:self.options.startX,y:self.options.startY});
+
+				!self.options.snap&&self.setTransition(self.inner,"ease","0ms",{x:self.options.startX,y:self.options.startY});
 				self.options.snap&&self.initSnap();
 				
 				self.wraper.addEventListener("touchstart",self.startHandler.bind(self));
 				self.wraper.addEventListener("touchmove",self.moveHandler.bind(self));
 				self.wraper.addEventListener("touchend",self.endHandler.bind(self));
-
+				self.inner.addEventListener(prefixStyle("transitionEnd"),function(){
+					console.log("transitionEnd"+self.snapIndex);
+					
+					if(self.snapIndex==4){
+						self.setTransition(self.inner,"ease","0ms",{x:0,y:0});
+					}
+				});
 			},
 			initRefresh:function(){
 				var self=this;
@@ -245,44 +254,42 @@
 				var self=this;
 				self.setTransition(self.moreDom,"ease","0ms",{x:0,y:self.moreDom.offsetHeight});
 			},
-			initSnap:function(){
+			initSnap:function(){//手指点住屏幕的时候如何中断滑动动画
 				var self=this;
 				var children=self.inner.children;
 				var itemNum=children.length;
 				var innerItem0=children[0];
-				var innerItem1=children[itemNum-1];
-				var copy0=innerItem0.cloneNode();
-				var copyLast=innerItem1.cloneNode();
-				var index=self.options.startIndex||0;
+				var copy0=innerItem0.cloneNode(true);
+				
+				self.snapIndex=self.options.startIndex||0;
 				var sizeName=self.sizeName;
 
-				self.innerSize=self.direction=="x"?self.inner[sizeName]:self.inner[sizeName];
-				self.innerItemSize=self.direction=="x"?innerItem0[sizeName]:innerItem0[sizeName];
+				self.innerSize=self.inner[sizeName];
+				self.innerItemSize=innerItem0[sizeName];
+				self.wraperSize=self.wraper[sizeName];
 				
-				// !self.options.loop&&self.setTransition(self.inner,"ease",self.options.adjustTime,{
-				// 	x:self.direction=="x"?self.innerItemSize*index:0,
-				// 	y:self.direction=="y"?self.innerItemSize*index:0,
-				// });
 				if(self.options.loop){//循环
 					
 					self.inner.appendChild(copy0);
-					self.inner.insertBefore(copyLast,innerItem0);
-					// self.setTransition(self.inner,"ease",self.options.adjustTime,{
-					// 	x:self.direction=="x"?self.innerItemSize*index-self.innerItemSize:0,
-					// 	y:self.direction=="y"?self.innerItemSize*index-self.innerItemSize:0,
-					// });
+
+					self.inner.style.width=(itemNum+1)*self.wraperSize+"px";
+					for(var i=0;i<itemNum+1;i++){
+						self.inner.children[i].style.width=self.wraperSize+"px";
+					}
+					
+					// self.inner.insertBefore(copyLast,innerItem0);
+					
 				}
 
-				self.goIndex(index);
+				!self.options.autoPlay&&self.goIndex(self.snapIndex);
 				if(self.options.autoPlay){//自动播放
 					setInterval(function(){
-
-						index=index==itemNum?0:index;
-						var x=-index*self.innerItemSize;
-
-						// console.log(index);
-						self.setTransform(self.inner,{x:x,y:0});
-						index+=1;
+						if(!self.down){
+							self.snapIndex=self.snapIndex==itemNum+1?0:self.snapIndex;
+							self.goIndex(self.snapIndex);
+							// self.snapIndex=index;
+							self.snapIndex+=1;
+						}
 					},3000);
 				}
 			},
@@ -320,6 +327,7 @@
 			},
 			startHandler:function(e){
 				e.preventDefault();
+				this.down=true;
 				var self=this;
 				var touch=e.touches[0];
 
@@ -402,13 +410,16 @@
 			},
 			endHandler:function(e){//这里的逻辑比较复杂  考虑到各种情况
 				e.preventDefault();
+				this.down=false;
 				var self=this;
 				var relative_pos=self.getRelativePos();
 				var adjust=self.options.adjustTime;
 				var sizeName=self.sizeName;// clientWidth clientHeight
 
 				var tapType=self.tapType(self.fingerArray,new Date()*1);
-				
+				if(tapType=="tap"||tapType=="longtap"){//点按或者长按
+					return ;
+				}
 				if(relative_pos[self.direction]>0){//企图刷新 顶部或左边漏出
 					if(self.refreshDom){//需要下拉刷新 Y
 						if(relative_pos.y<self.refreshDom[sizeName]){
@@ -458,6 +469,7 @@
 							self.setTransition(self.inner,"slowdown",adjust,{x:0,y:dist});
 							needBar&&self.setTransition(self.bar,"slowdown",adjust,{x:0,y:top});
 						}
+						// self.options.snap&&self.next();
 					}
 					else{//负速度
 						
@@ -468,13 +480,15 @@
 						}
 						else{//往终点位置滑动
 							var top=-dist*self.barSize/self.wraper[sizeName];
-							var toIndex=self.snapIndex(relative_pos);
 							self.setTransition(self.inner,"slowdown",adjust,{x:0,y:dist});
 							needBar&&self.setTransition(self.bar,"slowdown",adjust,{x:0,y:top});
 
 						}
+						// self.options.snap&&self.prev();
 					}
-					
+					var nearIndex=self.getNearIndex(relative_pos);
+					console.log("nearIndex:"+nearIndex);
+					self.goIndex(nearIndex);
 				}
 
 				
@@ -555,22 +569,43 @@
 			moveDirection:function(){
 
 			},
-			snapIndex:function(pos){
+			getNearIndex:function(rel_pos){
 				var self=this;
-				console.log(pos);
+				var offset=rel_pos[self.direction];
+				var index=0;
+				if(offset>=0){
+					index=0;
+				}
+				else{
+					index=Math.round(-offset / self.innerItemSize);
+				};
+				self.snapIndex=index;
+				return index;
 
 			},
 			goIndex:function(index){
 				var self=this;
-
-				if(self.options.loop){
-					var x=self.innerItemSize*index-self.innerItemSize;
-					
-				}
-				self.setTransition(self.inner,"ease",self.options.adjustTime,{
-					x:self.direction=="x"?self.innerItemSize*index-self.innerItemSize:0,
-					y:self.direction=="y"?self.innerItemSize*index-self.innerItemSize:0,
+				var offset=-self.innerItemSize*index;
+				// self.setTransform(self.inner,{
+				// 	x:self.direction=="x"?offset:0,
+				// 	y:self.direction=="y"?offset:0,
+				// });
+				self.setTransition(self.inner,"ease",self.options.snapTime||self.adjustTime,{
+					x:self.direction=="x"?offset:0,
+					y:self.direction=="y"?offset:0,
 				});
+			},
+			next:function(){
+				var self=this;
+				var relative_pos=self.getRelativePos();
+				var offset=relative_pos[self.direction];
+				var innerItemSize=self.innerItemSize;
+				
+			},
+			prev:function(){
+				var self=this;
+				var relative_pos=self.getRelativePos();
+
 			},
 			reloaded:function(){
 				var self=this;
