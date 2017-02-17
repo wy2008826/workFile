@@ -239,7 +239,7 @@
 				self.wraper.addEventListener("touchmove",self.moveHandler.bind(self));
 				self.wraper.addEventListener("touchend",self.endHandler.bind(self));
 				self.inner.addEventListener(prefixStyle("transitionEnd"),function(){
-					console.log("transitionEnd"+self.snapIndex);
+					// console.log("transitionEnd"+self.snapIndex);
 					
 					if(self.snapIndex==4){
 						self.setTransition(self.inner,"ease","0ms",{x:0,y:0});
