@@ -6,6 +6,7 @@ var plugins=gulpLoadPlugins();
 
 var rename=require("gulp-rename");
 var minifyCss=require("gulp-minify-css");
+var combiner = require('stream-combiner2');
 
 
 //css压缩  一次性
@@ -42,15 +43,20 @@ gulp.task("scss",function(){
 gulp.task("jsMin",function(){
 	var _DEST="statics/js/page";
 
-	gulp.src(["dist/js/page/**/*.js","!dist/js/tpl.js"])
-	.pipe(plugins.changed(_DEST))
-	.pipe(plugins.uglify({
-		mangle:false
-	}))
-	.pipe(plugins.rename(function(path){
-		path.extname=".min.js";//扩展名
-	}))
-	.pipe(gulp.dest(_DEST));
+	var combined = combiner.obj([
+	   gulp.src(["dist/js/page/**/*.js","!dist/js/tpl.js"]),
+	   plugins.changed(_DEST),
+	   plugins.uglify({
+			mangle:false
+		}),
+	   plugins.rename(function(path){
+			path.extname=".min.js";//扩展名
+		}),
+	   gulp.dest(_DEST)
+	]);
+
+	combined.on('error', console.error.bind(console));
+	return combined;
 });
 
 
