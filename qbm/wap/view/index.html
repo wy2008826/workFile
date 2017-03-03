@@ -56,58 +56,64 @@
 					<script id="borrow-list-template" type="text/x-handlebars-template">
 						{{each dataList}}
 							{{if !$index}}
-								<div class="label_li bd-default bg-white tuijian_li tap-link fc-3" data-href="financing/detail.html">
-									<h4 class="label_tit pd-lr-10 text-center">{{$value.baseTitle}}</h4>
-									<img src="../statics/images/index/list_flag.png" class="list_flag">
+								<div class="label_li bd-default bg-white tuijian_li tap-link fc-3" data-href="$wapurl/wap/getBorrowInfo.html?borrow_id={{$value.borrowId}}">
+									<p class="label_tit pd-lr-10 text-center">
+										<span class="tit_name text-center">{{$value.baseTitle}}</span>
+										<span class="label_tag tuijian_tag {{hasTag $value.tag}}" style="background-color:{{$value.tagColor}};">{{$value.tag}}</span>
+									</p>
+									<img src="$wapcdnpath/images/index/list_flag.png" class="list_flag">
 									<p class="dashed_line mg-b-10">
-										<img src="../statics/images/dash_line_white.png" class="dash_img">
+										<img src="$wapcdnpath/images/dash_line_white.png" class="dash_img">
 									</p>
-									<p class="tuijian_num_big fc-primary text-center ">
-										<span class="num">{{fixToSecond $value.baseApr}}</span>%
-									</p>
-									<div class="prog_bar_wraper mg-t-10">
-										<p class="prog_bar pos-rel flex-1">
-											<span class="bar_inner pos-abs"  data-width="{{BarProgress $value.baseSuccessAmount $value.totalAmount}}%"></span>
-										</p>
-										<label class="bar_state  {{LabelClass $value.isCanBid}}">
-											{{LabelStatus $value.isCanBid}}
-										</label>
-									</div>
-									<div class="row label_nums lh-28 mg-b-10">
-										<p class="col-all-6 text-center fc-9">
-											{{labelPeriod $value.baseIsDayMarked $value.basePeriodCount $index}}
-										</p>
-										<p class="col-all-6 text-center fc-9 has_border_l">
-											{{$value.lowestAccount}}元起投
-										</p>
+									<div class="tuijian_box row">
+										<div class="left_box col-all-7">
+											<p class="tuijian_num_big fc-primary text-center">
+												<span class="num">{{fixToSecond $value.baseApr}}</span>%
+											</p>
+											<div class="row label_nums">
+												<p class="col-all-1">&nbsp</p>
+												<p class="col-all-5 text-center fc-9">
+													{{labelPeriod $value.baseIsDayMarked $value.basePeriodCount $index}}
+												</p>
+												<p class="col-all-6 text-left fc-9">
+													<span class="fc-3">{{$value.lowestAccount}}</span>元起投
+												</p>
+											</div>
+										</div>
+										<div class="col-all-5 col_state">
+											<label class="label_state {{LabelCircleState $value.isCanBid}}" >{{LabelStatus $value.isCanBid}}</label>
+											<canvas class="label_canvas" data-progress="{{BarProgress $value.baseSuccessAmount $value.totalAmount}}"></canvas>
+										</div>
 									</div>
 								</div>
 							{{/if}}
 							{{if $index}}
-							<div class="label_li bd-default bg-white tap-link" data-href="financing/detail.html">
-								<p class="label_tit pd-lr-10">{{$value.baseTitle}}</p>
-								<p class="dashed_line mg-b-10">
-									<img src="../statics/images/dash_line_white.png" class="dash_img">
+							<div class="label_li bd-default bg-white tap-link" data-href="$wapurl/wap/getBorrowInfo.html?borrow_id={{$value.borrowId}}">
+								<p class="label_tit pd-lr-10">
+									<span class="tit_name">{{$value.baseTitle}}</span>
+									
 								</p>
-								<div class="row label_nums ">
-									<p class="col-all-4  fc-9">
-										<span class="fs-18 fc-3 per_num">{{fixToSecond $value.baseApr}}</span>%
-									</p>
-									<p class="col-all-4 text-center fc-9">
-										{{labelPeriod $value.baseIsDayMarked $value.basePeriodCount}}
-									</p>
-									<p class="col-all-4 text-right fc-9">
-										<span class="fc-3">{{$value.lowestAccount}}</span>元起投
-									</p>
-								</div>
-								<div class="prog_bar_wraper mg-t-10">
-									<p class="prog_bar pos-rel flex-1">
-										<span class="bar_inner pos-abs"  data-width="{{BarProgress $value.baseSuccessAmount $value.totalAmount}}%">
-										</span>
-									</p>
-									<label class="bar_state  {{LabelClass $value.isCanBid}}">
-										{{LabelStatus $value.isCanBid}}
-									</label>
+								<p class="dashed_line mg-b-10">
+									<img src="$wapcdnpath/images/dash_line_white.png" class="dash_img">
+								</p>
+								<div class="label_box row">
+									<div class="fn-fl col_rate">
+										<p>{{rateMes $value.basicApr $value.rewardApr}}</p>
+										<p class="fc-9">项目年化收益</p>
+									</div>
+									<div class="fn-fl col_time_money">
+										<p class="fc-9">
+											{{labelPeriod $value.baseIsDayMarked $value.basePeriodCount}}
+											<span class="fc-3">{{$value.lowestAccount}}</span>元起
+										</p>
+										<p>
+											<span class="label_tag {{hasTag $value.tag}}" style="background-color:{{$value.tagColor}};">{{$value.tag}}</span>
+										</p>
+									</div>
+									<div class="fn-fl col_state">
+										<label class="label_state {{LabelCircleState $value.isCanBid}}" >{{LabelStatus $value.isCanBid}}</label>
+										<canvas class="label_canvas" data-progress="{{BarProgress $value.baseSuccessAmount $value.totalAmount}}"></canvas>
+									</div>
 								</div>
 							</div>
 							{{/if}}

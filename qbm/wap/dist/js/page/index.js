@@ -12,18 +12,59 @@ define(function(require,module,exports){
 		else{
 			var unit="个月";
 		}
-		if(index==0){
-			return num+unit;
-		}
-		else{
+		// if(index==0){
+		// 	return num+unit;
+		// }
+		// else{
 			return "<span class='fc-3'>"+num+"</span>"+unit;
-		}
+		// }
 
 	});
+
+	template.helper("labelTag",function(index,tag,bgColor){//index是索引
+		var tagArr=["按月付息","定制","定时","定向","可赎回"];
+		// var tag=1;
+		if(!tag){
+			return "";
+		}
+		else{
+			if(index==0){//第一条默认为推荐标
+				return "<span class='label_tag tuijian_tag' data-tag=tag"+tag+ ">"+tagArr[tag-1]+"</span>";
+			}
+			else{
+				return "<span class='label_tag' data-tag=tag"+tag+ ">"+tagArr[tag-1]+"</span>";
+			}
+		}
+	});
+
+	template.helper("hasTag",function(tag){
+		if(!tag){
+			return "hide";
+		}
+	});
+
+
 
 	template.helper("fixToSecond",function(value){
 		return (value*1).toFixed(2);;
 	});
+
+
+	template.helper("rateMes",function(basic,reward){
+		var basic=(basic*1).toFixed(2)+"";
+		var reward=(reward*1).toFixed(2)+"";
+		// console.log(basic,reward,typeof basic);
+
+		var basic_first=basic.split(".")[0];
+		var basic_second=basic.split(".")[1];
+
+		var rewardHtml="";
+		if(reward){
+			rewardHtml="<span class='rate_small'>+"+reward+"%</span>"
+		}
+		return "<span class='rate_large'>"+basic_first+".</span>"+basic_second+"%"+rewardHtml;
+	});
+
 
 	template.helper("BarProgress",function(hasSend,total){
 		//console.log(hasSend,total);
@@ -35,7 +76,7 @@ define(function(require,module,exports){
 			return "已售罄";
 		}
 		else if(status==1){
-			return "可购买";
+			return "可投资";
 		}
 		else if(status==4){//倒计时标
 			return "待开售";
@@ -47,6 +88,19 @@ define(function(require,module,exports){
 		}
 		else if(status==1){
 			return "";
+		}
+		else if(status==4){
+			return "not_start";
+		}
+		
+	});
+
+	template.helper("LabelCircleState",function(status){
+		if(status==0){
+			return "not_start";
+		}
+		else if(status==1){
+			return "is_start";
 		}
 		else if(status==4){
 			return "not_start";
