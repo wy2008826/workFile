@@ -11,15 +11,15 @@
     	<meta name="full-screen"content="yes">
 		<title>钱保姆理财</title>
 
-		<link rel="stylesheet" href="../statics/css/plugin/swiper/swiper.min.css?v=${ver}">
-		<link rel="stylesheet" href="../statics/css/index.min.css?v=${ver}">
-		<script src="../statics/js/flexible.js?v=${ver}"></script>
+		<link rel="stylesheet" href="/css/plugin/swiper/swiper.min.css?v=${ver}">
+		<link rel="stylesheet" href="/css/index.min.css?v=${ver}">
+		<script src="/js/flexible.js?v=${ver}"></script>
 	</head>
 	<body>
 		
 		<div class="content">
 			<div class="top_down_app">
-				<img src="../statics/images/index_logo.png" class="top_logo">
+				<img src="/images/index_logo.png" class="top_logo">
 				<span data-href="$weburl/applink.html" class="top_down tap-link" id="top_down">下载</span>
 			</div>
 			<div class="swiper-container swiper-container-horizontal" id="indexSlider">
@@ -39,7 +39,7 @@
 			<!-- 根据是否登录显示下面的div或者a标签 -->
 			<div class="not_login_box bg-white bd-b-default text-center fs-28">
 				<span data-href="passport/login.html"  class="login_btn fc-6  tap-link">登录/注册</span>
-				<img src="../statics/images/text_logo.png" class="text_logo" >
+				<img src="/images/text_logo.png" class="text_logo" >
 			</div>
 			
 			<div data-href="member/index.html" class="has_login_box bg-white bd-b-default text-center fs-28 tap-link">
@@ -49,21 +49,21 @@
 			
 			<!-- 正常标列表 -->
 			<div class="labels_lists_wraper">
-				<img src="../statics/images/loading.gif"  class="loadding_lists" id="loading_lists">
+				<img src="/images/loading.gif"  class="loadding_lists" id="loading_lists">
 				<ul class="index_label_ul" id="index_label_ul">
 					
 					<!-- 默认第一条是推荐标 -->
 					<script id="borrow-list-template" type="text/x-handlebars-template">
 						{{each dataList}}
 							{{if !$index}}
-								<div class="label_li bd-default bg-white tuijian_li tap-link fc-3" data-href="$wapurl/wap/getBorrowInfo.html?borrow_id={{$value.borrowId}}">
+								<div class="label_li bd-default bg-white tuijian_li tap-link fc-3" data-href="./financing/detail.html">
 									<p class="label_tit pd-lr-10 text-center">
 										<span class="tit_name text-center">{{$value.baseTitle}}</span>
 										<span class="label_tag tuijian_tag {{hasTag $value.tag}}" style="background-color:{{$value.tagColor}};">{{$value.tag}}</span>
 									</p>
-									<img src="$wapcdnpath/images/index/list_flag.png" class="list_flag">
+									<img src="/images/index/list_flag.png" class="list_flag">
 									<p class="dashed_line mg-b-10">
-										<img src="$wapcdnpath/images/dash_line_white.png" class="dash_img">
+										<img src="/images/dash_line_white.png" class="dash_img">
 									</p>
 									<div class="tuijian_box row">
 										<div class="left_box col-all-7">
@@ -88,13 +88,12 @@
 								</div>
 							{{/if}}
 							{{if $index}}
-							<div class="label_li bd-default bg-white tap-link" data-href="$wapurl/wap/getBorrowInfo.html?borrow_id={{$value.borrowId}}">
+							<div class="label_li bd-default bg-white tap-link" data-href="./financing/detail.html">
 								<p class="label_tit pd-lr-10">
 									<span class="tit_name">{{$value.baseTitle}}</span>
-									
 								</p>
 								<p class="dashed_line mg-b-10">
-									<img src="$wapcdnpath/images/dash_line_white.png" class="dash_img">
+									<img src="/images/dash_line_white.png" class="dash_img">
 								</p>
 								<div class="label_box row">
 									<div class="fn-fl col_rate">
@@ -138,8 +137,8 @@
 		</div>
 		
 		<input type="hidden" value="$wapurl" id="wapurl">
-		<script src="../statics/js/sea.js"></script>
-		<script src="../statics/js/sea-config.js"></script>
+		<script src="/js/sea.js"></script>
+		<script src="/js/sea-config.js"></script>
 
 		<script>
 			seajs.use("page/index.min.js");

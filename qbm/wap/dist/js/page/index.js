@@ -268,19 +268,13 @@ define(function(require,module,exports){
 				// 	error:function(data){
 						
 						data={"dataList":[{"borrowId":8358,"baseTitle":"新手专享0950","invTypeId":"115","baseSuccessAmount":18935.0,"totalAmount":190000.0,"baseApr":14.0,"basicApr":7.5,"rewardApr":6.5,"baseIsDayMarked":"Y","basePeriodCount":7,"isCanBid":1,"lowestAccount":"100","hasInsurance":0,"hasBaodan":0,"startTime":"1455588362","nowtime":0},{"borrowId":8247,"baseTitle":"新手专享0938","invTypeId":"115","baseSuccessAmount":164468.0,"totalAmount":166000.0,"baseApr":14.0,"basicApr":7.5,"rewardApr":6.5,"baseIsDayMarked":"Y","basePeriodCount":7,"isCanBid":1,"lowestAccount":"100","hasInsurance":0,"hasBaodan":0,"startTime":"1455520652","nowtime":0},{"borrowId":8421,"baseTitle":"车贷宝00298","invTypeId":"190","baseSuccessAmount":115308.28,"totalAmount":160000.0,"baseApr":12.0,"basicApr":10.4,"rewardApr":1.6,"baseIsDayMarked":"N","basePeriodCount":12,"isCanBid":1,"lowestAccount":"100","hasInsurance":0,"hasBaodan":0,"startTime":"1455591298","nowtime":0},{"borrowId":8420,"baseTitle":"车贷宝00297","invTypeId":"190","baseSuccessAmount":65076.0,"totalAmount":250000.0,"baseApr":12.0,"basicApr":10.4,"rewardApr":1.6,"baseIsDayMarked":"N","basePeriodCount":12,"isCanBid":1,"lowestAccount":"100","hasInsurance":0,"hasBaodan":0,"startTime":"1455587906","nowtime":0},{"borrowId":8392,"baseTitle":"车聚宝A00618","invTypeId":"1","baseSuccessAmount":67070.48,"totalAmount":888000.0,"baseApr":10.0,"basicApr":8.4,"rewardApr":1.6,"baseIsDayMarked":"N","basePeriodCount":1,"isCanBid":1,"lowestAccount":"100","hasInsurance":0,"hasBaodan":0,"startTime":"1455592828","nowtime":0},{"borrowId":8413,"baseTitle":"【理财送健康实际年化15%】车聚宝B00852","invTypeId":"2","baseSuccessAmount":100113.0,"totalAmount":150005.0,"baseApr":7.0,"basicApr":7.0,"rewardApr":0.0,"baseIsDayMarked":"N","basePeriodCount":3,"isCanBid":1,"lowestAccount":"50000","hasInsurance":0,"hasBaodan":0,"startTime":"1455500967","nowtime":0},{"borrowId":8188,"baseTitle":"车聚宝B00852","invTypeId":"2","baseSuccessAmount":350961.37,"totalAmount":1000000.0,"baseApr":11.0,"basicApr":9.0,"rewardApr":2.0,"baseIsDayMarked":"N","basePeriodCount":6,"isCanBid":1,"lowestAccount":"100","hasInsurance":0,"hasBaodan":0,"startTime":"1455453488","nowtime":0},{"borrowId":8177,"baseTitle":"车聚宝B00843","invTypeId":"2","baseSuccessAmount":1246129.19,"totalAmount":2000000.0,"baseApr":10.5,"basicApr":8.5,"rewardApr":2.0,"baseIsDayMarked":"N","basePeriodCount":3,"isCanBid":1,"lowestAccount":"100","hasInsurance":0,"hasBaodan":0,"startTime":"1455424240","nowtime":0},{"borrowId":8171,"baseTitle":"网宝强01208","invTypeId":"999","baseSuccessAmount":0.0,"totalAmount":2000000.0,"baseApr":12.0,"basicApr":8.1,"rewardApr":3.9,"baseIsDayMarked":"Y","basePeriodCount":8,"isCanBid":4,"lowestAccount":"1000","hasInsurance":0,"hasBaodan":0,"startTime":"1455607800","nowtime":5027},{"borrowId":7871,"baseTitle":"网宝强01186","invTypeId":"999","baseSuccessAmount":0.0,"totalAmount":2000000.0,"baseApr":12.0,"basicApr":8.1,"rewardApr":3.9,"baseIsDayMarked":"Y","basePeriodCount":7,"isCanBid":4,"lowestAccount":"1000","hasInsurance":0,"hasBaodan":0,"startTime":"1455607800","nowtime":5027}],"code":1,"msg":"获取数据列表成功！","result":true};
+
 						if(data.result){//服务器正确返回
 							if(data.code==1){//有列表数据
 								var html=self.tpl.labelListTpl(data);
 								$("#index_label_ul").html(html);
 								$("#loading_lists").hide();
-								$(".label_li").each(function(index,item){//执行条目动画
-									var $item=$(item);
-									var $bar=$item.find(".bar_inner");
-									var width=$bar.attr("data-width");
-									$bar.animate({
-										width:width
-									},300);
-								});
+								self.drawLabelCircle();//绘制标的圆形进度条
 							}
 							else if(data.code==0){//没有数据
 								var html="<p class='text-center ' style='padding:50px'>暂无列表数据"+"<p>"
@@ -294,6 +288,86 @@ define(function(require,module,exports){
 				// 	}
 				// });
 
+			},
+			drawLabelCircle:function(){
+				var dpr=window.dpr==1?2:window.dpr;
+
+				var grayCircleOpt;
+				var yellowCircleOpt;
+				$(".label_canvas").each(function(index,item){
+					var $canvas=$(item);
+					var progress=$canvas.attr("data-progress");
+					var size=$canvas.width()*dpr;
+					$canvas.attr("width",size).attr("height",size);//这一条不可少   涉及到分辨率的问题
+					var ctx=$canvas[0].getContext("2d");
+
+					var lineWidth=3*dpr;
+					
+					grayCircleOpt={
+							ctx:ctx,
+							size:size,
+							r:(size-lineWidth*2)/2,
+							lineWidth:lineWidth,
+							color:"#fdeadd" 
+					}
+					yellowCircleOpt={
+							ctx:ctx,
+							progress:progress,
+							size:size,
+							r:(size-lineWidth*2)/2,
+							lineWidth:lineWidth,
+							color:"#fd9438" //fd9438
+					};
+					drawCircle(grayCircleOpt);//绘制灰色完整圆弧
+					animateCircle(yellowCircleOpt);//绘制圆弧动画
+
+				});
+
+				function drawCircle(opt){
+					var ctx=opt.ctx;
+					ctx.save();
+					ctx.beginPath();
+
+					ctx.arc(opt.size/2,opt.size/2,opt.r,0,Math.PI*2);
+					ctx.lineWidth=opt.lineWidth;
+					ctx.strokeStyle=opt.color;
+					ctx.stroke();
+					ctx.restore();
+				}
+				function animateCircle(opt){
+					var ctx=opt.ctx;
+					ctx.save();
+
+					var progress=opt.progress;
+					var animateTime=400;//动画执行时间
+					var stepTime=20;//绘制动画间隔时间
+
+					var count=animateTime / stepTime;//每一个动画的绘制次数
+					var totalArc=(opt.progress/100)* Math.PI*2 
+					var i=1;
+					
+					var startArc= - Math.PI*0.5;
+					// var stepArc=totalArc / count;
+					// var finalArc=startArc + totalArc;
+
+					var timer=setInterval(function(){//圆圈动画功能
+
+						var endArc=totalArc*i/count+startArc;
+
+						ctx.beginPath();
+
+						ctx.arc(opt.size/2,opt.size/2,opt.r,startArc,endArc);
+						ctx.lineWidth=opt.lineWidth;
+						ctx.strokeStyle=opt.color;
+						ctx.stroke();
+						i+=1;
+						if(i==count){
+							clearInterval(timer);
+						}
+					},stepTime);
+
+					ctx.restore();
+				}
 			}
 		};
 
