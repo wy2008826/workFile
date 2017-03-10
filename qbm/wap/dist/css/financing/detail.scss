@@ -6,7 +6,7 @@
 
 
 @include fontFace("../");
-.content{
+.content.pd_bottom{
 	padding-bottom:pxToRem(120);
 }
 
@@ -87,6 +87,37 @@
 		width:pxToRem(230) !important;
 	}
 }
+@include dpr(".normal_lists_ul .icon-huodong",32px);
+
+
+.list_text.overflow_clip{
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+}
+
+.normal_lists_ul{
+	.list_item{
+		&.fengbiao{
+			.list_text{
+				.icon-huodong{
+					line-height: pxToRem(90);
+					$size:pxToRem(50);
+					color:#fc944d;
+				}
+			}
+		}
+	}
+}
+
+
+@include dpr(".yz_mes",20px);//you zhi
+.yz_mes{
+	line-height:pxToRem(50);
+	color:#999;
+	padding:0 pxToRem(20);
+}
+
 
 .fixed_group{
 	margin:0;
@@ -94,4 +125,16 @@
 	bottom:pxToRem(30);
 	left:pxToRem(30);
 	right:pxToRem(30);
+}
+
+.fix_xmmm{
+	position:fixed;
+	bottom:0;
+	left:pxToRem(30);
+	right:pxToRem(30);
+}
+.list_tail{
+	&.disabled{
+		background-color:#b3b3b3;
+	}
 }

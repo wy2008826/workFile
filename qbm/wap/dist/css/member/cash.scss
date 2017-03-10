@@ -7,10 +7,16 @@
 $white:#fff;
 $bdcolor:#e5e5e5;
 
+.cash-tip{
+    background-color: #fc944d;
+    line-height: pxToRem(58);
+    height: pxToRem(58);
+}
+
 .cash-rule{
     padding: pxToRem(30) 0 pxToRem(22) 0;
     span{
-        border-bottom: 1px solid #0092ff;
+        em{margin-right: 3px;}
     }
 }
 .bank-icon{
@@ -27,7 +33,7 @@ $bdcolor:#e5e5e5;
     }
 }
 .record-btn{
-    margin-top: pxToRem(20);
+    margin: pxToRem(20) 0;
     border: 1px solid #fc944d;
     display: block;
     line-height: pxToRem(92);
@@ -87,3 +93,114 @@ $bdcolor:#e5e5e5;
         }
     }
 }
+.normal_lists_wraper .normal_lists_ul .list_item label{
+    width: pxToRem(180);
+}
+.normal_lists_wraper .normal_lists_ul .list_item  .list_text{
+    color: #666;
+}
+.cash-col{
+    margin-top: pxToRem(20);
+    padding-top: pxToRem(20);
+    padding-bottom: pxToRem(20);
+    li{
+        height: pxToRem(50);
+        line-height: pxToRem(50);
+        i{
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: pxToRem(20);
+        }
+    }
+}
+.mt20{
+    margin-top: pxToRem(20);
+}
+
+.layermchild{
+    width: pxToRem(630) !important;
+}
+.layer-coupon-wrap{
+    width: pxToRem(630);
+    height: pxToRem(900);
+    overflow-y: auto;
+    ul{
+        padding: pxToRem(20);
+        li{
+            display: block;
+            position:relative;
+            border: 1px solid #397ae4;
+            height: pxToRem(198);
+            margin-bottom: pxToRem(20);
+            .coupon-info{
+                padding: pxToRem(36) 0 0 pxToRem(28);
+                width: pxToRem(360);
+                .coupon-top{
+                    line-height: pxToRem(25);
+                    padding-bottom: pxToRem(10);
+                }
+            }
+            .coupon-opt{
+                top: 0;
+                right: -1px;
+                bottom: 0;
+                width: pxToRem(160);
+                height: 100%;
+                background-image:url("../../images/member/coupon-bg.png");
+                background-size:100% 100%;
+                background-position:0 0;
+                @include boxSizing(border-box);
+                .icon-gouxuan{
+                    $h:pxToRem(26);
+                    display: inline-block;
+                    -webkit-border-radius:50%;
+                    border:1px solid #fff;
+                    background-color:transparent;
+                    height: $h;
+                    line-height: $h;
+                    width: $h;
+                    color:transparent;
+                    position:absolute;
+                    top:pxToRem(18);
+                    right: pxToRem(18);
+                    text-align: center;
+                }
+            }
+            .active{
+                .icon-gouxuan{
+                    color:#fff;
+                }
+            }
+        }
+        
+    }
+}
+@include dpr(".coupon-opt.active .icon-gouxuan",20px);
+.layer-coupon-btn{
+    position:absolute;
+    $size:pxToRem(50);
+    top:- pxToRem(82);
+    right:0;
+    color:#fff;
+    display:block;
+    height:$size;
+    width:$size;
+
+    .icon-qingchu{
+        position:relative;
+        &:after{
+            position:absolute;
+            content:"";
+            display: block;
+            width: pxToRem(4);
+            height:pxToRem(90) - $size;
+            background-color:#fff;
+            left:50%;
+            bottom: - pxToRem(90) + $size;
+            margin-left: - pxToRem(4) / 2;
+        }
+    }
+    
+}
+
+@include dpr(".layer-coupon-btn .iconfont.icon-qingchu",50px);

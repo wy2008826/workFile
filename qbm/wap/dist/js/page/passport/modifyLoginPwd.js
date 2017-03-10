@@ -114,6 +114,8 @@ define(function(require,module,exports){
 				}
 
 				$submit.click(function(){
+					var pswVal0=$pwdInput0.val().trim();//首次密码
+					var pswVal1=$pwdInput1.val().trim();//再次密码
 					if(!( $submit.hasClass("disabled") ) ){//按钮可点  
 						
 						if($pwdInput0.val()!=$pwdInput1.val()){//两次密码不一致
@@ -122,7 +124,7 @@ define(function(require,module,exports){
 							self.alertMes(html);
 							return false;
 						}
-						if(!regPass.test($pwdInput0.val())|| !regPass.test($pwdInput1.val())){//密码格式不正确
+						if(!regPass.test($pwdInput0.val())|| !regPass.test($pwdInput1.val()) || pswVal0.length<6|| pswVal0.length>12|| pswVal1.length<6 || pswVal1.length>12){//密码格式不正确
 							var html=self.alertMsg.passNotRight;
 							self.alertMes(html);
 							return false;

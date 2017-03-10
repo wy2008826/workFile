@@ -57,8 +57,9 @@ define(function(require, exports, module) {
 				        dataType:"jsonp",
 				        success:function(data){
 				        	$("#totalInterrest").text((data.totalMoney).toFixed(2));
+				        	
 				        	if(data.code == 1){//已登录
-								var dataLength = data.dataList.length;
+								var dataLength = data.myInvestList.length;
 								if( dataLength == 0 && page == 1){
 									$("#noData").removeClass("hide");
 									$("#pageWrap").addClass("hide");
@@ -138,9 +139,11 @@ define(function(require, exports, module) {
 				        url:wapurl+"/api/member/getMyInvestmentForAllList.html?type=0&currentPage="+page+"&pageSize=4&randomTime="+(new Date()).getTime(),
 				        dataType:"jsonp",
 				        success:function(data){
+				        	
 				        	$("#totalInterrest").text((data.totalMoney).toFixed(2));
+				        
 				        	if(data.code == 1){//已登录
-								var dataLength = data.dataList.length;
+								var dataLength = data.myInvestList.length;
 								if( dataLength == 0 && page == 1){
 									$("#noData").removeClass("hide");
 									$("#pageWrap").addClass("hide");

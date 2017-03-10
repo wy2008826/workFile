@@ -2,3 +2,20 @@
 @import "../_ignore/data_table";
 @import "../_ignore/dropload";
 
+.data-table-header{
+	z-index: 100;
+}
+.data-table-view{
+	.cash_status{
+		.status_circle{
+			$size:pxToRem(12);
+			width: $size;
+			height: $size;
+			-webkit-border-radius:50%;
+			display: inline-block;
+			margin-right:pxToRem(12);
+			vertical-align: middle;
+			margin-top: - $size / 2;
+		}
+	}
+}

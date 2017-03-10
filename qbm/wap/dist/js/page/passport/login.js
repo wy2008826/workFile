@@ -25,6 +25,19 @@ define(function(require,module,exports){
 					}
 				}
 			};
+
+			this.getParam=function(key){
+				var href=window.location.href;
+				var index=href.indexOf("?");
+				var hashArr=href.substr(index+1).split("?")[0].split("&");
+				for(var i=0;i<hashArr.length;i++){
+					var group=hashArr[i].split("=");
+					if(group[0]==key){
+						return group[1];
+					}
+				}
+			};
+
 			this.alertMes=function(html){
 				layer.open({
 					content:html,
@@ -34,6 +47,7 @@ define(function(require,module,exports){
 					btn:["好的"]
 				});
 			};
+
 
 			this.init();//初始化 输入框聚焦  失焦事件 手机号码验证等
 			this.submitForm();//提交表单
@@ -51,26 +65,33 @@ define(function(require,module,exports){
 					layer.closeAll();
 				});
 
-				$tel.focus(function(elem){
-					var $inp=$(this);
-					var parent=$inp.closest(".list_item").addClass("active");
-					$clearInput.removeClass("hide");
+				$("html").on("click",function(e){
+					var $target=$(e.target);
+					var length=$target.closest(".list_item").length;
+
+					
+					if(length==0){
+						var $inp=$tel;
+						var parent=$inp.closest(".list_item").removeClass("active");
+						$clearInput.addClass("hide");
+					}
+					else{
+						
+						$tel.closest(".list_item").addClass("active");
+						$clearInput.removeClass("hide");
+
+					}
+					
 				});
 
-				$tel.blur(function(elem){
-					var $inp=$(this);
-					var parent=$inp.closest(".list_item").removeClass("active");
-					$clearInput.addClass("hide");
-				});
-				
 				$("#tel")[0].addEventListener("input",function(){
 					matchTel();
 				});
 
 				matchTel();//后退只该页面的时候  如果手机号码正确，溢出disable属性
 				
-				$("#clearInput").on("click",function(){
-					$("#tel").val("").focus();
+				$clearInput.on("click",function(){
+					$tel.val("");//此处如果添加focus  会导致ios的点击延迟现象
 				});
 				
 				function matchTel(){
@@ -97,54 +118,53 @@ define(function(require,module,exports){
 					}
 					var $phoneInp=$("#tel");
 					var phoneVal=$phoneInp.val();
+					var brokersVal = $("#brokers").val();
+					
 					e.preventDefault();
 					
 					//status -1手机已注册  0 手机未注册
-					var href="../passport/reg.html?phoneNumber="+phoneVal;
-					window.location.href=href;	
-
-					// $.ajax({
-					// 	url:self.url.wapUrl+self.url.loginByTelUrl+"?phoneNumber="+phoneVal,
-					// 	type:"get",
-					// 	dataType:"jsonp",
-					// 	success:function(data){
-					// 		//console.log(data);
-					// 		if(data.result){//有结果
-					// 			if(data.status=="0"){//未注册 跳转到注册页面
-					// 				var href=self.url.wapUrl+"/passport/reg.html?phoneNumber="+data.phoneNumber;
-					// 				window.location.href=href;								 
-					// 			}
-					// 			else if(data.status=="-1"){//已经注册 跳转到输入密码界面
-					// 				var href=self.url.wapUrl+"/passport/enterPwd.html?phoneNumber="+data.phoneNumber;
-					// 				window.location.href=href;	
-					// 			}
-					// 			// else if(data.status=="7"){//当天短信验证码已经达到上限
-					// 			// 	// var href=self.url.wapUrl+"/passport/reg.html?phoneNumber="+data.phoneNumber;
-					// 			// 	var html="<p class='lh-40'>"+data.msg+"</p>";
-					// 			// 	self.alertMes(html);
-					// 			// }
-					// 			else{
-					// 				var html="<p class='lh-40'>"+data.msg+"</p>";
-					// 				self.alertMes(html);
-					// 			}
-					// 		}
-					// 		else{
-					// 			var html="<p class='lh-40'>"+data.msg+"</p>";
-					// 			self.alertMes(html);
-					// 		}
-					// 	},
-					// 	error:function(){
-					// 		var html="<p class='lh-40'>"+data.msg+"</p>";
-					// 		self.alertMes(html);
-
-					// 		// var href=self.url.wapUrl+"/passport/reg.html?phoneNumber="+data.phoneNumber;
-					// 		// window.location.href=href;		
-					// 	}
-					// });
+					$.ajax({
+						url:self.url.wapUrl+self.url.loginByTelUrl+"?phoneNumber="+phoneVal+"&brokers="+brokersVal,
+						type:"get",
+						dataType:"jsonp",
+						success:function(data){
+							if(data.result){//有结果
+								if(data.status=="0"){//未注册 跳转到注册页面
+									var href=self.url.wapUrl+"/passport/reg.html?phoneNumber="+data.phoneNumber+"&brokers="+data.brokers;
+									window.location.href=href;								 
+								}
+								else if(data.status=="-1"){//已经注册 跳转到输入密码界面
+									var href=self.url.wapUrl+"/passport/enterPwd.html?phoneNumber="+data.phoneNumber+"&brokers="+data.brokers;
+									var referBack=self.getParam("referBack");//指定登录成功后的返回页面
+									var borrowId=self.getParam("borrow_id");//标id
+									if(referBack){
+										href+=("&referBack="+referBack);
+									}
+									if(borrowId){
+										href+=("&borrow_id="+borrowId);
+									}
+									window.location.href=href;	
+								}
+								// else if(data.status=="7"){//当天短信验证码已经达到上限
+								// 	// var href=self.url.wapUrl+"/passport/reg.html?phoneNumber="+data.phoneNumber;
+								// 	var html="<p class='lh-40'>"+data.msg+"</p>";
+								// 	self.alertMes(html);
+								// }
+								else{
+									var html="<p class='lh-40'>"+data.msg+"</p>";
+									self.alertMes(html);
+								}
+							}
+							else{
+								var html="<p class='lh-40'>"+data.msg+"</p>";
+								self.alertMes(html);
+							}
+						}
+					});
 				});
 			}
 		};
 
-		var app=new App();
+		app=new App();
 	});
 });

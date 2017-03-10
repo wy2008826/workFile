@@ -21,6 +21,22 @@ app.get("/index.html",function(req,res,next){
 app.get("/financing/detail.html",function(req,res,next){
 	res.render("./financing/detail");
 });
+app.get("/financing/assetsList.html",function(req,res,next){
+	res.render("./financing/assetsList");
+});
+app.get("/financing/buy.html",function(req,res,next){
+	res.render("./financing/buy");
+});
+app.get("/financing/detailSub.html",function(req,res,next){
+	res.render("./financing/detailSub");
+});
+app.get("/financing/purchaseRecords.html",function(req,res,next){
+	res.render("./financing/purchaseRecords");
+});
 
+
+app.get("/member/index.html",function(req,res,next){
+	res.render("./member/index");
+});
 
 app.listen(3000);

@@ -1,0 +1,11 @@
+@import "../base";
+@import "../_ignore/mixin";
+
+
+@include dpr(".redeem_wrap",22px);
+
+.redeem_wrap{
+	.redeem_item{
+
+	}
+}

@@ -15,6 +15,19 @@ body{
 	padding-bottom:pxToRem(180);
 }
 
+.agreenmentLink{
+	margin:pxToRem(28);
+	padding:0 pxToRem(20);
+	span{
+		text-decoration: underline;
+	}
+}
+
+@include dpr(".label_mes_wraper .label_prog .prog_text",34px);
+.normal_text_row{
+	line-height:pxToRem(96);
+}
+
 @include dpr(".label_mes_wraper .label_prog .prog_text",34px);
 @include dpr(".label_mes_wraper .label_prog .per_num",68px);
 .label_mes_wraper{

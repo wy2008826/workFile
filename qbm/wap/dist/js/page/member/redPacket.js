@@ -16,6 +16,13 @@ define(function(require, exports, module) {
 	$(function(){
 		var wapurl = $("#wapurl").val();
 		
+		
+		//提现优惠券
+		$("#goCoupon").on("click",function(){
+			location.href = wapurl+ "/member/couponList.html";
+		})
+		
+		
 		//红包使用规则
 		$("#redPacketRule").on("click",function(){
 			location.href = wapurl+ "/member/redPacketRule.html";
@@ -43,6 +50,7 @@ define(function(require, exports, module) {
 		        },
 		        //下拉刷新
 		        loadUpFn : function(me){
+		        	
 		            $.ajax({
 				        type:"get",
 				        url:wapurl+"/api/member/getMyRedEnvelopeForAll.html?currentPage=1&pageSize=5&randomTime="+(new Date()).getTime(),
@@ -67,9 +75,11 @@ define(function(require, exports, module) {
 							            require.async('artTemplateHelper', function() {
 							            	var html = template('listTpl', data);
 						                    setTimeout(function(){
-									             $('#list').html(html) ;
-						                        // 每次数据加载完，必须重置
+									            $('#list').html(html) ;
 						                        me.resetload();
+						                        page = 2;
+						                        me.unlock();
+                        						me.noData(false);
 						                    },300);
 							            })
 							        });	
@@ -78,6 +88,7 @@ define(function(require, exports, module) {
 							        if(dataLength < 5){
 										$(".dropload-down").addClass("hide");
 									}
+							        
 								}
 				        	}else if(data.code== -2){//获取数据失败
 				        		require.async('layerCss',function(){
@@ -141,7 +152,6 @@ define(function(require, exports, module) {
 									$(".dropload-down").addClass("hide");
 									return;
 								}else{
-									
 									$("#pageWrap").removeClass("hide");
 									$("#noData").addClass("hide");
 									$(".dropload-down").removeClass("hide");
@@ -162,7 +172,7 @@ define(function(require, exports, module) {
 							        if(page == 1 && dataLength < 5){
 										$(".dropload-down").addClass("hide");
 									}
-									page += 1;
+									page ++;
 							        
 							        //
 							        if(dataLength < 5){

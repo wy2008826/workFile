@@ -18,52 +18,7 @@ define(function(require, exports, module) {
 		
 		//加载列表-加载第一页，每页10条
 		var page = 1;
-		
-		//加载列表
-		function getList(){
-			$.ajax({
-		        type:"get",
-		        url:wapurl+"/api/member/getCashList.html?currentPage=1&pageSize=10&randomTime="+(new Date()).getTime(),
-		        dataType:"jsonp",
-		        
-		        success:function(data){
-		        	if(data.code == 1){//已登录
-						var dataLength = data.dataList.length;
-						if(dataLength == 0){
-							$("#noData").removeClass("hide");
-							$("#list").addClass("hide");
-						}else{
-							$("#list").removeClass("hide");
-							$("#noData").addClass("hide");
-							//异步加载模板引擎
-				            require.async('artTemplate', function(template) {
-				                require.async('artTemplateHelper', function() {
-				                    var html = template('listTpl', data);
-				                    $('#list').html(html) ;
-				                })
-				            });
-						}
-		        	}else if(data.code== -2){//获取数据失败
-		        		require.async('layerCss',function(){
-				           require.async('layer',function(layer){
-				           		layer.open({
-				                    content: '获取数据失败',
-				                    className: 'layer-tip',
-				                    time: 2,
-				                    end:function(){
-				                   		location.href = wapurl;
-				                    }
-				                });
-				            })
-				        })
-		        	}else if(data.code== -1){//未登录
-		        		location.href = wapurl+ "/passport/login.html";
-		        	}
-		        }
-		    })
-		};
-		
-		
+				
 		//下拉刷新，上拉加载更多
 		require.async('dropload', function() {
 			$('#pageWrap').dropload({
@@ -89,6 +44,7 @@ define(function(require, exports, module) {
 				        jsonp:"callback",
 						jsonpCallback:"jsonpCallback",
 				        success:function(data){
+				        	console.log(data);
 				        	if(data.code == 1){//已登录
 								var dataLength = data.dataList.length;
 								if( dataLength == 0 && page == 1){
@@ -109,6 +65,9 @@ define(function(require, exports, module) {
 									             $('#list').html(html) ;
 						                        // 每次数据加载完，必须重置
 						                        me.resetload();
+						                        page = 2;
+						                        me.unlock();
+                        						me.noData(false);
 						                    },300);
 							            })
 							        });	

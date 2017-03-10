@@ -28,6 +28,10 @@ define(function(require,module,exports){
 			};
 			this.pagePhone=this.getParam("phoneNumber");
 
+
+			this.referBackUrl={
+				borrowDetail:this.url.wapUrl+"/wap/getBorrowInfo.html?borrow_id="+this.getParam("borrow_id"),//成功后返回到标详情页面
+			};
 			this.init();
 			this.submitForm();
 		};
@@ -92,9 +96,12 @@ define(function(require,module,exports){
 
 					var $passInp=$("#passportInput");
 					var passVal=$passInp.val();
+					var brokersVal= $("#brokers").val();
 					e.preventDefault();
 
-					var parm={"password":passVal,//密码
+					var parm={
+							"brokers":brokersVal,
+							"password":passVal,//密码
 							"username":self.pagePhone//手机号
 						};
 					var url=self.url.wapUrl+self.url.submitTelUrl;//提交地址
@@ -151,6 +158,11 @@ define(function(require,module,exports){
 								}
 								else if(data.code ==1){//登陆成功
 									var url=self.url.wapUrl+"/index.html";
+
+									var referBackType=self.getParam("referBack");//登陆成功后返回页面的标示
+									if(referBackType){
+										url=self.referBackUrl[referBackType];
+									}
 									window.location.href=url;
 								}
 							}

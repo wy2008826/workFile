@@ -1,4 +1,5 @@
 @import "../base";
+@import "../_ignore/mixin";
 
 .cash-rule{
     h1,h2{
@@ -12,5 +13,6 @@
     }
     p{
         line-height: 150%;
+        padding-bottom: pxToRem(20);
     }
 }

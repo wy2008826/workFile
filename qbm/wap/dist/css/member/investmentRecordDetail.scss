@@ -11,10 +11,47 @@ $bdcolor:#e5e5e5;
     background-color: #ff6900;
     line-height: pxToRem(94);
 }
+
+
+@include dpr(".reason_head",26px);
+@include dpr(".reason_text",22px);
+
+._noralText{
+    padding-bottom:pxToRem(30);
+    .reason_head{
+        line-height: pxToRem(80);
+    }
+    .reason_text{
+        line-height: pxToRem(60);
+    }
+}
+.detail_failed_wraper{//failde box
+    @extend ._noralText;
+}
+
+.trading_wraper{//trading
+    .failed_wraper{
+        @extend ._noralText;
+    }
+}
+
+
 .normal_lists_wraper .normal_lists_ul .list_item label{
     width: pxToRem(210);
 }
 
+@include dpr(".normal_lists_wraper .normal_lists_ul .list_item .zhaiquan_text",60px);
+.normal_lists_wraper{
+    .normal_lists_ul{
+        .list_item{
+            &.zhaiquan_item{
+                line-height: pxToRem(160);
+                font-weight: 300;
+
+            }
+        }
+    }
+}
 .baoquancode{
     border-bottom: 1px solid #666;
 }

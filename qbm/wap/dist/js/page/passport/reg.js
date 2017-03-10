@@ -36,6 +36,7 @@ define(function(require,module,exports){
 				}
 			};
 			this.pagePhone=this.getParam("phoneNumber");
+			this.pageBrokers=this.getParam("brokers");
 
 			this.alertMsg={
 				imgIsEmpty:"<p class='lh-40 text-center'>抱歉，您输入的图形验证码不正确</p>",
@@ -78,6 +79,9 @@ define(function(require,module,exports){
 				var self=this;
 				if(self.pagePhone){
 					$("#pagePhone").text(self.pagePhone);
+				}
+				if(self.pageBrokers){
+					$("#pageBrokers").val(self.pageBrokers);
 				}
 
 				$("body").on("click",".layermbtn span",function(){
@@ -236,7 +240,7 @@ define(function(require,module,exports){
 						}
 					},1000);
 				}
-
+				setTimer();//页面刚进来的时候短信已经发送到，并进行倒计时
 			},
 			validateForm:function(){
 				require("layer");
@@ -291,6 +295,8 @@ define(function(require,module,exports){
 				}
 
 				$submit.click(function(){
+					var pswVal0=$pwdInput0.val().trim();//首次密码
+					var pswVal1=$pwdInput1.val().trim();//再次密码
 					require.async("layer",function(){
 						if(!( $submit.hasClass("disabled") ) ){//按钮可点  
 							
@@ -299,7 +305,7 @@ define(function(require,module,exports){
 								alertMes(html);
 								return false;
 							}
-							if(!regPass.test($pwdInput0.val())|| !regPass.test($pwdInput1.val())){//密码格式不正确
+							if(!regPass.test($pwdInput0.val())|| !regPass.test($pwdInput1.val()) || pswVal0.length<6 || pswVal0.length>12|| pswVal1.length<6 || pswVal1.length>12){//密码格式不正确
 								var html=self.alertMsg.passNotRight;
 								alertMes(html);
 								return false;
@@ -312,17 +318,14 @@ define(function(require,module,exports){
 								}
 							}
 
-							var href="../index.html";
-							window.location.href=href;
-							return false;
-
 							var params={
 								verify:$imgInput.val()||"",//图形码
 								code:$telMesInput.val(),//短信码
 								firstPwd:$pwdInput0.val(),//密码0
 								secondPwd:$pwdInput1.val(),//密码1
 								referee:$tuijianInput.val(),//推荐人手机号
-								username:self.pagePhone//注册手机号
+								username:self.pagePhone,//注册手机号
+								brokers:self.pageBrokers//注册手机号
 							};	
 							//console.log(params);
 							var url=self.url.wapUrl+self.url.submitUrl;
@@ -332,7 +335,6 @@ define(function(require,module,exports){
 								dataType:"jsonp",
 								data:params,
 								success:function(data){
-									//console.log(data);
 									if(!data.result){
 										if(data.code=="-1"){//各种原因的注册失败
 											if(data.status=="1"){//短信码错误

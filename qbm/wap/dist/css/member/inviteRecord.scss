@@ -1,0 +1,130 @@
+@import "../base";
+@import "../_ignore/normal_lists";
+@import "../_ignore/mylayer";
+
+@include fontFace("../");
+
+@include DPR(".record_mes_wraper .record_mes_ul li",14px);
+.record_mes_wraper{
+    .record_mes_ul{
+        padding:0 pxToRem(28);
+        border-bottom:1px solid #e5e5e5;
+        li{
+            line-height: pxToRem(90);
+            border-bottom:1px solid #e5e5e5;
+            &:last-child{
+                border-bottom:0;
+            }
+        }
+    }
+}
+
+
+@include DPR(".record-list header a",14px);
+.record-list{
+    margin-top:pxToRem(30);
+    header{
+        $bgColor:#fd9438;
+        background:$bgColor;
+        a{
+            color:#feceaf;
+            line-height:pxToRem(90);
+            position: relative;
+        }
+        .change{
+            color:#fff;
+            &:after{
+                $borderH:pxToRem(10);
+                $borderW:pxToRem(13);
+                content:"";
+                display: block;
+                width: 0;
+                height:0;
+                border-top:$borderH solid $bgColor;
+                border-right:$borderW solid transparent;
+                border-left:$borderW solid transparent;
+                position: absolute;
+                bottom:- $borderH;
+                left:50%;
+                margin-left:- $borderW;
+            }
+        }
+    }
+   .recordfriend{
+        margin:pxToRem(30) 0;
+        color:#313131;
+        border-top:1px solid #e5e5e5;
+        .recordfriend-list{
+            $h:pxToRem(130);
+            @include boxSizing(border-box);
+            padding:pxToRem(20);
+            border-bottom:1px solid #e5e5e5;
+            height:$h;
+            position:relative;
+            .right_mes{
+                width:38%;
+            }
+            p{
+                line-height: pxToRem(45);
+            }
+            .single_line{
+                p{
+                    line-height: pxToRem(90);
+                }
+            }
+            .goactive{
+                $lh:pxToRem(44);
+                position: absolute;
+                display: block;
+                line-height: $lh;
+                top:50%;
+                right: pxToRem(30);
+                margin-top: - $lh / 2;
+                padding:0 pxToRem(30);
+                @include borderRadius(pxToRem(8));
+                color:#ff6900;
+                border:1px solid #ff6900;
+                &.disabled{
+                    color:#999;
+                    border:1px solid #999;
+                    background-color:#ccc;
+                    
+                }
+            }
+        }
+   }
+}
+
+
+.load_text{
+    line-height:pxToRem(50);
+    color:#666;
+    padding-bottom:pxToRem(30);
+}
+
+.layermchild {
+    -webkit-border-radius:pxToRem(21);
+    overflow:hidden;
+    .layermcont{
+        padding:0 !important;
+        height:pxToRem(560);
+        overflow:scroll;
+        margin-top:0;
+        margin-bottom:0;
+        background-color:transparent !important;
+    }
+    &.layer-tip{
+        .layermcont{
+            background-color:rgba(50,50,50,0.6)  !important;
+            height: auto;
+            .normal-tip-line{
+                padding:pxToRem(30);
+                line-height: pxToRem(60);
+                color:#fff;
+                text-align: center;
+            }
+        }
+    }
+}
+
+

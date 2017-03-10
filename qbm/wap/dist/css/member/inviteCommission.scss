@@ -1,0 +1,72 @@
+@import "../base";
+@import "../_ignore/mixin";
+
+
+@include DPR(".commission_header .normal_mes",16px);
+.commission_header{
+	background-color:#ffa31a;
+	padding:pxToRem(40) 0;
+	.normal_mes{
+		color:#fff;
+		line-height: pxToRem(90);
+	}
+}
+
+@include DPR(".commission_wraper .wraper_tit",14px);
+@include DPR(".commission_wraper .how_to_get .right_mes",14px);
+@include DPR(".commission_wraper .how_to_look",14px);
+
+.commission_wraper{
+	margin:pxToRem(30);
+	border:1px solid #e5e5e5;
+	.wraper_tit{
+		line-height: pxToRem(90);
+		color:#525252;
+		border-bottom:1px solid #e5e5e5;
+	}
+	.how_to_get{
+		$rowH:pxToRem(210);
+		padding:pxToRem(60) 0;
+		border-bottom:1px solid #e5e5e5;
+		.row{
+			height: $rowH;
+		}
+		.left_img{
+			width: pxToRem(280);
+			img{
+				vertical-align: middle;
+				width: pxToRem(184);
+			}
+		}
+		.commission_arrow{
+			margin:pxToRem(-10) 0 0 pxToRem(440);
+			width: pxToRem(32);
+		}
+		.right_mes{
+			height: 100%;
+			position: relative;
+			width: pxToRem(400);
+			.mes_box{
+				position: absolute;
+				width: 100%;
+				top:50%;
+				color:#a9a9a9;
+				-webkit-transform:translateY(-50%);
+				transform:translateY(-50%);
+				line-height: pxToRem(50);
+			}
+		}
+	}
+	.how_to_look{
+		padding:pxToRem(30) pxToRem(40);
+		p{
+			line-height: pxToRem(44);
+		}
+	}
+}
+
+@include DPR(".website_own",14px);
+.website_own{
+	padding:pxToRem(60) 0 pxToRem(100) 0;
+	color:#666;
+}

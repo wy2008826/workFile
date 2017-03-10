@@ -64,6 +64,10 @@ $bdcolor:#e5e5e5;
 #pageWrap{
     margin-top: pxToRem(210);
 }
+
+@include dpr(".record-item .box .borrow_name",26px);
+@include dpr(".record-item .box .table_row .col-val",30px);
+
 .record-list{
     margin: 0 pxToRem(30) pxToRem(30) pxToRem(30);
     .record-item{
@@ -76,7 +80,7 @@ $bdcolor:#e5e5e5;
             height: pxToRem(14);
         }
         .time{
-            line-height:pxToRem(68);
+            line-height:pxToRem(70);
             .icon-shijian{
                 color: #1a1a1a;
                 margin-right: pxToRem(20);
@@ -87,54 +91,60 @@ $bdcolor:#e5e5e5;
             height:pxToRem(234);
             .row{
                 margin-top: pxToRem(5);
+                &.table_row{
+                    p:first-child{
+                        line-height: pxToRem(66);
+                    }
+                }
                 .state{
                     position: relative;
                     display: inline-block;
-                    width: pxToRem(90);
+                    width: pxToRem(116);
                     height: pxToRem(36);
                     line-height: pxToRem(36);
                     border-radius: pxToRem(5);
-                    color: $white;
+                    color: #313131;
                 }
                 .state:after{
+                    $size:pxToRem(12);
                     content: ' ';
-                    height: 0;
+                    height: $size;
                     position: absolute;
-                    width: 0;
-                    border: pxToRem(6) solid transparent;
+                    width: $size;
+                    -webkit-border-radius:50%;
                     right: 100%;
                     top: 50%;
-                    margin-top: pxToRem(-6);
+                    margin-top:- $size / 2;
                 }
                 .daishou{
-                    background-color: #ff6900;
+                    // background-color: #ff6900;
                 }
                 .daishou:after{
-                    border-right-color: #ff6900;
+                    background-color: #ff6900;
                 }
                 .dongjie{
-                    background-color: #0092ff;
+                    // background-color: #0092ff;
                 }
                 .dongjie:after{
-                    border-right-color: #0092ff;
+                    background-color: #0092ff;
                 }
                 .yihuankuan{
-                    background-color: #b3b3b3;
+                    // background-color: #b3b3b3;
                 }
                 .yihuankuan:after{
-                    border-right-color: #b3b3b3;
+                    background-color: #b3b3b3;
                 }
                 .yishixiao{
-                    background-color: #f24656;
+                    // background-color: #f24656;
                 }
                 .yishixiao:after{
-                    border-right-color: #f24656;
+                    background-color: #f24656;
                 }
                 .chulizhong{
-                    background-color: #fd9438;
+                    // background-color: #0092ff;
                 }
                 .chulizhong:after{
-                    border-right-color: #fd9438;
+                    background-color: #0092ff;
                 }
                 .wait{
                     position: absolute;

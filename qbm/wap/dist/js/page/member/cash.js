@@ -75,7 +75,7 @@ define(function(require, exports, module) {
 	    }
 		
 		//提现规则
-		$("#cashRule").on("click",function(){
+		$("#cashRule,.cash-tip").on("click",function(){
 			location.href = wapurl+ "/member/cashRule.html";
 		})
 		//忘记交易密码
@@ -121,9 +121,107 @@ define(function(require, exports, module) {
 			}
 		})	
 		
+		//选择优惠券弹框
+		$("#selectCoupon").on("click",function(){
+			//异步加载模板引擎
+		    require.async('artTemplate', function(template) {
+		        require.async('artTemplateHelper', function() {
+		        	
+		        	template.helper("couponSelctedClass",function(status){
+						var ticketId = $("#ticketId").val();
+						if(status == ticketId){
+							return "active";
+						}
+					});
+					
+					$.ajax({
+		                type:"get",
+		                url:wapurl+"/api/member/cashCoupon.html?flag=0&page=1&pageSize=10",
+		                dataType:'jsonp',
+		                jsonp:"callback",
+		    			jsonpCallback:"jsonpCallback",
+		                success:function(data){
+		                	var render = template.compile($("#couponListTpl").html());
+		                	var html = render(data);
+		                	require.async('layerCss',function(){
+					           require.async('layer',function(layer){
+					           		layer.open({
+										type:1,
+										shadeClose:false,
+										content: html,
+										success:function(){
+										}
+									});
+					            })
+					        })
+		                }
+		            })
+				})
+			})
+		});
+		
+		//关闭优惠券弹框
+		$(document).on({
+			click: function() {
+				layer.closeAll();
+			}
+		},"#closeBtn")
+		
+		//选择优惠券处理
+		$(document).on({
+			click: function() {
+				var ticketId = $(this).attr("data-id");
+				var isActive = $(this).hasClass("active");
+				
+				if(isActive){
+					$("#ticketId").val("0");
+					$("#selectTipText").text("您有可使用的优惠券");
+					$("#seletedText").text("选择");
+					$(".layer-coupon-wrap .coupon-opt").removeClass("active");
+				}else{
+					$("#ticketId").val(ticketId);
+					$("#selectTipText").text("已选择1张优惠券");
+					$("#seletedText").text("更换");
+					$(".layer-coupon-wrap .coupon-opt").removeClass("active");
+					$(this).addClass("active");
+				}
+				cashFeeFun();//选择后重新计算手续费
+				setTimeout(function(){
+					layer.closeAll();
+				},200);
+			}
+		},".coupon-opt")
+		
+		
+		//提现手续费计算
+		$("#money").on("input",function(){
+			cashFeeFun();
+		})
+		
+		function cashFeeFun(){
+			freeTimes = $("#freeTimes").val();//可用提现次数
+    		ticketId = $("#ticketId").val();//优惠券ID
+    		money = $("#money").val();//提现金额
+			if(money != ""){
+	    		setTimeout(function(){
+	    			$.ajax({
+	                    type:"get",
+	                    url:wapurl+"/wap/countFreeMoney.html?remainTimes="+freeTimes+"&ticketId="+ticketId+"&money="+money+"&randomTime="+(new Date()).getTime(),
+	                    dataType:'jsonp',
+	                    jsonp:"callback",
+	        			jsonpCallback:"jsonpCallback",
+	                    success:function(data){
+	                		$("#fees").text(data.fee);//费用预估
+	                		$("#realMoney").val(data.credited);//实际到账金额
+	                    }
+	                })
+	            },300);
+	    	}else{
+	    		$("#fees").text("0.00");
+	    	}
+		}
 		
 		//表单验证
-		
 		var $submit = $("#form-btn");//提交按钮
 		$("input").on("input",function(){
 			var flag = validateAll();
@@ -156,6 +254,7 @@ define(function(require, exports, module) {
 		                    time: 2,
 		                    end:function(){
 		                   		layer.closeAll();
+		                   		$("#money").val("");
 		                   		return false;
 		                    }
 		                });
@@ -163,37 +262,27 @@ define(function(require, exports, module) {
 		        });
 	        }
 			
+			if( money <= 1){
+				require.async('layerCss',function(){
+		            require.async('layer',function(layer){
+		           		layer.open({
+		                    content: '提现金额须大于1元',
+		                    className: 'layer-tip',
+		                    time: 2,
+		                    end:function(){
+		                   		layer.closeAll();
+		                   		return false;
+		                    }
+		                });
+		            })
+		        });
+			}
+			
 			if (money == null || money == "") {
 	            $("#fees").text("0.00");
 	            return false;
 	        }
 			
-			if (isza == 0) {
-	            if (freeCashFees < money) {
-	                if (Subtr(money, freeCashFees) < 1) {
-	                    credited = freeCashFees;
-	                    fee = Subtr(money, credited);
-	                } else {
-	                    fee = accMul(Subtr(money, freeCashFees), 0.005);
-	                    if (fee < 1) {
-	                        fee = 1;
-	                    }
-	                    var array = fee.toString().split(".");
-	                    if (array.length > 1 && array[1].length > 2) {
-	                        fee = array[0] + "." + array[1].substr(0,2);
-	                    }
-	                    credited = Subtr(money, fee);
-	                }
-	            } else {
-	                credited = money;
-	            }
-	        } else {
-	            credited = money;
-	            fee = 0;
-	        }
-	        var newFee = moneyFix(fee);
-	        $("#fees").text(newFee);
-	        
 			if((money != "") && (money <= useMoney)  && (money <= 1000000 ) && (money >= 1 ) && payPassword !="" && bankId !="" && bankBranch !=""){
 				return true;
 			}
@@ -205,10 +294,10 @@ define(function(require, exports, module) {
 				require.async('layerCss',function(){
 		            require.async('layer',function(layer){
 		            	var money = moneyFix($("#money").val().trim()*1);//提现金额
-		            	var fees = $("#fees").text()//提现手续费
-		            	var realMoney = moneyFix(money - fees);
+		            	var fees = $("#fees").text()//提现费用
+		            	var realMoney = $("#realMoney").val();//实际到账金额
 		            	
-		            	var confirm='<div class="fc-31 fs-24 pop-layer"><div class="row"><span class="col-all-6 text-right">本次提现金额为</span><span class="col-all-6">￥'+money+'元</span></div><div class="row"><span class="col-all-6 text-right">手续费收取</span><span class="col-all-6">￥'+fees+'元</span></div><div class="row"><span class="col-all-6 text-right">实际到账金额为</span><span class="col-all-6">￥'+realMoney+'元</span></div></div>';
+		            	var confirm='<div class="fc-31 fs-24 pop-layer"><div class="row"><span class="col-all-6 text-right">本次提现金额为</span><span class="col-all-6">￥'+money+'</span></div><div class="row"><span class="col-all-6 text-right">提现费用</span><span class="col-all-6">￥'+fees+'</span></div><div class="row"><span class="col-all-6 text-right">实际到账金额为</span><span class="col-all-6">￥'+realMoney+'</span></div></div>';
 		            	var tipLayer = layer.open({
 							title:['请确认','background-color:#fff;color:#313131;'],
 							content:confirm,
@@ -224,8 +313,10 @@ define(function(require, exports, module) {
 								    contentType: "application/jsonp; charset=utf-8",
 								    data:{
 								    	accountBankId:$("#accountBankId").val().trim(),
+								    	ticketId:$("#ticketId").val().trim(),
 								    	money:$("#money").val().trim(),
 								    	branch:$("#branch").val().trim(),
+								    	ticketId:$("#ticketId").val().trim(),
 								    	password:$("#payPassword").val().trim()
 								    },
 								    success: function(data){

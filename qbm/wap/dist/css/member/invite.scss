@@ -1,0 +1,271 @@
+@import "../base";
+@import "../_ignore/normal_lists";
+@import "../_ignore/mylayer";
+@include fontFace("../");
+
+
+
+body{
+    color:#666;
+    background:#f8f8f8;
+}
+.mancontainer{
+    margin:0 auto;
+    padding:0 0 pxToRem(20) 0;
+}
+.hide{
+    display:none;
+}
+.blue_link{color:#0092ff;}
+
+.changered{
+    color:#ff6900;
+}
+.loadtxt{
+    text-align:center;
+    padding-top:pxToRem(15);
+    color:#666;
+}
+.loadtxt1{
+    text-align:center;
+    padding-top:pxToRem(50);
+    color:#666;
+}
+.inviteimgcon{
+    width:pxToRem(750);
+    margin:0 auto;
+    .inviteimg{
+        width:pxToRem(750);
+        vertical-align:top;
+    }
+}
+.layermbox{
+    width: 10rem;
+}
+
+.layermchild {
+    &.contentTransparent{
+        .layermcont{
+            background-color:transparent;
+        }
+    }
+    .share_img{
+        width: 100%;
+    }
+}
+
+@include DPR(".agent_header .agent_header_mes .agent_level",16px);
+@include DPR(".agent_header .agent_header_mes .agent_friend",14px);
+.agent_header{
+    width:100%;
+    margin:0;
+    position: relative;
+    .invite_head_bg{
+        width: 100%;
+    }
+    .agent_header_mes{
+        $w:pxToRem(330);
+        position: absolute;
+        top:pxToRem(245);
+        left:50%;
+        width: $w;
+        margin-left:- $w / 2;
+        text-align: center;
+        .agent_level{
+            $h:pxToRem(90);
+            width: $w;
+            height:$h;
+            -webkit-border-radius:$h / 2;
+            background:#fff;
+            color:#666;
+            line-height:$h;
+            .agent_icon{
+                width: pxToRem(60);
+            }
+        }
+        .agent_friend{
+            line-height: pxToRem(70);
+            color:#666;
+            span{
+                color:#ff6900;
+            }
+        }
+    }
+}
+
+
+@include DPR(".invite_normal_list .gonglue_row span",16px);
+@include DPR(".invite_normal_list .hongbao_row .get_status",14px);
+@include DPR(".invite_normal_list .gonglue_row a",13px);
+@include DPR(".invite_normal_list .lingqu_btn",16px);
+@include DPR(".invite_normal_list .list_mes p",16px);
+@include DPR(".invite_normal_list .list_mes label",13px);
+
+
+.invite_normal_list{
+    .normal_list_ul{
+        padding:0 pxToRem(28);
+        border-bottom:1px solid #e5e5e5;
+        li{
+            border-bottom:1px solid #e5e5e5;
+            position: relative;
+            padding:pxToRem(10) 0;
+            &:last-child{
+                border-bottom:none;
+            }
+            &.list_link{
+                background-image:url(../../images/member/invite/list_arrow.png);
+                background-repeat:no-repeat;
+                background-position:right center;
+                padding-right:pxToRem(50);
+                background-size:pxToRem(22) auto;
+            }
+            .list_mes{
+                p{
+                    line-height: pxToRem(64);
+                    font-weight: 600;
+                    margin-bottom:pxToRem(10);
+                }
+                label{
+                    display: block;
+                    line-height: pxToRem(52);
+                    color:#999;
+                }
+            }
+            .lingqu_btn{
+                $h:pxToRem(40);
+                position: absolute;
+                line-height:$h;
+                -webkit-border-radius:pxToRem(6);
+                color:#fff;
+                background-color:#ff6c07;
+                right: 0;
+                top:50%;
+                margin-top:- $h / 2;
+                padding:0 pxToRem(20);
+                &.disabled{
+                    background-color:transparent;
+                    color:#b3b3b3;
+                }
+            }
+        }
+        .hongbao_row{
+            .get_status{
+                display: block;
+                width: pxToRem(110);
+                line-height: pxToRem(120);
+                position: absolute;
+                top:pxToRem(10);
+                right: pxToRem(24);
+                color:#ff6900;
+                &.disabled{
+                    color:#b3b3b3;
+                }
+            }
+        }
+        .gonglue_row{
+            line-height: pxToRem(70);
+            span{
+                font-weight: 600;
+            }
+        }
+
+    }   
+}
+
+
+.invitebtn{
+    margin:pxToRem(80) pxToRem(30) pxToRem(30) pxToRem(30);
+    .invitebtn-link {
+        a{
+            width:100%;
+            color:#fff;
+            display:inline-block;
+            height:pxToRem(88);
+            line-height:pxToRem(88);
+            text-align:center;
+            background:#ff6900;
+            @include borderRadius($radius:5px);
+        }
+            
+    }
+    .invitebtn-forum{
+        line-height:pxToRem(46);
+        a{
+            color:#0092ff;
+            text-decoration:underline;
+        }
+    }
+}
+@include DPR(".invitebtn",12px);
+@include DPR(".invitebtn-link a",16px);
+
+
+@include DPR(".inviterecord",14px);
+@include DPR(".invitemaster .moneytoplist ",13px);
+@include DPR(".invitemaster .moneytoplist-tab ",13px);
+
+.invitemaster{
+    margin:pxToRem(25) 0;
+    .moneytoplist-tab{
+        border:1px solid #e5e5e5;
+        line-height:pxToRem(60);
+        padding:pxToRem(20) 0;
+        a{
+            color:#999;
+            display:inline-block;
+        }
+        .change{
+            border-bottom:2px solid #ff6900;
+            color:#666666;
+        }   
+    }
+    .moneytoplist{
+        margin:pxToRem(30);
+        border:1px solid #e5e5e5;
+        padding:pxToRem(20);
+        position: relative;
+        .select_tringle{
+            $rotate:45deg;
+            $size:pxToRem(20);
+            position: absolute;
+            display: block;
+            width: $size;
+            height: $size;
+            background-color:#fff;
+            border:1px solid #e5e5e5;
+            -webkit-transform-origin: 50% 50%;
+            transform-origin: 50% 50%;
+            $transform:$size * 1.414 / 2;
+            -webkit-transform:translate3d(- $transform,- $transform,0) rotate($rotate);
+            transform:translate3d(- $transform,- $transform,0) rotate($rotate);
+            left:pxToRem(375 - 30) / 2 ;
+            top:0;
+            border-right:0;
+            border-bottom:0;
+            &.second{
+                left:pxToRem(375 - 30) * 1.5;
+            }
+        }
+        .nodataprom{
+            text-align:center;
+            margin-top:pxToRem(60);
+        }
+        li{
+            line-height:pxToRem(56);
+            position:relative;
+            color:#999;
+            em{
+                font-style:normal;
+                position:absolute;
+                right:pxToRem(20);
+                top:0;
+                display:inline-block;               
+            }
+            &:last-child{
+                border-bottom:none;
+            }
+        }
+    }
+}
+

@@ -68,7 +68,7 @@ define(function(require,exports,module){
 			}
 
 
-			this.borrow_id=this.getParam("borrow_id");
+			this.borrow_id=this.getParam("borrow_id");//标id
 			this.borrowTimeLimit=$("#borrowTimeLimit").val().trim()*1;//项目天数
 
 			this.calRate=function(redVal,buyAcount){//计算加息的百分比 redVal:红包金额 buyAcount：购买金额
@@ -166,8 +166,9 @@ define(function(require,exports,module){
 				$actural_money.text("0");
 				$add_raise.text("0%");
 			}
-
+			
 			this.init();
+			this.lookAgreenment();//预览协议
 			this.inputMoney();//输入购买金额
 			this.buyNow();//立即购买
 			this.selectRedPacket();//选择红包
@@ -192,6 +193,19 @@ define(function(require,exports,module){
 				});
 
 
+			},
+			lookAgreenment:function(){
+				var self=this;
+				$("#agreenmentLink").on("click",function(){
+					var isTransfer=false;//是否是转让标
+					if(isTransfer){
+						var href=self.url.wapUrl+"/financing/transfer-agreement.html?id="+transferId;
+					}
+					else{
+						var href=self.url.wapUrl+"/financing/investment-agreement.html?id="+self.borrow_id;
+					}
+					window.location.href=href;
+				});
 			},
 			inputMoney:function(){
 				var self=this;
@@ -474,7 +488,7 @@ define(function(require,exports,module){
 								}
 								else{
 									var p="<p>"+data.msg+"</p>";
-									$hbLoadingWraper.append(p);
+									$hbLoadingWraper.html(p);
 								}
 								
 							

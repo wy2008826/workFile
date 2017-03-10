@@ -1,0 +1,76 @@
+@import "../base";
+@import "../_ignore/mixin";
+@import "../_ignore/dropload";
+
+$white:#fff;
+$bdcolor:#e5e5e5;
+
+.redPacket-tab{
+    line-height: pxToRem(88);
+    li{
+        span{
+            display: inline-block;
+            border-bottom: 2px solid #fff;
+            padding: 0 pxToRem(18);
+        }
+    }
+   li.active{
+       span{
+           color: #313131;
+           border-color: #ff6900;
+       }
+   }
+}
+
+.rule-text span{
+    border-bottom: 1px solid #0092ff;
+}
+.no-data{
+    padding-top: pxToRem(150);
+}
+
+.coupon-list{
+    li{
+        position: relative;
+        background-color: $white;
+        border: 1px solid #397ae4;
+        border-right: none;
+        height: pxToRem(240);
+        margin-top: pxToRem(22);
+        dl{
+            position: absolute;
+            top: pxToRem(40);
+            left: pxToRem(20);
+            width: pxToRem(400);
+            dt{
+                span{
+                    padding-left: pxToRem(10);
+                }
+            }
+            dd{
+                padding-top: pxToRem(10);
+            }
+        }
+        img,.amount{
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: pxToRem(220);
+            height: pxToRem(240);
+        }
+        .amount{
+            color: $white;
+            line-height: pxToRem(254);
+            em{
+                font-style: normal;
+            }
+        }
+    }
+    li.disabled{
+        border-color: #b3b3b3;
+    }
+}
+
+
+@include dpr(".amount",40px);
+@include dpr(".amount em",66px);

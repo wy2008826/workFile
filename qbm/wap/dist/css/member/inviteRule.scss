@@ -1,0 +1,85 @@
+@import "../base";
+@import "../_ignore/mixin";
+
+
+
+.blue_link{color:#0092ff;}
+
+@include DPR(".invite_up_header h4",16px);
+@include DPR(".invite_up_header p",14px);
+
+
+.invite_up_header{
+    background-color:#ffa31a;
+    padding:pxToRem(70) pxToRem(70) pxToRem(56) pxToRem(70);
+    color:#fff;
+    h4{
+        line-height: pxToRem(40);
+        font-weight: normal;
+        margin-bottom:pxToRem(30);
+    }
+    p{
+        line-height: pxToRem(40);
+    }
+}
+@include DPR(".invite_up_wraper .wraper_tit",16px);
+@include DPR(".invite_up_wraper .up_list .list_tit .tit_name",14px);
+@include DPR(".invite_up_wraper .up_list .list_tit .tit_gift",14px);
+@include DPR(".invite_up_wraper .up_list .list_mes",13px);
+
+.invite_up_wraper{
+    margin:pxToRem(30) pxToRem(30) pxToRem(75) pxToRem(30);
+    border:1px solid #e5e5e5;
+    .wraper_tit{
+        line-height:pxToRem(90);
+        color:#666;
+    }
+    .up_list{
+        padding:pxToRem(34) pxToRem(38) pxToRem(20) pxToRem(56);
+        border-top:1px solid #e5e5e5;
+        border-bottom:1px solid #e5e5e5;
+        li{
+            border-left:pxToRem(3) solid #e5e5e5;
+            padding:0 0 pxToRem(56) pxToRem(37);
+            position: relative;
+            .agent_icon{
+                width: pxToRem(60);
+                position: absolute;
+                top:- pxToRem(3);
+                border:pxToRem(10) solid #fff;
+                left:0;
+                -webkit-transform:translateX(-50%);
+                transform:translateX(-50%);
+            }
+            &:nth-child(3){
+                border-left:0;
+            }
+            .list_tit{
+                line-height: pxToRem(70);
+                .tit_name{
+                    color:#666;
+                }
+                .tit_gift{
+                    color:#ffa31a;
+                }
+            }
+            .list_mes{
+                color:#999;
+                line-height: pxToRem(44);
+                margin-bottom: pxToRem(10);
+            }
+        }
+    }
+    .wraper_footer{
+        line-height:pxToRem(90);
+        color:#999;
+        padding:0 pxToRem(36);
+        text-align:center;
+    }
+}
+
+@include DPR(".website_own",14px);
+.website_own{
+    padding:pxToRem(60) 0 pxToRem(100) 0;
+    color:#666;
+}

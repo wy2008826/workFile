@@ -83,6 +83,33 @@
 }
 
 
+//12 14 16 18 20px ...
+@mixin DPR($elem,$size){
+
+	#{$elem}{
+	    font-size: $size;
+	}
+	[data-dpr="1"] #{$elem} {
+	    font-size: $size ;
+	}
+	[data-dpr="2"] #{$elem} {
+	    font-size: $size * 2;
+	}
+	[data-dpr="2.5"] #{$elem} {
+	    font-size: $size * 2.5;
+	}
+	[data-dpr="2.75"] #{$elem}{
+	    font-size: $size * 2.75;
+	}
+	[data-dpr="3"] #{$elem}{
+	    font-size: $size * 3;
+	}
+	[data-dpr="4"] #{$elem}{
+	    font-size: $size * 4;
+	}
+}
+
+
 @mixin fontFace($file-path){
     @font-face {
         font-family: "iconfont";
