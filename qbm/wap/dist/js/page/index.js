@@ -204,12 +204,19 @@ define(function(require,module,exports){
 				require("swiper");
 				// require.async("swiper",function(){
 					var url=self.url.wapUrl+self.url.bannerList;
-					$.ajax({
-						url:url,
-						dataType:"get",
-						dataType:"jsonp",
-						success:function(data){
+					// $.ajax({
+					// 	url:url,
+					// 	dataType:"get",
+					// 	dataType:"jsonp",
+					// 	success:function(data){
 							//console.log(data);
+							var data={
+								result:true,
+								code:1,
+								imageResourcesList:[
+									{background_color:"#f93",imageAddress:"/images/index/slider1.png"}
+								]
+							};
 							if(data.result){//正确返回
 								if(data.code==1){
 
@@ -247,8 +254,8 @@ define(function(require,module,exports){
 							else{//服务器出错  请求异常
 
 							}
-						}
-					});
+					// 	}
+					// });
 
 				// });
 	    		

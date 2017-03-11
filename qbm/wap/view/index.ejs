@@ -30,7 +30,7 @@
 				<script type="text/template" id="topBannerTpl">
 					{{each imageResourcesList as item}}
 						<div class="swiper-slide tap-link" data-href="{{item.imageUrl}}" style="background-color:{{item.background_color}}">
-							<img src="${image_prefix}{{#item.imageAddress}} " class="slider_img" >
+							<img src="{{#item.imageAddress}} " class="slider_img" >
 						</div>
 					{{/each}}
 				</script>
@@ -136,7 +136,7 @@
 			</p>
 		</div>
 		
-		<input type="hidden" value="$wapurl" id="wapurl">
+		<input type="hidden" value="" id="wapurl">
 		<script src="/js/sea.js"></script>
 		<script src="/js/sea-config.js"></script>
 
