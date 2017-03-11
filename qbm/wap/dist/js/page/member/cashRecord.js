@@ -37,13 +37,16 @@ define(function(require, exports, module) {
 		        },
 		        //下拉刷新
 		        loadUpFn : function(me){
-		            $.ajax({
-				        type:"get",
-				        url:wapurl+"/api/member/getCashList.html?currentPage=1&pageSize=10&randomTime="+(new Date()).getTime(),
-				        dataType:"jsonp",
-				        jsonp:"callback",
-						jsonpCallback:"jsonpCallback",
-				        success:function(data){
+		    //         $.ajax({
+				  //       type:"get",
+				  //       url:wapurl+"/api/member/getCashList.html?currentPage=1&pageSize=10&randomTime="+(new Date()).getTime(),
+				  //       dataType:"jsonp",
+				  //       jsonp:"callback",
+						// jsonpCallback:"jsonpCallback",
+				  //       success:function(data){
+				  			var data={
+				  				code:-2
+				  			};
 				        	console.log(data);
 				        	if(data.code == 1){//已登录
 								var dataLength = data.dataList.length;
@@ -104,33 +107,37 @@ define(function(require, exports, module) {
 						            })
 						        })
 				        	}
-				        },
-		                error: function(xhr, type){
-		                    require.async('layerCss',function(){
-					           require.async('layer',function(layer){
-					           		layer.open({
-					                    content: '请求数据超时',
-					                    className: 'layer-tip',
-					                    time: 1,
-					                    end:function(){
-					                   		// 即使加载出错，也得重置
-		                    				me.resetload();
-					                    }
-					                });
-					            })
-					        })
-		                }
-				    })
+				        // },
+		          //       error: function(xhr, type){
+		          //           require.async('layerCss',function(){
+					       //     require.async('layer',function(layer){
+					       //     		layer.open({
+					       //              content: '请求数据超时',
+					       //              className: 'layer-tip',
+					       //              time: 1,
+					       //              end:function(){
+					       //             		// 即使加载出错，也得重置
+		          //           				me.resetload();
+					       //              }
+					       //          });
+					       //      })
+					       //  })
+		          //       }
+				    // })
 		        },
 		        //上拉加载更多
 		        loadDownFn : function(me){
-		        	$.ajax({
-				        type:"get",
-				        url:wapurl+"/api/member/getCashList.html?currentPage="+page+"&pageSize=10&randomTime="+(new Date()).getTime(),
-				        dataType:"jsonp",
-				        jsonp:"callback",
-						jsonpCallback:"jsonpCallback",
-				        success:function(data){
+		    //     	$.ajax({
+				  //       type:"get",
+				  //       url:wapurl+"/api/member/getCashList.html?currentPage="+page+"&pageSize=10&randomTime="+(new Date()).getTime(),
+				  //       dataType:"jsonp",
+				  //       jsonp:"callback",
+						// jsonpCallback:"jsonpCallback",
+				  //       success:function(data){
+				  			var data={
+				  				code:-2
+				  			};
+				  			
 				        	if(data.code == 1){//已登录
 								var dataLength = data.dataList.length;
 								if( dataLength == 0 && page == 1){
@@ -196,23 +203,23 @@ define(function(require, exports, module) {
 						            })
 						        })
 				        	}
-				        },
-		                error: function(xhr, type){
-		                    require.async('layerCss',function(){
-					           require.async('layer',function(layer){
-					           		layer.open({
-					                    content: '请求数据超时',
-					                    className: 'layer-tip',
-					                    time: 1,
-					                    end:function(){
-					                   		// 即使加载出错，也得重置
-		                    				me.resetload();
-					                    }
-					                });
-					            })
-					        })
-		                }
-				    })
+				        // },
+		          //       error: function(xhr, type){
+		          //           require.async('layerCss',function(){
+					       //     require.async('layer',function(layer){
+					       //     		layer.open({
+					       //              content: '请求数据超时',
+					       //              className: 'layer-tip',
+					       //              time: 1,
+					       //              end:function(){
+					       //             		// 即使加载出错，也得重置
+		          //           				me.resetload();
+					       //              }
+					       //          });
+					       //      })
+					       //  })
+		          //       }
+				    // })
 		        },
 		        threshold : 50
 		    });

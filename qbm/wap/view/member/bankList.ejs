@@ -10,16 +10,16 @@
 		<meta name="x5-fullscreen"content="true"/>
     	<meta name="full-screen"content="yes">
 		<title>支持银行</title>
-		<link rel="stylesheet" href="$wapcdnpath/css/member/bankList.min.css?v=${ver}">
-		<script src="$wapcdnpath/js/flexible.js?v=${ver}"></script>
+		<link rel="stylesheet" href="/css/member/bankList.min.css?v=${ver}">
+		<script src="/js/flexible.js?v=${ver}"></script>
 	</head>
 	<body>
 		
 		<ul class="pd-lr-24 bank-list" id="bankList">
 			<script id="listTpl" type="text/html">
-			{{each}}
+			{{each dataLists}}
 			<li>
-				<p class="fs-24 fc-31"><img src="$wapcdnpath/images/member/bankIcon/{{$value.image}}" class="bank-icon">{{$value.name}}</p>
+				<p class="fs-24 fc-31"><img src="/images/member/bankIcon/{{$value.image}}" class="bank-icon">{{$value.name}}</p>
 				<span class="fs-18 fc-9">单笔期限{{moneyFormat $value.limitPerTime}};日累计{{moneyFormat $value.limitPerDay}}</span>
 			</li>
 			{{/each}}
@@ -27,9 +27,9 @@
 		</ul>
 		
 		<input type="hidden" value="$wapurl" id="wapurl">
-		<script src="$wapcdnpath/js/sea.js"></script>
-		<script src="$wapcdnpath/js/seajs-css.js"></script>
-		<script src="$wapcdnpath/js/sea-config.js"></script>
+		<script src="/js/sea.js"></script>
+		<script src="/js/seajs-css.js"></script>
+		<script src="/js/sea-config.js"></script>
 		<script>
 			seajs.use("page/member/bankList.min");
 		</script>

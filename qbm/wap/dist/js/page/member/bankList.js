@@ -20,21 +20,25 @@ define(function(require, exports, module) {
 		getBankList();
 		
 		function getBankList(){
-			$.ajax({
-		        type:"get",
-		        url:wapurl+"/wap/getBankList.html?randomTime="+(new Date()).getTime(),
-		        dataType:'json',
-		        success:function(data){
-					
+			// $.ajax({
+		 //        type:"get",
+		 //        url:wapurl+"/wap/getBankList.html?randomTime="+(new Date()).getTime(),
+		 //        dataType:'json',
+		 //        success:function(data){
+					var data={
+						dataLists:[
+
+						]
+					};
 		            //异步加载模板引擎
 		            require.async('artTemplate', function(template) {
 		                require.async('artTemplateHelper', function() {
-		                    var html = template('listTpl', data);
-		                    $("#bankList").html(html) ;
+		                    // var html = template('listTpl', data);
+		                    $("#bankList").html("<p class='text-center fs-24' style='margin:2rem 0'>暂无数据</p>") ;
 		                })
 		            });
-		        }
-		    })
+		        // }
+		    // })
 		}
 		
 		

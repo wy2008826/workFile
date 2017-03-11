@@ -10,8 +10,8 @@
 		<meta name="x5-fullscreen"content="true"/>
     	<meta name="full-screen"content="yes">
 		<title>我的红包</title>
-		<link rel="stylesheet" href="../../statics/css/member/redPacket.min.css?v=${ver}">
-		<script src="../../statics/js/flexible.js?v=${ver}"></script>
+		<link rel="stylesheet" href="/css/member/redPacket.min.css?v=${ver}">
+		<script src="/js/flexible.js?v=${ver}"></script>
 	</head>
 	<body>
 		<div class="mg-30">
@@ -30,9 +30,9 @@
 							</dd>
 						</dl>
 						{{if $value.useStatus == 0}}
-						<img src="../../statics/images/member/normalBg.png">
+						<img src="/images/member/normalBg.png">
 						{{else}}
-						<img src="../../statics/images/member/unavailableBg.png">
+						<img src="/images/member/unavailableBg.png">
 						{{/if}}	
 						<span class="text-center amount">￥<em>{{$value.money}}</em></span>	
 					</li>
@@ -41,10 +41,10 @@
 				</ul>
 			</div>
 		</div>
-		<input type="hidden" value="$wapurl" id="wapurl">
-		<script src="../../statics/js/sea.js"></script>
-		<script src="../../statics/js/seajs-css.js"></script>
-		<script src="../../statics/js/sea-config.js"></script>
+		<input type="hidden" value="" id="wapurl">
+		<script src="/js/sea.js"></script>
+		<script src="/js/seajs-css.js"></script>
+		<script src="/js/sea-config.js"></script>
 		<script>
 			seajs.use("page/member/redPacket.min");
 		</script>

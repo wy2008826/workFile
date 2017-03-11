@@ -9,8 +9,8 @@ define(function(require,module,exports){
 		var App=function(){
 
 			this.url={
-				wapUrl:$("#wapurl").val(),
-				loginByTelUrl:"/api/loginByPhone.html"//使用手机号码进行登录
+				wapUrl:"",
+				loginByTelUrl:""//使用手机号码进行登录
 			};
 
 
@@ -123,11 +123,17 @@ define(function(require,module,exports){
 					e.preventDefault();
 					
 					//status -1手机已注册  0 手机未注册
-					$.ajax({
-						url:self.url.wapUrl+self.url.loginByTelUrl+"?phoneNumber="+phoneVal+"&brokers="+brokersVal,
-						type:"get",
-						dataType:"jsonp",
-						success:function(data){
+					// $.ajax({
+					// 	url:self.url.wapUrl+self.url.loginByTelUrl+"?phoneNumber="+phoneVal+"&brokers="+brokersVal,
+					// 	type:"get",
+					// 	dataType:"jsonp",
+					// 	success:function(data){
+							var data={
+								result:true,
+								status:-1,
+								phoneNumber:phoneVal,
+								brokers:0
+							};
 							if(data.result){//有结果
 								if(data.status=="0"){//未注册 跳转到注册页面
 									var href=self.url.wapUrl+"/passport/reg.html?phoneNumber="+data.phoneNumber+"&brokers="+data.brokers;
@@ -159,8 +165,8 @@ define(function(require,module,exports){
 								var html="<p class='lh-40'>"+data.msg+"</p>";
 								self.alertMes(html);
 							}
-						}
-					});
+					// 	}
+					// });
 				});
 			}
 		};

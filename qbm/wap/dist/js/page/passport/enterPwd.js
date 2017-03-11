@@ -105,14 +105,18 @@ define(function(require,module,exports){
 							"username":self.pagePhone//手机号
 						};
 					var url=self.url.wapUrl+self.url.submitTelUrl;//提交地址
-					$.ajax({
-						url:url,
-						type:"get",
-						dataType:"jsonp",
-						data:parm,
-						success:function(data){
+					// $.ajax({
+					// 	url:url,
+					// 	type:"get",
+					// 	dataType:"jsonp",
+					// 	data:parm,
+					// 	success:function(data){
 							//console.log(data,typeof data);
 							// alert(JSON.stringify(data));
+							var data={
+								result:true,
+								code:1
+							};
 							if(typeof data=="string"){
 			    				data = $.parseJSON(data);
 			    			}
@@ -177,8 +181,8 @@ define(function(require,module,exports){
 								    btn:["好的"]
 								});
 							}
-						}
-					});
+						// }
+					// });
 				});
 			}
 		};

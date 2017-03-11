@@ -7,8 +7,8 @@ define(function(require,module,exports){
 		var App=function(){
 
 			this.url={
-				wapUrl:$("#wapurl").val(),
-				webUrl:$("#weburl").val(),//pc端路径前缀
+				wapUrl:"",
+				webUrl:"",//pc端路径前缀
 				refeshImgUrl:"",//刷新图形码
 				getCodeUrl:"/api/getPhoneRegCode.html",//获取短信验证码
 				submitUrl:"/api/doReg.html"//表单提交地址
@@ -168,13 +168,17 @@ define(function(require,module,exports){
 					};
 
 					if(!$(this).hasClass("disabled")){
-						$.ajax({
-							url:url,
-							type:"get",
-							dataType:"jsonp",
-							data:params,
-							success:function(data){
+						// $.ajax({
+						// 	url:url,
+						// 	type:"get",
+						// 	dataType:"jsonp",
+						// 	data:params,
+						// 	success:function(data){
 								//console.log(data);
+								var data={
+									result:true,
+									times:1
+								};
 								if(typeof data=="string"){
 				    				data = $.parseJSON(data);
 				    			}
@@ -185,7 +189,7 @@ define(function(require,module,exports){
 					    			// if(data.times>=5){
 					    			// 	$getCode.addClass("disabled");
 					    			// }
-				                	setTimer();
+				                	//setTimer();
 				                }else{//获取验证码失败
 				        //         	if(data.times>=5){//大于5次
 				        //         		$getCode.addClass("disabled");
@@ -200,11 +204,11 @@ define(function(require,module,exports){
 					    			var html="<p class='lh-40 text-center'>"+data.msg+"</p>";
 					    			self.alertMes(html);
 				                }
-							},
-							error:function(){
-								// setTimer();
-							}
-						});
+							// },
+							// error:function(){
+							// 	// setTimer();
+							// }
+					// 	});
 					}
 				});
 
@@ -329,12 +333,15 @@ define(function(require,module,exports){
 							};	
 							//console.log(params);
 							var url=self.url.wapUrl+self.url.submitUrl;
-							$.ajax({
-								url:url,
-								type:"get",
-								dataType:"jsonp",
-								data:params,
-								success:function(data){
+							// $.ajax({
+							// 	url:url,
+							// 	type:"get",
+							// 	dataType:"jsonp",
+							// 	data:params,
+							// 	success:function(data){
+									var data={
+										result:true
+									};
 									if(!data.result){
 										if(data.code=="-1"){//各种原因的注册失败
 											if(data.status=="1"){//短信码错误
@@ -378,8 +385,8 @@ define(function(require,module,exports){
 											window.location.href=href;
 										// },5000);
 									}
-								}
-							});
+								// }
+							// });
 						}
 
 					});

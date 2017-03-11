@@ -23,38 +23,40 @@ define(function(require, exports, module) {
 		var urlProtocol  = window.location.protocol;
 		
 		//设置
-		$("#goSetting").on("click",function(){
+		$("#setting").on("click",function(){
 	        location.href = wapurl+ "/member/setting.html";
 	    })
 		
 		//充值
-	    $("#goRecharge").on("click",function(){
+	    $("#rechargeBtn").on("click",function(){
 	    	location.href = wapurl+ "/member/recharge.html";
 	    })
 		
 	    //提现
-	    $("#goCcash").on("click",function(){
+	    $("#cashBtn").on("click",function(){
 	    	location.href = wapurl+ "/member/cash.html";	
 	    })
 	    
 	    //交易明细
-	    $("#goDealDetail").on("click",function(){
+	    $("#dealDetailBtn").on("click",function(){
 	        location.href = wapurl+ "/member/dealDetail.html";
 	    })
 	
 	    //我的投资
-	    $("#goInvestment").on("click",function(){
+	    $("#investmentBtn").on("click",function(){
 	        location.href = wapurl+ "/member/investmentRecordAll.html";
 	    })
 	
 	    //我的红包
-	    $("#goRredPacket").on("click",function(){
+	    $("#redPacketBtn").on("click",function(){
 	        location.href = wapurl+ "/member/redPacket.html";
 	    })
 	
 	    //我要借款
-	    $("#goLoan").on("click",function(){
-	        location.href = weburl+ "/app/loan.html";
+	    $("#loanBtn").on("click",function(){
+	       
+	    	location.reload();
+	        // location.href = weburl+ "/app/loan.html";
 	    })
 	    
 	    //邀请好友
@@ -64,7 +66,7 @@ define(function(require, exports, module) {
 	    
 	    //返回首页
 	    $("#backHome").on("click",function(){
-	        location.href = wapurl;
+	        location.href = "/";
 	    })
 	    
 	    //APP下载
@@ -78,17 +80,17 @@ define(function(require, exports, module) {
 	    })
 	    
 	    //小红点处理
-	    $.ajax({
-		    type: "get",
-		    url: wapurl+"/api/member/getInvitationRedPointStatus.html",
-		    dataType:"jsonp",
-		    success: function(data){
-		    	if(data.showPointAddr == 1){
-		    		$(".redPoint em").removeClass("hide");
-		    	}else{
-		    		$(".redPoint em").addClass("hide")
-		    	}
-		    }
-		})
+	 //    $.ajax({
+		//     type: "get",
+		//     url: wapurl+"/api/member/getInvitationRedPointStatus.html",
+		//     dataType:"jsonp",
+		//     success: function(data){
+		//     	if(data.showPointAddr == 1){
+		//     		$(".redPoint em").removeClass("hide");
+		//     	}else{
+		//     		$(".redPoint em").addClass("hide")
+		//     	}
+		//     }
+		// })
     })
 })

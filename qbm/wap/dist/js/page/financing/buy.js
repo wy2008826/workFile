@@ -115,12 +115,15 @@ define(function(require,exports,module){
 					pernum:1//每页显示条目数量
 				};
 
-				$.ajax({
-					url:url,
-					type:"get",
-					dataType:"jsonp",
-					data:param,
-					success:function(data){
+				// $.ajax({
+				// 	url:url,
+				// 	type:"get",
+				// 	dataType:"jsonp",
+				// 	data:param,
+				// 	success:function(data){
+						var data={
+							result:false,
+						};
 						if(data.result){
 							if(data.hongbaoList.length>0){
 								var hongbao=data.hongbaoList[0];
@@ -146,8 +149,8 @@ define(function(require,exports,module){
 							}
 							self.initPacket();//重置各种显示状态
 						}
-					}
-				});
+				// 	}
+				// });
 			};
 
 			this.initPacket=function(){//重置在没有红包可选的各种显示状态
@@ -302,13 +305,18 @@ define(function(require,exports,module){
 
 							var url=self.url.wapUrl+self.url.buyBorrow;
 
-							$.ajax({
-								url:url,
-								type:"get",
-								dataType:"jsonp",
-								data:parms,
-								success:function(data){
+							// $.ajax({
+							// 	url:url,
+							// 	type:"get",
+							// 	dataType:"jsonp",
+							// 	data:parms,
+							// 	success:function(data){
 									//console.log(data);
+									var data={
+										result:true,
+										code:1,
+										msg:"未知错误"
+									};
 									if(data.result){//有返回结果
 										if(data.code==1){
 											var href=self.url.wapUrl+"/financing/success.html?addRaise="+$("#add_raise").text();
@@ -338,8 +346,8 @@ define(function(require,exports,module){
 										}
 
 									}
-								}
-							});
+							// 	}
+							// });
 						},
 						success:function(){
 							var $layermmain=$(".layermmain");
@@ -450,13 +458,18 @@ define(function(require,exports,module){
 						pernum:990000//每页显示条目数量
 					};
 
-					$.ajax({
-						url:url,
-						type:"get",
-						dataType:"jsonp",
-						data:param,
-						success:function(data){
+					// $.ajax({
+					// 	url:url,
+					// 	type:"get",
+					// 	dataType:"jsonp",
+					// 	data:param,
+					// 	success:function(data){
 							//console.log(data);
+							var data={
+								result:true,
+								hongbaoList:[],
+								msg:"暂无匹配红包"
+							};
 							var $layerContent=$("body .layermmain .layermcont");
 							var $hbLoadingWraper=$layerContent.find(".alert_hb_loading_wraper");
 							if(data.result){//有返回数据
@@ -494,8 +507,8 @@ define(function(require,exports,module){
 							
 							}
 							
-						}
-					});
+						// }
+					// });
 				});
 
 				$("body").on("click",".layermmain #closeHongBaoBtn",function(){//关闭红包弹框 获取选中的红包信息

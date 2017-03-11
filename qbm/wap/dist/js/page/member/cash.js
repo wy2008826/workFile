@@ -9,6 +9,8 @@
 
 define(function(require, exports, module) {
    	require('zepto');
+   	require('layerCss');
+   	require('layer');
     
     require('fastclick');
 	FastClick.attach(document.body);
@@ -133,29 +135,36 @@ define(function(require, exports, module) {
 							return "active";
 						}
 					});
-					
-					$.ajax({
-		                type:"get",
-		                url:wapurl+"/api/member/cashCoupon.html?flag=0&page=1&pageSize=10",
-		                dataType:'jsonp',
-		                jsonp:"callback",
-		    			jsonpCallback:"jsonpCallback",
-		                success:function(data){
-		                	var render = template.compile($("#couponListTpl").html());
-		                	var html = render(data);
-		                	require.async('layerCss',function(){
-					           require.async('layer',function(layer){
-					           		layer.open({
-										type:1,
-										shadeClose:false,
-										content: html,
-										success:function(){
-										}
-									});
-					            })
-					        })
-		                }
-		            })
+					layer.open({
+						type:1,
+						shadeClose:false,
+						content: "功能受限",
+						success:function(){
+						}
+					});
+
+					// $.ajax({
+		   //              type:"get",
+		   //              url:wapurl+"/api/member/cashCoupon.html?flag=0&page=1&pageSize=10",
+		   //              dataType:'jsonp',
+		   //              jsonp:"callback",
+		   //  			jsonpCallback:"jsonpCallback",
+		   //              success:function(data){
+		   //              	var render = template.compile($("#couponListTpl").html());
+		   //              	var html = render(data);
+		   //              	require.async('layerCss',function(){
+					//            require.async('layer',function(layer){
+					//            		layer.open({
+					// 					type:1,
+					// 					shadeClose:false,
+					// 					content: html,
+					// 					success:function(){
+					// 					}
+					// 				});
+					//             })
+					//         })
+		   //              }
+		   //          })
 				})
 			})
 		});
