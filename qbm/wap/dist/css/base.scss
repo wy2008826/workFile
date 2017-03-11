@@ -5,7 +5,7 @@
 	updata:2015-05-13
 */
 
-*{margin:0;padding:0; outline: none;-webkit-tap-highlight-color:transparent;}
+*{margin: 0;padding:0; outline: none;-webkit-tap-highlight-color:transparent;}
 html{font-family: "Microsoft YaHei","Helvetica Neue", Helvetica, sans-serif; -ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;}
 body {background-color:#f8f8f8;-webkit-overflow-scrolling: touch;}
 body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td,hr,button,article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{margin: 0; padding: 0;}
@@ -232,15 +232,15 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill { bac
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-back:before { content: "\e60e"; }
-.icon-shezhi:before { content: "\e603"; }
-.icon-tixian:before { content: "\e605"; }
-.icon-chongzhi:before { content: "\e60a"; }
-.icon-jilu:before { content: "\e600"; }
-.icon-touzi:before { content: "\e606"; }
-.icon-hongbao:before { content: "\e60b"; }
-.icon-jiekuan:before { content: "\e601"; }
-.icon-kejian:before { content: "\e602"; }
+.icon-back:before { content: "\e600"; }
+.icon-shezhi:before { content: "\e601"; }
+.icon-tixian:before { content: "\e602"; }
+.icon-chongzhi:before { content: "\e603"; }
+.icon-jilu:before { content: "\e604"; }
+.icon-touzi:before { content: "\e605"; }
+.icon-hongbao:before { content: "\e606"; }
+.icon-jiekuan:before { content: "\e607"; }
+.icon-kejian:before { content: "\e608"; }
 .icon-bukejian:before { content: "\e609"; }
 .icon-qingchu:before { content: "\e60d"; }
 .icon-gouxuan:before { content: "\e60c"; }

@@ -84,13 +84,22 @@ define(function(require,exports,module){
 						return false;
 					};
 					isGetting=true;
-					$.ajax({
-						url:url,
-						type:"get",
-						dataType:"jsonp",
-						data:param,
-						success:function(data){
+					// $.ajax({
+					// 	url:url,
+					// 	type:"get",
+					// 	dataType:"jsonp",
+					// 	data:param,
+					// 	success:function(data){
 							//console.log(data);
+							var data={
+								result:true,
+								dataList:[
+									{tUserName:"李云龙",tMoney:1000,tCreateTime:"2016-12-21"},
+									{tUserName:"王大海",tMoney:3000,tCreateTime:"2016-02-01"},
+									{tUserName:"张鹏",tMoney:1000,tCreateTime:"2016-05-09"},
+									{tUserName:"王雪梅",tMoney:1000,tCreateTime:"2016-06-09"},
+								]
+							};
 							if(data.result){//正确返回数据
 								if(data.dataList.length>0){//存在数据
 									var html=self.tpl.listTpl(data);
@@ -122,8 +131,8 @@ define(function(require,exports,module){
 							}
 							self.curPage+=1;
 							isGetting=false;
-						}
-					});
+					// 	}
+					// });
 				};
 				getListData();//页面加载首次获取列表数据
 

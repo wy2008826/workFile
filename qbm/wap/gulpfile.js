@@ -27,7 +27,7 @@ gulp.task("scss",function(){
 	var _DEST="statics/css";
 	gulp.src(["dist/css/**/*.scss","!dist/css/_ignore/**/*.scss"])
 	.pipe(plugins.changed(_DEST))
-	.pipe(plugins.scss())
+	.pipe(plugins.sass())
 	.pipe(minifyCss())
 	.pipe(plugins.rename(function(path){
 		path.extname=".min.css";//扩展名
