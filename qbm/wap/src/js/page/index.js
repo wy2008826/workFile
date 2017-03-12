@@ -214,7 +214,7 @@ define(function(require,module,exports){
 								result:true,
 								code:1,
 								imageResourcesList:[
-									{background_color:"#f93",imageAddress:"/images/index/slider1.png"}
+									{background_color:"#ee0a17",imageAddress:"/images/index/slider1.png"}
 								]
 							};
 							if(data.result){//正确返回
