@@ -108,7 +108,9 @@ app.get("/member/invite.html",function(req,res,next){
 app.get("/member/redPacket.html",function(req,res,next){
 	res.render("./member/redPacket");
 });
-
+app.get("/member/contact.html",function(req,res,next){
+	res.render("./member/contact");
+});
 
 
 app.listen(3000);
