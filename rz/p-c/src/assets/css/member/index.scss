@@ -1,0 +1,7 @@
+@import "../libs/mixin.scss";
+
+.wraper {
+    @include box((w:$contentW,m:20px auto));
+    @include clearfix();
+    position: relative;
+}

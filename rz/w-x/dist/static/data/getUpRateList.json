@@ -1,0 +1,25 @@
+{
+    "obj" : {
+        "recordList" : {
+            "0" : {
+                "statusType" : "1",
+                "minInterval" : "0",
+                "name" : "12312",
+                "startTime" : "-28800000",
+                "endTime" : "-28800000",
+                "id" : "1",
+                "upApr" : "12",
+                "useType" : "0",
+                "status" : "1"
+            }
+        },
+        "totalPage" : "1",
+        "endPageIndex" : "1",
+        "numPerPage" : "15",
+        "beginPageIndex" : "1",
+        "currentPage" : "1",
+        "totalCount" : "1"
+    },
+    "responseCode" : "000000",
+    "responseMessage" : "处理成功"
+}

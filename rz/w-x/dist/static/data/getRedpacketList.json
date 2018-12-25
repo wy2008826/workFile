@@ -1,0 +1,32 @@
+{
+    "obj": {
+        "recordList": {
+            "0": {
+                "amount": "1212",
+                "minInterval": "0",
+                "name": "112312",
+                "startTime": "1501049018000",
+                "endTime": "1501049020000",
+                "id": "1232312",
+                "maxInterval": "0"
+            },
+            "1": {
+                "amount": "45",
+                "minInterval": "0",
+                "name": "45",
+                "startTime": "1501049021000",
+                "endTime": "1501049022000",
+                "id": "234234",
+                "maxInterval": "0"
+            }
+        },
+        "totalPage": "1",
+        "endPageIndex": "1",
+        "numPerPage": "15",
+        "beginPageIndex": "1",
+        "currentPage": "1",
+        "totalCount": "2"
+    },
+    "responseCode": "000000",
+    "responseMessage": "处理成功"
+}
